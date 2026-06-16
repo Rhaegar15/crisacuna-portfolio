@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cristián Acuña — Diseñador UX/UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#system">System</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="hero-greet">¡Hola! Soy</p>
+      <h1 class="hero-name">Cristián <span class="accent">Acuña</span></h1>
+      <span class="hero-role">Diseñador UX/UI <span class="spark">✦</span></span>
+      <p class="hero-desc">Diseñador UI/UX con foco en interfaces digitales, design systems, prototipado y accesibilidad — siempre con la empatía hacia el usuario al centro del proceso.</p>
+      <ul class="hero-bullets">
+        <li><span class="tick">✓</span> Diseño de interfaces y prototipos de alta fidelidad</li>
+        <li><span class="tick">✓</span> Design systems y UI Kits listos para desarrollo</li>
+        <li><span class="tick">✓</span> Investigación, testing y validación con usuarios</li>
+      </ul>
+      <div class="hero-actions">
+        <a href="mailto:acuna.cristian15@gmail.com" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+        <a href="#" class="btn btn--ghost" id="cv-btn">Descargar CV</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <span class="deco-x" style="top:-6px; left:8px;">✳</span>
+      <span class="deco-dotgrid" style="top:18px; right:-6px;"></span>
+      <div class="portrait-frame">
+        <img class="photo" src="assets/portrait.png" alt="Retrato de Cristián Acuña" />
+        <div class="hello-badge">Hola</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MARQUEE ============================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Motion Design</span><span>Responsive</span>
+  </div>
+</div>
+
+<!-- ============================ STRIP ============================ -->
+<div class="strip">
+  <a href="mailto:acuna.cristian15@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> acuna.cristian15@gmail.com</a>
+  <span class="sep"></span>
+  <a href="tel:+56988083814"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> +569 8808 3814</a>
+  <span class="sep"></span>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Santiago de Chile</a>
+  <span class="sep"></span>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
+  <span class="sep"></span>
+  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6a3 3 0 0 1 0 6H3zM3 13h7a3 3 0 0 1 0 6H3zM15 8h6M18 13c2 0 3 1.5 3 3.5S20 20 18 20s-3-1.5-3-3.5S16 13 18 13Z"/></svg> Behance</a>
+</div>
+
+<!-- ============================ ABOUT / OFFER ============================ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="offer-head">
+      <div class="reveal">
+        <span class="eyebrow">About · What I offer</span>
+        <h2 class="section-title">Lo que hago.</h2>
+        <p class="lead" style="margin-top:22px;">Llevo más de una década en diseño y desde 2021 enfocado en UX/UI. He trabajado en equipos diversos —product owners, scrum masters, tech leads, UX writers y desarrolladores— construyendo productos digitales de cara a cliente e internos.</p>
+      </div>
+      <p class="lead reveal d1">Acompaño productos de punta a punta: desde la investigación y los fundamentos de un sistema de diseño hasta interfaces pulidas y documentadas, listas para desarrollo.</p>
+    </div>
+
+    <div class="offer-grid">
+      <article class="ocard dark reveal">
+        <div class="ocard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Diseño UX/UI</h3>
+        <p>Interfaces, flujos y prototipos de alta fidelidad centrados en las necesidades reales del usuario.</p>
+        <div class="ocard-num">01 — Producto</div>
+      </article>
+      <article class="ocard reveal d1">
+        <div class="ocard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Design Systems &amp; UI Kits</h3>
+        <p>Foundations, componentes y librerías escalables y documentadas, bajo principios de Atomic Design.</p>
+        <div class="ocard-num">02 — Sistema</div>
+      </article>
+      <article class="ocard reveal d2">
+        <div class="ocard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Investigación &amp; Validación</h3>
+        <p>Research, entrevistas, benchmarking, pruebas de usabilidad y análisis de datos para decidir con evidencia.</p>
+        <div class="ocard-num">03 — Proceso</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FORMATION ============================ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Background</span>
+      <h2 class="section-title">Formación.</h2>
+    </div>
+    <div class="timeline">
+      <div class="trow hl reveal">
+        <div class="trow-num">01</div>
+        <div><div class="trow-title">Academia Desafío Latam</div><div class="trow-sub">Diseño UX/UI · Santiago de Chile</div></div>
+        <div class="trow-dur"><span>Certificación</span><b>2021</b></div>
+      </div>
+      <div class="trow reveal d1">
+        <div class="trow-num">02</div>
+        <div><div class="trow-title">Universidad Diego Portales</div><div class="trow-sub">Diseño Gráfico</div></div>
+        <div class="trow-dur"><span>Título</span><b>2012 — 2017</b></div>
+      </div>
+      <div class="trow reveal d2">
+        <div class="trow-num">03</div>
+        <div><div class="trow-title">Universidad Gabriela Mistral</div><div class="trow-sub">Diseño Crossmedia</div></div>
+        <div class="trow-dur"><span>Estudios</span><b>2010 — 2011</b></div>
+      </div>
+    </div>
+
+    <div class="certs reveal d1">
+      <div class="certs-label">Certificaciones</div>
+      <div class="cert-list">
+        <span class="chip"><b>Ultimate Figma Masterclass</b> · The Designership <span class="yr">2024</span></span>
+        <span class="chip"><b>UI</b> · Coderhouse <span class="yr">2024</span></span>
+        <span class="chip"><b>Master Digital Product Design: UX Research &amp; UI</b> · Udemy <span class="yr">2022</span></span>
+        <span class="chip"><b>Motion Design with Figma</b> · Udemy <span class="yr">2022</span></span>
+        <span class="chip"><b>Design &amp; Prototype a Mobile UX (Figma)</b> · Udemy <span class="yr">2022</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WORK ============================ -->
+<section class="section" id="work" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow center" style="justify-content:center;">Selected work · Case study</span>
+      <h2 class="section-title">Proyectos.</h2>
+      <p class="lead" style="margin:18px auto 0;">Una selección de productos reales: dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.</p>
+    </div>
+
+    <div class="proj-grid">
+      <article class="pcard reveal">
+        <div class="pcard-shot"><span class="pcard-tag">UX/UI · Dashboard</span><img src="assets/edf-dashboard.png" alt="Dashboard EDF Renewables" /></div>
+        <div class="pcard-body">
+          <h3>EDF — Renewables</h3>
+          <p>Dashboard de control para una empresa que gestiona cuadrillas de contratistas en reparaciones de urgencia de alumbrado público y cortes de energía. Flujos, dashboards, microinteracciones y un UI Kit para desarrollo.</p>
+          <span class="more">Ver detalle <span class="arrow">↗</span></span>
+        </div>
+      </article>
+
+      <article class="pcard reveal d1">
+        <div class="pcard-shot"><span class="pcard-tag">Design System</span><img src="assets/bice-1.png" alt="BICE VIDA — detalle de reembolso" /></div>
+        <div class="pcard-body">
+          <h3>BICE VIDA</h3>
+          <p>Equipo de Design System: foundations y componentes transversales para los productos digitales de la compañía, de cara a cliente e internos. Dupla con UX Writer y trabajo directo con Product Owner.</p>
+          <span class="more">Ver detalle <span class="arrow">↗</span></span>
+        </div>
+      </article>
+
+      <article class="pcard reveal">
+        <div class="pcard-shot"><span class="pcard-tag">Web &amp; App</span><img src="assets/jetsur-1.png" alt="Jet Sur — compra de pasajes" /></div>
+        <div class="pcard-body">
+          <h3>Jet Sur</h3>
+          <p>Rediseño del sitio de la compañía de buses Jet Sur para modernizar su estilo y servicios sin depender de una web externa. Pantallas y UI Kit para un nuevo look &amp; feel.</p>
+          <span class="more">Ver detalle <span class="arrow">↗</span></span>
+        </div>
+      </article>
+
+      <article class="pcard reveal d1">
+        <div class="pcard-shot"><span class="pcard-tag">Mobile · Checkout</span><img src="assets/fazil-1.png" alt="Fazil App — checkout" /></div>
+        <div class="pcard-body">
+          <h3>Fazil App</h3>
+          <p>Rediseño del checkout para el desafío técnico de Fazil App (Tottus). Flujo de carrito, eliminación y finalización de compra optimizado para conversión.</p>
+          <span class="more">Ver detalle <span class="arrow">↗</span></span>
+        </div>
+      </article>
+
+      <article class="pcard reveal">
+        <div class="pcard-shot"><span class="pcard-tag">UX Flows</span><img src="assets/iacc-2.jpg" alt="IACC — flujos administrativos" /></div>
+        <div class="pcard-body">
+          <h3>IACC — Diversos flujos</h3>
+          <p>User maps y flujos para una institución de educación superior online: portal del estudiante y vista administrativa con estadísticas del CAE.</p>
+          <span class="more">Ver detalle <span class="arrow">↗</span></span>
+        </div>
+      </article>
+
+      <article class="pcard reveal d1">
+        <div class="pcard-shot"><span class="pcard-tag">App Design · Android</span><img src="assets/gregario.png" alt="Gregario App" /></div>
+        <div class="pcard-body">
+          <h3>Gregario App</h3>
+          <p>Pantallas sobre una línea gráfica establecida. App para vendedores en terreno de mercadería a minimarkets y negocios pequeños, pensada para desarrollo en Android.</p>
+          <span class="more">Ver detalle <span class="arrow">↗</span></span>
+        </div>
+      </article>
+    </div>
+
+    <p class="proj-note reveal">También: <b>RSK Groups</b> — app iOS para empresa de exportaciones, con sistema de diseño y prototipo de alta fidelidad.</p>
+  </div>
+</section>
+
+<!-- ============================ DESIGN SYSTEM FEATURE ============================ -->
+<section class="section ds" id="system">
+  <div class="wrap">
+    <div class="ds-intro">
+      <div class="reveal">
+        <span class="eyebrow">Proyecto destacado</span>
+        <h2 class="section-title">Design System<br />— PC Factory.</h2>
+      </div>
+      <p class="lead reveal d1">Proyecto personal para una certificación especializada en Design Systems. Un ejemplo documentado, desde los fundamentos de un DS hasta las bases de un sistema basado en Atomic Design.</p>
+    </div>
+
+    <div class="atomic reveal d1">
+      <span class="step"><b>01</b> Fundamentos</span>
+      <span class="step"><b>02</b> Átomos</span>
+      <span class="step"><b>03</b> Moléculas</span>
+      <span class="step"><b>04</b> Organismos</span>
+      <span class="step"><b>05</b> Plantillas</span>
+    </div>
+
+    <div class="ds-shots">
+      <div class="ds-shot reveal"><img src="assets/ds-color.png" alt="Color y fundamentos" /><div class="cap">Color &amp; Fundamentos</div></div>
+      <div class="ds-shot reveal d1"><img src="assets/ds-type.png" alt="Tipografía" /><div class="cap">Tipografía</div></div>
+      <div class="ds-shot reveal d2"><img src="assets/ds-organismos.png" alt="Organismos" /><div class="cap">Organismos</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PHILOSOPHY QUOTE ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="quote-wrap">
+      <div class="reveal">
+        <div class="quote-mark">“</div>
+        <p class="quote-text">Pongo primero la empatía hacia el usuario final: entender y resolver su problemática es lo que hace que un producto realmente funcione.</p>
+        <div class="quote-by">
+          <div>
+            <div class="nm">Cristián Acuña Vicencio</div>
+            <div class="rl">Diseñador UX/UI — Santiago de Chile</div>
+          </div>
+        </div>
+      </div>
+      <img class="quote-photo reveal d1" src="assets/portrait.png" alt="Cristián Acuña" />
+    </div>
+  </div>
+</section>
+
+<!-- ============================ HIGHLIGHTS ============================ -->
+<div class="wrap" style="padding:0 var(--pad);">
+  <div class="stats">
+    <div class="stat reveal"><div class="n">2010</div><div class="l">En diseño desde</div></div>
+    <div class="stat reveal d1"><div class="n">2021</div><div class="l">Pivote a UX/UI</div></div>
+    <div class="stat reveal d2"><div class="n"><span class="accent">7</span></div><div class="l">Proyectos destacados</div></div>
+    <div class="stat reveal d3"><div class="n"><span class="accent">5</span></div><div class="l">Certificaciones UX/UI</div></div>
+  </div>
+</div>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="contact-title">Hablemos <span class="grey">de tu próxima idea.</span></h2>
+        <p class="contact-sub">¿Tienes un proyecto en mente? Escríbeme y te respondo dentro de 24 horas.</p>
+        <div class="contact-info">
+          <a class="cinfo" href="mailto:acuna.cristian15@gmail.com">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <span><span class="k">Email</span><span class="v">acuna.cristian15@gmail.com</span></span>
+          </a>
+          <a class="cinfo" href="tel:+56988083814">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <span><span class="k">Teléfono</span><span class="v">+569 8808 3814</span></span>
+          </a>
+          <div class="cinfo">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span><span class="k">Ubicación</span><span class="v">Santiago de Chile</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d1">
+        <form class="cform" id="cform" novalidate>
+          <div class="frow">
+            <div class="field" id="f-name">
+              <label for="name">Nombre <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" />
+              <span class="err">Cuéntame tu nombre.</span>
+            </div>
+            <div class="field" id="f-email">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="¿Dónde te respondo?" />
+              <span class="err">Necesito un email válido.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="company">Empresa / proyecto</label>
+            <input type="text" id="company" name="company" placeholder="Opcional" />
+          </div>
+          <div class="field">
+            <span class="mind-label">¿Qué tienes en mente?</span>
+            <div class="mind" id="mind">
+              <button type="button" aria-pressed="false">Diseño UX/UI</button>
+              <button type="button" aria-pressed="false">Design System</button>
+              <button type="button" aria-pressed="false">Prototipado</button>
+              <button type="button" aria-pressed="false">UI Kit</button>
+              <button type="button" aria-pressed="false">Investigación</button>
+              <button type="button" aria-pressed="false">Web Design</button>
+            </div>
+          </div>
+          <div class="field" id="f-msg">
+            <label for="message">Mensaje <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Cuéntame brevemente sobre tu idea…"></textarea>
+            <span class="err">Escríbeme un par de líneas.</span>
+          </div>
+          <div class="cform-foot">
+            <button type="submit" class="btn btn--accent">Enviar mensaje <span class="arrow">↗</span></button>
+            <span class="note">Te respondo dentro de 24 horas.</span>
+          </div>
+        </form>
+        <div class="form-success" id="form-success">
+          <div class="tickbig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>¡Mensaje enviado!</h3>
+          <p>Gracias por escribir, <span id="success-name">Cristián</span> te responderá pronto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <div class="foot-socials">
+        <a href="#" aria-label="Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.5 2.5c5 6 6 12 4.5 19M21.5 9c-7 0-13 2-16.5 7M2.7 14c5-1 11 0 15.5 4.5"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="#" aria-label="Behance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6a3 3 0 0 1 0 6H3zM3 13h7a3 3 0 0 1 0 6H3zM15 8h6M18 13c2 0 3 1.5 3 3.5S20 20 18 20s-3-1.5-3-3.5S16 13 18 13Z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
+      <span>Portafolio © 2025 · Santiago de Chile</span>
+      <a href="#home">Volver arriba ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+
+<!-- Tweaks panel (variations: hero layout + color theme) -->
+<div id="tweaks-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
+</body>
+</html>
