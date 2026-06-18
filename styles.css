@@ -123,7 +123,7 @@ button { font-family: inherit; cursor: pointer; }
 .btn:hover .arrow { transform: translate(3px,-3px); }
 .btn--ghost { background: transparent; color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: #fff; }
-.btn--accent { background: var(--accent); border-color: var(--accent); }
+.btn--accent { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn--accent:hover { box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 35%, transparent); }
 
 /* ============================================================
@@ -153,8 +153,7 @@ header.nav.scrolled { border-color: var(--line); }
 }
 .nav-links a:hover { background: rgba(14,14,14,.06); }
 .nav-links a.active { color: #fff; background: var(--ink); }
-.nav-cta { margin-left: 10px; }
-.nav-links a.nav-cta { color: #fff; }
+.nav-links a.nav-cta { margin-left: 10px; color: #fff; }
 .nav-burger { display: none; background: none; border: none; padding: 8px; }
 .nav-burger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: .25s; }
 

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jet Sur — Case Study · Cristián Acuña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="index.html#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#system">System</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="cs-backbar reveal">
+      <a href="index.html#work" class="cs-back"><span class="arrow">←</span> Volver a proyectos</a>
+      <span class="eyebrow">Case study · 04 / 07</span>
+    </div>
+
+    <div class="cs-hero-top reveal">
+      <span class="cs-pill solid">Web &amp; App</span>
+      <span class="cs-pill">Rediseño</span>
+      <span class="cs-pill">UI Kit</span>
+    </div>
+
+    <h1 class="cs-title reveal">Jet <span class="accent">Sur</span></h1>
+    <p class="cs-tagline reveal d1">Rediseño del sitio de la compañía de buses para <b>comprar y administrar pasajes</b> sin depender de una web externa.</p>
+
+    <div class="cs-meta reveal d1">
+      <div class="m"><div class="k">Rol</div><div class="v">Diseñador UX/UI<small>Freelance</small></div></div>
+      <div class="m"><div class="k">Cliente</div><div class="v">Buses Jet Sur<small>Chile</small></div></div>
+      <div class="m"><div class="k">Año</div><div class="v">2024<small>~6 semanas</small></div></div>
+      <div class="m"><div class="k">Entregables</div><div class="v">Web + Flujo<small>UI Kit para desarrollo</small></div></div>
+    </div>
+
+    <div class="cs-cover reveal d1">
+      <img src="assets/jetsur-1.png" alt="Home rediseñado de Jet Sur con buscador de pasajes" />
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-cols">
+      <div class="reveal">
+        <span class="eyebrow">El contexto</span>
+        <h2 class="lead-h">Una marca con identidad, atada a una web ajena.</h2>
+      </div>
+      <div class="cs-rich reveal d1">
+        <p>Jet Sur es una compañía de buses interurbanos en Chile. Su venta de pasajes en línea dependía de una plataforma externa (Recorrido.cl), con un look &amp; feel genérico que no representaba a la marca ni le daba control sobre la experiencia.</p>
+        <p class="muted">El encargo fue <strong>modernizar el sitio</strong> y llevar la compra y administración de pasajes a una experiencia propia: reconocible, clara y lista para desarrollo, con una línea visual que respira el paisaje del sur de Chile.</p>
+      </div>
+    </div>
+
+    <div class="cs-cols" style="margin-top: 56px;">
+      <div class="reveal">
+        <span class="eyebrow">Objetivos</span>
+        <h2 class="lead-h">Lo que tenía que resolver.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="cs-goals">
+          <div class="cs-goal"><div class="n">01</div><div><div class="t">Identidad propia</div><div class="d">Un sitio que se sienta Jet Sur — no una plantilla de terceros.</div></div></div>
+          <div class="cs-goal"><div class="n">02</div><div><div class="t">Compra en pocos pasos</div><div class="d">Buscar, elegir viaje, seleccionar asiento y pagar sin fricción.</div></div></div>
+          <div class="cs-goal"><div class="n">03</div><div><div class="t">Administrar el pasaje</div><div class="d">Gestionar reservas existentes desde el mismo lugar.</div></div></div>
+          <div class="cs-goal"><div class="n">04</div><div><div class="t">Listo para construir</div><div class="d">Un UI Kit consistente que el equipo de desarrollo pueda tomar y ejecutar.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SHOWCASE ============================ -->
+<section class="section" style="background: var(--paper-2); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 920px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">El diseño</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px); white-space: nowrap;">De la búsqueda al asiento.</h2>
+      <p class="lead" style="margin: 18px auto 0; max-width: none; white-space: nowrap;">El flujo se ordenó en momentos claros, cada uno con una sola tarea a la vista.</p>
+    </div>
+
+    <div class="cs-show">
+      <!-- block 1: home + search -->
+      <div class="cs-block reveal">
+        <div class="cs-block-txt">
+          <span class="step">Paso 01 — Home</span>
+          <h3>Un buscador que invita a viajar.</h3>
+          <p>El home abre con un paisaje del sur y un buscador prominente sobre dos pestañas: <strong>comprar</strong> o <strong>administrar</strong> un pasaje. Origen, destino y fechas a un clic de la portada.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Búsqueda con ida y regreso opcional</div>
+            <div class="cs-feat"><span class="tick">✓</span> Pestañas Comprar / Administrar pasaje</div>
+            <div class="cs-feat"><span class="tick">✓</span> Bloque de noticias y promociones destacadas</div>
+          </div>
+        </div>
+        <div class="cs-frame"><img src="assets/jetsur-1.png" alt="Home con buscador de pasajes Jet Sur" /></div>
+      </div>
+
+      <!-- block 2: booking flow + seat map -->
+      <div class="cs-block flip reveal">
+        <div class="cs-block-txt">
+          <span class="step">Paso 02 — Selección</span>
+          <h3 style="white-space: nowrap;">Elegir viaje y asiento, sin perderse.</h3>
+          <p>Un indicador de pasos (ida · vuelta · pago · confirmación) mantiene el rumbo. Cada viaje muestra horario, duración y tarifas; al expandirlo aparece el <strong>mapa de asientos por piso</strong> con su leyenda.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Stepper de 4 etapas siempre visible</div>
+            <div class="cs-feat"><span class="tick">✓</span> Filtros de precio, horario y tipo de asiento</div>
+            <div class="cs-feat"><span class="tick">✓</span> Selección de asiento con estados claros (disponible / elegido / ocupado)</div>
+          </div>
+        </div>
+        <div class="cs-frame tall"><img src="assets/jetsur-2.png" alt="Flujo de selección de viaje y asiento de Jet Sur" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DETAIL / SYSTEM ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Sistema visual</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Una base lista<br />para construir.</h2>
+      <p class="lead" style="margin-top: 18px;">Color, tipografía y componentes se documentaron como un UI Kit para que desarrollo avanzara sin ambigüedad.</p>
+    </div>
+
+    <div class="cs-swatches reveal d1">
+      <div class="cs-sw"><div class="chip" style="background:#0C4A6E;"></div><div class="info"><div class="nm">Azul Jet Sur</div><div class="hex">#0C4A6E</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#1B6CB3;"></div><div class="info"><div class="nm">Azul acción</div><div class="hex">#1B6CB3</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#E11D2E;"></div><div class="info"><div class="nm">Rojo marca</div><div class="hex">#E11D2E</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#F4B223;"></div><div class="info"><div class="nm">Amarillo</div><div class="hex">#F4B223</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#F5F4F1; border-bottom:1px solid var(--line);"></div><div class="info"><div class="nm">Neutro fondo</div><div class="hex">#F5F4F1</div></div></div>
+    </div>
+
+    <div class="cs-detail-grid">
+      <div class="cs-dcard reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h4>Buscador</h4>
+        <p>Componente reutilizable de búsqueda con campos de origen, destino y fechas, presente en home y en el flujo.</p>
+      </div>
+      <div class="cs-dcard reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10M8 9h8M8 13h5"/></svg></div>
+        <h4>Tarjeta de viaje</h4>
+        <p>Horario, duración, tarifas y CTA en una unidad escaneable que se expande para elegir asiento.</p>
+      </div>
+      <div class="cs-dcard reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
+        <h4>Mapa de asientos</h4>
+        <p>Selector por piso con estados y leyenda de tipos (semi cama / salón cama) y disponibilidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OUTCOME ============================ -->
+<section class="section cs-outcome">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="cs-out-h">Una experiencia propia, reconocible y lista para desarrollo.</h2>
+    </div>
+    <div class="cs-out-stats reveal d1">
+      <div class="s"><div class="n">4</div><div class="l">Pasos claros, de la búsqueda a la confirmación</div></div>
+      <div class="s"><div class="n"><span class="accent">1</span> sitio</div><div class="l">Comprar y administrar pasajes en un mismo lugar</div></div>
+      <div class="s"><div class="n">UI Kit</div><div class="l">Componentes documentados entregados a desarrollo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-next reveal">
+      <div>
+        <div class="lbl">Siguiente proyecto</div>
+        <div class="nm">Fazil App →</div>
+      </div>
+      <a href="index.html#work" class="btn btn--ghost go">Ver todos los proyectos <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <a href="index.html#contact" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
+      <span>Portafolio © 2025 · Santiago de Chile</span>
+      <a href="index.html#home">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* lightweight: nav border + reveal (page is its own context) */
+  (function () {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+    var burger = document.getElementById("burger");
+    var navlinks = document.getElementById("navlinks");
+    burger.addEventListener("click", function () { navlinks.classList.toggle("open"); });
+
+    var reveals = document.querySelectorAll(".reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  })();
+</script>
+</body>
+</html>
