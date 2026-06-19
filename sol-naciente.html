@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sol Naciente de Pastos Grandes — Case Study · Cristián Acuña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+<style>
+  /* Theme this case study to the project's altiplano palette
+     (same construction as Jet Sur, recolored for the client). */
+  body[data-cs="sol"] {
+    --accent: #B5532A;       /* terracotta */
+    --accent-2: #8E3D1E;
+    --dark-bg: #241C16;      /* deep earth */
+    --paper: #F4EFE7;
+    --paper-2: #EAE2D5;
+  }
+  body[data-cs="sol"] .cs-cover img,
+  body[data-cs="sol"] .cs-frame img { object-position: center; }
+  /* live-site browser frame as cover */
+  .cs-browser {
+    margin-top: 54px; border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--line); background: var(--white);
+    box-shadow: 0 30px 70px rgba(14,14,14,.16);
+  }
+  .cs-browser-bar {
+    display: flex; align-items: center; gap: 16px; padding: 13px 18px;
+    background: var(--paper-2); border-bottom: 1px solid var(--line);
+  }
+  .cs-dots { display: inline-flex; gap: 7px; }
+  .cs-dots i { width: 11px; height: 11px; border-radius: 50%; background: #cfc6b8; display: block; }
+  .cs-dots i:first-child { background: #d98e6a; }
+  .cs-url {
+    flex: 1; text-align: center; font-size: 13px; color: var(--muted);
+    background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+    padding: 7px 16px; max-width: 360px; margin: 0 auto; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .cs-browser-view {
+    height: clamp(420px, 60vh, 640px); overflow-y: auto; scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; background: var(--paper);
+  }
+  .cs-browser-view img { width: 100%; display: block; }
+  .cs-browser-view::-webkit-scrollbar { width: 10px; }
+  .cs-browser-view::-webkit-scrollbar-thumb { background: rgba(14,14,14,.22); border-radius: 999px; border: 2px solid var(--paper); }
+  .cs-scrollhint {
+    text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .cs-credit {
+    display: inline-flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+    margin-top: 22px; font-size: 14px; color: var(--muted);
+  }
+  .cs-credit b { font-weight: 600; color: var(--ink); }
+  .cs-credit .by { display: inline-flex; align-items: center; gap: 8px; }
+  .cs-credit .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .herb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 50px; }
+  .herb { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--white); transition: transform .25s ease, box-shadow .25s ease; }
+  .herb:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(14,14,14,.10); }
+  .herb-img { aspect-ratio: 1/1; background: var(--paper-2); overflow: hidden; }
+  .herb-img img { width: 100%; height: 100%; object-fit: cover; }
+  .herb-b { padding: 18px 18px 20px; }
+  .herb-sci { font-style: italic; font-size: 12.5px; color: var(--muted); }
+  .herb-nm { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; margin: 4px 0 10px; }
+  .herb-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .herb-tags span { font-size: 11px; font-weight: 600; padding: 5px 9px; border-radius: 999px; background: var(--paper-2); color: var(--ink-soft); }
+  @media (max-width: 900px) { .herb-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body data-cs="sol">
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="index.html#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#system">System</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="cs-backbar reveal">
+      <a href="index.html#work" class="cs-back"><span class="arrow">←</span> Volver a proyectos</a>
+      <span class="eyebrow">Case study · Web vivo</span>
+    </div>
+
+    <div class="cs-hero-top reveal">
+      <span class="cs-pill solid">Sitio web</span>
+      <span class="cs-pill">Identidad digital</span>
+      <span class="cs-pill">Patrimonio &amp; cultura</span>
+    </div>
+
+    <h1 class="cs-title reveal">Sol <span class="accent">Naciente</span></h1>
+    <p class="cs-tagline reveal d1">Sitio web para una comunidad indígena <b>Colla de Atacama</b> — memoria, territorio y herbolaria en los altos de Pastos Grandes.</p>
+
+    <div class="cs-credit reveal d1">
+      <span class="by"><span class="dot"></span> Diseño &amp; dirección de arte <b>Cristián Acuña</b></span>
+      <span class="by"><span class="dot"></span> Desarrollo front-end <b>Claude Code</b></span>
+    </div>
+
+    <div class="cs-meta reveal d1">
+      <div class="m"><div class="k">Rol</div><div class="v">Diseño &amp; Arte<small>Concepto y dirección</small></div></div>
+      <div class="m"><div class="k">Desarrollo</div><div class="v">Claude Code<small>Front-end del sitio</small></div></div>
+      <div class="m"><div class="k">Cliente</div><div class="v">CIC Sol Naciente<small>Pastos Grandes · Atacama</small></div></div>
+      <div class="m"><div class="k">Año</div><div class="v">2026<small>Sitio en vivo</small></div></div>
+    </div>
+
+    <div class="cs-browser reveal d1">
+      <div class="cs-browser-bar">
+        <span class="cs-dots"><i></i><i></i><i></i></span>
+        <span class="cs-url">cicsolnacientedepastosgrandes.cl</span>
+      </div>
+      <div class="cs-browser-view" id="siteScroll">
+        <img src="assets/sol-fullsite.png" alt="Sitio completo de Sol Naciente de Pastos Grandes" />
+      </div>
+    </div>
+    <p class="cs-scrollhint reveal d1"><span>↕</span> Desplázate dentro del marco para recorrer el sitio completo</p>
+  </div>
+</section>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-cols">
+      <div class="reveal">
+        <span class="eyebrow">El contexto</span>
+        <h2 class="lead-h">Un saber que vive en la memoria, no en el papel.</h2>
+      </div>
+      <div class="cs-rich reveal d1">
+        <p>La Comunidad Indígena Colla Sol Naciente de Pastos Grandes es un tronco familiar que une dos linajes Collas de Atacama. Su conocimiento sobre el territorio y las hierbas medicinales se transmite oralmente, de generación en generación.</p>
+        <p class="muted">El encargo fue <strong>llevar esa memoria a un sitio web</strong> que honrara su cosmovisión sin folclorizarla: un espacio digital sobrio y narrativo para documentar la herbolaria, contar el linaje y abrir el Proyecto Herbolaria al mundo.</p>
+      </div>
+    </div>
+
+    <div class="cs-cols" style="margin-top: 56px;">
+      <div class="reveal">
+        <span class="eyebrow">Objetivos</span>
+        <h2 class="lead-h">Lo que tenía que lograr.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="cs-goals">
+          <div class="cs-goal"><div class="n">01</div><div><div class="t">Honrar la cosmovisión Colla</div><div class="d">Una estética del altiplano: tierra, cerros tutelares y silencio. Nada de clichés.</div></div></div>
+          <div class="cs-goal"><div class="n">02</div><div><div class="t">Documentar la herbolaria</div><div class="d">Un herbario vivo: hábitat, tiempo y palabra de cada planta medicinal.</div></div></div>
+          <div class="cs-goal"><div class="n">03</div><div><div class="t">Narrar la memoria</div><div class="d">El linaje, la matriarca y una línea de continuidad del pueblo Colla.</div></div></div>
+          <div class="cs-goal"><div class="n">04</div><div><div class="t">Liviano y mantenible</div><div class="d">Un sitio que la comunidad pueda hacer crecer a medida que documenta su saber.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SHOWCASE ============================ -->
+<section class="section" style="background: var(--paper-2); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 660px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">El diseño</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Narrar el<br />territorio.</h2>
+      <p class="lead" style="margin: 18px auto 0;">El recorrido se diseñó como un descenso por la montaña: del amanecer en los cerros al detalle de cada hierba.</p>
+    </div>
+
+    <div class="cs-show">
+      <!-- block 1: hero narrativa -->
+      <div class="cs-block reveal">
+        <div class="cs-block-txt">
+          <span class="step">Momento 01 — Apertura</span>
+          <h3>El amanecer como portada.</h3>
+          <p>El sitio abre a pantalla completa con la cordillera al amanecer y una entrada poética. El scroll se vuelve un relato: cada sección aparece con calma, como quien recolecta hierbas — con paciencia.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Hero full-bleed con fotografía del territorio</div>
+            <div class="cs-feat"><span class="tick">✓</span> Narrativa de scroll con apariciones suaves</div>
+            <div class="cs-feat"><span class="tick">✓</span> Tipografía editorial, sobria y de alta legibilidad</div>
+          </div>
+        </div>
+        <div class="cs-frame"><img src="https://cicsolnacientedepastosgrandes.cl/assets/hero.jpg" alt="Portada del sitio con la cordillera al amanecer" /></div>
+      </div>
+
+      <!-- block 2: linaje / memoria -->
+      <div class="cs-block flip reveal">
+        <div class="cs-block-txt">
+          <span class="step">Momento 02 — Memoria</span>
+          <h3>El linaje, en primera persona.</h3>
+          <p>La sección «Quiénes somos» honra a los troncos familiares —Don Marcos Bordones y Doña Pabla Segura— con retratos, una cita memorable y una línea de continuidad que conecta generaciones, la constitución de 2012 y el presente.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Retratos de los linajes paterno y materno</div>
+            <div class="cs-feat"><span class="tick">✓</span> Cita destacada del tronco familiar</div>
+            <div class="cs-feat"><span class="tick">✓</span> Línea de tiempo: generaciones · 2012 · 2018 · hoy</div>
+          </div>
+        </div>
+        <div class="cs-frame"><img src="https://cicsolnacientedepastosgrandes.cl/assets/paisaje.jpg" alt="Ceremonia de la comunidad en el territorio" /></div>
+      </div>
+    </div>
+
+    <!-- herbario -->
+    <div class="reveal" style="margin-top: clamp(48px,7vw,84px);">
+      <span class="step" style="font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:10px;"><span style="width:26px;height:2px;background:var(--accent);"></span> Momento 03 — Herbario</span>
+      <h3 style="font-family:var(--font-display); font-weight:700; font-size:clamp(26px,3.4vw,40px); line-height:1.02; letter-spacing:-0.018em; margin:16px 0 8px;">Un índice de plantas que sanan.</h3>
+      <p class="lead" style="margin:0;">Cada especie con su nombre común y científico, su hábitat y su uso — un catálogo que crece con la comunidad.</p>
+    </div>
+    <div class="herb-grid">
+      <article class="herb reveal">
+        <div class="herb-img"><img src="https://cicsolnacientedepastosgrandes.cl/assets/Bailahuen.png" alt="Bailahuén" /></div>
+        <div class="herb-b"><div class="herb-sci">Haplopappus baylahuen</div><div class="herb-nm">Bailahuén</div><div class="herb-tags"><span>Altiplano</span><span>Hepática</span></div></div>
+      </article>
+      <article class="herb reveal d1">
+        <div class="herb-img"><img src="https://cicsolnacientedepastosgrandes.cl/assets/chachacoma.png" alt="Chachacoma" /></div>
+        <div class="herb-b"><div class="herb-sci">Senecio nutans</div><div class="herb-nm">Chachacoma</div><div class="herb-tags"><span>Sobre 3.500 m</span><span>Mal de altura</span></div></div>
+      </article>
+      <article class="herb reveal d2">
+        <div class="herb-img"><img src="https://cicsolnacientedepastosgrandes.cl/assets/pingopingo.jpeg" alt="Pingo-pingo" /></div>
+        <div class="herb-b"><div class="herb-sci">Ephedra breana</div><div class="herb-nm">Pingo-pingo</div><div class="herb-tags"><span>Quebradas</span><span>Renal</span></div></div>
+      </article>
+      <article class="herb reveal d3">
+        <div class="herb-img"><img src="https://cicsolnacientedepastosgrandes.cl/assets/Tola.png" alt="Tola" /></div>
+        <div class="herb-b"><div class="herb-sci">Parastrephia lepidophylla</div><div class="herb-nm">Tola</div><div class="herb-tags"><span>Pampa</span><span>Ritual</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DETAIL / SYSTEM ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Sistema visual</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Una paleta<br />nacida del altiplano.</h2>
+      <p class="lead" style="margin-top: 18px;">Color y tipografía toman su acento de la tierra, el ocre y los verdes secos de Pastos Grandes — sobrios, cálidos, sin estridencias.</p>
+    </div>
+
+    <div class="cs-swatches reveal d1">
+      <div class="cs-sw"><div class="chip" style="background:#B5532A;"></div><div class="info"><div class="nm">Tierra</div><div class="hex">#B5532A</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#C98A3B;"></div><div class="info"><div class="nm">Ocre</div><div class="hex">#C98A3B</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#5E6B4F;"></div><div class="info"><div class="nm">Altiplano</div><div class="hex">#5E6B4F</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#6E94A6;"></div><div class="info"><div class="nm">Cielo</div><div class="hex">#6E94A6</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#F2ECE2; border-bottom:1px solid var(--line);"></div><div class="info"><div class="nm">Hueso</div><div class="hex">#F2ECE2</div></div></div>
+    </div>
+
+    <div class="cs-detail-grid">
+      <div class="cs-dcard reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+        <h4>Tarjeta de planta</h4>
+        <p>Imagen, nombre común y científico, hábitat y uso — la unidad base del herbario, lista para crecer.</p>
+      </div>
+      <div class="cs-dcard reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg></div>
+        <h4>Línea de memoria</h4>
+        <p>Hitos del pueblo —generaciones, 2012, 2018, hoy— en una secuencia vertical legible.</p>
+      </div>
+      <div class="cs-dcard reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Cartografía viva</h4>
+        <p>Bloques narrativos que enlazan cosmovisión, territorio y herbolaria como un solo tejido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ QUOTE ============================ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="quote-wrap">
+      <div class="reveal">
+        <div class="quote-mark" style="color:var(--accent);">“</div>
+        <p class="quote-text">Un hombre sin tierra y sin agua no es nada.</p>
+        <div class="quote-by"><div><div class="nm">Memoria del tronco familiar</div><div class="rl">CIC Sol Naciente de Pastos Grandes</div></div></div>
+      </div>
+      <img class="quote-photo reveal d1" src="https://cicsolnacientedepastosgrandes.cl/assets/portrait-2.jpg" alt="Retrato de Doña Pabla Segura" />
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OUTCOME ============================ -->
+<section class="section cs-outcome">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="cs-out-h">Un sitio vivo que cuida la memoria y la abre al mundo.</h2>
+    </div>
+    <div class="cs-out-stats reveal d1">
+      <div class="s"><div class="n">5</div><div class="l">Secciones: comunidad, herbolaria, herbario, noticias, contacto</div></div>
+      <div class="s"><div class="n"><span class="accent">Vivo</span></div><div class="l">Herbario que crece a medida que la comunidad documenta su saber</div></div>
+      <div class="s"><div class="n">2026</div><div class="l">En línea, con diseño propio y desarrollo de Claude Code</div></div>
+    </div>
+    <div class="reveal d2" style="margin-top:44px;">
+      <a href="https://cicsolnacientedepastosgrandes.cl/" target="_blank" rel="noopener" class="btn btn--accent">Visitar el sitio en vivo <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-next reveal">
+      <div>
+        <div class="lbl">Siguiente proyecto</div>
+        <div class="nm">Jet Sur →</div>
+      </div>
+      <a href="jet-sur.html" class="btn btn--ghost go">Ver caso Jet Sur <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <a href="index.html#contact" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
+      <span>Portafolio © 2026 · Santiago de Chile</span>
+      <a href="index.html#home">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+    var burger = document.getElementById("burger");
+    var navlinks = document.getElementById("navlinks");
+    burger.addEventListener("click", function () { navlinks.classList.toggle("open"); });
+
+    var reveals = document.querySelectorAll(".reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+
+    /* gentle one-time auto-scroll preview of the full site inside the frame */
+    var view = document.getElementById("siteScroll");
+    if (view) {
+      var played = false;
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) {
+          if (e.isIntersecting && !played) {
+            played = true;
+            setTimeout(function () {
+              var max = view.scrollHeight - view.clientHeight;
+              view.scrollTo({ top: Math.min(max, 520), behavior: "smooth" });
+              setTimeout(function () { view.scrollTo({ top: 0, behavior: "smooth" }); }, 1700);
+            }, 700);
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(view);
+      view.addEventListener("wheel", function () { played = true; }, { passive: true });
+    }
+  })();
+</script>
+</body>
+</html>
