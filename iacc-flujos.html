@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IACC — Diversos flujos · Case Study · Cristián Acuña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+<style>
+  /* Theme this case study to the IACC brand
+     (same construction as Jet Sur, recolored for the client). */
+  body[data-cs="iacc"] {
+    --accent: #EE7B17;       /* naranja IACC */
+    --accent-2: #C9620C;
+    --dark-bg: #2E2E2E;      /* gris IACC (header/footer) */
+    --paper: #FFFFFF;
+    --paper-2: #F2F2F1;
+  }
+  /* credit line */
+  .cs-credit { display: inline-flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-top: 22px; font-size: 14px; color: var(--muted); }
+  .cs-credit b { font-weight: 600; color: var(--ink); }
+  .cs-credit .by { display: inline-flex; align-items: center; gap: 8px; }
+  .cs-credit .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  /* phone device frame */
+  .phone { width: 100%; max-width: 286px; border-radius: 40px; background: #111; border: 9px solid #111; box-shadow: 0 28px 60px rgba(20,20,20,.22); overflow: hidden; }
+  .phone img { width: 100%; display: block; border-radius: 32px; background: #fff; }
+  /* hero stage */
+  .cs-stage { margin-top: 54px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: linear-gradient(160deg, #F6EFE6, #F2F2F1); padding: clamp(30px, 5vw, 56px); }
+  .cs-stage-row { display: flex; justify-content: center; }
+  /* center a single phone inside a showcase block cell */
+  .cs-block .phone-cell { display: flex; justify-content: center; }
+  /* token list */
+  .cs-tokens { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 50px; }
+  .cs-token { display: flex; gap: 16px; align-items: flex-start; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+  .cs-token .n { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--accent); flex: none; width: 30px; }
+  .cs-token .t { font-weight: 600; font-size: 15.5px; }
+  .cs-token .d { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  @media (max-width: 720px) { .cs-tokens { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-cs="iacc">
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="index.html#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#system">System</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="cs-backbar reveal">
+      <a href="index.html#work" class="cs-back"><span class="arrow">←</span> Volver a proyectos</a>
+      <span class="eyebrow">Case study · UX Flows</span>
+    </div>
+
+    <div class="cs-hero-top reveal">
+      <span class="cs-pill solid">UX Flows</span>
+      <span class="cs-pill">User maps</span>
+      <span class="cs-pill">EdTech</span>
+    </div>
+
+    <h1 class="cs-title reveal">IACC <span class="accent">Flujos</span></h1>
+    <p class="cs-tagline reveal d1">User maps y flujos para una institución de <b>educación superior online</b> — del portal del estudiante a la vista administrativa del CAE.</p>
+
+    <div class="cs-credit reveal d1">
+      <span class="by"><span class="dot"></span> Diseño UX/UI <b>Cristián Acuña</b></span>
+      <span class="by"><span class="dot"></span> Entregables <b>User maps · Flujos · Pantallas</b></span>
+    </div>
+
+    <div class="cs-meta reveal d1">
+      <div class="m"><div class="k">Rol</div><div class="v">Diseñador UX/UI<small>User maps y flujos</small></div></div>
+      <div class="m"><div class="k">Cliente</div><div class="v">IACC<small>Instituto profesional · Online</small></div></div>
+      <div class="m"><div class="k">Foco</div><div class="v">Estudiante + Admin<small>Dos perfiles, un sistema</small></div></div>
+      <div class="m"><div class="k">Entregables</div><div class="v">Flujos + UI<small>Web y móvil</small></div></div>
+    </div>
+
+    <div class="cs-stage reveal d1">
+      <div class="cs-stage-row">
+        <div class="phone"><img src="assets/iacc-1.jpg" alt="Ficha estudiantil de IACC en móvil" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-cols">
+      <div class="reveal">
+        <span class="eyebrow">El contexto</span>
+        <h2 class="lead-h">Dos mundos en una misma institución.</h2>
+      </div>
+      <div class="cs-rich reveal d1">
+        <p>IACC es un instituto profesional de educación superior 100% online. Su plataforma sirve a perfiles muy distintos: el estudiante, que necesita gestionar su vida académica desde el celular, y el equipo administrativo, que opera procesos sensibles como el Crédito con Aval del Estado (CAE).</p>
+        <p class="muted">El trabajo consistió en <strong>mapear esos flujos y diseñar las pantallas clave</strong> para ambos perfiles: una ficha estudiantil clara en móvil y una vista administrativa que ordene el manejo de datos y la generación de archivos del CAE.</p>
+      </div>
+    </div>
+
+    <div class="cs-cols" style="margin-top: 56px;">
+      <div class="reveal">
+        <span class="eyebrow">Objetivos</span>
+        <h2 class="lead-h">Lo que tenía que resolver.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="cs-goals">
+          <div class="cs-goal"><div class="n">01</div><div><div class="t">Mapear los flujos</div><div class="d">User maps para entender los recorridos del estudiante y del administrador.</div></div></div>
+          <div class="cs-goal"><div class="n">02</div><div><div class="t">Ficha estudiantil clara</div><div class="d">Datos personales, carrera y accesos rápidos legibles desde el celular.</div></div></div>
+          <div class="cs-goal"><div class="n">03</div><div><div class="t">Gestión del CAE</div><div class="d">Una vista administrativa que ordene cargas, respaldos y archivos del crédito.</div></div></div>
+          <div class="cs-goal"><div class="n">04</div><div><div class="t">Consistencia entre perfiles</div><div class="d">Un mismo lenguaje visual para estudiante y administración.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SHOWCASE ============================ -->
+<section class="section" style="background: var(--paper-2); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 660px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">El diseño</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Del estudiante<br />a la administración.</h2>
+      <p class="lead" style="margin: 18px auto 0;">Dos superficies muy distintas, pensadas desde los mismos flujos para que cada perfil avance sin tropiezos.</p>
+    </div>
+
+    <div class="cs-show">
+      <!-- block 1: portal del estudiante -->
+      <div class="cs-block reveal">
+        <div class="cs-block-txt">
+          <span class="step">Perfil 01 — Estudiante</span>
+          <h3>La ficha estudiantil, en el bolsillo.</h3>
+          <p>El portal abre con la bienvenida y accesos rápidos —biblioteca, aula, pago en línea, ayuda, mi consejero— sobre una ficha en acordeón. Datos personales, contacto, carrera y asignaturas se despliegan a demanda, sin saturar la pantalla.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Accesos rápidos a los servicios más usados</div>
+            <div class="cs-feat"><span class="tick">✓</span> Ficha en acordeón: personales, contacto, carrera, asignaturas</div>
+            <div class="cs-feat"><span class="tick">✓</span> Barra superior con noticias, calendario y notificaciones</div>
+          </div>
+        </div>
+        <div class="phone-cell"><div class="phone"><img src="assets/iacc-1.jpg" alt="Ficha estudiantil con accesos rápidos y datos personales en acordeón" /></div></div>
+      </div>
+
+      <!-- block 2: vista administrativa CAE -->
+      <div class="cs-block flip reveal">
+        <div class="cs-block-txt">
+          <span class="step">Perfil 02 — Administración</span>
+          <h3>El CAE, bajo control.</h3>
+          <p>La vista administrativa reúne la generación de archivos de respaldo y carga académica del CAE en una tabla amplia, con filtro por año, ordenamiento, búsqueda y selección múltiple. Una navegación por áreas —finanzas, apoyo estudiantil, gestión— mantiene todo a la mano.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Tabla densa con selección múltiple y paginación</div>
+            <div class="cs-feat"><span class="tick">✓</span> Filtro por año, ordenamiento y búsqueda de resultados</div>
+            <div class="cs-feat"><span class="tick">✓</span> Carga y descarga de archivos del CAE</div>
+          </div>
+        </div>
+        <div class="cs-frame"><img src="assets/iacc-2.jpg" alt="Vista administrativa de generación de archivos del CAE" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DETAIL / SYSTEM ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Sistema visual</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Un lenguaje<br />para cada perfil.</h2>
+      <p class="lead" style="margin-top: 18px;">El naranja y el verde de IACC ordenan la interfaz: el primero marca lo accionable, el segundo refuerza la identidad, sobre una base neutra y legible.</p>
+    </div>
+
+    <div class="cs-swatches reveal d1">
+      <div class="cs-sw"><div class="chip" style="background:#EE7B17;"></div><div class="info"><div class="nm">Naranja IACC</div><div class="hex">#EE7B17</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#6FBE44;"></div><div class="info"><div class="nm">Verde IACC</div><div class="hex">#6FBE44</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#2E2E2E;"></div><div class="info"><div class="nm">Gris IACC</div><div class="hex">#2E2E2E</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#1C9CD8;"></div><div class="info"><div class="nm">Azul info</div><div class="hex">#1C9CD8</div></div></div>
+      <div class="cs-sw"><div class="chip" style="background:#F2F2F1; border-bottom:1px solid var(--line);"></div><div class="info"><div class="nm">Fondo</div><div class="hex">#F2F2F1</div></div></div>
+    </div>
+
+    <div class="cs-detail-grid">
+      <div class="cs-dcard reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M8 14h8M8 17h5"/></svg></div>
+        <h4>Ficha en acordeón</h4>
+        <p>Secciones colapsables —personales, contacto, carrera, asignaturas— que ordenan mucha información sin abrumar.</p>
+      </div>
+      <div class="cs-dcard reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h4>Accesos rápidos</h4>
+        <p>Atajos a biblioteca, aula, pago y consejería — los servicios más usados, a un toque.</p>
+      </div>
+      <div class="cs-dcard reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/><path d="m6 13 1.5 1.5L10 12"/></svg></div>
+        <h4>Tabla del CAE</h4>
+        <p>Datos densos con selección múltiple, filtros y exportación — la unidad de trabajo del administrador.</p>
+      </div>
+    </div>
+
+    <div class="cs-tokens">
+      <div class="cs-token reveal"><div class="n">↘</div><div><div class="t">User maps</div><div class="d">Recorridos del estudiante y del administrador mapeados de principio a fin.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">⛬</div><div><div class="t">Navegación por áreas</div><div class="d">Finanzas, apoyo estudiantil y gestión, agrupadas con lógica clara.</div></div></div>
+      <div class="cs-token reveal"><div class="n">▭</div><div><div class="t">Responsive por perfil</div><div class="d">Móvil primero para el estudiante; escritorio amplio para la administración.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">▦</div><div><div class="t">Estadísticas del CAE</div><div class="d">Vistas pensadas para leer y operar datos del crédito con aval del Estado.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OUTCOME ============================ -->
+<section class="section cs-outcome">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="cs-out-h">Flujos claros para estudiantes y administración por igual.</h2>
+    </div>
+    <div class="cs-out-stats reveal d1">
+      <div class="s"><div class="n">2</div><div class="l">Perfiles diseñados: estudiante y administración</div></div>
+      <div class="s"><div class="n"><span class="accent">CAE</span></div><div class="l">Gestión de respaldos y carga académica del crédito</div></div>
+      <div class="s"><div class="n">Web + Móvil</div><div class="l">User maps y pantallas para ambas superficies</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-next reveal">
+      <div>
+        <div class="lbl">Siguiente proyecto</div>
+        <div class="nm">EDF Renewables →</div>
+      </div>
+      <a href="edf-renewables.html" class="btn btn--ghost go">Ver caso EDF <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <a href="index.html#contact" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
+      <span>Portafolio © 2025 · Santiago de Chile</span>
+      <a href="index.html#home">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+    var burger = document.getElementById("burger");
+    var navlinks = document.getElementById("navlinks");
+    burger.addEventListener("click", function () { navlinks.classList.toggle("open"); });
+
+    var reveals = document.querySelectorAll(".reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  })();
+</script>
+</body>
+</html>
