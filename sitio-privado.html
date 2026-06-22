@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sitio Privado AFP PlanVital — Case Study · Cristián Acuña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+<style>
+  /* Sitio Privado AFP PlanVital — built on Aperta DS.
+     Brand red from the Aperta variables: primary/500 = #C21B17. */
+  body[data-cs="privado"] {
+    --accent: #C21B17;
+    --accent-2: #9B1612;
+    --dark-bg: #20252B;
+    --paper: #FFFFFF;
+    --paper-2: #FAFAFA;
+    --ds-font: "Roboto", system-ui, sans-serif;
+    /* dashboard chart palette (mined from the file) */
+    --teal-900: #0E6E87;
+    --teal-500: #2BA9C5;
+    --teal-200: #BFE3EC;
+  }
+  .cs-credit { display: inline-flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-top: 22px; font-size: 14px; color: var(--muted); }
+  .cs-credit b { font-weight: 600; color: var(--ink); }
+  .cs-credit .by { display: inline-flex; align-items: center; gap: 8px; }
+  .cs-credit .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  /* ===== browser window frame ===== */
+  .bw { margin-top: 54px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 34px 80px rgba(32,37,43,.16); background: #fff; }
+  .bw-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #F1F2F4; border-bottom: 1px solid var(--line); }
+  .bw-bar .dots { display: flex; gap: 7px; }
+  .bw-bar .dots i { width: 12px; height: 12px; border-radius: 999px; background: #D6D8DB; }
+  .bw-bar .dots i:nth-child(1){ background:#FF5F57; } .bw-bar .dots i:nth-child(2){ background:#FEBC2E; } .bw-bar .dots i:nth-child(3){ background:#28C840; }
+  .bw-bar .url { flex: 1; max-width: 360px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 7px; padding: 5px 14px; font-family: "Inter"; font-size: 12.5px; color: var(--muted); text-align: center; }
+  .bw-scroll { max-height: 660px; overflow: auto; background: #F4F5F6; }
+  .bw-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
+  .bw-scroll::-webkit-scrollbar-thumb { background: #CFD2D6; border-radius: 999px; border: 2px solid #F4F5F6; }
+
+  /* ===== recreated dashboard (Aperta DS) ===== */
+  .dash { font-family: var(--ds-font); color: var(--grey-900,#34383C); display: grid; grid-template-columns: 248px 1fr; min-width: 940px; }
+  .dash-side { background: #fff; border-right: 1px solid #EBEBEB; padding: 22px 18px; }
+  .dash-logo { display: flex; align-items: center; gap: 10px; padding: 0 4px 22px; }
+  .dash-logo .mark { font-weight: 700; color: var(--accent); line-height: 1; font-size: 22px; letter-spacing: -.01em; }
+  .dash-logo .mark small { display: block; font-size: 10px; letter-spacing: .18em; color: var(--grey-700,#707070); font-weight: 500; }
+  .dash-exec { border: 1.5px solid var(--accent); border-radius: 8px; padding: 11px 13px; display: flex; align-items: center; gap: 10px; }
+  .dash-exec .av { width: 30px; height: 30px; border-radius: 999px; background: #FCEBEA; color: var(--accent); display: grid; place-items: center; flex: none; }
+  .dash-exec .tx span { font-size: 11px; color: var(--grey-600,#888); display: block; }
+  .dash-exec .tx b { font-size: 13.5px; font-weight: 600; }
+  .dash-exec .chev { margin-left: auto; color: var(--accent); }
+  .dash-nav { margin-top: 18px; display: flex; flex-direction: column; gap: 2px; }
+  .dash-nav a { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border-radius: 8px; font-size: 14.5px; color: var(--grey-800,#5C5D5F); text-decoration: none; }
+  .dash-nav a.on { border: 1.5px solid var(--accent); color: var(--accent); font-weight: 600; }
+  .dash-nav a .chev { margin-left: auto; color: currentColor; opacity: .6; }
+  .dash-nav svg { width: 19px; height: 19px; flex: none; }
+
+  .dash-main { padding: 26px 30px 36px; }
+  .dash-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+  .dash-hello h2 { font-size: 38px; font-weight: 700; color: var(--grey-500,#A0A0A0); margin: 0; line-height: 1; }
+  .dash-hello p { font-size: 22px; color: var(--grey-400,#B0B2B3); margin: 8px 0 0; }
+  .dash-quick { display: flex; gap: 22px; }
+  .dash-quick .q { text-align: center; width: 78px; }
+  .dash-quick .q .ic { width: 52px; height: 52px; border-radius: 999px; border: 1px solid #EBEBEB; display: grid; place-items: center; margin: 0 auto 8px; color: var(--accent); background:#fff; }
+  .dash-quick .q span { font-size: 12.5px; color: var(--grey-700,#707070); line-height: 1.3; display: block; }
+
+  .dash-info { display: flex; align-items: center; gap: 12px; background: #E8F4FE; border-radius: 10px; padding: 14px 18px; margin: 22px 0; }
+  .dash-info .i { width: 26px; height: 26px; border-radius: 999px; background: #0091FF; color: #fff; display: grid; place-items: center; flex: none; font-weight: 700; font-size: 14px; }
+  .dash-info .tx b { font-size: 14px; } .dash-info .tx p { margin: 2px 0 0; font-size: 12.5px; color: var(--grey-700,#707070); }
+  .dash-info .act { margin-left: auto; display: flex; gap: 18px; font-size: 13.5px; font-weight: 600; color: #0091FF; }
+
+  .dash-grid { display: grid; grid-template-columns: 1.85fr 1fr; gap: 18px; }
+  .card { background: #fff; border: 1px solid #EBEBEB; border-radius: 12px; padding: 22px 24px; }
+  .card-acc { border: 1.5px solid var(--accent); }
+
+  .tot-h { font-size: 17px; font-weight: 700; color: var(--grey-900,#34383C); display: flex; align-items: center; gap: 6px; }
+  .tot-h .i { color: #0091FF; }
+  .tot-amt { font-size: 42px; font-weight: 700; color: var(--grey-900,#34383C); margin: 4px 0 0; letter-spacing: -.01em; }
+  .seg { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+  .seg button { font-family: var(--ds-font); font-size: 13px; border-radius: 999px; padding: 7px 15px; border: 1px solid #DCDCDC; background: #fff; color: var(--grey-700,#707070); cursor: default; }
+  .seg button.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 500; }
+
+  .chart-row { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px; margin-top: 26px; align-items: center; }
+  .donut-wrap { display: flex; gap: 18px; align-items: center; }
+  .donut { width: 130px; height: 130px; border-radius: 999px; flex: none;
+    background: conic-gradient(var(--teal-900) 0 71.7%, var(--teal-500) 71.7% 89.7%, var(--teal-200) 89.7% 100%); }
+  .donut-leg { display: flex; flex-direction: column; gap: 12px; font-size: 13px; }
+  .donut-leg .l b { display: flex; align-items: center; gap: 8px; font-weight: 500; color: var(--grey-800,#5C5D5F); }
+  .donut-leg .l b i { width: 12px; height: 12px; border-radius: 3px; }
+  .donut-leg .l span { display: block; font-weight: 700; color: var(--grey-900,#34383C); margin-left: 20px; font-size: 14px; }
+  .chart-ttl { font-size: 15px; font-weight: 700; }
+  .line-chart { margin-top: 10px; }
+
+  .side-ttl { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .side-ttl .ic { color: var(--accent); }
+  .ahorra p { font-size: 13.5px; color: var(--grey-700,#707070); margin: 10px 0 16px; line-height: 1.5; }
+  .pago-amt { font-size: 34px; font-weight: 700; text-align: right; color: var(--grey-900,#34383C); }
+  .cert-row { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #F0F0F0; }
+  .cert-row:last-child { border-bottom: 0; }
+  .cert-row .tx b { font-size: 13.5px; display: block; } .cert-row .tx span { font-size: 12px; color: var(--grey-600,#888); }
+  .cert-row .dl { margin-left: auto; color: var(--accent); }
+
+  .ind-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 18px; }
+  .ind-row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid #F0F0F0; }
+  .ind-row b { font-weight: 600; }
+  .fondos { display: flex; gap: 26px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+  .fondo { display: flex; align-items: center; gap: 9px; font-size: 14px; }
+  .fondo .tag { font-size: 12px; font-weight: 600; border-radius: 6px; padding: 4px 9px; }
+  .fondo b { font-weight: 700; }
+
+  .btn-ap { font-family: var(--ds-font); font-weight: 500; font-size: 14px; border-radius: 8px; padding: 11px 20px; border: 1.5px solid var(--accent); background: var(--accent); color: #fff; cursor: default; }
+  .btn-ap.out { background: #fff; color: var(--accent); }
+
+  /* ===== mobile recreation ===== */
+  .cs-phone { border-radius: 30px; overflow: hidden; border: 1px solid var(--line); background: var(--white); box-shadow: 0 24px 54px rgba(32,37,43,.16); max-width: 340px; margin: 0 auto; padding: 10px; position: relative; }
+  .cs-phone::before { content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 78px; height: 5px; border-radius: 999px; background: rgba(32,37,43,.12); z-index: 3; }
+  .cs-phone-view { border-radius: 22px; overflow-y: auto; height: clamp(440px, 64vh, 600px); background: #F4F5F6; font-family: var(--ds-font); }
+  .cs-phone-view::-webkit-scrollbar { width: 0; }
+  .mob-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 16px 12px; background:#fff; border-bottom: 1px solid #EBEBEB; position: sticky; top: 0; }
+  .mob-top .mark { font-weight: 700; color: var(--accent); font-size: 16px; }
+  .mob-top .mark small { display:block; font-size: 8px; letter-spacing: .16em; color: var(--grey-700,#707070); }
+  .mob-top .acts { display: flex; gap: 8px; }
+  .mob-top .acts i { width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid var(--accent); color: var(--accent); display: grid; place-items: center; }
+  .mob-body { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+  .mob-hello h3 { margin: 0; font-size: 26px; font-weight: 700; color: var(--grey-500,#A0A0A0); }
+  .mob-hello p { margin: 4px 0 0; font-size: 14px; color: var(--grey-400,#B0B2B3); }
+  .mob-card { background: #fff; border: 1px solid #EBEBEB; border-radius: 12px; padding: 16px; }
+  .mob-amt { font-size: 32px; font-weight: 700; color: var(--grey-900,#34383C); margin: 4px 0 12px; }
+  .mob-donut { width: 96px; height: 96px; border-radius: 999px; background: conic-gradient(var(--teal-900) 0 71.7%, var(--teal-500) 71.7% 89.7%, var(--teal-200) 89.7% 100%); }
+
+  /* ===== "how the DS helped" ===== */
+  .help-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 44px; }
+  .help { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: 26px 26px 24px; }
+  .help .ic { width: 46px; height: 46px; border-radius: 12px; background: #FCEBEA; color: var(--accent); display: grid; place-items: center; margin-bottom: 16px; }
+  .help h4 { font-size: 17px; margin: 0 0 6px; }
+  .help p { color: var(--muted); font-size: 14.5px; line-height: 1.55; margin: 0; }
+  .help .ex { margin-top: 14px; font-family: "Roboto Mono", ui-monospace, monospace; font-size: 12px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; color: var(--accent-2); }
+  @media (max-width: 760px){ .help-grid { grid-template-columns: 1fr; } }
+
+  .cs-tokens { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 50px; }
+  .cs-token { display: flex; gap: 16px; align-items: flex-start; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+  .cs-token .n { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--accent); flex: none; width: 30px; }
+  .cs-token .t { font-weight: 600; font-size: 15.5px; }
+  .cs-token .d { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  @media (max-width: 720px) { .cs-tokens { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-cs="privado">
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="index.html#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#system">System</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="cs-backbar reveal">
+      <a href="index.html#work" class="cs-back"><span class="arrow">←</span> Volver a proyectos</a>
+      <span class="eyebrow">Case study · Producto · Web App</span>
+    </div>
+
+    <div class="cs-hero-top reveal">
+      <span class="cs-pill solid">Sitio Privado</span>
+      <span class="cs-pill">Afiliados</span>
+      <span class="cs-pill">Powered by Aperta DS</span>
+    </div>
+
+    <h1 class="cs-title reveal">Sitio Privado <span style="color:var(--accent)">AFP PlanVital</span></h1>
+    <p class="cs-tagline reveal d1">El nuevo sitio privado para <b>todos los afiliados</b>: ven sus ahorros, certificados y trámites en un solo lugar. Lo construí <b>sobre Aperta DS</b>, y el sistema hizo que armarlo fuera rápido y consistente.</p>
+
+    <div class="cs-credit reveal d1">
+      <span class="by"><span class="dot"></span> Diseño de producto <b>Cristián Acuña</b></span>
+      <span class="by"><span class="dot"></span> Cliente <b>AFP PlanVital</b></span>
+      <span class="by"><span class="dot"></span> Base <b>Aperta DS</b></span>
+    </div>
+
+    <div class="cs-meta reveal d1">
+      <div class="m"><div class="k">Rol</div><div class="v">Diseñador de producto<small>Sobre el design system</small></div></div>
+      <div class="m"><div class="k">Producto</div><div class="v">Sitio Privado<small>Afiliados y pensionados</small></div></div>
+      <div class="m"><div class="k">Base</div><div class="v">Aperta DS<small>Tokens y componentes</small></div></div>
+      <div class="m"><div class="k">Alcance</div><div class="v">Web + Mobile<small>Dashboard y flujos</small></div></div>
+    </div>
+
+    <!-- recreated desktop dashboard inside a browser window -->
+    <div class="bw reveal d1">
+      <div class="bw-bar">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="url">mi.planvital.cl · Inicio</div>
+      </div>
+      <div class="bw-scroll">
+        <div class="dash">
+          <!-- sidebar -->
+          <aside class="dash-side">
+            <div class="dash-logo">
+              <div class="mark">PlanVital<small>AFP · GENERALI</small></div>
+            </div>
+            <div class="dash-exec">
+              <span class="av"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+              <span class="tx"><span>Mi ejecutivo</span><b>Juan Pérez</b></span>
+              <span class="chev">▾</span>
+            </div>
+            <nav class="dash-nav">
+              <a href="#" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/></svg> Inicio <span class="chev">▾</span></a>
+              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg> Certificados y Cartolas <span class="chev">▾</span></a>
+              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg> Mis productos <span class="chev">▾</span></a>
+              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5h7l3 3v11H5V5z"/><path d="M9 12h6M9 16h6"/></svg> Solicitudes <span class="chev">▾</span></a>
+              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-1v-6h3M7 18H6a2 2 0 0 1-2-2v-4h3z"/></svg> Ayuda <span class="chev">▾</span></a>
+            </nav>
+          </aside>
+
+          <!-- main -->
+          <main class="dash-main">
+            <div class="dash-top">
+              <div class="dash-hello">
+                <h2>Hola Cristián</h2>
+                <p>Revisemos tus ahorros!</p>
+              </div>
+              <div class="dash-quick">
+                <div class="q"><div class="ic"><svg viewBox="0 0 24 24" width="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div><span>Última cotización</span></div>
+                <div class="q"><div class="ic"><svg viewBox="0 0 24 24" width="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><span>Clave de seguridad</span></div>
+                <div class="q"><div class="ic"><svg viewBox="0 0 24 24" width="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><span>Trámites</span></div>
+              </div>
+            </div>
+
+            <div class="dash-info">
+              <span class="i">i</span>
+              <span class="tx"><b>Tu AFP + cerca, descarga nuestra app</b><p>Haz tus trámites desde tu celular, desde donde estés.</p></span>
+              <span class="act"><span>Cerrar</span><span>Aceptar</span></span>
+            </div>
+
+            <div class="dash-grid">
+              <!-- total + charts -->
+              <section class="card">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap">
+                  <div>
+                    <div class="tot-h">Tu total ahorrado <span class="i">ⓘ</span></div>
+                    <div class="tot-amt">$136.437.590</div>
+                  </div>
+                  <div class="seg">
+                    <button class="on">Todo</button><button>Cuenta obligatoria</button><button>Cuenta 2</button><button>Cuenta APV</button>
+                  </div>
+                </div>
+
+                <div class="chart-row">
+                  <div>
+                    <div class="chart-ttl" style="margin-bottom:14px">Montos de tus ahorros</div>
+                    <div class="donut-wrap">
+                      <div class="donut"></div>
+                      <div class="donut-leg">
+                        <div class="l"><b><i style="background:var(--teal-900)"></i> Cuenta obligatoria</b><span>$97.890.762</span></div>
+                        <div class="l"><b><i style="background:var(--teal-500)"></i> Cuenta 2</b><span>$24.521.957</span></div>
+                        <div class="l"><b><i style="background:var(--teal-200)"></i> Cuenta APV</b><span>$14.024.871</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+                      <div class="chart-ttl">Como han crecido tus ahorros</div>
+                      <div class="seg" style="transform:scale(.86);transform-origin:right"><button class="on">Todo</button><button>6 meses</button><button>12 meses</button><button>2 años</button></div>
+                    </div>
+                    <svg class="line-chart" viewBox="0 0 360 170" width="100%">
+                      <g stroke="#EDEDED" stroke-width="1">
+                        <line x1="40" y1="20" x2="360" y2="20"/><line x1="40" y1="55" x2="360" y2="55"/><line x1="40" y1="90" x2="360" y2="90"/><line x1="40" y1="125" x2="360" y2="125"/><line x1="40" y1="150" x2="360" y2="150"/>
+                      </g>
+                      <g fill="#A0A0A0" font-family="Inter" font-size="9">
+                        <text x="6" y="24">$100</text><text x="12" y="59">$80</text><text x="12" y="94">$60</text><text x="12" y="129">$40</text><text x="14" y="153">$0</text>
+                        <text x="40" y="166">2012</text><text x="330" y="166">2025</text>
+                      </g>
+                      <polyline fill="none" stroke="var(--teal-900)" stroke-width="2.4" points="46,148 100,98 150,78 210,60 270,42 330,30"/>
+                      <polyline fill="none" stroke="var(--teal-500)" stroke-width="2.2" points="190,150 220,108 250,125 290,118 330,120"/>
+                      <polyline fill="none" stroke="var(--teal-200)" stroke-width="2.2" points="190,150 230,130 270,132 330,128"/>
+                    </svg>
+                    <div style="display:flex;gap:16px;justify-content:center;font-size:11px;color:#707070;margin-top:6px">
+                      <span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--teal-900);margin-right:5px"></i>Cuenta obligatoria</span>
+                      <span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--teal-500);margin-right:5px"></i>Cuenta 2</span>
+                      <span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--teal-200);margin-right:5px"></i>Cuenta APV</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="margin-top:18px;border-top:1px solid #F0F0F0;padding-top:14px">
+                  <div class="tot-h" style="font-size:15px">Años cotizados <span class="i">ⓘ</span></div>
+                  <div style="font-size:15px;color:#707070;margin-top:2px">13 años y 9 meses</div>
+                </div>
+              </section>
+
+              <!-- right column -->
+              <div style="display:flex;flex-direction:column;gap:18px">
+                <section class="card card-acc">
+                  <div class="side-ttl"><span class="ic"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11c0-3 3-5 6-5s6 2 6 5-2 5-5 5H8l-3 2v-2.5C3.8 14.7 3 13 3 11z"/></svg></span> Comienza a ahorrar</div>
+                  <p class="ahorra">Mejoremos juntos tu futura pensión y accede a importantes beneficios tributarios.</p>
+                  <div style="text-align:right"><button class="btn-ap">Abre tu APV</button></div>
+                </section>
+                <section class="card">
+                  <div style="display:flex;justify-content:space-between;align-items:center"><div class="side-ttl"><span class="ic">▤</span> Mis certificados</div><span style="color:var(--accent);font-size:12.5px;font-weight:600">Ver otros</span></div>
+                  <div class="cert-row"><span class="tx"><b>Certificado de afiliación</b><span>Certifica que estás afiliado</span></span><span class="dl">↓</span></div>
+                  <div class="cert-row"><span class="tx"><b>Certificado de cotizaciones</b><span>Cuenta obligatoria</span></span><span class="dl">↓</span></div>
+                </section>
+                <section class="card">
+                  <div style="font-size:14px;color:#707070">Tienes pagos en exceso disponibles</div>
+                  <div class="pago-amt">$299.690</div>
+                  <div style="text-align:right;margin-top:10px"><button class="btn-ap out">Solicítalo ahora</button></div>
+                </section>
+              </div>
+            </div>
+
+            <!-- bottom row -->
+            <div class="dash-grid" style="grid-template-columns:repeat(3,1fr);margin-top:18px">
+              <section class="card">
+                <div class="side-ttl">Mi Cartola Mensual Digital</div>
+                <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+                  <div style="width:80px;height:58px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:9px;font-weight:700;text-align:center;line-height:1.2">HOLA<br>JOSÉ I.</div>
+                  <div><b style="font-size:14px">Diciembre 2025</b><div style="color:var(--accent);font-size:12.5px;font-weight:600;margin-top:8px">Ir a Cartolas</div></div>
+                </div>
+              </section>
+              <section class="card">
+                <div class="side-ttl"><span class="ic">▦</span> Indicadores económicos</div>
+                <div style="margin-top:12px">
+                  <div class="ind-row"><span><b>UF</b> 08/01/2026</span><b>$39.758,68</b></div>
+                  <div class="ind-row"><span><b>UTM</b> 01/2026</span><b>$69.751</b></div>
+                  <div class="ind-row" style="border-bottom:0"><span><b>IPC</b> 12/2025</span><b>-0,2%</b></div>
+                </div>
+              </section>
+              <section class="card">
+                <div class="side-ttl"><span class="ic">$</span> Cotizaciones</div>
+                <p style="font-size:13px;color:#707070;margin:12px 0 14px;line-height:1.5">Recibimos el pago de tu cotización obligatoria correspondiente a Noviembre del 2025.</p>
+                <div style="text-align:right"><button class="btn-ap">Ver detalles</button></div>
+              </section>
+            </div>
+
+            <!-- valores cuota -->
+            <section class="card" style="margin-top:18px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px">
+                <div><b style="font-size:15px">Valores cuota</b><div style="font-size:12px;color:#888">Actualizados al 02/01/2026</div></div>
+              </div>
+              <div class="fondos">
+                <div class="fondo"><span class="tag" style="background:#FCEBEA;color:#C21B17">Fondo A</span><b>$82.737,46</b></div>
+                <div class="fondo"><span class="tag" style="background:#FCF0E1;color:#C4763F">Fondo B</span><b>$73.064,74</b></div>
+                <div class="fondo"><span class="tag" style="background:#E6F6F2;color:#1F8E80">Fondo C</span><b>$139.320,42</b></div>
+                <div class="fondo"><span class="tag" style="background:#E7F0FA;color:#2B6CB0">Fondo D</span><b>$53.217,68</b></div>
+                <div class="fondo"><span class="tag" style="background:#EDEFF7;color:#6370A0">Fondo E</span><b>$106.417,41</b></div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-cols">
+      <div class="reveal">
+        <span class="eyebrow">El contexto</span>
+        <h2 class="lead-h">Un sitio privado para millones de afiliados.</h2>
+      </div>
+      <div class="cs-rich reveal d1">
+        <p>AFP PlanVital administra los fondos de pensiones de sus afiliados en Chile. El sitio privado es donde cada persona entra a ver su ahorro, descargar certificados, revisar cotizaciones y hacer trámites — desde el cambio de fondos hasta el APV.</p>
+        <p class="muted">El encargo fue <strong>diseñar el nuevo sitio privado</strong> para afiliados y pensionados: un dashboard claro y un conjunto de flujos que antes vivían dispersos. La clave para hacerlo rápido y consistente fue construirlo <strong>sobre Aperta DS</strong>.</p>
+      </div>
+    </div>
+
+    <div class="cs-cols" style="margin-top: 56px;">
+      <div class="reveal">
+        <span class="eyebrow">Objetivos</span>
+        <h2 class="lead-h">Lo que el sitio tenía que resolver.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="cs-goals">
+          <div class="cs-goal"><div class="n">01</div><div><div class="t">Ahorro de un vistazo</div><div class="d">Total ahorrado, distribución por cuenta y evolución en el tiempo, claros desde el inicio.</div></div></div>
+          <div class="cs-goal"><div class="n">02</div><div><div class="t">Trámites a la mano</div><div class="d">Certificados, cartolas, pagos en exceso y solicitudes accesibles sin perderse.</div></div></div>
+          <div class="cs-goal"><div class="n">03</div><div><div class="t">Una sola experiencia</div><div class="d">Afiliado y pensionado, desktop y móvil — la misma lógica y el mismo lenguaje.</div></div></div>
+          <div class="cs-goal"><div class="n">04</div><div><div class="t">Rápido de construir</div><div class="d">Apalancar Aperta DS para diseñar decenas de pantallas sin reinventar componentes.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SHOWCASE / MOBILE ============================ -->
+<section class="section" style="background: var(--paper-2); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 680px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">El sistema en acción</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">El mismo dashboard,<br />en cualquier pantalla.</h2>
+      <p class="lead" style="margin: 18px auto 0;">De escritorio a móvil, los componentes de Aperta DS se reorganizan sin perder jerarquía — total, gráficos, certificados y trámites siempre legibles.</p>
+    </div>
+
+    <div class="cs-show">
+      <div class="cs-block flip reveal">
+        <div class="cs-block-txt">
+          <span class="step">Responsive — Afiliado</span>
+          <h3>Del mismo token, otra pantalla.</h3>
+          <p>En móvil, las dos columnas del dashboard se apilan: el total y los gráficos arriba, luego pagos en exceso, APV, certificados y valores cuota. Tipografía, espaciado y colores salen de los mismos tokens de Aperta DS.</p>
+          <div class="cs-feats">
+            <div class="cs-feat"><span class="tick">✓</span> Gráfico de dona y línea reutilizados de la librería</div>
+            <div class="cs-feat"><span class="tick">✓</span> Botones full-width con áreas de toque cómodas</div>
+            <div class="cs-feat"><span class="tick">✓</span> Chips de fondos y badges idénticos a desktop</div>
+          </div>
+        </div>
+        <div class="cs-phone">
+          <div class="cs-phone-view" id="phoneScroll">
+            <div class="mob-top">
+              <div class="mark">PlanVital<small>AFP · GENERALI</small></div>
+              <div class="acts"><i><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></i><i><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></i></div>
+            </div>
+            <div class="mob-body">
+              <div class="mob-hello"><h3>Hola David Raúl</h3><p>Revisemos tus ahorros!</p></div>
+              <div class="mob-card">
+                <div style="font-size:13px;color:#707070">Tu total ahorrado</div>
+                <div class="mob-amt">$136.437.590</div>
+                <div class="seg" style="margin-bottom:16px"><button class="on">Todo</button><button>Obligatoria</button><button>APV</button></div>
+                <div style="font-size:14px;font-weight:700;margin-bottom:12px">Montos de tus ahorros</div>
+                <div style="display:flex;gap:14px;align-items:center">
+                  <div class="mob-donut"></div>
+                  <div class="donut-leg" style="font-size:12px">
+                    <div class="l"><b><i style="background:var(--teal-900)"></i> Obligatoria</b><span>$97.890.762</span></div>
+                    <div class="l"><b><i style="background:var(--teal-500)"></i> Cuenta 2</b><span>$24.521.957</span></div>
+                    <div class="l"><b><i style="background:var(--teal-200)"></i> APV</b><span>$14.024.871</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mob-card">
+                <div style="font-size:13px;color:#707070">Tienes pagos en exceso disponibles</div>
+                <div class="mob-amt" style="font-size:28px;text-align:right">$299.690</div>
+                <div style="text-align:right"><button class="btn-ap out">Solicítalo ahora</button></div>
+              </div>
+              <div class="mob-card" style="background:#fff">
+                <div class="side-ttl" style="font-size:14px">Comienza a ahorrar</div>
+                <p style="font-size:13px;color:#707070;margin:8px 0 14px;line-height:1.5">Mejoremos juntos tu futura pensión y accede a beneficios tributarios.</p>
+                <div style="text-align:right"><button class="btn-ap">Abre tu APV</button></div>
+              </div>
+              <div class="mob-card">
+                <div style="font-size:14px;font-weight:700;margin-bottom:10px">Valores cuota</div>
+                <div style="display:flex;flex-wrap:wrap;gap:10px 16px">
+                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#FCEBEA;color:#C21B17">A</span><b>$82.737</b></div>
+                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#FCF0E1;color:#C4763F">B</span><b>$73.064</b></div>
+                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#E6F6F2;color:#1F8E80">C</span><b>$139.320</b></div>
+                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#E7F0FA;color:#2B6CB0">D</span><b>$53.217</b></div>
+                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#EDEFF7;color:#6370A0">E</span><b>$106.417</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ HOW THE DS HELPED ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Por qué fue fácil</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Aperta DS hizo<br />el trabajo pesado.</h2>
+      <p class="lead" style="margin-top: 18px;">El sitio privado no se diseñó desde cero: se ensambló con los foundations y componentes de Aperta DS. Esto es lo que el sistema resolvió por mí.</p>
+    </div>
+
+    <div class="help-grid">
+      <div class="help reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" width="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></div>
+        <h4>Token-driven, sin decisiones sueltas</h4>
+        <p>Color, tipografía, espaciado y radios ya estaban definidos como variables. Cada pantalla heredó la marca sin elegir un solo hex a mano.</p>
+        <div class="ex">bg/surface-primary · text/brand · radius/m</div>
+      </div>
+      <div class="help reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" width="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></div>
+        <h4>Componentes listos para ensamblar</h4>
+        <p>Cards, botones, tabs, badges, chips de fondos, inputs y gráficos salieron de la librería. El dashboard se armó componiendo, no dibujando.</p>
+        <div class="ex">Card · SegmentedTabs · Chip · Badge · Button</div>
+      </div>
+      <div class="help reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" width="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 20h8M12 17v3"/></svg></div>
+        <h4>Responsive desde la misma base</h4>
+        <p>Las mismas variantes cubren desktop y móvil. Pasar de 1920 px a una pantalla de celular fue reorganizar, no rediseñar.</p>
+        <div class="ex">Device = Desktop / Mobile</div>
+      </div>
+      <div class="help reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" width="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h4>Consistencia entre decenas de flujos</h4>
+        <p>Login, 2FA, certificados, giros, cambio de fondos, modalidad de pensión… todos hablan el mismo idioma porque comparten el mismo sistema.</p>
+        <div class="ex">Una librería · muchas pantallas</div>
+      </div>
+    </div>
+
+    <div class="cs-tokens">
+      <div class="cs-token reveal"><div class="n">↺</div><div><div class="t">Cambiar una vez, propagar a todo</div><div class="d">Ajustar un token actualiza cada pantalla que lo usa — sin retoques manuales.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">⛬</div><div><div class="t">Afiliado y pensionado</div><div class="d">Dos audiencias, un mismo dashboard adaptado desde los mismos componentes.</div></div></div>
+      <div class="cs-token reveal"><div class="n">▤</div><div><div class="t">Documentado para desarrollo</div><div class="d">Componentes con estados y variantes, listos para implementarse sin ambigüedad.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">◷</div><div><div class="t">Menos tiempo, más foco</div><div class="d">El sistema resolvió lo repetitivo; el diseño se enfocó en los flujos y el contenido.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OUTCOME ============================ -->
+<section class="section cs-outcome">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="cs-out-h">Un sitio privado completo, consistente y rápido de construir — gracias a Aperta DS.</h2>
+    </div>
+    <div class="cs-out-stats reveal d1">
+      <div class="s"><div class="n">1</div><div class="l">Dashboard que reúne ahorro, certificados y trámites</div></div>
+      <div class="s"><div class="n"><span class="accent">+40</span></div><div class="l">Pantallas y flujos ensamblados sobre el sistema</div></div>
+      <div class="s"><div class="n">2</div><div class="l">Audiencias —afiliado y pensionado— en una sola experiencia</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-next reveal">
+      <div>
+        <div class="lbl">Siguiente proyecto</div>
+        <div class="nm">Aperta DS →</div>
+      </div>
+      <a href="aperta-ds.html" class="btn btn--ghost go">Ver el design system <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <a href="index.html#contact" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
+      <span>Portafolio © 2025 · Santiago de Chile</span>
+      <a href="index.html#home">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+    var burger = document.getElementById("burger");
+    var navlinks = document.getElementById("navlinks");
+    burger.addEventListener("click", function () { navlinks.classList.toggle("open"); });
+
+    var reveals = document.querySelectorAll(".reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+
+    var view = document.getElementById("phoneScroll");
+    if (view) {
+      var played = false;
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) {
+          if (e.isIntersecting && !played) {
+            played = true;
+            setTimeout(function () {
+              var max = view.scrollHeight - view.clientHeight;
+              view.scrollTo({ top: Math.min(max, 460), behavior: "smooth" });
+              setTimeout(function () { view.scrollTo({ top: 0, behavior: "smooth" }); }, 1700);
+            }, 700);
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(view);
+      view.addEventListener("wheel", function () { played = true; }, { passive: true });
+    }
+  })();
+</script>
+</body>
+</html>

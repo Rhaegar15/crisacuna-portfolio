@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aperta DS — Case Study · Cristián Acuña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+<style>
+  /* Aperta DS — the design system of AFP PlanVital.
+     Brand red mined from the Figma variables: primary/500 = rgb(194,27,23). */
+  body[data-cs="aperta"] {
+    --accent: #C21B17;       /* primary/500 — rojo Aperta */
+    --accent-2: #9B1612;     /* red/700 */
+    --dark-bg: #20252B;      /* grey/950 */
+    --paper: #FFFFFF;
+    --paper-2: #FAFAFA;      /* grey/50 */
+    --ds-font: "Roboto", system-ui, sans-serif;
+  }
+  body[data-cs="aperta"] .cs-title .ds { color: var(--accent); }
+
+  /* credit line (team) */
+  .cs-credit { display: inline-flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-top: 22px; font-size: 14px; color: var(--muted); }
+  .cs-credit b { font-weight: 600; color: var(--ink); }
+  .cs-credit .by { display: inline-flex; align-items: center; gap: 8px; }
+  .cs-credit .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  /* ===== living system cover ===== */
+  .sys-cover { margin-top: 54px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--white); overflow: hidden; box-shadow: 0 30px 70px rgba(32,37,43,.10); }
+  .sys-cover-top { display: grid; grid-template-columns: 1.05fr 1fr; }
+  .sys-cover-brand { background: var(--accent); color: #fff; padding: clamp(30px,4vw,52px); display: flex; flex-direction: column; justify-content: space-between; min-height: 300px; position: relative; }
+  .sys-cover-brand::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.16) 1px, transparent 0); background-size: 22px 22px; opacity: .5; pointer-events: none; }
+  .sys-cover-brand .kicker { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; opacity: .8; position: relative; }
+  .sys-cover-brand .word { font-family: var(--ds-font); font-weight: 700; font-size: clamp(48px,7vw,86px); line-height: .92; letter-spacing: -.02em; position: relative; }
+  .sys-cover-brand .word small { display: block; font-size: 15px; font-weight: 400; letter-spacing: .02em; opacity: .85; margin-top: 14px; max-width: 32ch; line-height: 1.5; }
+  .sys-cover-brand .ramp { display: flex; gap: 0; border-radius: 8px; overflow: hidden; position: relative; }
+  .sys-cover-brand .ramp i { height: 26px; flex: 1; }
+  .sys-cover-spec { padding: clamp(26px,3.4vw,42px); display: flex; flex-direction: column; gap: 20px; font-family: var(--ds-font); }
+  .spec-row { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 14px; }
+  .spec-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .spec-row .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); width: 54px; flex: none; font-family: "Inter"; }
+  .spec-row .val { font-weight: 700; color: var(--ink); line-height: 1; }
+  .sys-cover-strip { display: flex; flex-wrap: wrap; gap: 12px; padding: 22px clamp(26px,3.4vw,42px); border-top: 1px solid var(--line); background: var(--paper-2); align-items: center; }
+
+  /* ===== token collections ===== */
+  .coll-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+  .coll { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: 22px 22px 20px; position: relative; overflow: hidden; }
+  .coll .num { font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1; color: var(--ink); letter-spacing: -.02em; }
+  .coll .nm { font-weight: 600; font-size: 15px; margin-top: 10px; }
+  .coll .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .coll .tier { position: absolute; top: 16px; right: 16px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--accent); background: #FCEBEA; border-radius: 999px; padding: 4px 9px; }
+  @media (max-width: 900px) { .coll-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .coll-grid { grid-template-columns: 1fr; } }
+
+  /* token flow diagram */
+  .tier-flow { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; margin-top: 34px; }
+  .tier-step { flex: 1; min-width: 180px; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; background: var(--white); }
+  .tier-step .t { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+  .tier-step .t span { width: 22px; height: 22px; border-radius: 6px; background: var(--accent); color: #fff; font-size: 12px; display: grid; place-items: center; font-family: var(--font-display); }
+  .tier-step .d { color: var(--muted); font-size: 13.5px; margin-top: 8px; line-height: 1.5; }
+  .tier-step code { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 12px; background: var(--paper-2); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; color: var(--accent-2); }
+  .tier-arrow { align-self: center; color: var(--grey-400, #B0B2B3); font-weight: 700; font-size: 22px; }
+  @media (max-width: 760px) { .tier-arrow { display: none; } }
+
+  /* ===== foundations: color ramps ===== */
+  .ramp-block { margin-top: 30px; }
+  .ramp-block h4 { font-size: 14px; font-weight: 600; color: var(--ink-soft); margin: 0 0 12px; display: flex; gap: 10px; align-items: baseline; }
+  .ramp-block h4 small { color: var(--muted); font-weight: 500; font-size: 12.5px; }
+  .ramp-strip { display: grid; grid-template-columns: repeat(10, 1fr); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+  .ramp-strip.semantic { grid-template-columns: repeat(4, 1fr); }
+  .swatch-c { padding: 16px 12px 13px; min-height: 92px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .swatch-c .k { font-size: 11px; font-weight: 700; font-family: var(--ds-font); }
+  .swatch-c .h { font-size: 10.5px; opacity: .82; font-family: "Inter"; margin-top: 2px; letter-spacing: .01em; }
+  @media (max-width: 720px) { .ramp-strip { grid-template-columns: repeat(5, 1fr); } .ramp-strip.semantic { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ===== foundations: type scale ===== */
+  .type-scale { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .type-row { display: flex; align-items: baseline; gap: 20px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+  .type-row:last-child { border-bottom: 0; }
+  .type-row .tk { font-family: "Inter"; font-size: 12px; color: var(--muted); width: 124px; flex: none; }
+  .type-row .tk b { color: var(--ink); font-weight: 600; display: block; font-size: 12.5px; }
+  .type-row .sample { font-family: var(--ds-font); color: var(--ink); line-height: 1.1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .type-row .px { margin-left: auto; font-family: "Inter"; font-size: 12px; color: var(--muted); flex: none; }
+  @media (max-width: 640px){ .type-row .px { display:none; } .type-row .tk { width: 92px; } }
+
+  /* ===== foundations: spacing ===== */
+  .space-list { margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+  .space-row { display: flex; align-items: center; gap: 16px; }
+  .space-row .nm { font-family: "Inter"; font-size: 12.5px; width: 130px; flex: none; color: var(--ink-soft); }
+  .space-row .nm b { color: var(--ink); font-weight: 600; }
+  .space-row .bar { height: 18px; background: var(--accent); border-radius: 3px; opacity: .9; }
+  .space-row .px { font-family: "Inter"; font-size: 12px; color: var(--muted); }
+
+  /* ===== foundations: radius ===== */
+  .radius-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 18px; }
+  .radius-cell { text-align: center; }
+  .radius-cell .box { height: 70px; background: #FCEBEA; border: 1.5px solid var(--accent); border-bottom: none; }
+  .radius-cell .lab { border: 1px solid var(--line); border-top: none; padding: 8px 4px; border-radius: 0 0 6px 6px; }
+  .radius-cell .lab b { display: block; font-size: 12.5px; font-weight: 600; }
+  .radius-cell .lab span { font-size: 11px; color: var(--muted); font-family: "Inter"; }
+  @media (max-width: 720px){ .radius-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* ===== components (live, styled with real tokens) ===== */
+  .comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 18px; }
+  .comp-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); overflow: hidden; }
+  .comp-card .head { padding: 14px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
+  .comp-card .head b { font-size: 14px; font-weight: 600; }
+  .comp-card .head span { font-size: 12px; color: var(--muted); font-family: "Inter"; }
+  .comp-card .stage { padding: 26px 24px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-family: var(--ds-font); background: linear-gradient(0deg, var(--paper-2), var(--paper-2)); }
+  @media (max-width: 760px){ .comp-grid { grid-template-columns: 1fr; } }
+
+  /* Aperta button recreations */
+  .ap-btn { font-family: var(--ds-font); font-weight: 500; font-size: 15px; border-radius: 8px; padding: 11px 20px; border: 1.5px solid transparent; cursor: default; line-height: 1; transition: all .12s ease; }
+  .ap-btn.primary { background: var(--accent); color: #fff; }
+  .ap-btn.secondary { background: #fff; color: var(--accent); border-color: var(--accent); }
+  .ap-btn.tertiary { background: transparent; color: var(--accent); padding-left: 6px; padding-right: 6px; }
+  .ap-btn.disabled { background: #F6DDDC; color: #DE7C7A; }
+  /* badges */
+  .ap-badge { font-family: var(--ds-font); font-weight: 500; font-size: 13px; border-radius: 999px; padding: 5px 12px; display: inline-flex; align-items: center; gap: 6px; }
+  .ap-badge i { width: 7px; height: 7px; border-radius: 999px; }
+  .ap-badge.success { background: #EAFFF4; color: #005826; } .ap-badge.success i { background: #008C40; }
+  .ap-badge.warning { background: #FFF8E5; color: #7A5A00; } .ap-badge.warning i { background: #FFC300; }
+  .ap-badge.error { background: #FCEBEA; color: #921411; } .ap-badge.error i { background: #C21B17; }
+  .ap-badge.info { background: #E0F1FF; color: #00254D; } .ap-badge.info i { background: #0091FF; }
+  /* chips */
+  .ap-chip { font-family: var(--ds-font); font-size: 14px; border-radius: 999px; padding: 8px 14px; border: 1.5px solid var(--grey-300,#CCC); color: var(--grey-900,#34383C); background: #fff; }
+  .ap-chip.sel { background: var(--accent); border-color: var(--accent); color: #fff; }
+  /* input */
+  .ap-field { width: 100%; font-family: var(--ds-font); }
+  .ap-field label { display: block; font-size: 13px; font-weight: 500; color: var(--grey-900,#34383C); margin-bottom: 7px; }
+  .ap-field .box { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--grey-300,#CCC); border-radius: 8px; padding: 12px 14px; background: #fff; }
+  .ap-field .box.focus { border-color: var(--accent); box-shadow: 0 0 0 3px #F6DDDC; }
+  .ap-field .box input { border: 0; outline: 0; font: inherit; font-size: 15px; flex: 1; background: transparent; color: var(--ink); }
+  .ap-field .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  /* switch + checkbox */
+  .ap-switch { width: 44px; height: 26px; border-radius: 999px; background: var(--accent); position: relative; flex: none; }
+  .ap-switch.off { background: var(--grey-300,#CCC); }
+  .ap-switch::after { content:""; position: absolute; top: 3px; width: 20px; height: 20px; border-radius: 999px; background: #fff; transition: .12s; left: 21px; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+  .ap-switch.off::after { left: 3px; }
+  .ap-check { display: flex; align-items: center; gap: 10px; font-family: var(--ds-font); font-size: 15px; color: var(--grey-900,#34383C); }
+  .ap-check .box { width: 22px; height: 22px; border-radius: 5px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .ap-check .box.un { background: #fff; border: 1.5px solid var(--grey-300,#CCC); }
+  .ap-check .box svg { width: 14px; height: 14px; color: #fff; }
+  /* alert banner */
+  .ap-alert { width: 100%; display: flex; gap: 12px; padding: 14px 16px; border-radius: 8px; font-family: var(--ds-font); align-items: flex-start; }
+  .ap-alert .ico { width: 22px; height: 22px; border-radius: 999px; display: grid; place-items: center; flex: none; color: #fff; font-weight: 700; font-size: 13px; }
+  .ap-alert .tx b { display: block; font-size: 14px; font-weight: 700; }
+  .ap-alert .tx p { margin: 3px 0 0; font-size: 13.5px; line-height: 1.45; }
+  .ap-alert.success { background: #EAFFF4; color: #005826; } .ap-alert.success .ico { background: #008C40; }
+  .ap-alert.error { background: #FCEBEA; color: #921411; } .ap-alert.error .ico { background: #C21B17; }
+  /* stepper */
+  .ap-stepper { display: flex; align-items: center; gap: 0; width: 100%; font-family: var(--ds-font); }
+  .ap-stepper .st { display: flex; align-items: center; gap: 9px; }
+  .ap-stepper .dot { width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
+  .ap-stepper .dot.done { background: var(--accent); color: #fff; }
+  .ap-stepper .dot.now { background: #fff; color: var(--accent); border: 2px solid var(--accent); }
+  .ap-stepper .dot.next { background: var(--grey-100,#EBEBEB); color: var(--grey-600,#888); }
+  .ap-stepper .nm { font-size: 13px; color: var(--grey-900,#34383C); }
+  .ap-stepper .ln { flex: 1; height: 2px; background: var(--grey-200,#DCDCDC); margin: 0 12px; min-width: 16px; }
+  .ap-stepper .ln.on { background: var(--accent); }
+
+  /* token / principles list reused */
+  .cs-tokens { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 50px; }
+  .cs-token { display: flex; gap: 16px; align-items: flex-start; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+  .cs-token .n { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--accent); flex: none; width: 30px; }
+  .cs-token .t { font-weight: 600; font-size: 15.5px; }
+  .cs-token .d { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  @media (max-width: 720px) { .cs-tokens { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-cs="aperta">
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="index.html#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#system">System</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="cs-backbar reveal">
+      <a href="index.html#work" class="cs-back"><span class="arrow">←</span> Volver a proyectos</a>
+      <span class="eyebrow">Case study · Design System</span>
+    </div>
+
+    <div class="cs-hero-top reveal">
+      <span class="cs-pill solid">Design System</span>
+      <span class="cs-pill">Variables</span>
+      <span class="cs-pill">Foundations</span>
+      <span class="cs-pill">Componentes</span>
+    </div>
+
+    <h1 class="cs-title reveal">Aperta <span class="ds">DS</span></h1>
+    <p class="cs-tagline reveal d1">El design system de <b>AFP PlanVital</b>: estructuré las <b>variables</b> del documento, levanté los <b>foundations</b> y construí los <b>componentes</b> que dan consistencia a sus productos digitales.</p>
+
+    <div class="cs-credit reveal d1">
+      <span class="by"><span class="dot"></span> Diseño de sistema <b>Cristián Acuña</b></span>
+      <span class="by"><span class="dot"></span> Cliente <b>AFP PlanVital</b></span>
+      <span class="by"><span class="dot"></span> Herramienta <b>Figma · Variables</b></span>
+    </div>
+
+    <div class="cs-meta reveal d1">
+      <div class="m"><div class="k">Rol</div><div class="v">Diseñador de DS<small>Variables, foundations y componentes</small></div></div>
+      <div class="m"><div class="k">Producto</div><div class="v">Aperta DS<small>Sistema de AFP PlanVital</small></div></div>
+      <div class="m"><div class="k">Escala</div><div class="v">900 variables<small>262 familias de componentes</small></div></div>
+      <div class="m"><div class="k">Foco</div><div class="v">Tokens<small>Arquitectura de 3 niveles</small></div></div>
+    </div>
+
+    <!-- living system cover -->
+    <div class="sys-cover reveal d1">
+      <div class="sys-cover-top">
+        <div class="sys-cover-brand">
+          <span class="kicker">AFP PlanVital · Design System</span>
+          <div class="word">Aperta<small>Una sola fuente de verdad para color, tipografía, espaciado y componentes.</small></div>
+          <div class="ramp">
+            <i style="background:#F9E8E8"></i><i style="background:#ECB8B7"></i><i style="background:#DE7C7A"></i><i style="background:#D04644"></i><i style="background:#C21B17"></i><i style="background:#AF1815"></i><i style="background:#9B1612"></i><i style="background:#74100E"></i>
+          </div>
+        </div>
+        <div class="sys-cover-spec">
+          <div class="spec-row"><span class="lab">Marca</span><span class="val" style="color:#C21B17;font-size:22px">primary / 500</span></div>
+          <div class="spec-row"><span class="lab">Display</span><span class="val" style="font-size:34px">Aa 32 / 64</span></div>
+          <div class="spec-row"><span class="lab">Body</span><span class="val" style="font-size:18px">Roboto · 14 / 16 / 18</span></div>
+          <div class="spec-row"><span class="lab">Radio</span><span class="val" style="font-size:18px">2 · 4 · 8 · 12 · 16</span></div>
+          <div class="spec-row"><span class="lab">Grid</span><span class="val" style="font-size:18px">base 4 · escala Unidades</span></div>
+        </div>
+      </div>
+      <div class="sys-cover-strip">
+        <button class="ap-btn primary">Continuar</button>
+        <button class="ap-btn secondary">Volver</button>
+        <span class="ap-badge success"><i></i> Activo</span>
+        <span class="ap-badge error"><i></i> Pendiente</span>
+        <span class="ap-chip sel">Fondo A</span>
+        <span class="ap-chip">Fondo C</span>
+        <span class="ap-switch"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-cols">
+      <div class="reveal">
+        <span class="eyebrow">El contexto</span>
+        <h2 class="lead-h">Una AFP con muchos productos y un sistema que ordenarlos.</h2>
+      </div>
+      <div class="cs-rich reveal d1">
+        <p>AFP PlanVital administra fondos de pensiones en Chile, con un ecosistema digital amplio: sitio público, sucursal en línea, simuladores, onboarding y flujos sensibles como APV, traspasos y cambio de fondos. Cada superficie había crecido con sus propios estilos y componentes.</p>
+        <p class="muted">Mi trabajo en <strong>Aperta DS</strong> fue estructurar ese lenguaje desde la base: definir las <strong>variables</strong> del documento Figma, levantar los <strong>foundations</strong> y construir los <strong>componentes</strong> que hoy sostienen la consistencia de toda la plataforma.</p>
+      </div>
+    </div>
+
+    <div class="cs-cols" style="margin-top: 56px;">
+      <div class="reveal">
+        <span class="eyebrow">Objetivos</span>
+        <h2 class="lead-h">Lo que el sistema tenía que resolver.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="cs-goals">
+          <div class="cs-goal"><div class="n">01</div><div><div class="t">Variables como base</div><div class="d">Migrar estilos sueltos a variables de Figma: una sola fuente de verdad, versionable y temática.</div></div></div>
+          <div class="cs-goal"><div class="n">02</div><div><div class="t">Foundations claros</div><div class="d">Color, tipografía, espaciado, radios y grilla documentados y consistentes.</div></div></div>
+          <div class="cs-goal"><div class="n">03</div><div><div class="t">Componentes reutilizables</div><div class="d">Familias con variantes y estados que cubren cliente, sucursal y herramientas internas.</div></div></div>
+          <div class="cs-goal"><div class="n">04</div><div><div class="t">Listo para escalar</div><div class="d">Arquitectura de tokens en niveles que permite temas y crecimiento sin romper lo existente.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VARIABLES ============================ -->
+<section class="section" style="background: var(--paper-2); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">Variables del documento</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">900 variables,<br />7 colecciones.</h2>
+      <p class="lead" style="margin: 18px auto 0;">El corazón de Aperta DS son sus variables de Figma. Las organicé en colecciones con una arquitectura de tres niveles: del valor crudo al uso final.</p>
+    </div>
+
+    <!-- collections -->
+    <div class="coll-grid">
+      <div class="coll reveal"><span class="tier">Nivel 1</span><div class="num">155</div><div class="nm">Primitive</div><div class="meta">115 color · 40 float</div></div>
+      <div class="coll reveal d1"><span class="tier">Nivel 2</span><div class="num">109</div><div class="nm">Semantic</div><div class="meta">109 color</div></div>
+      <div class="coll reveal d2"><span class="tier">Nivel 3</span><div class="num">31</div><div class="nm">Context</div><div class="meta">31 color</div></div>
+      <div class="coll reveal"><span class="tier">Escala</span><div class="num">27</div><div class="nm">Unidades</div><div class="meta">27 float · espaciado</div></div>
+      <div class="coll reveal d1"><span class="tier">Escala</span><div class="num">21</div><div class="nm">Type scale</div><div class="meta">21 float · tamaños</div></div>
+      <div class="coll reveal d2"><span class="tier">Texto</span><div class="num">23</div><div class="nm">Typography</div><div class="meta">deprecado · 19 float</div></div>
+      <div class="coll reveal"><span class="tier">Base</span><div class="num">534</div><div class="nm">Ungrouped</div><div class="meta">355 color · 148 float · 31 string</div></div>
+      <div class="coll reveal d1" style="background:var(--accent);border-color:var(--accent);color:#fff"><div class="num" style="color:#fff">900</div><div class="nm">Total de variables</div><div class="meta" style="color:rgba(255,255,255,.82)">en 7 colecciones</div></div>
+    </div>
+
+    <!-- 3-tier architecture -->
+    <div class="reveal d1" style="margin-top: 64px;">
+      <span class="eyebrow">Arquitectura de tokens</span>
+      <h3 class="lead-h" style="margin-top:8px">Del valor crudo al uso en pantalla.</h3>
+    </div>
+    <div class="tier-flow reveal d1">
+      <div class="tier-step">
+        <div class="t"><span>1</span> Primitive</div>
+        <div class="d">El valor literal, sin significado. <code>red/500 = #C21B17</code>. La paleta completa, escalas y floats.</div>
+      </div>
+      <div class="tier-arrow">→</div>
+      <div class="tier-step">
+        <div class="t"><span>2</span> Semantic</div>
+        <div class="d">El rol en el sistema. <code>brand/primary</code>, <code>success/primary</code> — apuntan a un primitive.</div>
+      </div>
+      <div class="tier-arrow">→</div>
+      <div class="tier-step">
+        <div class="t"><span>3</span> Context</div>
+        <div class="d">El uso final en componentes. <code>text/brand</code>, <code>bg/surface-primary</code>, <code>border/brand</code>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOUNDATIONS ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Foundations</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Color, tipografía,<br />espacio y forma.</h2>
+      <p class="lead" style="margin-top: 18px;">Cada decisión visual nace de un token. Estos son los foundations de Aperta DS, con sus valores reales extraídos del documento.</p>
+    </div>
+
+    <!-- COLOR -->
+    <div class="reveal d1" style="margin-top: 50px;">
+      <span class="eyebrow">Color</span>
+      <h3 class="lead-h" style="margin-top:8px">Rojo de marca, neutros y semánticos.</h3>
+    </div>
+
+    <div class="ramp-block reveal d1">
+      <h4>Primary / Red <small>primary/500 — el rojo de AFP PlanVital</small></h4>
+      <div class="ramp-strip">
+        <div class="swatch-c" style="background:#F9E8E8;color:#74100E"><span class="k">50</span><span class="h">#F9E8E8</span></div>
+        <div class="swatch-c" style="background:#F6DDDC;color:#74100E"><span class="k">100</span><span class="h">#F6DDDC</span></div>
+        <div class="swatch-c" style="background:#ECB8B7;color:#74100E"><span class="k">200</span><span class="h">#ECB8B7</span></div>
+        <div class="swatch-c" style="background:#DE7C7A;color:#fff"><span class="k">300</span><span class="h">#DE7C7A</span></div>
+        <div class="swatch-c" style="background:#D04644;color:#fff"><span class="k">400</span><span class="h">#D04644</span></div>
+        <div class="swatch-c" style="background:#C21B17;color:#fff"><span class="k">500</span><span class="h">#C21B17</span></div>
+        <div class="swatch-c" style="background:#AF1815;color:#fff"><span class="k">600</span><span class="h">#AF1815</span></div>
+        <div class="swatch-c" style="background:#9B1612;color:#fff"><span class="k">700</span><span class="h">#9B1612</span></div>
+        <div class="swatch-c" style="background:#921411;color:#fff"><span class="k">800</span><span class="h">#921411</span></div>
+        <div class="swatch-c" style="background:#74100E;color:#fff"><span class="k">850</span><span class="h">#74100E</span></div>
+      </div>
+    </div>
+
+    <div class="ramp-block reveal d1">
+      <h4>Grey <small>neutros · texto, bordes y superficies</small></h4>
+      <div class="ramp-strip">
+        <div class="swatch-c" style="background:#FAFAFA;color:#34383C"><span class="k">50</span><span class="h">#FAFAFA</span></div>
+        <div class="swatch-c" style="background:#EBEBEB;color:#34383C"><span class="k">100</span><span class="h">#EBEBEB</span></div>
+        <div class="swatch-c" style="background:#DCDCDC;color:#34383C"><span class="k">200</span><span class="h">#DCDCDC</span></div>
+        <div class="swatch-c" style="background:#CCCCCC;color:#34383C"><span class="k">300</span><span class="h">#CCCCCC</span></div>
+        <div class="swatch-c" style="background:#B0B2B3;color:#34383C"><span class="k">400</span><span class="h">#B0B2B3</span></div>
+        <div class="swatch-c" style="background:#A0A0A0;color:#fff"><span class="k">500</span><span class="h">#A0A0A0</span></div>
+        <div class="swatch-c" style="background:#888888;color:#fff"><span class="k">600</span><span class="h">#888888</span></div>
+        <div class="swatch-c" style="background:#707070;color:#fff"><span class="k">700</span><span class="h">#707070</span></div>
+        <div class="swatch-c" style="background:#5C5D5F;color:#fff"><span class="k">800</span><span class="h">#5C5D5F</span></div>
+        <div class="swatch-c" style="background:#20252B;color:#fff"><span class="k">950</span><span class="h">#20252B</span></div>
+      </div>
+    </div>
+
+    <div class="ramp-block reveal d1">
+      <h4>Semánticos <small>feedback · éxito, advertencia, error e info</small></h4>
+      <div class="ramp-strip semantic">
+        <div class="swatch-c" style="background:#008C40;color:#fff"><span class="k">Success</span><span class="h">green/500 · #008C40</span></div>
+        <div class="swatch-c" style="background:#FFC300;color:#5A4500"><span class="k">Warning</span><span class="h">yellow/500 · #FFC300</span></div>
+        <div class="swatch-c" style="background:#D25130;color:#fff"><span class="k">Error</span><span class="h">tomato/60 · #D25130</span></div>
+        <div class="swatch-c" style="background:#0091FF;color:#fff"><span class="k">Info</span><span class="h">blue/60 · #0091FF</span></div>
+      </div>
+    </div>
+
+    <!-- TYPOGRAPHY -->
+    <div class="reveal" style="margin-top: 64px;">
+      <span class="eyebrow">Tipografía</span>
+      <h3 class="lead-h" style="margin-top:8px">Roboto, en una escala de tipos.</h3>
+      <p class="lead" style="margin-top: 12px;">La colección <b>Type scale</b> define cada tamaño como variable — de overline a display.</p>
+    </div>
+    <div class="type-scale reveal d1">
+      <div class="type-row"><div class="tk"><b>display</b>font-size/display</div><div class="sample" style="font-size:32px;font-weight:700">Tu pensión, clara</div><div class="px">32 px</div></div>
+      <div class="type-row"><div class="tk"><b>title-l</b>font-size/title-l</div><div class="sample" style="font-size:26px;font-weight:700">Cambio de fondos</div><div class="px">26 px</div></div>
+      <div class="type-row"><div class="tk"><b>title-m</b>font-size/title-m</div><div class="sample" style="font-size:20px;font-weight:500">Resumen de tu cuenta</div><div class="px">20 px</div></div>
+      <div class="type-row"><div class="tk"><b>title-s</b>font-size/title-s</div><div class="sample" style="font-size:18px;font-weight:500">Ahorro previsional voluntario</div><div class="px">18 px</div></div>
+      <div class="type-row"><div class="tk"><b>body-l</b>font-size/body-l</div><div class="sample" style="font-size:18px;font-weight:400">Revisa el detalle de tus cotizaciones</div><div class="px">18 px</div></div>
+      <div class="type-row"><div class="tk"><b>body-m</b>font-size/body-m</div><div class="sample" style="font-size:16px;font-weight:400">Texto base para contenido y formularios</div><div class="px">16 px</div></div>
+      <div class="type-row"><div class="tk"><b>body-s</b>font-size/body-s</div><div class="sample" style="font-size:14px;font-weight:400">Texto secundario y de apoyo</div><div class="px">14 px</div></div>
+      <div class="type-row"><div class="tk"><b>caption</b>font-size/caption</div><div class="sample" style="font-size:12px;font-weight:400;color:var(--muted)">Notas, etiquetas y metadatos</div><div class="px">12 px</div></div>
+      <div class="type-row"><div class="tk"><b>overline</b>font-size/overline</div><div class="sample" style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">SECCIÓN</div><div class="px">12 px</div></div>
+    </div>
+
+    <!-- SPACING + RADIUS -->
+    <div class="cs-cols" style="margin-top: 64px; align-items: start;">
+      <div>
+        <div class="reveal">
+          <span class="eyebrow">Espaciado</span>
+          <h3 class="lead-h" style="margin-top:8px">Una escala base 4.</h3>
+          <p class="lead" style="margin-top: 12px;">La colección <b>Unidades</b> ordena el ritmo de todo el sistema.</p>
+        </div>
+        <div class="space-list reveal d1">
+          <div class="space-row"><span class="nm"><b>xxs</b> / xx-sm</span><span class="bar" style="width:4px"></span><span class="px">4</span></div>
+          <div class="space-row"><span class="nm"><b>xs</b> / x-sm</span><span class="bar" style="width:8px"></span><span class="px">8</span></div>
+          <div class="space-row"><span class="nm"><b>sm</b> / s</span><span class="bar" style="width:12px"></span><span class="px">12</span></div>
+          <div class="space-row"><span class="nm"><b>md</b> / m</span><span class="bar" style="width:16px"></span><span class="px">16</span></div>
+          <div class="space-row"><span class="nm"><b>big</b></span><span class="bar" style="width:20px"></span><span class="px">20</span></div>
+          <div class="space-row"><span class="nm"><b>x-big</b></span><span class="bar" style="width:24px"></span><span class="px">24</span></div>
+          <div class="space-row"><span class="nm"><b>xxx-big</b></span><span class="bar" style="width:32px"></span><span class="px">32</span></div>
+          <div class="space-row"><span class="nm"><b>lg</b></span><span class="bar" style="width:40px"></span><span class="px">40</span></div>
+          <div class="space-row"><span class="nm"><b>x-lg</b></span><span class="bar" style="width:48px"></span><span class="px">48</span></div>
+          <div class="space-row"><span class="nm"><b>xx-lg</b></span><span class="bar" style="width:64px"></span><span class="px">64</span></div>
+          <div class="space-row"><span class="nm"><b>huge</b></span><span class="bar" style="width:96px"></span><span class="px">96</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="reveal">
+          <span class="eyebrow">Radios</span>
+          <h3 class="lead-h" style="margin-top:8px">De 2 px al pill.</h3>
+          <p class="lead" style="margin-top: 12px;">Corner radius como variables — coherentes en botones, tarjetas y modales.</p>
+        </div>
+        <div class="radius-grid reveal d1">
+          <div class="radius-cell"><div class="box" style="border-radius:2px 2px 0 0"></div><div class="lab"><b>xs</b><span>2</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:4px 4px 0 0"></div><div class="lab"><b>s</b><span>4</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:8px 8px 0 0"></div><div class="lab"><b>m</b><span>8</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:12px 12px 0 0"></div><div class="lab"><b>l</b><span>12</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:16px 16px 0 0"></div><div class="lab"><b>xl</b><span>16</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:20px 20px 0 0"></div><div class="lab"><b>xxl</b><span>20</span></div></div>
+        </div>
+        <div class="cs-tokens" style="grid-template-columns:1fr;margin-top:22px">
+          <div class="cs-token reveal"><div class="n">▦</div><div><div class="t">Grilla y layout</div><div class="d">Columnas y breakpoints documentados para desktop, tablet y móvil.</div></div></div>
+          <div class="cs-token reveal d1"><div class="n">⬓</div><div><div class="t">Sombras</div><div class="d">Elevación en tokens, del card sutil al modal flotante.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMPONENTS ============================ -->
+<section class="section" style="background: var(--paper-2); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">Componentes</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">262 familias,<br />un mismo lenguaje.</h2>
+      <p class="lead" style="margin: 18px auto 0;">Cada componente se construyó sobre los tokens: cambia una variable y todo el sistema responde. Una muestra de las familias del documento.</p>
+    </div>
+
+    <div class="comp-grid">
+      <!-- Buttons -->
+      <div class="comp-card reveal">
+        <div class="head"><b>Button</b><span>240 variantes · tipo · estado · tamaño</span></div>
+        <div class="stage">
+          <button class="ap-btn primary">Primario</button>
+          <button class="ap-btn secondary">Secundario</button>
+          <button class="ap-btn tertiary">Terciario</button>
+          <button class="ap-btn disabled">Deshabilitado</button>
+        </div>
+      </div>
+      <!-- Badges -->
+      <div class="comp-card reveal d1">
+        <div class="head"><b>Badges</b><span>estados de feedback</span></div>
+        <div class="stage">
+          <span class="ap-badge success"><i></i> Éxito</span>
+          <span class="ap-badge warning"><i></i> Advertencia</span>
+          <span class="ap-badge error"><i></i> Error</span>
+          <span class="ap-badge info"><i></i> Información</span>
+        </div>
+      </div>
+      <!-- Input -->
+      <div class="comp-card reveal">
+        <div class="head"><b>Input field</b><span>estados · default · focus</span></div>
+        <div class="stage" style="flex-direction:column;align-items:stretch;gap:16px">
+          <div class="ap-field"><label>RUT</label><div class="box focus"><input value="12.345.678-9" readonly /></div><div class="hint">Foco con anillo brand subtle.</div></div>
+          <div class="ap-field"><label>Correo</label><div class="box"><input value="nombre@correo.cl" readonly /></div></div>
+        </div>
+      </div>
+      <!-- Chips -->
+      <div class="comp-card reveal d1">
+        <div class="head"><b>Chip</b><span>selección de fondos</span></div>
+        <div class="stage">
+          <span class="ap-chip sel">Fondo A</span>
+          <span class="ap-chip">Fondo B</span>
+          <span class="ap-chip">Fondo C</span>
+          <span class="ap-chip">Fondo D</span>
+          <span class="ap-chip">Fondo E</span>
+        </div>
+      </div>
+      <!-- Alert -->
+      <div class="comp-card reveal">
+        <div class="head"><b>Alert banner</b><span>mensajes del sistema</span></div>
+        <div class="stage" style="flex-direction:column;align-items:stretch;gap:12px">
+          <div class="ap-alert success"><div class="ico">✓</div><div class="tx"><b>Cambio realizado</b><p>Tu solicitud de cambio de fondo fue ingresada.</p></div></div>
+          <div class="ap-alert error"><div class="ico">!</div><div class="tx"><b>Revisa los datos</b><p>El RUT ingresado no es válido.</p></div></div>
+        </div>
+      </div>
+      <!-- Controls + Stepper -->
+      <div class="comp-card reveal d1">
+        <div class="head"><b>Switch · Checkbox · Stepper</b><span>controles y progreso</span></div>
+        <div class="stage" style="flex-direction:column;align-items:stretch;gap:20px">
+          <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+            <span class="ap-switch"></span>
+            <span class="ap-switch off"></span>
+            <span class="ap-check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></span> Acepto los términos</span>
+          </div>
+          <div class="ap-stepper">
+            <div class="st"><span class="dot done">✓</span><span class="nm">Datos</span></div>
+            <span class="ln on"></span>
+            <div class="st"><span class="dot now">2</span><span class="nm">Fondo</span></div>
+            <span class="ln"></span>
+            <div class="st"><span class="dot next">3</span><span class="nm">Confirmar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-tokens">
+      <div class="cs-token reveal"><div class="n">◇</div><div><div class="t">Variantes y estados</div><div class="d">Cada familia con tipo, tamaño y estados (default, hover, active, disabled) como propiedades.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">⌘</div><div><div class="t">Set de iconos</div><div class="d">~58 glifos propios, dimensionados a los slots de botones e inputs.</div></div></div>
+      <div class="cs-token reveal"><div class="n">↺</div><div><div class="t">Token-driven</div><div class="d">Cambiar una variable propaga el cambio a cada componente que la consume.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">⛬</div><div><div class="t">Cliente + interno</div><div class="d">La misma base sirve a sucursal en línea, simuladores y herramientas internas.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OUTCOME ============================ -->
+<section class="section cs-outcome">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="cs-out-h">Un sistema de tokens y componentes que hace que cada producto se sienta AFP PlanVital.</h2>
+    </div>
+    <div class="cs-out-stats reveal d1">
+      <div class="s"><div class="n"><span class="accent">900</span></div><div class="l">Variables organizadas en 7 colecciones</div></div>
+      <div class="s"><div class="n">262</div><div class="l">Familias de componentes con variantes y estados</div></div>
+      <div class="s"><div class="n">3</div><div class="l">Niveles de tokens: primitive · semantic · context</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-next reveal">
+      <div>
+        <div class="lbl">Siguiente proyecto</div>
+        <div class="nm">BICE VIDA →</div>
+      </div>
+      <a href="bice-vida.html" class="btn btn--ghost go">Ver caso BICE VIDA <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <a href="index.html#contact" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
+      <span>Portafolio © 2025 · Santiago de Chile</span>
+      <a href="index.html#home">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+    var burger = document.getElementById("burger");
+    var navlinks = document.getElementById("navlinks");
+    burger.addEventListener("click", function () { navlinks.classList.toggle("open"); });
+
+    var reveals = document.querySelectorAll(".reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  })();
+</script>
+</body>
+</html>
