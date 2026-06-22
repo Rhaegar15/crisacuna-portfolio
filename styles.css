@@ -378,9 +378,9 @@ header.nav.scrolled { border-color: var(--line); }
 .quote-by .nm { font-weight: 700; font-family: var(--font-display); font-size: 20px; }
 .quote-by .rl { color: var(--muted); font-size: 13px; }
 .quote-photo {
-  width: 230px; height: 230px; object-fit: cover;
+  width: 230px; height: 230px;
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  background: var(--paper-2);
+  background: var(--accent);
 }
 
 /* ============================================================
