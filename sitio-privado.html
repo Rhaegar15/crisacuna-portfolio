@@ -36,9 +36,18 @@
   .bw-bar .dots i { width: 12px; height: 12px; border-radius: 999px; background: #D6D8DB; }
   .bw-bar .dots i:nth-child(1){ background:#FF5F57; } .bw-bar .dots i:nth-child(2){ background:#FEBC2E; } .bw-bar .dots i:nth-child(3){ background:#28C840; }
   .bw-bar .url { flex: 1; max-width: 360px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 7px; padding: 5px 14px; font-family: "Inter"; font-size: 12.5px; color: var(--muted); text-align: center; }
-  .bw-scroll { max-height: 660px; overflow: auto; background: #F4F5F6; }
+  .bw-scroll { max-height: 660px; overflow-y: auto; overflow-x: hidden; background: #fafafa; }
   .bw-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
   .bw-scroll::-webkit-scrollbar-thumb { background: #CFD2D6; border-radius: 999px; border: 2px solid #F4F5F6; }
+
+  /* ===== live screen with fixed navbar + sidebar (Cuenta Obligatoria) ===== */
+  .pv { display: flex; align-items: flex-start; width: 100%; background: #fafafa; }
+  .pv-side { position: sticky; top: 0; z-index: 2; flex: 0 0 24.306%; height: 660px; overflow: hidden; background: #fff; align-self: flex-start; }
+  .pv-side img { display: block; width: 100%; height: auto; }
+  .pv-main { flex: 1 1 auto; min-width: 0; }
+  .pv-top { position: sticky; top: 0; z-index: 3; background: #fff; }
+  .pv-top img { display: block; width: 100%; height: auto; }
+  .pv-body { display: block; width: 100%; height: auto; }
 
   /* ===== recreated dashboard (Aperta DS) ===== */
   .dash { font-family: var(--ds-font); color: var(--grey-900,#34383C); display: grid; grid-template-columns: 248px 1fr; min-width: 940px; }
@@ -199,7 +208,13 @@
         <div class="url">mi.planvital.cl · Cuenta Obligatoria</div>
       </div>
       <div class="bw-scroll">
-        <img src="assets/planvital-cuenta-obligatoria.png" alt="Sitio Privado AFP PlanVital — pantalla Cuenta Obligatoria" style="display:block;width:100%;height:auto" loading="lazy" />
+        <div class="pv">
+          <aside class="pv-side"><img src="assets/pv-co-sidebar.png" alt="Barra lateral — navegación del sitio privado" /></aside>
+          <div class="pv-main">
+            <div class="pv-top"><img src="assets/pv-co-navbar.png" alt="Barra superior — usuario y accesos" /></div>
+            <img class="pv-body" src="assets/pv-co-body.png" alt="Cuenta Obligatoria — detalle de cuenta, ahorros y movimientos" loading="lazy" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
