@@ -133,6 +133,10 @@
   .mob-top .acts { display: flex; gap: 8px; }
   .mob-top .acts i { width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid var(--accent); color: var(--accent); display: grid; place-items: center; }
   .mob-body { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+  /* ===== live mobile screen image with fixed navbar (Cuenta Obligatoria) ===== */
+  .mob-top-img { position: sticky; top: 0; z-index: 2; line-height: 0; background: #fff; }
+  .mob-top-img img { display: block; width: 100%; height: auto; }
+  .mob-body-img { display: block; width: 100%; height: auto; }
   .mob-hello h3 { margin: 0; font-size: 26px; font-weight: 700; color: var(--grey-500,#A0A0A0); }
   .mob-hello p { margin: 4px 0 0; font-size: 14px; color: var(--grey-400,#B0B2B3); }
   .mob-card { background: #fff; border: 1px solid #EBEBEB; border-radius: 12px; padding: 16px; }
@@ -274,47 +278,8 @@
         </div>
         <div class="cs-phone">
           <div class="cs-phone-view" id="phoneScroll">
-            <div class="mob-top">
-              <div class="mark">PlanVital<small>AFP · GENERALI</small></div>
-              <div class="acts"><i><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></i><i><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></i></div>
-            </div>
-            <div class="mob-body">
-              <div class="mob-hello"><h3>Hola David Raúl</h3><p>Revisemos tus ahorros!</p></div>
-              <div class="mob-card">
-                <div style="font-size:13px;color:#707070">Tu total ahorrado</div>
-                <div class="mob-amt">$136.437.590</div>
-                <div class="seg" style="margin-bottom:16px"><button class="on">Todo</button><button>Obligatoria</button><button>APV</button></div>
-                <div style="font-size:14px;font-weight:700;margin-bottom:12px">Montos de tus ahorros</div>
-                <div style="display:flex;gap:14px;align-items:center">
-                  <div class="mob-donut"></div>
-                  <div class="donut-leg" style="font-size:12px">
-                    <div class="l"><b><i style="background:var(--teal-900)"></i> Obligatoria</b><span>$97.890.762</span></div>
-                    <div class="l"><b><i style="background:var(--teal-500)"></i> Cuenta 2</b><span>$24.521.957</span></div>
-                    <div class="l"><b><i style="background:var(--teal-200)"></i> APV</b><span>$14.024.871</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mob-card">
-                <div style="font-size:13px;color:#707070">Tienes pagos en exceso disponibles</div>
-                <div class="mob-amt" style="font-size:28px;text-align:right">$299.690</div>
-                <div style="text-align:right"><button class="btn-ap out">Solicítalo ahora</button></div>
-              </div>
-              <div class="mob-card" style="background:#fff">
-                <div class="side-ttl" style="font-size:14px">Comienza a ahorrar</div>
-                <p style="font-size:13px;color:#707070;margin:8px 0 14px;line-height:1.5">Mejoremos juntos tu futura pensión y accede a beneficios tributarios.</p>
-                <div style="text-align:right"><button class="btn-ap">Abre tu APV</button></div>
-              </div>
-              <div class="mob-card">
-                <div style="font-size:14px;font-weight:700;margin-bottom:10px">Valores cuota</div>
-                <div style="display:flex;flex-wrap:wrap;gap:10px 16px">
-                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#FCEBEA;color:#C21B17">A</span><b>$82.737</b></div>
-                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#FCF0E1;color:#C4763F">B</span><b>$73.064</b></div>
-                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#E6F6F2;color:#1F8E80">C</span><b>$139.320</b></div>
-                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#E7F0FA;color:#2B6CB0">D</span><b>$53.217</b></div>
-                  <div class="fondo" style="font-size:13px"><span class="tag" style="background:#EDEFF7;color:#6370A0">E</span><b>$106.417</b></div>
-                </div>
-              </div>
-            </div>
+            <div class="mob-top-img"><img src="assets/pv-co-m-navbar.png" alt="Barra superior móvil — AFP PlanVital" /></div>
+            <img class="mob-body-img" src="assets/pv-co-m-body.png" alt="Cuenta Obligatoria (móvil) — detalle de cuenta, ahorros y movimientos" loading="lazy" />
           </div>
         </div>
       </div>
