@@ -315,6 +315,8 @@
 
       <div class="reveal d1">
         <form class="cform" id="cform" novalidate>
+          <input type="hidden" name="access_key" value="4fdfc4c7-1023-4137-a3c0-a029c5d5de9f" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important" />
           <div class="frow">
             <div class="field" id="f-name">
               <label for="name">Nombre <span class="req">*</span></label>
@@ -350,6 +352,7 @@
           <div class="cform-foot">
             <button type="submit" class="btn btn--accent">Enviar mensaje <span class="arrow">↗</span></button>
             <span class="note">Te respondo dentro de 24 horas.</span>
+            <span class="cform-error" id="cform-error" role="alert" aria-live="polite" style="color:#C21B17;font-size:13px;display:block;width:100%;margin-top:4px"></span>
           </div>
         </form>
         <div class="form-success" id="form-success">

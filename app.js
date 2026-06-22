@@ -93,6 +93,8 @@
       });
     });
 
+    var errEl = document.getElementById("cform-error");
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var bad = false;
@@ -104,10 +106,35 @@
         if (firstBad) firstBad.focus();
         return;
       }
-      document.getElementById("success-name").textContent =
-        nameI.value.trim().split(" ")[0] + ", Cristián";
-      form.style.display = "none";
-      success.classList.add("show");
+
+      var btn = form.querySelector('button[type="submit"]');
+      var btnHTML = btn.innerHTML;
+      if (errEl) errEl.textContent = "";
+      btn.disabled = true;
+      btn.innerHTML = "Enviando…";
+
+      var data = new FormData(form);
+      var chips = [].slice.call(document.querySelectorAll('#mind button[aria-pressed="true"]'))
+        .map(function (b) { return b.textContent.trim(); });
+      data.append("En mente", chips.join(", ") || "—");
+      data.append("subject", "Nuevo mensaje desde crisacuna.cl — " + nameI.value.trim());
+      data.append("from_name", "Portafolio crisacuna.cl");
+
+      fetch("https://api.web3forms.com/submit", { method: "POST", body: data })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res.success) throw new Error(res.message || "error");
+          document.getElementById("success-name").textContent =
+            nameI.value.trim().split(" ")[0] + ", Cristián";
+          form.style.display = "none";
+          success.classList.add("show");
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.innerHTML = btnHTML;
+          if (errEl) errEl.textContent =
+            "No se pudo enviar. Inténtalo de nuevo o escríbeme a acuna.cristian15@gmail.com.";
+        });
     });
   }
 })();
