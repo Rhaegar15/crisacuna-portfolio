@@ -249,8 +249,8 @@ header.nav.scrolled { border-color: var(--line); }
   padding: 22px var(--pad); border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
-.strip a { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); }
-.strip a svg { width: 17px; height: 17px; }
+.strip a, .strip span:not(.sep) { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.strip a svg, .strip span:not(.sep) svg { width: 17px; height: 17px; }
 .strip a:hover { color: var(--accent); }
 .strip .sep { width: 1px; height: 18px; background: var(--line); }
 
