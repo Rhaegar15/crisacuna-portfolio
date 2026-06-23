@@ -1,0 +1,2339 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --accent-brand-active: var(--red-700); /* @kind color */
+  --accent-brand-disabled: var(--red-100); /* @kind color */
+  --accent-brand-hover: var(--red-600); /* @kind color */
+  --accent-brand-subtle: var(--red-200); /* @kind color */
+  --accent-brand: var(--red-500); /* @kind color */
+  --background-white: var(--grey-1-white); /* @kind color */
+  --base-disabled: var(--grey-old-30); /* @kind color */
+  --base-main: var(--grey-old-70); /* @kind color */
+  --base-secondary: var(--grey-old-90); /* @kind color */
+  --base-subtle: var(--grey-old-10); /* @kind color */
+  --base-terciary: var(--grey-old-60); /* @kind color */
+  --baseline-surface-colors-on-surface-variant: var(--baseline-surface-colors-theme-on-surface-variant); /* @kind color */
+  --baseline-surface-colors-theme-dark-audience-on-surface-variant: rgb(196,199,197); /* @kind color */
+  --baseline-surface-colors-theme-light-audience-on-surface-variant: rgb(68,71,70); /* @kind color */
+  --baseline-surface-colors-theme-on-surface-variant: var(--baseline-surface-colors-theme-light-audience-on-surface-variant); /* @kind color */
+  --bg-disabled: var(--grey-300); /* @kind color */
+  --bg-inverse: var(--grey-950); /* @kind color */
+  --bg-overlay: rgba(32,37,43,0.6); /* @kind color */
+  --bg-page: var(--grey-50); /* @kind color */
+  --bg-selected: var(--sage-500); /* @kind color */
+  --bg-subtle: var(--grey-100); /* @kind color */
+  --bg-surface-base-disabled: var(--base-disabled); /* @kind color */
+  --bg-surface-base-main: var(--base-main); /* @kind color */
+  --bg-surface-base-secundary: var(--base-secondary); /* @kind color */
+  --bg-surface-base-subtle: var(--base-subtle); /* @kind color */
+  --bg-surface-base-terciary: var(--base-terciary); /* @kind color */
+  --bg-surface-primary-light: var(--brand-subtle); /* @kind color */
+  --bg-surface-primary: var(--brand-primary); /* @kind color */
+  --bg-surface-white-80: var(--utility-white-90); /* @kind color */
+  --bg-surface-white: var(--utility-white); /* @kind color */
+  --bg-white: var(--common-0); /* @kind color */
+  --blue-10: rgb(224,241,255); /* @kind color */
+  --blue-20: rgb(205,230,254); /* @kind color */
+  --blue-40: rgb(151,199,242); /* @kind color */
+  --blue-60: rgb(0,145,255); /* @kind color */
+  --blue-90: rgb(0,37,77); /* @kind color */
+  --border-base-disabled: var(--base-disabled); /* @kind color */
+  --border-base-hover: var(--base-secondary); /* @kind color */
+  --border-base-primary: var(--base-terciary); /* @kind color */
+  --border-base-subtle: var(--base-subtle); /* @kind color */
+  --border-base-terciary: var(--base-main); /* @kind color */
+  --border-brand-2: var(--red-500); /* @kind color */
+  --border-brand-primary: var(--brand-primary); /* @kind color */
+  --border-brand: var(--red-400); /* @kind color */
+  --border-default-2: var(--grey-300); /* @kind color */
+  --border-default: var(--grey-300); /* @kind color */
+  --border-disabled: var(--grey-200); /* @kind color */
+  --border-inverse: var(--grey-950); /* @kind color */
+  --border-secondary: var(--red-800); /* @kind color */
+  --border-selected: var(--sage-500); /* @kind color */
+  --border-strong-2: var(--grey-500); /* @kind color */
+  --border-strong: var(--grey-500); /* @kind color */
+  --border-subtle-2: var(--grey-100); /* @kind color */
+  --border-subtle: var(--grey-100); /* @kind color */
+  --brand-primary-active: var(--red-old-80); /* @kind color */
+  --brand-primary: var(--red-old-60); /* @kind color */
+  --brand-secondary-active: var(--red-old-95); /* @kind color */
+  --brand-secondary: var(--red-old-90); /* @kind color */
+  --brand-subtle: var(--red-old-10); /* @kind color */
+  --brand-terciary-active: var(--red-old-40); /* @kind color */
+  --brand-terciary: var(--red-old-20); /* @kind color */
+  --common-0: rgb(255,255,255); /* @kind color */
+  --common-1000: rgb(0,0,0); /* @kind color */
+  --corner-extra-small: 4;
+  --corner-large-2: 16;
+  --corner-large: 16;
+  --corner-medium: 12;
+  --corner-radius-3xl-2: 28;
+  --corner-radius-3xl: 28;
+  --corner-radius-4xl-2: 104;
+  --corner-radius-4xl: 104;
+  --corner-radius-full-2: 999;
+  --corner-radius-full: 999;
+  --corner-radius-l-2: 12;
+  --corner-radius-l-3: 12;
+  --corner-radius-l: 12;
+  --corner-radius-m-2: 8;
+  --corner-radius-m: 8;
+  --corner-radius-s-2: 4;
+  --corner-radius-s-3: 4;
+  --corner-radius-s: 4;
+  --corner-radius-xl-2: 16;
+  --corner-radius-xl: 16;
+  --corner-radius-xs-2: 2;
+  --corner-radius-xs: 2;
+  --corner-radius-xxl-2: 20;
+  --corner-radius-xxl: 20;
+  --corner-small: 8;
+  --dark-blue-100: rgb(217,229,233); /* @kind color */
+  --dark-blue-500: rgb(0,82,110); /* @kind color */
+  --dark-blue-50: rgb(230,238,241); /* @kind color */
+  --dark-blue-800: rgb(0,62,83); /* @kind color */
+  --dark-grey-600: rgb(58,66,89); /* @kind color */
+  --data-06-10: rgb(229,235,239); /* @kind color */
+  --data-06-20: rgb(214,231,232); /* @kind color */
+  --data-06-40: rgb(170,201,215); /* @kind color */
+  --data-06-60: rgb(129,178,199); /* @kind color */
+  --data-06-80: rgb(90,154,182); /* @kind color */
+  --data-06-95: rgb(0,121,158); /* @kind color */
+  --error-300: rgb(249,108,108); /* @kind color */
+  --error-400: rgb(243,49,58); /* @kind color */
+  --error-primary: var(--error-tomato-60); /* @kind color */
+  --error-secondary: var(--error-tomato-90); /* @kind color */
+  --error-subtle: var(--error-tomato-10); /* @kind color */
+  --error-tomato-10: rgb(253,240,238); /* @kind color */
+  --error-tomato-20: rgb(247,213,206); /* @kind color */
+  --error-tomato-40: rgb(232,169,152); /* @kind color */
+  --error-tomato-60: rgb(210,81,48); /* @kind color */
+  --error-tomato-90: rgb(117,38,18); /* @kind color */
+  --family-font-family: "Roboto";
+  --feedback-data-01: var(--light-blue-500); /* @kind color */
+  --feedback-data-02: var(--dark-blue-500); /* @kind color */
+  --feedback-data-03: var(--purple-500); /* @kind color */
+  --feedback-data-04: var(--teal-500); /* @kind color */
+  --feedback-data-05: var(--orange-500); /* @kind color */
+  --feedback-data-06: var(--tomato-500); /* @kind color */
+  --feedback-error-action: var(--granate-800); /* @kind color */
+  --feedback-error-bg: var(--granate-50); /* @kind color */
+  --feedback-error-border: var(--granate-800); /* @kind color */
+  --feedback-error-btn: var(--error-400); /* @kind color */
+  --feedback-error-icon-2: var(--granate-500); /* @kind color */
+  --feedback-error-icon: var(--error-400); /* @kind color */
+  --feedback-error-text: var(--granate-800); /* @kind color */
+  --feedback-success-action: var(--green-500); /* @kind color */
+  --feedback-success-bg-2: var(--green-50); /* @kind color */
+  --feedback-success-bg: var(--success-50); /* @kind color */
+  --feedback-success-border-2: var(--green-800); /* @kind color */
+  --feedback-success-border: var(--success-200); /* @kind color */
+  --feedback-success-icon-2: var(--green-500); /* @kind color */
+  --feedback-success-icon: var(--success-400); /* @kind color */
+  --feedback-success-text: var(--green-800); /* @kind color */
+  --feedback-warning-action: var(--yellow-500); /* @kind color */
+  --feedback-warning-bg: var(--yellow-50); /* @kind color */
+  --feedback-warning-border: var(--yellow-800); /* @kind color */
+  --feedback-warning-icon: var(--yellow-500); /* @kind color */
+  --feedback-warning-text: var(--yellow-800); /* @kind color */
+  --fondos-a-2: rgb(248,237,237); /* @kind color */
+  --fondos-a: rgb(194,27,23); /* @kind color */
+  --fondos-b: rgb(255,195,0); /* @kind color */
+  --fondos-c-2: rgb(240,246,239); /* @kind color */
+  --fondos-c: rgb(97,157,159); /* @kind color */
+  --fondos-conservador: var(--fondos-d); /* @kind color */
+  --fondos-d-2: rgb(225,242,250); /* @kind color */
+  --fondos-d: rgb(0,121,158); /* @kind color */
+  --fondos-e-2: rgb(225,232,250); /* @kind color */
+  --fondos-e: rgb(0,82,110); /* @kind color */
+  --fondos-intermedio: var(--fondos-c); /* @kind color */
+  --fondos-m-s-conservador: var(--fondos-e); /* @kind color */
+  --fondos-m-s-riesgoso: var(--fondos-a); /* @kind color */
+  --font-family-body: "Roboto";
+  --font-family-inter: "Inter";
+  --font-interface-font-size-body-2: 16;
+  --font-interface-line-height-body: 24;
+  --font-interface-line-height-caption: 16;
+  --font-line-height-2xl: 80;
+  --font-line-height-2xs: 18;
+  --font-line-height-l: 48;
+  --font-line-height-m: 40;
+  --font-line-height-s: 32;
+  --font-line-height-xl: 72;
+  --font-line-height-xs: 24;
+  --font-size-2xl: 36;
+  --font-size-2xs: 12;
+  --font-size-3xl: 40;
+  --font-size-4xl: 48;
+  --font-size-5xl: 56;
+  --font-size-6xl: 64;
+  --font-size-body-l: 18;
+  --font-size-body-m: 16;
+  --font-size-body-s: 14;
+  --font-size-caption: 12;
+  --font-size-display: 32;
+  --font-size-l: 24;
+  --font-size-m: 20;
+  --font-size-overline: 12;
+  --font-size-s: 16;
+  --font-size-title-l: 26;
+  --font-size-title-m: 20;
+  --font-size-title-s: 18;
+  --font-size-xl: 28;
+  --font-size-xs: 14;
+  --font-spacing-caption: 0.5;
+  --font-spacing-neutral: 0;
+  --font-spacing-normal: 0;
+  --font-spacing-overline: 1;
+  --font-weight-bold: "Bold";
+  --font-weight-light: "Light";
+  --font-weight-regular: "Regular";
+  --font-weight-semibold: 600;
+  --granate-300: rgb(249,124,128); /* @kind color */
+  --granate-500: rgb(243,49,58); /* @kind color */
+  --granate-50: rgb(255,240,240); /* @kind color */
+  --granate-800: rgb(160,24,32); /* @kind color */
+  --green-400: rgb(28,201,110); /* @kind color */
+  --green-500: rgb(0,140,64); /* @kind color */
+  --green-50: rgb(234,255,244); /* @kind color */
+  --green-800: rgb(0,88,38); /* @kind color */
+  --green-850: rgb(0,69,30); /* @kind color */
+  --grey-0: var(--common-0); /* @kind color */
+  --grey-1-white: rgb(255,255,255); /* @kind color */
+  --grey-100: rgb(235,235,235); /* @kind color */
+  --grey-2-500: rgb(111,112,114); /* @kind color */
+  --grey-200: rgb(220,220,220); /* @kind color */
+  --grey-300: rgb(204,204,204); /* @kind color */
+  --grey-400: rgb(176,178,179); /* @kind color */
+  --grey-500: rgb(160,160,160); /* @kind color */
+  --grey-50: rgb(250,250,250); /* @kind color */
+  --grey-600: rgb(136,136,136); /* @kind color */
+  --grey-700: rgb(112,112,112); /* @kind color */
+  --grey-800: rgb(92,93,95); /* @kind color */
+  --grey-850: rgb(72,75,78); /* @kind color */
+  --grey-900: rgb(52,56,60); /* @kind color */
+  --grey-950: rgb(32,37,43); /* @kind color */
+  --grey-dark-100: rgb(212,217,232); /* @kind color */
+  --grey-dark-200: rgb(176,184,204); /* @kind color */
+  --grey-dark-50: rgb(236,238,245); /* @kind color */
+  --grey-dark-700: rgb(44,51,71); /* @kind color */
+  --grey-dark-800: rgb(30,35,48); /* @kind color */
+  --grey-dark-850: rgb(24,28,38); /* @kind color */
+  --grey-old-10: rgb(237,237,237); /* @kind color */
+  --grey-old-30: rgb(223,223,223); /* @kind color */
+  --grey-old-40: rgb(209,209,209); /* @kind color */
+  --grey-old-50: rgb(202,202,202); /* @kind color */
+  --grey-old-60: rgb(160,160,160); /* @kind color */
+  --grey-old-70: rgb(112,112,112); /* @kind color */
+  --grey-old-90: rgb(36,36,36); /* @kind color */
+  --icon-brand: var(--red-500); /* @kind color */
+  --icon-default: var(--grey-700); /* @kind color */
+  --icon-disabled: var(--grey-500); /* @kind color */
+  --icon-inverse: var(--common-0); /* @kind color */
+  --icon-main: var(--primary-main); /* @kind color */
+  --icon-muted: var(--grey-500); /* @kind color */
+  --info-primary: var(--blue-60); /* @kind color */
+  --info-secondary: var(--blue-90); /* @kind color */
+  --info-subtle: var(--blue-10); /* @kind color */
+  --interactive-dark-bg: var(--grey-950); /* @kind color */
+  --interactive-neutral-bg-hover: var(--grey-300); /* @kind color */
+  --interactive-primary-bg-active: var(--red-700); /* @kind color */
+  --interactive-primary-bg-hover: var(--red-600); /* @kind color */
+  --interactive-primary-bg: var(--red-400); /* @kind color */
+  --light-100-14: rgba(0,0,0,0.44); /* @kind color */
+  --light-100: rgb(0,0,0); /* @kind color */
+  --light-10: rgb(255,255,255); /* @kind color */
+  --light-blue-100: rgb(217,235,240); /* @kind color */
+  --light-blue-500: rgb(0,121,158); /* @kind color */
+  --light-blue-50: rgb(230,242,245); /* @kind color */
+  --light-blue-800: rgb(0,91,119); /* @kind color */
+  --line-height-body-l: 27;
+  --line-height-body-m: 24;
+  --line-height-body-s: 21;
+  --line-height-caption: 17;
+  --line-height-display: 38;
+  --line-height-font-xs: 24;
+  --line-height-overline: 17;
+  --line-height-title-l: 31;
+  --line-height-title-m: 24;
+  --line-height-title-s: 22;
+  --negro-texto: rgb(32,35,43); /* @kind color */
+  --orange-100: rgb(255,241,231); /* @kind color */
+  --orange-500: rgb(246,163,99); /* @kind color */
+  --orange-50: rgb(255,246,238); /* @kind color */
+  --orange-800: rgb(196,118,63); /* @kind color */
+  --primary-500: rgb(194,27,23); /* @kind color */
+  --primary-main: var(--primary-500); /* @kind color */
+  --purple-100: rgb(237,239,247); /* @kind color */
+  --purple-500: rgb(132,149,204); /* @kind color */
+  --purple-50: rgb(243,244,250); /* @kind color */
+  --purple-800: rgb(99,112,153); /* @kind color */
+  --radius-01-small: var(--scale-03);
+  --radius-02-medium: var(--scale-05);
+  --red-100: rgb(246,221,220); /* @kind color */
+  --red-200: rgb(236,184,183); /* @kind color */
+  --red-300: rgb(222,124,122); /* @kind color */
+  --red-400: rgb(208,70,68); /* @kind color */
+  --red-500: rgb(194,27,23); /* @kind color */
+  --red-50: rgb(249,232,232); /* @kind color */
+  --red-600: rgb(175,24,21); /* @kind color */
+  --red-700: rgb(155,22,18); /* @kind color */
+  --red-800: rgb(146,20,17); /* @kind color */
+  --red-850: rgb(116,16,14); /* @kind color */
+  --red-dark-400: rgb(232,51,46); /* @kind color */
+  --red-old-10: rgb(235,179,178); /* @kind color */
+  --red-old-20: rgb(227,149,147); /* @kind color */
+  --red-old-40: rgb(210,88,85); /* @kind color */
+  --red-old-60: rgb(194,27,23); /* @kind color */
+  --red-old-80: rgb(151,21,18); /* @kind color */
+  --red-old-90: rgb(129,18,15); /* @kind color */
+  --red-old-95: rgb(81,11,9); /* @kind color */
+  --sage-400: rgb(54,147,121); /* @kind color */
+  --sage-500: rgb(4,120,87); /* @kind color */
+  --sage-50: rgb(205,228,221); /* @kind color */
+  --sage-800: rgb(2,69,50); /* @kind color */
+  --scale-03: 4;
+  --scale-05: 8;
+  --scale-07: 16;
+  --scale-12: 40;
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(245,239,247); /* @kind color */
+  --schemes-inverse-primary: rgb(208,188,255); /* @kind color */
+  --schemes-inverse-surface: rgb(50,47,53); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(79,55,138); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(74,68,89); /* @kind color */
+  --schemes-on-secondary-container: rgb(74,68,89); /* @kind color */
+  --schemes-on-surface-2: rgb(29,27,32); /* @kind color */
+  --schemes-on-surface-variant: rgb(73,69,79); /* @kind color */
+  --schemes-on-surface: rgb(29,27,32); /* @kind color */
+  --schemes-on-tertiary-container: rgb(99,59,72); /* @kind color */
+  --schemes-outline-variant: rgb(202,196,208); /* @kind color */
+  --schemes-outline: rgb(121,116,126); /* @kind color */
+  --schemes-primary-2: rgb(103,80,164); /* @kind color */
+  --schemes-primary-container: rgb(234,221,255); /* @kind color */
+  --schemes-primary: rgb(103,80,164); /* @kind color */
+  --schemes-secondary-container-2: rgb(232,222,248); /* @kind color */
+  --schemes-secondary-container: rgb(232,222,248); /* @kind color */
+  --schemes-secondary: rgb(98,91,113); /* @kind color */
+  --schemes-surface-container-high: rgb(236,230,240); /* @kind color */
+  --schemes-surface-container-highest: rgb(230,224,233); /* @kind color */
+  --schemes-surface-container: rgb(243,237,247); /* @kind color */
+  --schemes-surface: rgb(254,247,255); /* @kind color */
+  --schemes-tertiary-container: rgb(255,216,228); /* @kind color */
+  --semantic-error: var(--error-primary); /* @kind color */
+  --semantic-green: rgb(61,145,94); /* @kind color */
+  --semantic-info: var(--info-primary); /* @kind color */
+  --semantic-success-2: var(--semantic-green); /* @kind color */
+  --semantic-success: var(--success-primary); /* @kind color */
+  --semantic-warning: var(--warning-primary); /* @kind color */
+  --size-font-xs: 14;
+  --spacing-02: var(--scale-03);
+  --spacing-03: var(--scale-05);
+  --spacing-05: var(--scale-07);
+  --spacing-08: var(--scale-12);
+  --spacing-10xl: 40;
+  --spacing-11xl: 48;
+  --spacing-12xl: 56;
+  --spacing-13xl: 64;
+  --spacing-14xl: 80;
+  --spacing-15xl: 96;
+  --spacing-3xl: 16;
+  --spacing-4xl-huge: 200;
+  --spacing-4xl: 18;
+  --spacing-5xl: 20;
+  --spacing-6xl: 24;
+  --spacing-7xl: 28;
+  --spacing-8xl: 32;
+  --spacing-9xl: 36;
+  --spacing-big-2: 20;
+  --spacing-big: 20;
+  --spacing-huge-2: 96;
+  --spacing-huge: 96;
+  --spacing-lg-2: 40;
+  --spacing-lg: 40;
+  --spacing-m: 16;
+  --spacing-md-2: 16;
+  --spacing-md: 16;
+  --spacing-none-2: 0;
+  --spacing-none: 0;
+  --spacing-s: 12;
+  --spacing-sm-2: 12;
+  --spacing-sm: 12;
+  --spacing-x-big-2: 24;
+  --spacing-x-big: 24;
+  --spacing-x-huge-2: 128;
+  --spacing-x-huge: 128;
+  --spacing-x-lg-2: 48;
+  --spacing-x-lg: 48;
+  --spacing-x-sm-2: 8;
+  --spacing-x-sm: 8;
+  --spacing-xl: 12;
+  --spacing-xs: 8;
+  --spacing-xx-big-2: 28;
+  --spacing-xx-big: 28;
+  --spacing-xx-huge-2: 160;
+  --spacing-xx-huge: 160;
+  --spacing-xx-lg-2: 64;
+  --spacing-xx-lg: 64;
+  --spacing-xx-sm-2: 4;
+  --spacing-xx-sm-3: 4;
+  --spacing-xx-sm: 4;
+  --spacing-xxs: 4;
+  --spacing-xxx-big-2: 32;
+  --spacing-xxx-big: 32;
+  --spacing-xxx-huge-2: 192;
+  --spacing-xxx-huge: 192;
+  --spacing-xxx-lg-2: 80;
+  --spacing-xxx-lg: 80;
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(245,239,247,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(245,239,247,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(208,188,255,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(208,188,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(74,68,89,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(74,68,89,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(29,27,32,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(29,27,32,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(73,69,79,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(73,69,79,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(99,59,72,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(103,80,164,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(103,80,164,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(231,224,236,0.1); /* @kind color */
+  --state-primary-active: var(--brand-primary-active); /* @kind color */
+  --state-primary: var(--brand-primary); /* @kind color */
+  --state-secondary-active: var(--brand-secondary-active); /* @kind color */
+  --state-secondary: var(--brand-secondary); /* @kind color */
+  --state-terciary-active: var(--brand-terciary-active); /* @kind color */
+  --state-terciary: var(--brand-terciary); /* @kind color */
+  --static-body-large-font: var(--static-font-plain);
+  --static-body-large-line-height: 24;
+  --static-body-large-size: 16;
+  --static-body-large-tracking: 0.5;
+  --static-body-large-weight: var(--static-weight-regular-2);
+  --static-body-medium-font: var(--static-font-plain);
+  --static-body-medium-line-height: 20;
+  --static-body-medium-size: 14;
+  --static-body-medium-tracking: 0.25;
+  --static-body-medium-weight: var(--static-weight-regular-2);
+  --static-font-brand: "Roboto";
+  --static-font-plain: "Roboto";
+  --static-label-large-font: var(--static-font-plain);
+  --static-label-large-line-height: 20;
+  --static-label-large-size: 14;
+  --static-label-large-tracking: 0.1;
+  --static-label-large-weight: var(--static-weight-medium);
+  --static-label-medium-font: var(--static-font-plain);
+  --static-label-medium-line-height: 16;
+  --static-label-medium-size: 12;
+  --static-label-medium-tracking: 0.5;
+  --static-label-medium-weight: var(--static-weight-medium);
+  --static-title-large-font: var(--static-font-brand);
+  --static-title-large-line-height: 28;
+  --static-title-large-size: 22;
+  --static-title-large-tracking: 0;
+  --static-title-large-weight: var(--static-weight-regular);
+  --static-title-medium-font: var(--static-font-plain);
+  --static-title-medium-line-height: 24;
+  --static-title-medium-size: 16;
+  --static-title-medium-tracking: 0.15;
+  --static-title-medium-weight: var(--static-weight-medium);
+  --static-weight-medium: "Medium";
+  --static-weight-regular-2: "Regular";
+  --static-weight-regular: "Regular";
+  --success-200: rgb(157,245,196); /* @kind color */
+  --success-400: rgb(0,215,100); /* @kind color */
+  --success-50: rgb(234,255,244); /* @kind color */
+  --success-disabled: var(--success-old-40); /* @kind color */
+  --success-old-10: rgb(199,208,202); /* @kind color */
+  --success-old-20: rgb(171,195,180); /* @kind color */
+  --success-old-40: rgb(116,170,137); /* @kind color */
+  --success-old-60: rgb(61,145,94); /* @kind color */
+  --success-old-90: rgb(47,101,68); /* @kind color */
+  --success-primary: var(--success-old-60); /* @kind color */
+  --success-secondary: var(--success-old-90); /* @kind color */
+  --success-subtle: var(--success-old-10); /* @kind color */
+  --surface-bg: var(--grey-50); /* @kind color */
+  --surface-brand: var(--red-400); /* @kind color */
+  --surface-overlay: var(--grey-950); /* @kind color */
+  --surface-page: var(--grey-0); /* @kind color */
+  --surface-subtle: var(--grey-100); /* @kind color */
+  --teal-100: rgb(231,240,241); /* @kind color */
+  --teal-500: rgb(97,157,159); /* @kind color */
+  --teal-50: rgb(239,245,245); /* @kind color */
+  --teal-800: rgb(73,118,119); /* @kind color */
+  --text-base-disabled: var(--base-disabled); /* @kind color */
+  --text-base-main: var(--base-main); /* @kind color */
+  --text-base-secondary: var(--base-secondary); /* @kind color */
+  --text-base-terciary: var(--base-terciary); /* @kind color */
+  --text-brand-2: var(--red-400); /* @kind color */
+  --text-brand-3: var(--red-500); /* @kind color */
+  --text-brand-secondary-2: var(--red-800); /* @kind color */
+  --text-brand-secondary: var(--brand-secondary); /* @kind color */
+  --text-brand: var(--brand-primary); /* @kind color */
+  --text-disabled-2: var(--grey-700); /* @kind color */
+  --text-disabled: var(--grey-100); /* @kind color */
+  --text-heading: var(--grey-950); /* @kind color */
+  --text-inverse-2: var(--common-0); /* @kind color */
+  --text-inverse: var(--grey-0); /* @kind color */
+  --text-main: var(--grey-2-500); /* @kind color */
+  --text-on-brand: var(--grey-0); /* @kind color */
+  --text-paragraph: var(--text-main); /* @kind color */
+  --text-placeholder-2: var(--grey-300); /* @kind color */
+  --text-placeholder: var(--grey-500); /* @kind color */
+  --text-primary-2: var(--grey-700); /* @kind color */
+  --text-primary: var(--grey-700); /* @kind color */
+  --text-secondary: var(--grey-400); /* @kind color */
+  --text-secundary: var(--grey-800); /* @kind color */
+  --text-strong: var(--grey-900); /* @kind color */
+  --text-success: var(--success-400); /* @kind color */
+  --text-terciary: var(--grey-500); /* @kind color */
+  --text-white: var(--utility-white); /* @kind color */
+  --tomato-100: rgb(255,231,228); /* @kind color */
+  --tomato-500: rgb(239,103,82); /* @kind color */
+  --tomato-50: rgb(255,240,239); /* @kind color */
+  --tomato-800: rgb(194,68,56); /* @kind color */
+  --tomato-850: rgb(155,55,45); /* @kind color */
+  --utility-white-90: rgba(255,255,255,0.9); /* @kind color */
+  --utility-white: var(--light-10); /* @kind color */
+  --warning-disabled: var(--warning-old-40); /* @kind color */
+  --warning-old-10: rgb(255,251,229); /* @kind color */
+  --warning-old-20: rgb(228,214,145); /* @kind color */
+  --warning-old-40: rgb(246,213,48); /* @kind color */
+  --warning-old-60: rgb(237,198,0); /* @kind color */
+  --warning-old-95: rgb(145,121,1); /* @kind color */
+  --warning-primary: var(--warning-old-60); /* @kind color */
+  --warning-secondary: var(--warning-old-95); /* @kind color */
+  --warning-subtle: var(--warning-old-10); /* @kind color */
+  --weights-font-regular: "Regular";
+  --yellow-200: rgb(255,229,102); /* @kind color */
+  --yellow-500: rgb(255,195,0); /* @kind color */
+  --yellow-50: rgb(255,251,224); /* @kind color */
+  --yellow-800: rgb(163,124,0); /* @kind color */
+}
+
+:root[data-mode="soft"] {
+  --accent-brand-active: var(--red-700); /* @kind color */
+  --accent-brand-disabled: var(--red-100); /* @kind color */
+  --accent-brand-hover: var(--red-600); /* @kind color */
+  --accent-brand-subtle: var(--red-200); /* @kind color */
+  --accent-brand: var(--red-500); /* @kind color */
+  --base-disabled: var(--grey-old-30); /* @kind color */
+  --base-main: var(--grey-old-70); /* @kind color */
+  --base-secondary: var(--grey-old-90); /* @kind color */
+  --base-subtle: var(--grey-old-10); /* @kind color */
+  --base-terciary: var(--grey-old-60); /* @kind color */
+  --bg-disabled: var(--grey-300); /* @kind color */
+  --bg-inverse: var(--grey-950); /* @kind color */
+  --bg-overlay: var(--grey-950); /* @kind color */
+  --bg-page: var(--grey-50); /* @kind color */
+  --bg-selected: var(--grey-950); /* @kind color */
+  --bg-subtle: var(--grey-100); /* @kind color */
+  --bg-white: var(--common-0); /* @kind color */
+  --border-brand-2: var(--red-500); /* @kind color */
+  --border-brand: var(--red-400); /* @kind color */
+  --border-default-2: var(--grey-300); /* @kind color */
+  --border-default: var(--grey-300); /* @kind color */
+  --border-disabled: var(--grey-200); /* @kind color */
+  --border-inverse: var(--grey-950); /* @kind color */
+  --border-secondary: var(--red-800); /* @kind color */
+  --border-selected: var(--grey-950); /* @kind color */
+  --border-strong-2: var(--grey-500); /* @kind color */
+  --border-strong: var(--grey-500); /* @kind color */
+  --border-subtle-2: var(--grey-100); /* @kind color */
+  --border-subtle: var(--grey-100); /* @kind color */
+  --brand-primary-active: var(--red-old-80); /* @kind color */
+  --brand-primary: var(--red-old-60); /* @kind color */
+  --brand-secondary-active: var(--red-old-95); /* @kind color */
+  --brand-secondary: var(--red-old-90); /* @kind color */
+  --brand-subtle: var(--red-old-10); /* @kind color */
+  --brand-terciary-active: var(--red-old-40); /* @kind color */
+  --brand-terciary: var(--red-old-20); /* @kind color */
+  --error-primary: var(--error-tomato-60); /* @kind color */
+  --error-secondary: var(--error-tomato-90); /* @kind color */
+  --error-subtle: var(--error-tomato-10); /* @kind color */
+  --feedback-data-01: var(--light-blue-100); /* @kind color */
+  --feedback-data-02: var(--dark-blue-100); /* @kind color */
+  --feedback-data-03: var(--purple-100); /* @kind color */
+  --feedback-data-04: var(--teal-100); /* @kind color */
+  --feedback-data-05: var(--orange-100); /* @kind color */
+  --feedback-data-06: var(--tomato-100); /* @kind color */
+  --feedback-error-action: var(--granate-800); /* @kind color */
+  --feedback-error-bg: var(--granate-50); /* @kind color */
+  --feedback-error-border: var(--granate-800); /* @kind color */
+  --feedback-error-btn: var(--error-400); /* @kind color */
+  --feedback-error-icon-2: var(--granate-500); /* @kind color */
+  --feedback-error-icon: var(--error-400); /* @kind color */
+  --feedback-error-text: var(--granate-800); /* @kind color */
+  --feedback-success-action: var(--green-500); /* @kind color */
+  --feedback-success-bg-2: var(--green-50); /* @kind color */
+  --feedback-success-bg: var(--success-50); /* @kind color */
+  --feedback-success-border-2: var(--green-800); /* @kind color */
+  --feedback-success-border: var(--success-200); /* @kind color */
+  --feedback-success-icon-2: var(--green-500); /* @kind color */
+  --feedback-success-icon: var(--success-400); /* @kind color */
+  --feedback-success-text: var(--green-800); /* @kind color */
+  --feedback-warning-action: var(--yellow-500); /* @kind color */
+  --feedback-warning-bg: var(--yellow-50); /* @kind color */
+  --feedback-warning-border: var(--yellow-800); /* @kind color */
+  --feedback-warning-icon: var(--yellow-500); /* @kind color */
+  --feedback-warning-text: var(--yellow-800); /* @kind color */
+  --icon-brand: var(--red-500); /* @kind color */
+  --icon-default: var(--grey-700); /* @kind color */
+  --icon-disabled: var(--grey-300); /* @kind color */
+  --icon-inverse: var(--common-0); /* @kind color */
+  --icon-muted: var(--grey-500); /* @kind color */
+  --info-primary: var(--blue-60); /* @kind color */
+  --info-secondary: var(--blue-90); /* @kind color */
+  --info-subtle: var(--blue-10); /* @kind color */
+  --interactive-dark-bg: var(--grey-950); /* @kind color */
+  --interactive-neutral-bg-hover: var(--grey-300); /* @kind color */
+  --interactive-primary-bg-active: var(--red-700); /* @kind color */
+  --interactive-primary-bg-hover: var(--red-600); /* @kind color */
+  --interactive-primary-bg: var(--red-400); /* @kind color */
+  --success-disabled: var(--success-old-40); /* @kind color */
+  --success-primary: var(--success-old-60); /* @kind color */
+  --success-secondary: var(--success-old-90); /* @kind color */
+  --success-subtle: var(--success-old-10); /* @kind color */
+  --surface-bg: var(--grey-50); /* @kind color */
+  --surface-brand: var(--red-400); /* @kind color */
+  --surface-overlay: var(--grey-950); /* @kind color */
+  --surface-page: var(--grey-0); /* @kind color */
+  --surface-subtle: var(--grey-100); /* @kind color */
+  --text-brand-2: var(--red-400); /* @kind color */
+  --text-brand-3: var(--red-500); /* @kind color */
+  --text-brand-secondary-2: var(--red-800); /* @kind color */
+  --text-disabled-2: var(--grey-300); /* @kind color */
+  --text-disabled: var(--grey-100); /* @kind color */
+  --text-heading: var(--grey-950); /* @kind color */
+  --text-inverse-2: var(--common-0); /* @kind color */
+  --text-inverse: var(--grey-0); /* @kind color */
+  --text-on-brand: var(--grey-0); /* @kind color */
+  --text-placeholder-2: var(--grey-300); /* @kind color */
+  --text-placeholder: var(--grey-400); /* @kind color */
+  --text-primary-2: var(--grey-700); /* @kind color */
+  --text-primary: var(--grey-700); /* @kind color */
+  --text-secundary: var(--grey-700); /* @kind color */
+  --text-strong: var(--grey-900); /* @kind color */
+  --text-success: var(--success-400); /* @kind color */
+  --text-terciary: var(--grey-500); /* @kind color */
+  --utility-white-90: rgba(255,255,255,0.9); /* @kind color */
+  --utility-white: var(--light-10); /* @kind color */
+  --warning-disabled: var(--warning-old-40); /* @kind color */
+  --warning-primary: var(--warning-old-60); /* @kind color */
+  --warning-secondary: var(--warning-old-95); /* @kind color */
+  --warning-subtle: var(--warning-old-10); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --accent-brand-active: var(--red-200); /* @kind color */
+  --accent-brand-disabled: var(--red-800); /* @kind color */
+  --accent-brand-hover: var(--red-300); /* @kind color */
+  --accent-brand-subtle: var(--red-700); /* @kind color */
+  --accent-brand: var(--red-400); /* @kind color */
+  --base-disabled: var(--grey-old-30); /* @kind color */
+  --base-main: var(--grey-old-70); /* @kind color */
+  --base-secondary: var(--grey-old-90); /* @kind color */
+  --base-subtle: var(--grey-old-10); /* @kind color */
+  --base-terciary: var(--grey-old-60); /* @kind color */
+  --baseline-surface-colors-theme-on-surface-variant: var(--baseline-surface-colors-theme-dark-audience-on-surface-variant); /* @kind color */
+  --bg-disabled: var(--grey-800); /* @kind color */
+  --bg-inverse: var(--grey-100); /* @kind color */
+  --bg-overlay: rgba(0,0,0,0.7); /* @kind color */
+  --bg-page: var(--grey-950); /* @kind color */
+  --bg-selected: var(--grey-100); /* @kind color */
+  --bg-subtle: var(--grey-900); /* @kind color */
+  --bg-surface-base-disabled: var(--base-disabled); /* @kind color */
+  --bg-surface-base-main: var(--base-main); /* @kind color */
+  --bg-surface-base-secundary: var(--base-secondary); /* @kind color */
+  --bg-surface-base-subtle: var(--base-subtle); /* @kind color */
+  --bg-surface-base-terciary: var(--base-terciary); /* @kind color */
+  --bg-surface-primary-light: var(--brand-subtle); /* @kind color */
+  --bg-surface-primary: var(--brand-primary); /* @kind color */
+  --bg-surface-white-80: var(--utility-white-90); /* @kind color */
+  --bg-surface-white: rgb(15,20,24); /* @kind color */
+  --bg-white: var(--grey-850); /* @kind color */
+  --border-base-disabled: var(--base-disabled); /* @kind color */
+  --border-base-hover: var(--base-secondary); /* @kind color */
+  --border-base-primary: var(--base-terciary); /* @kind color */
+  --border-base-subtle: var(--base-subtle); /* @kind color */
+  --border-base-terciary: var(--base-main); /* @kind color */
+  --border-brand-2: var(--red-400); /* @kind color */
+  --border-brand-primary: var(--brand-primary); /* @kind color */
+  --border-brand: var(--red-400); /* @kind color */
+  --border-default-2: var(--grey-700); /* @kind color */
+  --border-default: var(--grey-300); /* @kind color */
+  --border-disabled: var(--grey-800); /* @kind color */
+  --border-inverse: var(--grey-100); /* @kind color */
+  --border-secondary: var(--red-300); /* @kind color */
+  --border-selected: var(--grey-100); /* @kind color */
+  --border-strong-2: var(--grey-500); /* @kind color */
+  --border-strong: var(--grey-500); /* @kind color */
+  --border-subtle-2: var(--grey-850); /* @kind color */
+  --border-subtle: var(--grey-100); /* @kind color */
+  --brand-primary-active: var(--red-old-80); /* @kind color */
+  --brand-primary: var(--red-old-60); /* @kind color */
+  --brand-secondary-active: var(--red-old-95); /* @kind color */
+  --brand-secondary: var(--red-old-90); /* @kind color */
+  --brand-subtle: var(--red-old-10); /* @kind color */
+  --brand-terciary-active: var(--red-old-40); /* @kind color */
+  --brand-terciary: var(--red-old-20); /* @kind color */
+  --data-06-20: rgb(214,231,232); /* @kind color */
+  --data-06-60: rgb(129,178,199); /* @kind color */
+  --data-06-95: rgb(0,121,158); /* @kind color */
+  --error-primary: var(--error-tomato-60); /* @kind color */
+  --error-secondary: var(--error-tomato-90); /* @kind color */
+  --error-subtle: var(--error-tomato-10); /* @kind color */
+  --feedback-data-01: var(--light-blue-500); /* @kind color */
+  --feedback-data-02: var(--dark-blue-500); /* @kind color */
+  --feedback-data-03: var(--purple-500); /* @kind color */
+  --feedback-data-04: var(--teal-500); /* @kind color */
+  --feedback-data-05: var(--orange-500); /* @kind color */
+  --feedback-data-06: var(--tomato-500); /* @kind color */
+  --feedback-error-action: var(--granate-500); /* @kind color */
+  --feedback-error-bg: var(--granate-800); /* @kind color */
+  --feedback-error-border: var(--granate-500); /* @kind color */
+  --feedback-error-btn: var(--error-400); /* @kind color */
+  --feedback-error-icon-2: var(--granate-300); /* @kind color */
+  --feedback-error-icon: var(--error-400); /* @kind color */
+  --feedback-error-text: var(--granate-300); /* @kind color */
+  --feedback-success-action: var(--green-400); /* @kind color */
+  --feedback-success-bg-2: var(--green-800); /* @kind color */
+  --feedback-success-bg: var(--success-50); /* @kind color */
+  --feedback-success-border-2: var(--green-500); /* @kind color */
+  --feedback-success-border: var(--success-200); /* @kind color */
+  --feedback-success-icon-2: var(--green-400); /* @kind color */
+  --feedback-success-icon: var(--success-400); /* @kind color */
+  --feedback-success-text: var(--green-400); /* @kind color */
+  --feedback-warning-action: var(--yellow-500); /* @kind color */
+  --feedback-warning-bg: var(--yellow-800); /* @kind color */
+  --feedback-warning-border: var(--yellow-500); /* @kind color */
+  --feedback-warning-icon: var(--yellow-200); /* @kind color */
+  --feedback-warning-text: var(--yellow-200); /* @kind color */
+  --icon-brand: var(--red-400); /* @kind color */
+  --icon-default: var(--grey-300); /* @kind color */
+  --icon-disabled: var(--grey-700); /* @kind color */
+  --icon-inverse: var(--common-1000); /* @kind color */
+  --icon-muted: var(--grey-500); /* @kind color */
+  --info-primary: var(--blue-60); /* @kind color */
+  --info-secondary: var(--blue-90); /* @kind color */
+  --info-subtle: var(--blue-10); /* @kind color */
+  --interactive-dark-bg: var(--grey-950); /* @kind color */
+  --interactive-neutral-bg-hover: var(--grey-300); /* @kind color */
+  --interactive-primary-bg-active: var(--red-700); /* @kind color */
+  --interactive-primary-bg-hover: var(--red-600); /* @kind color */
+  --interactive-primary-bg: var(--red-400); /* @kind color */
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-error: rgb(255,185,179); /* @kind color */
+  --schemes-error: rgb(255,249,249); /* @kind color */
+  --schemes-inverse-on-surface: rgb(0,0,0); /* @kind color */
+  --schemes-inverse-on-surface: rgb(43,41,47); /* @kind color */
+  --schemes-inverse-on-surface: rgb(50,47,53); /* @kind color */
+  --schemes-inverse-primary: rgb(103,80,164); /* @kind color */
+  --schemes-inverse-primary: rgb(47,32,86); /* @kind color */
+  --schemes-inverse-primary: rgb(78,63,119); /* @kind color */
+  --schemes-inverse-surface: rgb(230,224,233); /* @kind color */
+  --schemes-inverse-surface: rgb(230,224,233); /* @kind color */
+  --schemes-inverse-surface: rgb(230,224,233); /* @kind color */
+  --schemes-on-error: rgb(0,0,0); /* @kind color */
+  --schemes-on-error: rgb(51,4,5); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-primary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-primary-container: rgb(234,221,255); /* @kind color */
+  --schemes-on-primary: rgb(0,0,0); /* @kind color */
+  --schemes-on-primary: rgb(27,9,66); /* @kind color */
+  --schemes-on-primary: rgb(56,30,114); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(0,0,0); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(0,0,0); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(232,222,248); /* @kind color */
+  --schemes-on-secondary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-secondary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-secondary-container: rgb(232,222,248); /* @kind color */
+  --schemes-on-surface-2: rgb(230,224,233); /* @kind color */
+  --schemes-on-surface-2: rgb(255,249,255); /* @kind color */
+  --schemes-on-surface-2: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface-variant: rgb(202,196,208); /* @kind color */
+  --schemes-on-surface-variant: rgb(206,200,212); /* @kind color */
+  --schemes-on-surface-variant: rgb(255,249,255); /* @kind color */
+  --schemes-on-surface: rgb(230,224,233); /* @kind color */
+  --schemes-on-surface: rgb(255,249,255); /* @kind color */
+  --schemes-on-surface: rgb(255,255,255); /* @kind color */
+  --schemes-on-tertiary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-tertiary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,216,228); /* @kind color */
+  --schemes-outline-variant: rgb(134,129,139); /* @kind color */
+  --schemes-outline-variant: rgb(206,200,212); /* @kind color */
+  --schemes-outline-variant: rgb(73,69,79); /* @kind color */
+  --schemes-outline: rgb(147,143,153); /* @kind color */
+  --schemes-outline: rgb(166,161,171); /* @kind color */
+  --schemes-outline: rgb(206,200,212); /* @kind color */
+  --schemes-primary-2: rgb(208,188,255); /* @kind color */
+  --schemes-primary-2: rgb(211,193,255); /* @kind color */
+  --schemes-primary-2: rgb(255,249,255); /* @kind color */
+  --schemes-primary-container: rgb(152,135,197); /* @kind color */
+  --schemes-primary-container: rgb(211,193,255); /* @kind color */
+  --schemes-primary-container: rgb(79,55,139); /* @kind color */
+  --schemes-primary: rgb(208,188,255); /* @kind color */
+  --schemes-primary: rgb(211,193,255); /* @kind color */
+  --schemes-primary: rgb(255,249,255); /* @kind color */
+  --schemes-secondary-container-2: rgb(152,135,197); /* @kind color */
+  --schemes-secondary-container-2: rgb(211,193,255); /* @kind color */
+  --schemes-secondary-container-2: rgb(74,68,88); /* @kind color */
+  --schemes-secondary-container: rgb(152,135,197); /* @kind color */
+  --schemes-secondary-container: rgb(211,193,255); /* @kind color */
+  --schemes-secondary-container: rgb(74,68,88); /* @kind color */
+  --schemes-secondary: rgb(204,194,220); /* @kind color */
+  --schemes-secondary: rgb(211,193,255); /* @kind color */
+  --schemes-secondary: rgb(255,249,255); /* @kind color */
+  --schemes-surface-container-high: rgb(43,41,47); /* @kind color */
+  --schemes-surface-container-high: rgb(43,41,47); /* @kind color */
+  --schemes-surface-container-high: rgb(43,41,48); /* @kind color */
+  --schemes-surface-container-highest: rgb(54,52,58); /* @kind color */
+  --schemes-surface-container-highest: rgb(54,52,58); /* @kind color */
+  --schemes-surface-container-highest: rgb(54,52,59); /* @kind color */
+  --schemes-surface-container: rgb(33,31,36); /* @kind color */
+  --schemes-surface-container: rgb(33,31,36); /* @kind color */
+  --schemes-surface-container: rgb(33,31,38); /* @kind color */
+  --schemes-surface: rgb(20,18,24); /* @kind color */
+  --schemes-surface: rgb(20,18,24); /* @kind color */
+  --schemes-surface: rgb(20,18,24); /* @kind color */
+  --schemes-tertiary-container: rgb(197,123,147); /* @kind color */
+  --schemes-tertiary-container: rgb(255,183,205); /* @kind color */
+  --schemes-tertiary-container: rgb(99,59,72); /* @kind color */
+  --semantic-error: var(--error-primary); /* @kind color */
+  --semantic-info: var(--info-primary); /* @kind color */
+  --semantic-success: var(--success-primary); /* @kind color */
+  --semantic-warning: var(--warning-primary); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-08: rgba(255,185,179,0.08); /* @kind color */
+  --state-layers-error-opacity-08: rgba(255,249,249,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-error-opacity-10: rgba(255,185,179,0.1); /* @kind color */
+  --state-layers-error-opacity-10: rgba(255,249,249,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(43,41,47,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(50,47,53,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(43,41,47,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(50,47,53,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(103,80,164,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(47,32,86,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(78,63,119,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(103,80,164,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(47,32,86,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(78,63,119,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(27,9,66,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(56,30,114,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(27,9,66,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(56,30,114,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(27,9,66,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(56,30,114,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(27,9,66,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(56,30,114,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(232,222,248,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(232,222,248,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(230,224,233,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(255,249,255,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(230,224,233,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(255,249,255,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(202,196,208,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(206,200,212,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(255,249,255,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(202,196,208,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(206,200,212,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(255,249,255,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(0,0,0,0.16); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(0,0,0,0.16); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,216,228,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(208,188,255,0.08); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(211,193,255,0.08); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(255,249,255,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(208,188,255,0.1); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(211,193,255,0.1); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(255,249,255,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(73,69,78,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(73,69,78,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(73,69,79,0.1); /* @kind color */
+  --state-primary-active: var(--brand-primary-active); /* @kind color */
+  --state-primary: var(--brand-primary); /* @kind color */
+  --state-secondary-active: var(--brand-secondary-active); /* @kind color */
+  --state-secondary: var(--brand-secondary); /* @kind color */
+  --state-terciary-active: var(--brand-terciary-active); /* @kind color */
+  --state-terciary: var(--brand-terciary); /* @kind color */
+  --success-disabled: var(--success-old-40); /* @kind color */
+  --success-primary: var(--success-old-60); /* @kind color */
+  --success-secondary: var(--success-old-90); /* @kind color */
+  --success-subtle: var(--success-old-10); /* @kind color */
+  --surface-bg: var(--grey-50); /* @kind color */
+  --surface-brand: var(--red-400); /* @kind color */
+  --surface-overlay: var(--grey-950); /* @kind color */
+  --surface-page: var(--grey-0); /* @kind color */
+  --surface-subtle: var(--grey-100); /* @kind color */
+  --text-base-disabled: var(--base-disabled); /* @kind color */
+  --text-base-main: var(--base-main); /* @kind color */
+  --text-base-secondary: var(--base-secondary); /* @kind color */
+  --text-base-terciary: var(--base-terciary); /* @kind color */
+  --text-brand-2: var(--red-400); /* @kind color */
+  --text-brand-3: var(--red-500); /* @kind color */
+  --text-brand-secondary-2: var(--red-300); /* @kind color */
+  --text-brand-secondary: var(--brand-secondary); /* @kind color */
+  --text-brand: var(--brand-primary); /* @kind color */
+  --text-disabled-2: var(--grey-700); /* @kind color */
+  --text-disabled: var(--grey-100); /* @kind color */
+  --text-heading: var(--grey-950); /* @kind color */
+  --text-inverse-2: var(--common-1000); /* @kind color */
+  --text-inverse: var(--grey-0); /* @kind color */
+  --text-on-brand: var(--grey-0); /* @kind color */
+  --text-placeholder: var(--grey-600); /* @kind color */
+  --text-primary-2: var(--grey-300); /* @kind color */
+  --text-primary: var(--grey-700); /* @kind color */
+  --text-secondary: var(--grey-dark-200); /* @kind color */
+  --text-secundary: var(--grey-200); /* @kind color */
+  --text-strong: var(--grey-100); /* @kind color */
+  --text-success: var(--success-400); /* @kind color */
+  --text-terciary: var(--grey-500); /* @kind color */
+  --text-white: var(--utility-white); /* @kind color */
+  --utility-white-90: rgba(255,255,255,0.9); /* @kind color */
+  --utility-white: var(--light-10); /* @kind color */
+  --warning-disabled: var(--warning-old-40); /* @kind color */
+  --warning-primary: var(--warning-old-60); /* @kind color */
+  --warning-secondary: var(--warning-old-95); /* @kind color */
+  --warning-subtle: var(--warning-old-10); /* @kind color */
+}
+
+:root[data-mode="desktop"] {
+  --font-size-body-l: 20;
+  --font-size-body-m: 16;
+  --font-size-body-s: 14;
+  --font-size-caption: 12;
+  --font-size-display: 42;
+  --font-size-overline: 14;
+  --font-size-title-l: 32;
+  --font-size-title-m: 24;
+  --font-size-title-s: 20;
+  --font-spacing-caption: 0.5;
+  --font-spacing-neutral: 0;
+  --font-spacing-overline: 1;
+  --line-height-body-l: 27;
+  --line-height-body-m: 24;
+  --line-height-body-s: 21;
+  --line-height-caption: 17;
+  --line-height-display: 38;
+  --line-height-overline: 17;
+  --line-height-title-l: 31;
+  --line-height-title-m: 24;
+  --line-height-title-s: 22;
+}
+
+:root[data-mode="wireframe"] {
+  --static-font-brand: "Flow Circular";
+  --static-font-plain: "Flow Circular";
+  --static-weight-medium: "Regular";
+  --static-weight-regular-2: "Regular";
+  --static-weight-regular: "Regular";
+}
+
+:root[data-theme="light"], .light {
+  --schemes-error: rgb(110,47,44); /* @kind color */
+  --schemes-error: rgb(68,15,14); /* @kind color */
+  --schemes-inverse-on-surface: rgb(245,239,247); /* @kind color */
+  --schemes-inverse-on-surface: rgb(255,255,255); /* @kind color */
+  --schemes-inverse-primary: rgb(207,189,254); /* @kind color */
+  --schemes-inverse-primary: rgb(241,232,255); /* @kind color */
+  --schemes-inverse-surface: rgb(50,47,53); /* @kind color */
+  --schemes-inverse-surface: rgb(50,47,53); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-surface-2: rgb(0,0,0); /* @kind color */
+  --schemes-on-surface-2: rgb(29,27,32); /* @kind color */
+  --schemes-on-surface-variant: rgb(37,35,43); /* @kind color */
+  --schemes-on-surface-variant: rgb(69,65,74); /* @kind color */
+  --schemes-on-surface: rgb(0,0,0); /* @kind color */
+  --schemes-on-surface: rgb(29,27,32); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,255,255); /* @kind color */
+  --schemes-outline-variant: rgb(125,121,131); /* @kind color */
+  --schemes-outline-variant: rgb(69,65,74); /* @kind color */
+  --schemes-outline: rgb(69,65,74); /* @kind color */
+  --schemes-outline: rgb(97,93,103); /* @kind color */
+  --schemes-primary-2: rgb(39,23,78); /* @kind color */
+  --schemes-primary-2: rgb(73,57,113); /* @kind color */
+  --schemes-primary-container: rgb(123,107,167); /* @kind color */
+  --schemes-primary-container: rgb(73,57,113); /* @kind color */
+  --schemes-primary: rgb(39,23,78); /* @kind color */
+  --schemes-primary: rgb(73,57,113); /* @kind color */
+  --schemes-secondary-container-2: rgb(124,107,167); /* @kind color */
+  --schemes-secondary-container-2: rgb(73,57,113); /* @kind color */
+  --schemes-secondary-container: rgb(124,107,167); /* @kind color */
+  --schemes-secondary-container: rgb(73,57,113); /* @kind color */
+  --schemes-secondary: rgb(39,23,78); /* @kind color */
+  --schemes-secondary: rgb(73,57,113); /* @kind color */
+  --schemes-surface-container-high: rgb(236,230,238); /* @kind color */
+  --schemes-surface-container-high: rgb(236,230,238); /* @kind color */
+  --schemes-surface-container-highest: rgb(230,224,233); /* @kind color */
+  --schemes-surface-container-highest: rgb(230,224,233); /* @kind color */
+  --schemes-surface-container: rgb(242,236,244); /* @kind color */
+  --schemes-surface-container: rgb(242,236,244); /* @kind color */
+  --schemes-surface: rgb(253,247,255); /* @kind color */
+  --schemes-surface: rgb(253,247,255); /* @kind color */
+  --schemes-tertiary-container: rgb(107,47,69); /* @kind color */
+  --schemes-tertiary-container: rgb(165,95,119); /* @kind color */
+  --state-layers-error-opacity-08: rgba(110,47,44,0.08); /* @kind color */
+  --state-layers-error-opacity-08: rgba(68,15,14,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(110,47,44,0.1); /* @kind color */
+  --state-layers-error-opacity-10: rgba(68,15,14,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(245,239,247,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(245,239,247,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(207,189,254,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(241,232,255,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(207,189,254,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(241,232,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(29,27,32,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(29,27,32,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(37,35,43,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(69,65,74,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(37,35,43,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(69,65,74,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,255,255,0.16); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,255,255,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(39,23,78,0.08); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(73,57,113,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(39,23,78,0.1); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(73,57,113,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(231,224,235,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(231,224,235,0.1); /* @kind color */
+}
+
+:root[data-mode="monochrome-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(241,241,241); /* @kind color */
+  --schemes-inverse-primary: rgb(71,71,71); /* @kind color */
+  --schemes-inverse-surface: rgb(48,48,48); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary: rgb(226,226,226); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(27,27,27); /* @kind color */
+  --schemes-on-secondary-container: rgb(27,27,27); /* @kind color */
+  --schemes-on-surface-2: rgb(27,27,27); /* @kind color */
+  --schemes-on-surface-variant: rgb(71,71,71); /* @kind color */
+  --schemes-on-surface: rgb(27,27,27); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,255,255); /* @kind color */
+  --schemes-outline-variant: rgb(198,198,198); /* @kind color */
+  --schemes-outline: rgb(119,119,119); /* @kind color */
+  --schemes-primary-2: rgb(0,0,0); /* @kind color */
+  --schemes-primary-container: rgb(59,59,59); /* @kind color */
+  --schemes-primary: rgb(0,0,0); /* @kind color */
+  --schemes-secondary-container-2: rgb(212,212,212); /* @kind color */
+  --schemes-secondary-container: rgb(212,212,212); /* @kind color */
+  --schemes-secondary: rgb(95,94,95); /* @kind color */
+  --schemes-surface-container-high: rgb(232,232,232); /* @kind color */
+  --schemes-surface-container-highest: rgb(226,226,226); /* @kind color */
+  --schemes-surface-container: rgb(238,238,238); /* @kind color */
+  --schemes-surface: rgb(249,249,249); /* @kind color */
+  --schemes-tertiary-container: rgb(116,116,116); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(241,241,241,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(241,241,241,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(71,71,71,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(71,71,71,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(226,226,226,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(226,226,226,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(226,226,226,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(226,226,226,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(27,27,27,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(27,27,27,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(27,27,27,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(27,27,27,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(71,71,71,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(71,71,71,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,255,255,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(226,226,226,0.1); /* @kind color */
+}
+
+:root[data-mode="monochrome-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(48,48,48); /* @kind color */
+  --schemes-inverse-primary: rgb(0,0,0); /* @kind color */
+  --schemes-inverse-surface: rgb(226,226,226); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(0,0,0); /* @kind color */
+  --schemes-on-primary: rgb(26,28,28); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(226,226,226); /* @kind color */
+  --schemes-on-secondary-container: rgb(226,226,226); /* @kind color */
+  --schemes-on-surface-2: rgb(226,226,226); /* @kind color */
+  --schemes-on-surface-variant: rgb(198,198,198); /* @kind color */
+  --schemes-on-surface: rgb(226,226,226); /* @kind color */
+  --schemes-on-tertiary-container: rgb(0,0,0); /* @kind color */
+  --schemes-outline-variant: rgb(71,71,71); /* @kind color */
+  --schemes-outline: rgb(145,145,145); /* @kind color */
+  --schemes-primary-2: rgb(255,255,255); /* @kind color */
+  --schemes-primary-container: rgb(212,212,212); /* @kind color */
+  --schemes-primary: rgb(255,255,255); /* @kind color */
+  --schemes-secondary-container-2: rgb(71,71,71); /* @kind color */
+  --schemes-secondary-container: rgb(71,71,71); /* @kind color */
+  --schemes-secondary: rgb(198,198,198); /* @kind color */
+  --schemes-surface-container-high: rgb(42,42,42); /* @kind color */
+  --schemes-surface-container-highest: rgb(53,53,53); /* @kind color */
+  --schemes-surface-container: rgb(31,31,31); /* @kind color */
+  --schemes-surface: rgb(19,19,19); /* @kind color */
+  --schemes-tertiary-container: rgb(145,145,145); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(48,48,48,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(48,48,48,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(0,0,0,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(0,0,0,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(26,28,28,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(26,28,28,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(26,28,28,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(26,28,28,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(226,226,226,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(226,226,226,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(226,226,226,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(226,226,226,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(198,198,198,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(198,198,198,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(0,0,0,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(71,71,71,0.1); /* @kind color */
+}
+
+:root[data-mode="pink-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(250,234,238); /* @kind color */
+  --schemes-inverse-primary: rgb(254,176,209); /* @kind color */
+  --schemes-inverse-surface: rgb(48,40,43); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(110,51,79); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(89,63,75); /* @kind color */
+  --schemes-on-secondary-container: rgb(89,63,75); /* @kind color */
+  --schemes-on-surface-2: rgb(33,25,28); /* @kind color */
+  --schemes-on-surface-variant: rgb(80,67,72); /* @kind color */
+  --schemes-on-surface: rgb(33,25,28); /* @kind color */
+  --schemes-on-tertiary-container: rgb(99,62,36); /* @kind color */
+  --schemes-outline-variant: rgb(212,194,199); /* @kind color */
+  --schemes-outline: rgb(130,115,120); /* @kind color */
+  --schemes-primary-2: rgb(138,75,104); /* @kind color */
+  --schemes-primary-container: rgb(254,176,209); /* @kind color */
+  --schemes-primary: rgb(138,75,104); /* @kind color */
+  --schemes-secondary-container-2: rgb(251,214,227); /* @kind color */
+  --schemes-secondary-container: rgb(251,214,227); /* @kind color */
+  --schemes-secondary: rgb(115,87,98); /* @kind color */
+  --schemes-surface-container-high: rgb(244,228,232); /* @kind color */
+  --schemes-surface-container-highest: rgb(238,223,227); /* @kind color */
+  --schemes-surface-container: rgb(250,234,238); /* @kind color */
+  --schemes-surface: rgb(255,248,248); /* @kind color */
+  --schemes-tertiary-container: rgb(254,198,162); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(250,234,238,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(250,234,238,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(254,176,209,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(254,176,209,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(89,63,75,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(89,63,75,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(33,25,28,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(33,25,28,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(80,67,72,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(80,67,72,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(99,62,36,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(138,75,104,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(138,75,104,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(238,223,227,0.1); /* @kind color */
+}
+
+:root[data-mode="pink-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(59,50,53); /* @kind color */
+  --schemes-inverse-primary: rgb(138,75,104); /* @kind color */
+  --schemes-inverse-surface: rgb(238,223,227); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,216,230); /* @kind color */
+  --schemes-on-primary: rgb(83,29,57); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(254,217,230); /* @kind color */
+  --schemes-on-secondary-container: rgb(254,217,230); /* @kind color */
+  --schemes-on-surface-2: rgb(238,223,227); /* @kind color */
+  --schemes-on-surface-variant: rgb(212,194,199); /* @kind color */
+  --schemes-on-surface: rgb(238,223,227); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,220,198); /* @kind color */
+  --schemes-outline-variant: rgb(80,67,72); /* @kind color */
+  --schemes-outline: rgb(157,140,146); /* @kind color */
+  --schemes-primary-2: rgb(254,176,209); /* @kind color */
+  --schemes-primary-container: rgb(109,51,80); /* @kind color */
+  --schemes-primary: rgb(254,176,209); /* @kind color */
+  --schemes-secondary-container-2: rgb(89,64,74); /* @kind color */
+  --schemes-secondary-container: rgb(89,64,74); /* @kind color */
+  --schemes-secondary: rgb(225,189,202); /* @kind color */
+  --schemes-surface-container-high: rgb(48,40,43); /* @kind color */
+  --schemes-surface-container-highest: rgb(59,50,53); /* @kind color */
+  --schemes-surface-container: rgb(37,29,32); /* @kind color */
+  --schemes-surface: rgb(25,17,20); /* @kind color */
+  --schemes-tertiary-container: rgb(99,62,35); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(59,50,53,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(59,50,53,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(138,75,104,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(138,75,104,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(83,29,57,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(83,29,57,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(83,29,57,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(83,29,57,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(254,217,230,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(254,217,230,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(238,223,227,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(238,223,227,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(212,194,199,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(212,194,199,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,220,198,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(254,176,209,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(254,176,209,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(59,50,53,0.1); /* @kind color */
+}
+
+:root[data-mode="rose-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(251,234,235); /* @kind color */
+  --schemes-inverse-primary: rgb(255,178,189); /* @kind color */
+  --schemes-inverse-surface: rgb(49,40,41); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(114,50,63); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(92,63,67); /* @kind color */
+  --schemes-on-secondary-container: rgb(92,63,67); /* @kind color */
+  --schemes-on-surface-2: rgb(34,25,26); /* @kind color */
+  --schemes-on-surface-variant: rgb(82,67,69); /* @kind color */
+  --schemes-on-surface: rgb(34,25,26); /* @kind color */
+  --schemes-on-tertiary-container: rgb(92,65,34); /* @kind color */
+  --schemes-outline-variant: rgb(215,194,195); /* @kind color */
+  --schemes-outline: rgb(132,115,116); /* @kind color */
+  --schemes-primary-2: rgb(143,74,86); /* @kind color */
+  --schemes-primary-container: rgb(253,166,179); /* @kind color */
+  --schemes-primary: rgb(143,74,86); /* @kind color */
+  --schemes-secondary-container-2: rgb(255,213,218); /* @kind color */
+  --schemes-secondary-container: rgb(255,213,218); /* @kind color */
+  --schemes-secondary: rgb(118,87,91); /* @kind color */
+  --schemes-surface-container-high: rgb(246,228,229); /* @kind color */
+  --schemes-surface-container-highest: rgb(240,222,223); /* @kind color */
+  --schemes-surface-container: rgb(251,234,235); /* @kind color */
+  --schemes-surface: rgb(255,248,247); /* @kind color */
+  --schemes-tertiary-container: rgb(255,210,161); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(251,234,235,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(251,234,235,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(255,178,189,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(255,178,189,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(92,63,67,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(92,63,67,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(34,25,26,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(34,25,26,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(82,67,69,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(82,67,69,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(92,65,34,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(143,74,86,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(143,74,86,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(240,222,223,0.1); /* @kind color */
+}
+
+:root[data-mode="rose-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(61,50,51); /* @kind color */
+  --schemes-inverse-primary: rgb(143,74,86); /* @kind color */
+  --schemes-inverse-surface: rgb(240,222,223); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,217,221); /* @kind color */
+  --schemes-on-primary: rgb(86,29,41); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(255,217,221); /* @kind color */
+  --schemes-on-secondary-container: rgb(255,217,221); /* @kind color */
+  --schemes-on-surface-2: rgb(240,222,223); /* @kind color */
+  --schemes-on-surface-variant: rgb(215,194,195); /* @kind color */
+  --schemes-on-surface: rgb(240,222,223); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,221,185); /* @kind color */
+  --schemes-outline-variant: rgb(82,67,69); /* @kind color */
+  --schemes-outline: rgb(159,140,142); /* @kind color */
+  --schemes-primary-2: rgb(255,178,189); /* @kind color */
+  --schemes-primary-container: rgb(114,51,63); /* @kind color */
+  --schemes-primary: rgb(255,178,189); /* @kind color */
+  --schemes-secondary-container-2: rgb(92,63,67); /* @kind color */
+  --schemes-secondary-container: rgb(92,63,67); /* @kind color */
+  --schemes-secondary: rgb(229,189,193); /* @kind color */
+  --schemes-surface-container-high: rgb(49,40,41); /* @kind color */
+  --schemes-surface-container-highest: rgb(61,50,51); /* @kind color */
+  --schemes-surface-container: rgb(38,29,30); /* @kind color */
+  --schemes-surface: rgb(25,17,18); /* @kind color */
+  --schemes-tertiary-container: rgb(94,65,28); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(61,50,51,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(61,50,51,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(143,74,86,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(143,74,86,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(86,29,41,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(86,29,41,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(86,29,41,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(86,29,41,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(255,217,221,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(255,217,221,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(240,222,223,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(240,222,223,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(215,194,195,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(215,194,195,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,221,185,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(255,178,189,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(255,178,189,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(61,50,51,0.1); /* @kind color */
+}
+
+:root[data-mode="red-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(252,234,231); /* @kind color */
+  --schemes-inverse-primary: rgb(255,167,155); /* @kind color */
+  --schemes-inverse-surface: rgb(50,40,38); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(115,51,44); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(93,63,59); /* @kind color */
+  --schemes-on-secondary-container: rgb(93,63,59); /* @kind color */
+  --schemes-on-surface-2: rgb(35,25,24); /* @kind color */
+  --schemes-on-surface-variant: rgb(83,67,65); /* @kind color */
+  --schemes-on-surface: rgb(35,25,24); /* @kind color */
+  --schemes-on-tertiary-container: rgb(84,69,34); /* @kind color */
+  --schemes-outline-variant: rgb(216,194,190); /* @kind color */
+  --schemes-outline: rgb(133,115,112); /* @kind color */
+  --schemes-primary-2: rgb(145,75,67); /* @kind color */
+  --schemes-primary-container: rgb(253,164,153); /* @kind color */
+  --schemes-primary: rgb(145,75,67); /* @kind color */
+  --schemes-secondary-container-2: rgb(255,211,205); /* @kind color */
+  --schemes-secondary-container: rgb(255,211,205); /* @kind color */
+  --schemes-secondary: rgb(120,87,83); /* @kind color */
+  --schemes-surface-container-high: rgb(247,228,226); /* @kind color */
+  --schemes-surface-container-highest: rgb(241,222,220); /* @kind color */
+  --schemes-surface-container: rgb(252,234,231); /* @kind color */
+  --schemes-surface: rgb(255,248,247); /* @kind color */
+  --schemes-tertiary-container: rgb(250,220,163); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(252,234,231,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(252,234,231,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(255,167,155,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(255,167,155,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(93,63,59,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(93,63,59,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(35,25,24,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(35,25,24,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(83,67,65,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(83,67,65,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(84,69,34,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(145,75,67,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(145,75,67,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(241,222,220,0.1); /* @kind color */
+}
+
+:root[data-mode="red-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(61,50,49); /* @kind color */
+  --schemes-inverse-primary: rgb(145,75,67); /* @kind color */
+  --schemes-inverse-surface: rgb(241,222,220); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,218,213); /* @kind color */
+  --schemes-on-primary: rgb(86,30,24); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(255,218,213); /* @kind color */
+  --schemes-on-secondary-container: rgb(255,218,213); /* @kind color */
+  --schemes-on-surface-2: rgb(241,222,220); /* @kind color */
+  --schemes-on-surface-variant: rgb(216,194,190); /* @kind color */
+  --schemes-on-surface: rgb(241,222,220); /* @kind color */
+  --schemes-on-tertiary-container: rgb(252,223,166); /* @kind color */
+  --schemes-outline-variant: rgb(83,67,65); /* @kind color */
+  --schemes-outline: rgb(160,140,138); /* @kind color */
+  --schemes-primary-2: rgb(255,167,155); /* @kind color */
+  --schemes-primary-container: rgb(115,52,44); /* @kind color */
+  --schemes-primary: rgb(255,167,155); /* @kind color */
+  --schemes-secondary-container-2: rgb(93,63,59); /* @kind color */
+  --schemes-secondary-container: rgb(93,63,59); /* @kind color */
+  --schemes-secondary: rgb(231,189,183); /* @kind color */
+  --schemes-surface-container-high: rgb(50,40,38); /* @kind color */
+  --schemes-surface-container-highest: rgb(61,50,49); /* @kind color */
+  --schemes-surface-container: rgb(39,29,28); /* @kind color */
+  --schemes-surface: rgb(26,17,16); /* @kind color */
+  --schemes-tertiary-container: rgb(87,68,25); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(61,50,49,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(61,50,49,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(145,75,67,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(145,75,67,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(86,30,24,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(86,30,24,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(86,30,24,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(86,30,24,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(255,218,213,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(255,218,213,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(241,222,220,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(241,222,220,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(216,194,190,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(216,194,190,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(252,223,166,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(255,167,155,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(255,167,155,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(61,50,49,0.1); /* @kind color */
+}
+
+:root[data-mode="orange-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(252,234,226); /* @kind color */
+  --schemes-inverse-primary: rgb(255,182,140); /* @kind color */
+  --schemes-inverse-surface: rgb(49,40,35); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(103,60,34); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(92,65,49); /* @kind color */
+  --schemes-on-secondary-container: rgb(92,65,49); /* @kind color */
+  --schemes-on-surface-2: rgb(34,26,21); /* @kind color */
+  --schemes-on-surface-variant: rgb(82,68,60); /* @kind color */
+  --schemes-on-surface: rgb(34,26,21); /* @kind color */
+  --schemes-on-tertiary-container: rgb(73,73,35); /* @kind color */
+  --schemes-outline-variant: rgb(215,194,184); /* @kind color */
+  --schemes-outline: rgb(133,116,107); /* @kind color */
+  --schemes-primary-2: rgb(141,79,40); /* @kind color */
+  --schemes-primary-container: rgb(255,174,127); /* @kind color */
+  --schemes-primary: rgb(141,79,40); /* @kind color */
+  --schemes-secondary-container-2: rgb(253,213,191); /* @kind color */
+  --schemes-secondary-container: rgb(253,213,191); /* @kind color */
+  --schemes-secondary: rgb(118,89,72); /* @kind color */
+  --schemes-surface-container-high: rgb(246,229,221); /* @kind color */
+  --schemes-surface-container-highest: rgb(240,223,215); /* @kind color */
+  --schemes-surface-container: rgb(252,234,226); /* @kind color */
+  --schemes-surface: rgb(255,248,245); /* @kind color */
+  --schemes-tertiary-container: rgb(230,226,169); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(252,234,226,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(252,234,226,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(255,182,140,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(255,182,140,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(92,65,49,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgb(92,65,49); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(34,26,21,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(34,26,21,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(82,68,60,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(82,68,60,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(73,73,35,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(141,79,40,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(141,79,40,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(240,223,215,0.1); /* @kind color */
+}
+
+:root[data-mode="orange-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(61,51,45); /* @kind color */
+  --schemes-inverse-primary: rgb(141,79,40); /* @kind color */
+  --schemes-inverse-surface: rgb(240,223,215); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,219,201); /* @kind color */
+  --schemes-on-primary: rgb(83,34,0); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(255,219,201); /* @kind color */
+  --schemes-on-secondary-container: rgb(255,219,201); /* @kind color */
+  --schemes-on-surface-2: rgb(240,223,215); /* @kind color */
+  --schemes-on-surface-variant: rgb(215,194,184); /* @kind color */
+  --schemes-on-surface: rgb(240,223,215); /* @kind color */
+  --schemes-on-tertiary-container: rgb(233,229,171); /* @kind color */
+  --schemes-outline-variant: rgb(82,68,60); /* @kind color */
+  --schemes-outline: rgb(127,118,103); /* @kind color */
+  --schemes-primary-2: rgb(255,182,140); /* @kind color */
+  --schemes-primary-container: rgb(111,56,18); /* @kind color */
+  --schemes-primary: rgb(255,182,140); /* @kind color */
+  --schemes-secondary-container-2: rgb(92,65,49); /* @kind color */
+  --schemes-secondary-container: rgb(92,65,49); /* @kind color */
+  --schemes-secondary: rgb(229,191,170); /* @kind color */
+  --schemes-surface-container-high: rgb(49,40,35); /* @kind color */
+  --schemes-surface-container-highest: rgb(61,51,45); /* @kind color */
+  --schemes-surface-container: rgb(39,30,25); /* @kind color */
+  --schemes-surface: rgb(26,18,13); /* @kind color */
+  --schemes-tertiary-container: rgb(74,72,29); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(61,51,45,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(61,51,45,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(141,79,40,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(141,79,40,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(83,34,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(83,34,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(83,34,0,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(83,34,0,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(255,219,201,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(255,219,201,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(240,223,215,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(240,223,215,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(215,194,184,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(215,194,184,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(233,229,171,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(255,182,140,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(255,182,140,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(61,51,45,0.1); /* @kind color */
+}
+
+:root[data-mode="yellow-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(247,236,223); /* @kind color */
+  --schemes-inverse-primary: rgb(233,193,108); /* @kind color */
+  --schemes-inverse-surface: rgb(46,41,33); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(84,69,34); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(82,69,42); /* @kind color */
+  --schemes-on-secondary-container: rgb(82,69,42); /* @kind color */
+  --schemes-on-surface-2: rgb(31,27,19); /* @kind color */
+  --schemes-on-surface-variant: rgb(77,70,57); /* @kind color */
+  --schemes-on-surface: rgb(31,27,19); /* @kind color */
+  --schemes-on-tertiary-container: rgb(52,77,48); /* @kind color */
+  --schemes-outline-variant: rgb(208,197,180); /* @kind color */
+  --schemes-outline: rgb(127,118,103); /* @kind color */
+  --schemes-primary-2: rgb(121,90,12); /* @kind color */
+  --schemes-primary-container: rgb(255,213,125); /* @kind color */
+  --schemes-primary: rgb(121,90,12); /* @kind color */
+  --schemes-secondary-container-2: rgb(242,221,184); /* @kind color */
+  --schemes-secondary-container: rgb(242,221,184); /* @kind color */
+  --schemes-secondary: rgb(108,93,64); /* @kind color */
+  --schemes-surface-container-high: rgb(241,231,217); /* @kind color */
+  --schemes-surface-container-highest: rgb(235,225,212); /* @kind color */
+  --schemes-surface-container: rgb(247,236,223); /* @kind color */
+  --schemes-surface: rgb(255,248,242); /* @kind color */
+  --schemes-tertiary-container: rgb(201,232,193); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(247,236,223,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(247,236,223,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(233,193,108,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(233,193,108,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(82,69,42,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(82,69,42,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(31,27,19,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(31,27,19,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(77,70,57,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(77,70,57,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(52,77,48,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(121,90,12,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(121,90,12,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(235,225,212,0.1); /* @kind color */
+}
+
+:root[data-mode="yellow-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(57,52,43); /* @kind color */
+  --schemes-inverse-primary: rgb(121,90,12); /* @kind color */
+  --schemes-inverse-surface: rgb(235,225,212); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,247,239); /* @kind color */
+  --schemes-on-primary: rgb(63,46,0); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(245,224,187); /* @kind color */
+  --schemes-on-secondary-container: rgb(245,224,187); /* @kind color */
+  --schemes-on-surface-2: rgb(235,225,212); /* @kind color */
+  --schemes-on-surface-variant: rgb(208,197,180); /* @kind color */
+  --schemes-on-surface: rgb(235,225,212); /* @kind color */
+  --schemes-on-tertiary-container: rgb(204,235,196); /* @kind color */
+  --schemes-outline-variant: rgb(77,70,57); /* @kind color */
+  --schemes-outline: rgb(153,144,128); /* @kind color */
+  --schemes-primary-2: rgb(233,193,108); /* @kind color */
+  --schemes-primary-container: rgb(109,80,0); /* @kind color */
+  --schemes-primary: rgb(233,193,108); /* @kind color */
+  --schemes-secondary-container-2: rgb(82,69,42); /* @kind color */
+  --schemes-secondary-container: rgb(82,69,42); /* @kind color */
+  --schemes-secondary: rgb(216,196,160); /* @kind color */
+  --schemes-surface-container-high: rgb(46,41,33); /* @kind color */
+  --schemes-surface-container-highest: rgb(57,52,43); /* @kind color */
+  --schemes-surface-container: rgb(36,31,23); /* @kind color */
+  --schemes-surface: rgb(23,19,11); /* @kind color */
+  --schemes-tertiary-container: rgb(51,77,49); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(57,52,43,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(57,52,43,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(121,90,12,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(121,90,12,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(63,46,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(63,46,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(63,46,0,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(63,46,0,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(245,224,187,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(245,224,187,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(235,225,212,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(235,225,212,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(208,197,180,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(208,197,180,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(204,235,196,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(233,193,108,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(233,193,108,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(57,52,43,0.1); /* @kind color */
+}
+
+:root[data-mode="chartreuse-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(240,238,225); /* @kind color */
+  --schemes-inverse-primary: rgb(195,205,124); /* @kind color */
+  --schemes-inverse-surface: rgb(42,43,34); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(69,74,35); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(70,73,47); /* @kind color */
+  --schemes-on-secondary-container: rgb(70,73,47); /* @kind color */
+  --schemes-on-surface-2: rgb(27,28,20); /* @kind color */
+  --schemes-on-surface-variant: rgb(71,72,59); /* @kind color */
+  --schemes-on-surface: rgb(27,28,20); /* @kind color */
+  --schemes-on-tertiary-container: rgb(46,77,68); /* @kind color */
+  --schemes-outline-variant: rgb(200,199,183); /* @kind color */
+  --schemes-outline: rgb(120,120,106); /* @kind color */
+  --schemes-primary-2: rgb(92,100,30); /* @kind color */
+  --schemes-primary-container: rgb(221,230,146); /* @kind color */
+  --schemes-primary: rgb(92,100,30); /* @kind color */
+  --schemes-secondary-container-2: rgb(227,229,193); /* @kind color */
+  --schemes-secondary-container: rgb(227,229,193); /* @kind color */
+  --schemes-secondary: rgb(94,97,69); /* @kind color */
+  --schemes-surface-container-high: rgb(234,233,220); /* @kind color */
+  --schemes-surface-container-highest: rgb(229,227,214); /* @kind color */
+  --schemes-surface-container: rgb(240,238,225); /* @kind color */
+  --schemes-surface: rgb(252,250,237); /* @kind color */
+  --schemes-tertiary-container: rgb(187,233,218); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(240,238,225,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(240,238,225,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(195,205,124,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(195,205,124,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(70,73,47,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(70,73,47,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(27,28,20,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(27,28,20,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(71,72,59,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(71,72,59,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(46,77,68,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(92,100,30,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(92,100,30,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(229,227,214,0.1); /* @kind color */
+}
+
+:root[data-mode="chartreuse-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(51,85,51); /* @kind color */
+  --schemes-inverse-primary: rgb(92,100,30); /* @kind color */
+  --schemes-inverse-surface: rgb(229,227,214); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(223,233,149); /* @kind color */
+  --schemes-on-primary: rgb(45,52,0); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(227,229,194); /* @kind color */
+  --schemes-on-secondary-container: rgb(227,229,194); /* @kind color */
+  --schemes-on-surface-2: rgb(229,227,214); /* @kind color */
+  --schemes-on-surface-variant: rgb(200,199,183); /* @kind color */
+  --schemes-on-surface: rgb(229,227,214); /* @kind color */
+  --schemes-on-tertiary-container: rgb(190,236,221); /* @kind color */
+  --schemes-outline-variant: rgb(71,72,59); /* @kind color */
+  --schemes-outline: rgb(145,146,130); /* @kind color */
+  --schemes-primary-2: rgb(195,205,124); /* @kind color */
+  --schemes-primary-container: rgb(67,75,6); /* @kind color */
+  --schemes-primary: rgb(195,205,124); /* @kind color */
+  --schemes-secondary-container-2: rgb(70,73,47); /* @kind color */
+  --schemes-secondary-container: rgb(70,73,47); /* @kind color */
+  --schemes-secondary: rgb(198,201,167); /* @kind color */
+  --schemes-surface-container-high: rgb(42,43,34); /* @kind color */
+  --schemes-surface-container-highest: rgb(53,53,45); /* @kind color */
+  --schemes-surface-container: rgb(32,32,24); /* @kind color */
+  --schemes-surface: rgb(19,20,13); /* @kind color */
+  --schemes-tertiary-container: rgb(34,78,68); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(51,85,51,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(51,85,51,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(92,100,30,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(92,100,30,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(45,52,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(45,52,0,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(45,52,0,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(45,52,0,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(227,229,194,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(227,229,194,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(229,227,214,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(229,227,214,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(200,199,183,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(200,199,183,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(190,236,221,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(195,205,124,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(195,205,124,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(53,53,45,0.1); /* @kind color */
+}
+
+:root[data-mode="green-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(235,239,231); /* @kind color */
+  --schemes-inverse-primary: rgb(156,212,159); /* @kind color */
+  --schemes-inverse-surface: rgb(39,43,38); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(45,78,48); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(58,75,58); /* @kind color */
+  --schemes-on-secondary-container: rgb(58,75,58); /* @kind color */
+  --schemes-on-surface-2: rgb(24,29,24); /* @kind color */
+  --schemes-on-surface-variant: rgb(66,73,64); /* @kind color */
+  --schemes-on-surface: rgb(24,29,24); /* @kind color */
+  --schemes-on-tertiary-container: rgb(47,75,81); /* @kind color */
+  --schemes-outline-variant: rgb(193,201,190); /* @kind color */
+  --schemes-outline: rgb(113,121,112); /* @kind color */
+  --schemes-primary-2: rgb(55,106,62); /* @kind color */
+  --schemes-primary-container: rgb(183,241,185); /* @kind color */
+  --schemes-primary: rgb(55,106,62); /* @kind color */
+  --schemes-secondary-container-2: rgb(209,229,206); /* @kind color */
+  --schemes-secondary-container: rgb(209,229,206); /* @kind color */
+  --schemes-secondary: rgb(82,100,81); /* @kind color */
+  --schemes-surface-container-high: rgb(229,233,225); /* @kind color */
+  --schemes-surface-container-highest: rgb(224,228,219); /* @kind color */
+  --schemes-surface-container: rgb(235,239,231); /* @kind color */
+  --schemes-surface: rgb(247,251,242); /* @kind color */
+  --schemes-tertiary-container: rgb(186,232,240); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(235,239,231,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(235,239,231,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(156,212,159,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(156,212,159,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(58,75,58,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(58,75,58,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(24,29,24,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(24,29,24,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(66,73,64,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(66,73,64,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(47,75,81,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(55,106,62,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(55,106,62,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(224,228,219,0.1); /* @kind color */
+}
+
+:root[data-mode="green-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(49,54,48); /* @kind color */
+  --schemes-inverse-primary: rgb(55,106,62); /* @kind color */
+  --schemes-inverse-surface: rgb(224,228,219); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(183,241,185); /* @kind color */
+  --schemes-on-primary: rgb(0,57,19); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(212,232,209); /* @kind color */
+  --schemes-on-secondary-container: rgb(212,232,209); /* @kind color */
+  --schemes-on-surface-2: rgb(224,228,219); /* @kind color */
+  --schemes-on-surface-variant: rgb(193,201,190); /* @kind color */
+  --schemes-on-surface: rgb(224,228,219); /* @kind color */
+  --schemes-on-tertiary-container: rgb(189,234,243); /* @kind color */
+  --schemes-outline-variant: rgb(66,73,64); /* @kind color */
+  --schemes-outline: rgb(145,146,130); /* @kind color */
+  --schemes-primary-2: rgb(156,212,159); /* @kind color */
+  --schemes-primary-container: rgb(29,81,40); /* @kind color */
+  --schemes-primary: rgb(156,212,159); /* @kind color */
+  --schemes-secondary-container-2: rgb(58,75,58); /* @kind color */
+  --schemes-secondary-container: rgb(58,75,58); /* @kind color */
+  --schemes-secondary: rgb(184,204,181); /* @kind color */
+  --schemes-surface-container-high: rgb(39,43,38); /* @kind color */
+  --schemes-surface-container-highest: rgb(49,54,48); /* @kind color */
+  --schemes-surface-container: rgb(28,33,28); /* @kind color */
+  --schemes-surface: rgb(16,21,16); /* @kind color */
+  --schemes-tertiary-container: rgb(31,77,84); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(49,54,48,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(49,54,48,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(55,106,62,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(55,106,62,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(0,57,19,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(0,57,19,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(0,57,19,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(0,57,19,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(212,232,209,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(212,232,209,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(224,228,219,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(224,228,219,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(193,201,190,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(193,201,190,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(189,234,243,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(156,212,159,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(156,212,159,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(49,54,48,0.1); /* @kind color */
+}
+
+:root[data-mode="teal-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(233,239,236); /* @kind color */
+  --schemes-inverse-primary: rgb(130,213,199); /* @kind color */
+  --schemes-inverse-surface: rgb(37,43,42); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(46,76,71); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(51,75,71); /* @kind color */
+  --schemes-on-secondary-container: rgb(51,75,71); /* @kind color */
+  --schemes-on-surface-2: rgb(23,29,27); /* @kind color */
+  --schemes-on-surface-variant: rgb(63,73,70); /* @kind color */
+  --schemes-on-surface: rgb(23,29,27); /* @kind color */
+  --schemes-on-tertiary-container: rgb(48,73,93); /* @kind color */
+  --schemes-outline-variant: rgb(190,201,197); /* @kind color */
+  --schemes-outline: rgb(111,121,118); /* @kind color */
+  --schemes-primary-2: rgb(0,107,96); /* @kind color */
+  --schemes-primary-container: rgb(158,242,227); /* @kind color */
+  --schemes-primary: rgb(0,107,96); /* @kind color */
+  --schemes-secondary-container-2: rgb(202,230,223); /* @kind color */
+  --schemes-secondary-container: rgb(202,230,223); /* @kind color */
+  --schemes-secondary: rgb(75,100,95); /* @kind color */
+  --schemes-surface-container-high: rgb(227,234,231); /* @kind color */
+  --schemes-surface-container-highest: rgb(221,228,225); /* @kind color */
+  --schemes-surface-container: rgb(233,239,236); /* @kind color */
+  --schemes-surface: rgb(244,251,248); /* @kind color */
+  --schemes-tertiary-container: rgb(197,227,255); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(233,239,236,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(233,239,236,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(130,213,199,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(130,213,199,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(51,75,71,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(51,75,71,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(23,29,27,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(23,29,27,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(63,73,70,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(63,73,70,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(48,73,93,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(0,107,96,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(0,107,96,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(221,228,225,0.1); /* @kind color */
+}
+
+:root[data-mode="teal-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(48,54,52); /* @kind color */
+  --schemes-inverse-primary: rgb(0,107,96); /* @kind color */
+  --schemes-inverse-surface: rgb(221,228,225); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary: rgb(0,55,49); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(204,232,226); /* @kind color */
+  --schemes-on-secondary-container: rgb(204,232,226); /* @kind color */
+  --schemes-on-surface-2: rgb(221,228,225); /* @kind color */
+  --schemes-on-surface-variant: rgb(190,201,197); /* @kind color */
+  --schemes-on-surface: rgb(221,228,225); /* @kind color */
+  --schemes-on-tertiary-container: rgb(203,230,255); /* @kind color */
+  --schemes-outline-variant: rgb(63,73,70); /* @kind color */
+  --schemes-outline: rgb(136,147,143); /* @kind color */
+  --schemes-primary-2: rgb(130,213,199); /* @kind color */
+  --schemes-primary-container: rgb(0,107,95); /* @kind color */
+  --schemes-primary: rgb(130,213,199); /* @kind color */
+  --schemes-secondary-container-2: rgb(51,75,71); /* @kind color */
+  --schemes-secondary-container: rgb(51,75,71); /* @kind color */
+  --schemes-secondary: rgb(177,204,198); /* @kind color */
+  --schemes-surface-container-high: rgb(37,43,42); /* @kind color */
+  --schemes-surface-container-highest: rgb(48,54,52); /* @kind color */
+  --schemes-surface-container: rgb(26,33,31); /* @kind color */
+  --schemes-surface: rgb(14,21,19); /* @kind color */
+  --schemes-tertiary-container: rgb(45,74,96); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(48,54,52,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(48,54,52,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(0,107,96,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(0,107,96,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(0,55,49,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(0,55,49,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(0,55,49,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(0,55,49,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(204,232,226,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(204,232,226,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(221,228,225,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(221,228,225,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(190,201,197,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(190,201,197,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(203,230,255,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(130,213,199,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(130,213,199,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(48,54,52,0.1); /* @kind color */
+}
+
+:root[data-mode="cyan-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(234,239,241); /* @kind color */
+  --schemes-inverse-primary: rgb(134,209,234); /* @kind color */
+  --schemes-inverse-surface: rgb(37,43,45); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(47,75,84); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(52,74,82); /* @kind color */
+  --schemes-on-secondary-container: rgb(52,74,82); /* @kind color */
+  --schemes-on-surface-2: rgb(23,28,30); /* @kind color */
+  --schemes-on-surface-variant: rgb(64,72,75); /* @kind color */
+  --schemes-on-surface: rgb(23,28,30); /* @kind color */
+  --schemes-on-tertiary-container: rgb(65,68,101); /* @kind color */
+  --schemes-outline-variant: rgb(191,200,204); /* @kind color */
+  --schemes-outline: rgb(112,120,124); /* @kind color */
+  --schemes-primary-2: rgb(1,104,125); /* @kind color */
+  --schemes-primary-container: rgb(154,229,253); /* @kind color */
+  --schemes-primary: rgb(1,104,125); /* @kind color */
+  --schemes-secondary-container-2: rgb(206,231,240); /* @kind color */
+  --schemes-secondary-container: rgb(206,231,240); /* @kind color */
+  --schemes-secondary: rgb(76,99,106); /* @kind color */
+  --schemes-surface-container-high: rgb(228,233,235); /* @kind color */
+  --schemes-surface-container-highest: rgb(222,227,230); /* @kind color */
+  --schemes-surface-container: rgb(234,239,241); /* @kind color */
+  --schemes-surface: rgb(245,250,253); /* @kind color */
+  --schemes-tertiary-container: rgb(212,215,255); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(234,239,241,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(234,239,241,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(134,209,234,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(134,209,234,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(52,74,82,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(52,74,82,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(23,28,30,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(23,28,30,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(64,72,75,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(64,72,75,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(65,68,101,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(1,104,125,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(1,104,125,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(222,227,230,0.1); /* @kind color */
+}
+
+:root[data-mode="cyan-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(48,54,56); /* @kind color */
+  --schemes-inverse-primary: rgb(1,104,125); /* @kind color */
+  --schemes-inverse-surface: rgb(222,227,230); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary: rgb(0,54,66); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(206,230,240); /* @kind color */
+  --schemes-on-secondary-container: rgb(206,230,240); /* @kind color */
+  --schemes-on-surface-2: rgb(222,227,230); /* @kind color */
+  --schemes-on-surface-variant: rgb(191,200,204); /* @kind color */
+  --schemes-on-surface: rgb(222,227,230); /* @kind color */
+  --schemes-on-tertiary-container: rgb(223,224,255); /* @kind color */
+  --schemes-outline-variant: rgb(64,72,75); /* @kind color */
+  --schemes-outline: rgb(138,146,149); /* @kind color */
+  --schemes-primary-2: rgb(134,209,234); /* @kind color */
+  --schemes-primary-container: rgb(0,103,124); /* @kind color */
+  --schemes-primary: rgb(134,209,234); /* @kind color */
+  --schemes-secondary-container-2: rgb(52,74,82); /* @kind color */
+  --schemes-secondary-container: rgb(52,74,82); /* @kind color */
+  --schemes-secondary: rgb(179,202,211); /* @kind color */
+  --schemes-surface-container-high: rgb(37,43,45); /* @kind color */
+  --schemes-surface-container-highest: rgb(48,54,56); /* @kind color */
+  --schemes-surface-container: rgb(27,32,34); /* @kind color */
+  --schemes-surface: rgb(15,20,22); /* @kind color */
+  --schemes-tertiary-container: rgb(65,68,101); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(48,54,56,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(48,54,56,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(1,104,125,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(1,104,125,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(0,54,66,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(0,54,66,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(0,54,66,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(0,54,66,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(206,230,240,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(206,230,240,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(222,227,230,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(222,227,230,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(191,200,204,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(191,200,204,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(223,224,255,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(134,209,234,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(134,209,234,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(48,54,56,0.1); /* @kind color */
+}
+
+:root[data-mode="blue-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(238,237,244); /* @kind color */
+  --schemes-inverse-primary: rgb(176,198,255); /* @kind color */
+  --schemes-inverse-surface: rgb(40,42,47); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(50,69,116); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(64,70,89); /* @kind color */
+  --schemes-on-secondary-container: rgb(64,70,89); /* @kind color */
+  --schemes-on-surface-2: rgb(26,27,33); /* @kind color */
+  --schemes-on-surface-variant: rgb(68,70,79); /* @kind color */
+  --schemes-on-surface: rgb(26,27,33); /* @kind color */
+  --schemes-on-tertiary-container: rgb(89,61,90); /* @kind color */
+  --schemes-outline-variant: rgb(197,198,208); /* @kind color */
+  --schemes-outline: rgb(117,119,128); /* @kind color */
+  --schemes-primary-2: rgb(72,94,146); /* @kind color */
+  --schemes-primary-container: rgb(173,195,254); /* @kind color */
+  --schemes-primary: rgb(72,94,146); /* @kind color */
+  --schemes-secondary-container-2: rgb(217,223,246); /* @kind color */
+  --schemes-secondary-container: rgb(217,223,246); /* @kind color */
+  --schemes-secondary: rgb(88,95,114); /* @kind color */
+  --schemes-surface-container-high: rgb(232,231,239); /* @kind color */
+  --schemes-surface-container-highest: rgb(226,226,233); /* @kind color */
+  --schemes-surface-container: rgb(238,237,244); /* @kind color */
+  --schemes-surface: rgb(250,248,255); /* @kind color */
+  --schemes-tertiary-container: rgb(251,212,247); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(238,237,244,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(238,237,244,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(176,198,255,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(176,198,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(64,70,89,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(64,70,89,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(26,27,33,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(26,27,33,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(68,70,79,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(68,70,79,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(89,61,90,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(72,94,146,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(72,94,146,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(226,226,233,0.1); /* @kind color */
+}
+
+:root[data-mode="blue-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(51,52,58); /* @kind color */
+  --schemes-inverse-primary: rgb(72,94,146); /* @kind color */
+  --schemes-inverse-surface: rgb(226,226,233); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(217,226,255); /* @kind color */
+  --schemes-on-primary: rgb(21,46,96); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(220,226,249); /* @kind color */
+  --schemes-on-secondary-container: rgb(220,226,249); /* @kind color */
+  --schemes-on-surface-2: rgb(226,226,233); /* @kind color */
+  --schemes-on-surface-variant: rgb(197,198,208); /* @kind color */
+  --schemes-on-surface: rgb(226,226,233); /* @kind color */
+  --schemes-on-tertiary-container: rgb(253,215,250); /* @kind color */
+  --schemes-outline-variant: rgb(68,70,79); /* @kind color */
+  --schemes-outline: rgb(143,144,154); /* @kind color */
+  --schemes-primary-2: rgb(176,198,255); /* @kind color */
+  --schemes-primary-container: rgb(46,69,120); /* @kind color */
+  --schemes-primary: rgb(176,198,255); /* @kind color */
+  --schemes-secondary-container-2: rgb(64,70,89); /* @kind color */
+  --schemes-secondary-container: rgb(64,70,89); /* @kind color */
+  --schemes-secondary: rgb(192,198,220); /* @kind color */
+  --schemes-surface-container-high: rgb(40,42,47); /* @kind color */
+  --schemes-surface-container-highest: rgb(51,52,58); /* @kind color */
+  --schemes-surface-container: rgb(30,31,37); /* @kind color */
+  --schemes-surface: rgb(18,19,24); /* @kind color */
+  --schemes-tertiary-container: rgb(89,61,90); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(51,52,58,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(51,52,58,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(72,94,146,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(72,94,146,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(21,46,96,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(21,46,96,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(21,46,96,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(21,46,96,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(220,226,249,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(220,226,249,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(226,226,233,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(226,226,233,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(197,198,208,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(197,198,208,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(253,215,250,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(176,198,255,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(176,198,255,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(51,52,58,0.1); /* @kind color */
+}
+
+:root[data-mode="indigo-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(240,236,244); /* @kind color */
+  --schemes-inverse-primary: rgb(197,192,255); /* @kind color */
+  --schemes-inverse-surface: rgb(42,41,47); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(67,64,120); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(69,69,89); /* @kind color */
+  --schemes-on-secondary-container: rgb(69,69,89); /* @kind color */
+  --schemes-on-surface-2: rgb(28,27,33); /* @kind color */
+  --schemes-on-surface-variant: rgb(71,70,79); /* @kind color */
+  --schemes-on-surface: rgb(28,27,33); /* @kind color */
+  --schemes-on-tertiary-container: rgb(96,60,79); /* @kind color */
+  --schemes-outline-variant: rgb(200,197,208); /* @kind color */
+  --schemes-outline: rgb(120,118,128); /* @kind color */
+  --schemes-primary-2: rgb(91,89,146); /* @kind color */
+  --schemes-primary-container: rgb(193,189,254); /* @kind color */
+  --schemes-primary: rgb(91,89,146); /* @kind color */
+  --schemes-secondary-container-2: rgb(224,221,246); /* @kind color */
+  --schemes-secondary-container: rgb(224,221,246); /* @kind color */
+  --schemes-secondary: rgb(95,93,114); /* @kind color */
+  --schemes-surface-container-high: rgb(234,231,239); /* @kind color */
+  --schemes-surface-container-highest: rgb(229,225,233); /* @kind color */
+  --schemes-surface-container: rgb(240,236,244); /* @kind color */
+  --schemes-surface: rgb(252,248,255); /* @kind color */
+  --schemes-tertiary-container: rgb(255,204,229); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(240,236,244,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(240,236,244,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(197,192,255,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(197,192,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(69,69,89,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(69,69,89,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(28,27,33,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(28,27,33,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(71,70,79,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(71,70,79,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(96,60,79,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(91,89,146,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(91,89,146,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(229,225,233,0.1); /* @kind color */
+}
+
+:root[data-mode="indigo-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(53,52,58); /* @kind color */
+  --schemes-inverse-primary: rgb(91,89,146); /* @kind color */
+  --schemes-inverse-surface: rgb(237,230,238); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(227,223,255); /* @kind color */
+  --schemes-on-primary: rgb(45,41,96); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(228,223,249); /* @kind color */
+  --schemes-on-secondary-container: rgb(228,223,249); /* @kind color */
+  --schemes-on-surface-2: rgb(229,225,233); /* @kind color */
+  --schemes-on-surface-variant: rgb(200,197,208); /* @kind color */
+  --schemes-on-surface: rgb(229,225,233); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,216,233); /* @kind color */
+  --schemes-outline-variant: rgb(71,70,79); /* @kind color */
+  --schemes-outline: rgb(145,143,154); /* @kind color */
+  --schemes-primary-2: rgb(197,192,255); /* @kind color */
+  --schemes-primary-container: rgb(68,64,120); /* @kind color */
+  --schemes-primary: rgb(197,192,255); /* @kind color */
+  --schemes-secondary-container-2: rgb(70,69,89); /* @kind color */
+  --schemes-secondary-container: rgb(70,69,89); /* @kind color */
+  --schemes-secondary: rgb(199,196,220); /* @kind color */
+  --schemes-surface-container-high: rgb(42,41,47); /* @kind color */
+  --schemes-surface-container-highest: rgb(53,52,58); /* @kind color */
+  --schemes-surface-container: rgb(32,31,37); /* @kind color */
+  --schemes-surface: rgb(19,19,24); /* @kind color */
+  --schemes-tertiary-container: rgb(96,59,79); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(53,52,58,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(53,52,58,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(91,89,146,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(91,89,146,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(45,41,96,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(45,41,96,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(45,41,96,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(45,41,96,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(228,223,249,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(228,223,249,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(229,225,233,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(229,225,233,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(200,197,208,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(200,197,208,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,216,233,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(197,192,255,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(197,192,255,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(53,52,58,0.1); /* @kind color */
+}
+
+:root[data-mode="purple-lt"] {
+  --schemes-error: rgb(179,38,30); /* @kind color */
+  --schemes-inverse-on-surface: rgb(243,236,244); /* @kind color */
+  --schemes-inverse-primary: rgb(214,187,251); /* @kind color */
+  --schemes-inverse-surface: rgb(44,41,47); /* @kind color */
+  --schemes-on-error: rgb(255,255,255); /* @kind color */
+  --schemes-on-primary-container: rgb(82,60,114); /* @kind color */
+  --schemes-on-primary: rgb(255,255,255); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(76,67,87); /* @kind color */
+  --schemes-on-secondary-container: rgb(76,67,87); /* @kind color */
+  --schemes-on-surface-2: rgb(29,26,32); /* @kind color */
+  --schemes-on-surface-variant: rgb(74,69,78); /* @kind color */
+  --schemes-on-surface: rgb(29,26,32); /* @kind color */
+  --schemes-on-tertiary-container: rgb(101,58,68); /* @kind color */
+  --schemes-outline-variant: rgb(203,196,207); /* @kind color */
+  --schemes-outline: rgb(122,117,127); /* @kind color */
+  --schemes-primary-2: rgb(107,84,141); /* @kind color */
+  --schemes-primary-container: rgb(217,189,254); /* @kind color */
+  --schemes-primary: rgb(107,84,141); /* @kind color */
+  --schemes-secondary-container-2: rgb(235,221,247); /* @kind color */
+  --schemes-secondary-container: rgb(235,221,247); /* @kind color */
+  --schemes-secondary: rgb(101,91,112); /* @kind color */
+  --schemes-surface-container-high: rgb(237,230,238); /* @kind color */
+  --schemes-surface-container-highest: rgb(231,224,232); /* @kind color */
+  --schemes-surface-container: rgb(243,236,244); /* @kind color */
+  --schemes-surface: rgb(254,247,255); /* @kind color */
+  --schemes-tertiary-container: rgb(253,194,205); /* @kind color */
+  --state-layers-error-opacity-08: rgba(179,38,30,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(179,38,30,0.1); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(243,236,244,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(243,236,244,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(214,187,251,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(214,187,251,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(255,255,255,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(255,255,255,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(76,67,87,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(76,67,87,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(29,26,32,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(29,26,32,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(74,69,78,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(74,69,78,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(101,58,68,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(107,84,141,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(107,84,141,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(231,224,232,0.1); /* @kind color */
+}
+
+:root[data-mode="purple-dt"] {
+  --schemes-error: rgb(242,184,181); /* @kind color */
+  --schemes-inverse-on-surface: rgb(55,51,58); /* @kind color */
+  --schemes-inverse-primary: rgb(107,84,141); /* @kind color */
+  --schemes-inverse-surface: rgb(231,224,232); /* @kind color */
+  --schemes-on-error: rgb(96,20,16); /* @kind color */
+  --schemes-on-primary-container: rgb(237,220,255); /* @kind color */
+  --schemes-on-primary: rgb(59,37,90); /* @kind color */
+  --schemes-on-secondary-container-2: rgb(235,221,247); /* @kind color */
+  --schemes-on-secondary-container: rgb(235,221,247); /* @kind color */
+  --schemes-on-surface-2: rgb(231,224,232); /* @kind color */
+  --schemes-on-surface-variant: rgb(203,196,207); /* @kind color */
+  --schemes-on-surface: rgb(231,224,232); /* @kind color */
+  --schemes-on-tertiary-container: rgb(255,217,223); /* @kind color */
+  --schemes-outline-variant: rgb(74,69,78); /* @kind color */
+  --schemes-outline: rgb(149,142,153); /* @kind color */
+  --schemes-primary-2: rgb(214,187,251); /* @kind color */
+  --schemes-primary-container: rgb(82,60,115); /* @kind color */
+  --schemes-primary: rgb(214,187,251); /* @kind color */
+  --schemes-secondary-container-2: rgb(76,67,87); /* @kind color */
+  --schemes-secondary-container: rgb(76,67,87); /* @kind color */
+  --schemes-secondary: rgb(206,194,218); /* @kind color */
+  --schemes-surface-container-high: rgb(44,41,47); /* @kind color */
+  --schemes-surface-container-highest: rgb(55,51,58); /* @kind color */
+  --schemes-surface-container: rgb(33,30,36); /* @kind color */
+  --schemes-surface: rgb(21,18,24); /* @kind color */
+  --schemes-tertiary-container: rgb(101,59,67); /* @kind color */
+  --state-layers-error-opacity-08: rgba(242,184,181,0.08); /* @kind color */
+  --state-layers-error-opacity-10: rgba(242,184,181,0.12); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-08: rgba(55,51,58,0.08); /* @kind color */
+  --state-layers-inverse-on-surface-opacity-10: rgba(55,51,58,0.1); /* @kind color */
+  --state-layers-inverse-primary-opacity-08: rgba(107,84,141,0.08); /* @kind color */
+  --state-layers-inverse-primary-opacity-10: rgba(107,84,141,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-08-2: rgba(59,37,90,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-08: rgba(59,37,90,0.08); /* @kind color */
+  --state-layers-on-primary-opacity-10-2: rgba(59,37,90,0.1); /* @kind color */
+  --state-layers-on-primary-opacity-10: rgba(59,37,90,0.1); /* @kind color */
+  --state-layers-on-secondary-container-opacity-08: rgba(235,221,247,0.08); /* @kind color */
+  --state-layers-on-secondary-container-opacity-10: rgba(235,221,247,0.1); /* @kind color */
+  --state-layers-on-surface-opacity-08: rgba(231,224,232,0.08); /* @kind color */
+  --state-layers-on-surface-opacity-10: rgba(231,224,232,0.1); /* @kind color */
+  --state-layers-on-surface-variant-opacity-08: rgba(203,196,207,0.08); /* @kind color */
+  --state-layers-on-surface-variant-opacity-10: rgba(203,196,207,0.1); /* @kind color */
+  --state-layers-on-tertiary-container-opacity-16: rgba(255,217,223,0.16); /* @kind color */
+  --state-layers-primary-opacity-08: rgba(214,187,251,0.08); /* @kind color */
+  --state-layers-primary-opacity-10: rgba(214,187,251,0.1); /* @kind color */
+  --state-layers-surface-variant-opacity-10: rgba(55,51,58,0.1); /* @kind color */
+}
+
+:root[data-mode="tablet"] {
+  --font-family-inter: "Inter";
+  --font-interface-font-size-body-2: 16;
+  --font-interface-line-height-body: 24;
+  --font-interface-line-height-caption: 16;
+  --font-weight-semibold: 600;
+}
+
+:root[data-mode="mobile"] {
+  --font-family-inter: "Inter";
+  --font-interface-font-size-body-2: 16;
+  --font-interface-line-height-body: 24;
+  --font-interface-line-height-caption: 16;
+  --font-weight-semibold: 600;
+}

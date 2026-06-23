@@ -201,6 +201,15 @@ header.nav.scrolled { border-color: var(--line); }
   border-radius: 220px 220px 0 0;
   background: var(--paper-2);
 }
+.hello-badge {
+  position: absolute; left: -6px; bottom: 64px;
+  width: 104px; height: 104px; border-radius: 50%;
+  background: var(--ink); color: #fff;
+  display: grid; place-items: center; text-align: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  letter-spacing: 0.02em;
+  animation: spinwobble 14s linear infinite;
+}
 .deco-x { position: absolute; color: var(--accent); opacity: .8; font-size: 26px; font-family: var(--font-display); }
 .deco-dotgrid {
   position: absolute; width: 84px; height: 84px;
@@ -249,8 +258,8 @@ header.nav.scrolled { border-color: var(--line); }
   padding: 22px var(--pad); border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
-.strip a, .strip span:not(.sep) { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); }
-.strip a svg, .strip span:not(.sep) svg { width: 17px; height: 17px; }
+.strip a { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.strip a svg { width: 17px; height: 17px; }
 .strip a:hover { color: var(--accent); }
 .strip .sep { width: 1px; height: 18px; background: var(--line); }
 
@@ -378,9 +387,9 @@ header.nav.scrolled { border-color: var(--line); }
 .quote-by .nm { font-weight: 700; font-family: var(--font-display); font-size: 20px; }
 .quote-by .rl { color: var(--muted); font-size: 13px; }
 .quote-photo {
-  width: 230px; height: 230px;
+  width: 230px; height: 230px; object-fit: cover;
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  background: var(--accent);
+  background: var(--paper-2);
 }
 
 /* ============================================================
@@ -403,7 +412,7 @@ header.nav.scrolled { border-color: var(--line); }
 .contact-sub { color: var(--muted); margin-top: 18px; max-width: 34ch; }
 .contact-info { margin-top: 34px; display: grid; gap: 16px; }
 .cinfo { display: flex; align-items: center; gap: 14px; }
-.cinfo .ic { width: 42px; height: 42px; border-radius: 12px; background: transparent; border: none; display: grid; place-items: center; color: var(--accent); }
+.cinfo .ic { width: 42px; height: 42px; border-radius: 12px; background: var(--white); border: 1px solid var(--line); display: grid; place-items: center; color: var(--accent); }
 .cinfo .k { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); }
 .cinfo .v { font-weight: 600; font-size: 15px; }
 
@@ -465,6 +474,7 @@ footer.foot {
    ANIMATIONS
    ============================================================ */
 @keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes spinwobble { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
 @keyframes pop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -475,7 +485,7 @@ footer.foot {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; }
-  .marquee-track { animation: none !important; }
+  .marquee-track, .hello-badge { animation: none !important; }
   html { scroll-behavior: auto; }
 }
 
