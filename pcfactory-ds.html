@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PC Factory DS — Case Study · Cristián Acuña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+<style>
+  /* PC Factory DS — atomic design system del retail tecnológico.
+     Valores reales de las Figma Variables (PC factory + Ungrouped). */
+  body[data-cs="pcfactory"] {
+    --accent: #00D879;        /* brand green — el verde PC Factory */
+    --accent-2: #00AD61;      /* green/darker */
+    --ink-navy: #060B25;      /* neutral/90 — títulos */
+    --ink-para: #58606E;      /* neutral/80 — párrafo */
+    --neutral-50: #AFBACC;    /* neutral/50 */
+    --border-soft: #DDE3ED;   /* border */
+    --bg-10: #F5F7FA;         /* background/neutral-10 */
+    --blue: #1F61F7;          /* blue/50 — acción */
+    --blue-dark: #204FCC;
+    --red: #EB5454;           /* error */
+    --ds-font: "Poppins", system-ui, sans-serif;
+    --ds-display: "Ubuntu", system-ui, sans-serif;
+  }
+  body[data-cs="pcfactory"] .cs-title .ds { color: var(--accent-2); }
+  body[data-cs="pcfactory"] .cs-pill.solid { background: var(--ink-navy); }
+
+  .cs-credit { display: inline-flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-top: 22px; font-size: 14px; color: var(--muted); }
+  .cs-credit b { font-weight: 600; color: var(--ink); }
+  .cs-credit .by { display: inline-flex; align-items: center; gap: 8px; }
+  .cs-credit .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); }
+
+  /* ===== living system cover ===== */
+  .sys-cover { margin-top: 54px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--white); overflow: hidden; box-shadow: 0 30px 70px rgba(6,11,37,.12); }
+  .sys-cover-top { display: grid; grid-template-columns: 1.05fr 1fr; }
+  .sys-cover-brand { background: var(--ink-navy); color: #fff; padding: clamp(30px,4vw,52px); display: flex; flex-direction: column; justify-content: space-between; min-height: 320px; position: relative; overflow: hidden; }
+  .sys-cover-brand::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.10) 1px, transparent 0); background-size: 22px 22px; pointer-events: none; }
+  .sys-cover-brand .kicker { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--accent); position: relative; }
+  .sys-cover-brand .word { font-family: var(--ds-display); font-weight: 700; font-size: clamp(46px,7vw,82px); line-height: .92; letter-spacing: -.02em; position: relative; }
+  .sys-cover-brand .word span { color: var(--accent); }
+  .sys-cover-brand .word small { display: block; font-family: var(--ds-font); font-size: 15px; font-weight: 400; letter-spacing: .01em; color: rgba(255,255,255,.7); margin-top: 14px; max-width: 34ch; line-height: 1.5; }
+  .sys-cover-brand .ramp { display: flex; gap: 0; border-radius: 8px; overflow: hidden; position: relative; }
+  .sys-cover-brand .ramp i { height: 26px; flex: 1; }
+  .sys-cover-spec { padding: clamp(26px,3.4vw,42px); display: flex; flex-direction: column; gap: 18px; font-family: var(--ds-font); }
+  .spec-row { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 14px; }
+  .spec-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .spec-row .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); width: 60px; flex: none; }
+  .spec-row .val { font-weight: 700; color: var(--ink); line-height: 1; }
+  .sys-cover-strip { display: flex; flex-wrap: wrap; gap: 12px; padding: 22px clamp(26px,3.4vw,42px); border-top: 1px solid var(--line); background: var(--bg-10); align-items: center; }
+
+  /* ===== token collections ===== */
+  .coll-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+  .coll { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: 22px 22px 20px; position: relative; overflow: hidden; }
+  .coll .num { font-family: var(--ds-display); font-weight: 700; font-size: 40px; line-height: 1; color: var(--ink); letter-spacing: -.02em; }
+  .coll .nm { font-weight: 600; font-size: 15px; margin-top: 10px; }
+  .coll .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .coll .tier { position: absolute; top: 16px; right: 16px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--accent-2); background: #E1FBEF; border-radius: 999px; padding: 4px 9px; }
+  @media (max-width: 900px) { .coll-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .coll-grid { grid-template-columns: 1fr; } }
+
+  /* atomic flow diagram */
+  .tier-flow { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; margin-top: 34px; }
+  .tier-step { flex: 1; min-width: 150px; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 20px; background: var(--white); }
+  .tier-step .t { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; font-family: var(--ds-font); }
+  .tier-step .t span { width: 24px; height: 24px; border-radius: 7px; background: var(--accent); color: var(--ink-navy); font-size: 12px; display: grid; place-items: center; font-family: var(--ds-display); font-weight: 700; }
+  .tier-step .d { color: var(--muted); font-size: 13px; margin-top: 8px; line-height: 1.5; }
+  .tier-step code { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 11.5px; background: var(--bg-10); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; color: var(--blue-dark); }
+  .tier-arrow { align-self: center; color: var(--neutral-50); font-weight: 700; font-size: 22px; }
+  @media (max-width: 820px) { .tier-arrow { display: none; } .tier-step { min-width: 44%; } }
+
+  /* ===== foundations: color ramps ===== */
+  .ramp-block { margin-top: 30px; }
+  .ramp-block h4 { font-size: 14px; font-weight: 600; color: var(--ink-soft); margin: 0 0 12px; display: flex; gap: 10px; align-items: baseline; font-family: var(--ds-font); }
+  .ramp-block h4 small { color: var(--muted); font-weight: 500; font-size: 12.5px; }
+  .ramp-strip { display: grid; grid-template-columns: repeat(8, 1fr); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+  .ramp-strip.semantic { grid-template-columns: repeat(4, 1fr); }
+  .swatch-c { padding: 16px 12px 13px; min-height: 92px; display: flex; flex-direction: column; justify-content: flex-end; font-family: var(--ds-font); }
+  .swatch-c .k { font-size: 11px; font-weight: 700; }
+  .swatch-c .h { font-size: 10.5px; opacity: .82; margin-top: 2px; letter-spacing: .01em; }
+  @media (max-width: 720px) { .ramp-strip { grid-template-columns: repeat(4, 1fr); } .ramp-strip.semantic { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ===== foundations: type scale ===== */
+  .type-scale { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .type-row { display: flex; align-items: baseline; gap: 20px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+  .type-row:last-child { border-bottom: 0; }
+  .type-row .tk { font-family: "Poppins"; font-size: 12px; color: var(--muted); width: 150px; flex: none; }
+  .type-row .tk b { color: var(--ink); font-weight: 600; display: block; font-size: 12.5px; }
+  .type-row .sample { color: var(--ink); line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .type-row .sample.disp { font-family: var(--ds-display); font-weight: 700; }
+  .type-row .sample.body { font-family: var(--ds-font); font-weight: 500; }
+  .type-row .px { margin-left: auto; font-family: "Poppins"; font-size: 12px; color: var(--muted); flex: none; }
+  @media (max-width: 640px){ .type-row .px { display:none; } .type-row .tk { width: 104px; } }
+
+  /* ===== foundations: spacing ===== */
+  .space-list { margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+  .space-row { display: flex; align-items: center; gap: 16px; }
+  .space-row .nm { font-family: "Poppins"; font-size: 12.5px; width: 120px; flex: none; color: var(--ink-soft); }
+  .space-row .nm b { color: var(--ink); font-weight: 600; }
+  .space-row .bar { height: 18px; background: var(--accent); border-radius: 3px; }
+  .space-row .px { font-family: "Poppins"; font-size: 12px; color: var(--muted); }
+
+  /* ===== foundations: radius ===== */
+  .radius-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
+  .radius-cell { text-align: center; }
+  .radius-cell .box { height: 70px; background: #E1FBEF; border: 1.5px solid var(--accent-2); border-bottom: none; }
+  .radius-cell .lab { border: 1px solid var(--line); border-top: none; padding: 8px 4px; border-radius: 0 0 6px 6px; font-family: var(--ds-font); }
+  .radius-cell .lab b { display: block; font-size: 12.5px; font-weight: 600; }
+  .radius-cell .lab span { font-size: 11px; color: var(--muted); }
+
+  /* ===== components ===== */
+  .comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 18px; }
+  .comp-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); overflow: hidden; }
+  .comp-card.span2 { grid-column: 1 / -1; }
+  .comp-card .head { padding: 14px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
+  .comp-card .head .lvl { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--accent-2); background: #E1FBEF; border-radius: 999px; padding: 3px 8px; font-family: var(--ds-font); }
+  .comp-card .head b { font-size: 14px; font-weight: 600; font-family: var(--ds-font); }
+  .comp-card .head span { font-size: 12px; color: var(--muted); font-family: "Poppins"; margin-left: auto; }
+  .comp-card .stage { padding: 26px 24px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-family: var(--ds-font); background: var(--bg-10); }
+  @media (max-width: 760px){ .comp-grid { grid-template-columns: 1fr; } }
+
+  /* PC Factory buttons */
+  .pf-btn { font-family: var(--ds-font); font-weight: 600; font-size: 14px; border-radius: 8px; padding: 11px 22px; border: 1.5px solid transparent; cursor: default; line-height: 1; }
+  .pf-btn.primary { background: var(--ink-navy); color: #fff; }
+  .pf-btn.brand { background: var(--accent); color: var(--ink-navy); }
+  .pf-btn.outline { background: #fff; color: var(--ink-navy); border-color: var(--ink-navy); }
+  .pf-btn.link { background: transparent; color: var(--blue); padding-left: 4px; padding-right: 4px; text-decoration: underline; text-underline-offset: 3px; }
+  .pf-btn.disabled { background: var(--border-soft); color: var(--neutral-50); }
+  /* icon button */
+  .pf-iconbtn { width: 42px; height: 42px; border-radius: 8px; display: grid; place-items: center; border: 1.5px solid var(--ink-navy); background: #fff; color: var(--ink-navy); }
+  .pf-iconbtn.brand { background: var(--accent); border-color: var(--accent); color: var(--ink-navy); }
+  .pf-iconbtn svg { width: 20px; height: 20px; }
+  /* badges */
+  .pf-badge { font-family: var(--ds-font); font-weight: 600; font-size: 12px; border-radius: 999px; padding: 5px 11px; display: inline-flex; align-items: center; gap: 6px; }
+  .pf-badge.success { background: #E1FBEF; color: #00723F; }
+  .pf-badge.info { background: #E4ECFE; color: var(--blue-dark); }
+  .pf-badge.warning { background: #FEF8E5; color: #8A6D00; }
+  .pf-badge.error { background: #FCE8E8; color: #A82E38; }
+  .pf-badge.new { background: var(--accent); color: var(--ink-navy); }
+  /* tabs */
+  .pf-tabs { display: inline-flex; gap: 4px; border-bottom: 2px solid var(--border-soft); }
+  .pf-tabs .t { font-family: var(--ds-font); font-size: 14px; font-weight: 500; color: var(--ink-para); padding: 10px 16px; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .pf-tabs .t.on { color: var(--ink-navy); font-weight: 600; border-color: var(--accent); }
+  /* input */
+  .pf-field { width: 100%; font-family: var(--ds-font); }
+  .pf-field label { display: block; font-size: 13px; font-weight: 500; color: var(--ink-navy); margin-bottom: 7px; }
+  .pf-field .box { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--border-soft); border-radius: 8px; padding: 12px 14px; background: #fff; }
+  .pf-field .box.focus { border-color: var(--blue); box-shadow: 0 0 0 3px #E4ECFE; }
+  .pf-field .box svg { width: 18px; height: 18px; color: var(--neutral-50); flex: none; }
+  .pf-field .box input { border: 0; outline: 0; font: inherit; font-size: 15px; flex: 1; background: transparent; color: var(--ink); }
+  .pf-field .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  /* stepper / input-number */
+  .pf-stepper { display: inline-flex; align-items: center; border: 1.5px solid var(--border-soft); border-radius: 8px; overflow: hidden; font-family: var(--ds-font); }
+  .pf-stepper button { width: 40px; height: 42px; border: 0; background: #fff; font-size: 20px; color: var(--ink-navy); cursor: default; }
+  .pf-stepper .v { width: 48px; text-align: center; font-weight: 600; font-size: 15px; border-left: 1.5px solid var(--border-soft); border-right: 1.5px solid var(--border-soft); line-height: 42px; }
+  /* slider */
+  .pf-slider { width: 100%; max-width: 280px; }
+  .pf-slider .track { height: 6px; border-radius: 999px; background: var(--border-soft); position: relative; }
+  .pf-slider .track .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 58%; background: var(--accent); border-radius: 999px; }
+  .pf-slider .track .knob { position: absolute; left: 58%; top: 50%; transform: translate(-50%,-50%); width: 20px; height: 20px; border-radius: 999px; background: #fff; border: 3px solid var(--accent-2); box-shadow: 0 1px 4px rgba(6,11,37,.2); }
+  .pf-slider .rng { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 10px; }
+  /* search bar */
+  .pf-search { display: flex; width: 100%; font-family: var(--ds-font); border-radius: 8px; overflow: hidden; border: 1.5px solid var(--border-soft); }
+  .pf-search input { flex: 1; border: 0; outline: 0; font: inherit; font-size: 15px; padding: 12px 16px; }
+  .pf-search .go { background: var(--accent); color: var(--ink-navy); width: 52px; display: grid; place-items: center; }
+  .pf-search .go svg { width: 20px; height: 20px; }
+  /* breadcrumbs */
+  .pf-crumbs { display: flex; align-items: center; gap: 8px; font-family: var(--ds-font); font-size: 13px; color: var(--ink-para); flex-wrap: wrap; }
+  .pf-crumbs a { color: var(--blue); }
+  .pf-crumbs .sep { color: var(--neutral-50); }
+  .pf-crumbs b { color: var(--ink-navy); font-weight: 600; }
+
+  /* product card recreation */
+  .pf-prod { width: 230px; border: 1.5px solid var(--accent); border-radius: 14px; background: #fff; padding: 18px; font-family: var(--ds-font); }
+  .pf-prod .brand { font-family: var(--ds-display); font-weight: 700; font-size: 20px; color: var(--ink-navy); line-height: 1; }
+  .pf-prod .cat { font-size: 13px; color: var(--ink-para); margin-top: 2px; }
+  .pf-prod .name { font-size: 13px; color: var(--accent-2); font-weight: 600; margin-top: 10px; line-height: 1.35; }
+  .pf-prod .meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--neutral-50); margin-top: 8px; }
+  .pf-prod .meta b { color: var(--ink-navy); }
+  .pf-prod .shot { height: 96px; border-radius: 8px; background: var(--bg-10) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" fill="none" stroke="%23AFBACC" stroke-width="2"><rect x="20" y="14" width="60" height="34" rx="3"/><path d="M28 40l10-10 8 8 10-12 16 18"/><circle cx="40" cy="26" r="4"/></svg>') center/56px no-repeat; margin: 12px 0; display: grid; place-items: end start; padding: 8px; }
+  .pf-prod .cuotas { font-family: var(--ds-display); font-weight: 700; font-size: 11px; color: var(--blue); background: #E4ECFE; border-radius: 5px; padding: 2px 7px; line-height: 1.1; }
+  .pf-prod .price { font-family: var(--ds-display); font-weight: 700; font-size: 26px; color: var(--ink-navy); }
+  .pf-prod .buy { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+  .pf-prod .buy .cart { width: 44px; height: 44px; border-radius: 8px; background: var(--accent); display: grid; place-items: center; color: var(--ink-navy); }
+  .pf-prod .buy .cart svg { width: 22px; height: 22px; }
+  .pf-prod .buy .det { font-size: 12px; color: var(--blue); font-weight: 600; }
+
+  /* navbar recreation */
+  .pf-nav { width: 100%; background: var(--ink-navy); border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 16px; font-family: var(--ds-font); }
+  .pf-nav .logo { font-family: var(--ds-display); font-weight: 700; color: #fff; font-size: 18px; display: flex; align-items: center; gap: 6px; }
+  .pf-nav .logo i { width: 22px; height: 22px; border-radius: 6px; background: var(--accent); display: inline-grid; place-items: center; color: var(--ink-navy); font-size: 12px; font-weight: 700; }
+  .pf-nav .navsearch { flex: 1; display: flex; border-radius: 8px; overflow: hidden; background: #fff; }
+  .pf-nav .navsearch input { flex: 1; border: 0; outline: 0; padding: 9px 14px; font: inherit; font-size: 13px; }
+  .pf-nav .navsearch .go { background: var(--accent); width: 44px; display: grid; place-items: center; color: var(--ink-navy); }
+  .pf-nav .navsearch .go svg { width: 17px; height: 17px; }
+  .pf-nav .acts { display: flex; gap: 14px; color: #fff; align-items: center; }
+  .pf-nav .acts svg { width: 22px; height: 22px; }
+  .pf-nav .acts .cartbadge { position: relative; }
+  .pf-nav .acts .cartbadge b { position: absolute; top: -6px; right: -8px; background: var(--accent); color: var(--ink-navy); font-size: 10px; font-weight: 700; border-radius: 999px; width: 16px; height: 16px; display: grid; place-items: center; }
+
+  .cs-tokens { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 50px; }
+  .cs-token { display: flex; gap: 16px; align-items: flex-start; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+  .cs-token .n { font-family: var(--ds-display); font-weight: 700; font-size: 18px; color: var(--accent-2); flex: none; width: 30px; }
+  .cs-token .t { font-weight: 600; font-size: 15.5px; font-family: var(--ds-font); }
+  .cs-token .d { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  @media (max-width: 720px) { .cs-tokens { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-cs="pcfactory">
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="index.html#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="index.html#system">System</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn--accent nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="cs-hero">
+  <div class="wrap">
+    <div class="cs-backbar reveal">
+      <a href="index.html#work" class="cs-back"><span class="arrow">←</span> Volver a proyectos</a>
+      <span class="eyebrow">Case study · Design System</span>
+    </div>
+
+    <div class="cs-hero-top reveal">
+      <span class="cs-pill solid">Design System</span>
+      <span class="cs-pill">Atomic Design</span>
+      <span class="cs-pill">Foundations</span>
+      <span class="cs-pill">E-commerce</span>
+    </div>
+
+    <h1 class="cs-title reveal">PC Factory <span class="ds">DS</span></h1>
+    <p class="cs-tagline reveal d1">El design system del retail tecnológico <b>PC Factory</b>: estructuré las <b>variables</b> del documento, levanté los <b>foundations</b> y construí los <b>componentes</b> con metodología atómica — de átomos a plantillas.</p>
+
+    <div class="cs-credit reveal d1">
+      <span class="by"><span class="dot"></span> Diseño de sistema <b>Cristián Acuña</b></span>
+      <span class="by"><span class="dot"></span> Cliente <b>PC Factory</b></span>
+      <span class="by"><span class="dot"></span> Método <b>Atomic Design · Figma Variables</b></span>
+    </div>
+
+    <div class="cs-meta reveal d1">
+      <div class="m"><div class="k">Rol</div><div class="v">Diseñador de DS<small>Variables, foundations y componentes</small></div></div>
+      <div class="m"><div class="k">Producto</div><div class="v">PC Factory DS<small>Sistema de e-commerce</small></div></div>
+      <div class="m"><div class="k">Método</div><div class="v">Atomic Design<small>Átomos → Plantillas</small></div></div>
+      <div class="m"><div class="k">Escala</div><div class="v">116 variables<small>20 familias documentadas</small></div></div>
+    </div>
+
+    <!-- living system cover -->
+    <div class="sys-cover reveal d1">
+      <div class="sys-cover-top">
+        <div class="sys-cover-brand">
+          <span class="kicker">PC Factory · Design System</span>
+          <div class="word">Pc<span>Factory</span><small>Una sola fuente de verdad para color, tipografía, espaciado y componentes del e-commerce.</small></div>
+          <div class="ramp">
+            <i style="background:#E1FBEF"></i><i style="background:#9FF0C9"></i><i style="background:#4DE3A0"></i><i style="background:#00D879"></i><i style="background:#00AD61"></i><i style="background:#00723F"></i><i style="background:#1F61F7"></i><i style="background:#060B25"></i>
+          </div>
+        </div>
+        <div class="sys-cover-spec">
+          <div class="spec-row"><span class="lab">Marca</span><span class="val" style="color:#00AD61;font-size:22px">brand / green</span></div>
+          <div class="spec-row"><span class="lab">Display</span><span class="val" style="font-size:30px;font-family:var(--ds-display)">Ubuntu 56 / 64</span></div>
+          <div class="spec-row"><span class="lab">Body</span><span class="val" style="font-size:18px;font-family:var(--ds-font)">Poppins · 16 / 14 / 13</span></div>
+          <div class="spec-row"><span class="lab">Radio</span><span class="val" style="font-size:18px">4 · 8 · 24 · pill</span></div>
+          <div class="spec-row"><span class="lab">Grid</span><span class="val" style="font-size:18px">base 8 · escala spacing</span></div>
+        </div>
+      </div>
+      <div class="sys-cover-strip">
+        <button class="pf-btn brand">Agregar al carro</button>
+        <button class="pf-btn outline">Ver más</button>
+        <span class="pf-badge new">Nuevo</span>
+        <span class="pf-badge success">En stock</span>
+        <span class="pf-badge info">12 cuotas</span>
+        <span class="pf-iconbtn brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 13h11l2-9H6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OVERVIEW ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-cols">
+      <div class="reveal">
+        <span class="eyebrow">El contexto</span>
+        <h2 class="lead-h">Un e-commerce de tecnología que necesitaba un solo lenguaje.</h2>
+      </div>
+      <div class="cs-rich reveal d1">
+        <p>PC Factory es uno de los principales retailers de tecnología y computación en Chile: miles de productos, categorías, fichas, carro de compra y campañas. Cada superficie había crecido con sus propios estilos y patrones.</p>
+        <p class="muted">Mi trabajo en <strong>PC Factory DS</strong> fue estructurar ese lenguaje desde la base con <strong>metodología atómica</strong>: definir las <strong>variables</strong> del documento Figma, levantar los <strong>foundations</strong> y construir los <strong>componentes</strong> —de átomos a plantillas— que dan consistencia a toda la tienda.</p>
+      </div>
+    </div>
+
+    <div class="cs-cols" style="margin-top: 56px;">
+      <div class="reveal">
+        <span class="eyebrow">Objetivos</span>
+        <h2 class="lead-h">Lo que el sistema tenía que resolver.</h2>
+      </div>
+      <div class="reveal d1">
+        <div class="cs-goals">
+          <div class="cs-goal"><div class="n">01</div><div><div class="t">Variables como base</div><div class="d">Migrar estilos sueltos a variables de Figma: una sola fuente de verdad para color, tipo, espaciado y radios.</div></div></div>
+          <div class="cs-goal"><div class="n">02</div><div><div class="t">Foundations claros</div><div class="d">Color, tipografía, sombras, grilla, radios y espaciado documentados y consistentes.</div></div></div>
+          <div class="cs-goal"><div class="n">03</div><div><div class="t">Atomic Design</div><div class="d">Componer desde átomos hacia moléculas, organismos y plantillas — reuso real, no copias.</div></div></div>
+          <div class="cs-goal"><div class="n">04</div><div><div class="t">Listo para la tienda</div><div class="d">Cubrir el journey de compra: navegación, búsqueda, fichas, carro y checkout.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VARIABLES ============================ -->
+<section class="section" style="background: var(--bg-10); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">Variables del documento</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">116 variables,<br />2 colecciones.</h2>
+      <p class="lead" style="margin: 18px auto 0;">El corazón de PC Factory DS son sus variables de Figma: una colección de marca con espaciado y radios, y una base completa de color, tipografía y tamaños.</p>
+    </div>
+
+    <div class="coll-grid">
+      <div class="coll reveal"><span class="tier">Marca</span><div class="num">17</div><div class="nm">PC factory</div><div class="meta">17 float · spacing + radius</div></div>
+      <div class="coll reveal d1"><span class="tier">Base</span><div class="num">99</div><div class="nm">Ungrouped</div><div class="meta">84 float · 14 color · 1 string</div></div>
+      <div class="coll reveal d2"><span class="tier">Color</span><div class="num">14</div><div class="nm">Tokens de color</div><div class="meta">marca, neutros y semánticos</div></div>
+      <div class="coll reveal" style="background:var(--ink-navy);border-color:var(--ink-navy);color:#fff"><div class="num" style="color:var(--accent)">116</div><div class="nm">Total de variables</div><div class="meta" style="color:rgba(255,255,255,.7)">en 2 colecciones</div></div>
+    </div>
+
+    <div class="reveal d1" style="margin-top: 64px;">
+      <span class="eyebrow">Metodología</span>
+      <h3 class="lead-h" style="margin-top:8px">Atomic Design: del átomo a la plantilla.</h3>
+      <p class="lead" style="margin-top:12px">Cada pieza se compone de la anterior. Las variables alimentan los átomos; los átomos forman moléculas; las moléculas, organismos; y los organismos, plantillas completas.</p>
+    </div>
+    <div class="tier-flow reveal d1">
+      <div class="tier-step"><div class="t"><span>A</span> Átomos</div><div class="d">Las piezas mínimas. <code>badge</code>, <code>icon-button</code>, <code>slider</code>, <code>tabs</code>.</div></div>
+      <div class="tier-arrow">→</div>
+      <div class="tier-step"><div class="t"><span>M</span> Moléculas</div><div class="d">Combinan átomos. <code>button</code>, <code>search-bar</code>, <code>product-card</code>, <code>input</code>.</div></div>
+      <div class="tier-arrow">→</div>
+      <div class="tier-step"><div class="t"><span>O</span> Organismos</div><div class="d">Secciones reales. <code>navbar</code>, <code>footer</code>, <code>shopping-cart</code>, <code>hero</code>.</div></div>
+      <div class="tier-arrow">→</div>
+      <div class="tier-step"><div class="t"><span>P</span> Plantillas</div><div class="d">Páginas completas. <code>home</code>, <code>shopping-cart</code>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOUNDATIONS ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Foundations</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Color, tipografía,<br />espacio y forma.</h2>
+      <p class="lead" style="margin-top: 18px;">Cada decisión visual nace de un token. Estos son los foundations de PC Factory DS, con sus valores reales extraídos del documento.</p>
+    </div>
+
+    <!-- COLOR -->
+    <div class="reveal d1" style="margin-top: 50px;">
+      <span class="eyebrow">Color</span>
+      <h3 class="lead-h" style="margin-top:8px">Verde de marca, navy, azul de acción y neutros.</h3>
+    </div>
+
+    <div class="ramp-block reveal d1">
+      <h4>Brand / Green <small>el verde PC Factory + el azul de acción</small></h4>
+      <div class="ramp-strip">
+        <div class="swatch-c" style="background:#E1FBEF;color:#00723F"><span class="k">green/10</span><span class="h">#E1FBEF</span></div>
+        <div class="swatch-c" style="background:#9FF0C9;color:#00723F"><span class="k">green/30</span><span class="h">#9FF0C9</span></div>
+        <div class="swatch-c" style="background:#4DE3A0;color:#00532F"><span class="k">green/40</span><span class="h">#4DE3A0</span></div>
+        <div class="swatch-c" style="background:#00D879;color:#003F25"><span class="k">green/50</span><span class="h">#00D879</span></div>
+        <div class="swatch-c" style="background:#00AD61;color:#fff"><span class="k">green/60</span><span class="h">#00AD61</span></div>
+        <div class="swatch-c" style="background:#00723F;color:#fff"><span class="k">green/80</span><span class="h">#00723F</span></div>
+        <div class="swatch-c" style="background:#1F61F7;color:#fff"><span class="k">blue/50</span><span class="h">#1F61F7</span></div>
+        <div class="swatch-c" style="background:#204FCC;color:#fff"><span class="k">blue/60</span><span class="h">#204FCC</span></div>
+      </div>
+    </div>
+
+    <div class="ramp-block reveal d1">
+      <h4>Neutral <small>navy, texto, bordes y superficies</small></h4>
+      <div class="ramp-strip">
+        <div class="swatch-c" style="background:#FFFFFF;color:#060B25;box-shadow:inset 0 0 0 1px #EBEFF5"><span class="k">neutral/0</span><span class="h">#FFFFFF</span></div>
+        <div class="swatch-c" style="background:#F5F7FA;color:#060B25"><span class="k">neutral/10</span><span class="h">#F5F7FA</span></div>
+        <div class="swatch-c" style="background:#EBEFF5;color:#060B25"><span class="k">neutral/20</span><span class="h">#EBEFF5</span></div>
+        <div class="swatch-c" style="background:#DDE3ED;color:#060B25"><span class="k">border</span><span class="h">#DDE3ED</span></div>
+        <div class="swatch-c" style="background:#AFBACC;color:#060B25"><span class="k">neutral/50</span><span class="h">#AFBACC</span></div>
+        <div class="swatch-c" style="background:#58606E;color:#fff"><span class="k">neutral/80</span><span class="h">#58606E</span></div>
+        <div class="swatch-c" style="background:#2A3142;color:#fff"><span class="k">neutral/85</span><span class="h">#2A3142</span></div>
+        <div class="swatch-c" style="background:#060B25;color:#fff"><span class="k">neutral/90</span><span class="h">#060B25</span></div>
+      </div>
+    </div>
+
+    <div class="ramp-block reveal d1">
+      <h4>Semánticos <small>feedback · éxito, info, advertencia y error</small></h4>
+      <div class="ramp-strip semantic">
+        <div class="swatch-c" style="background:#00AD61;color:#fff"><span class="k">Success</span><span class="h">green/60 · #00AD61</span></div>
+        <div class="swatch-c" style="background:#1F61F7;color:#fff"><span class="k">Info</span><span class="h">blue/50 · #1F61F7</span></div>
+        <div class="swatch-c" style="background:#F5C518;color:#5A4500"><span class="k">Warning</span><span class="h">yellow · #F5C518</span></div>
+        <div class="swatch-c" style="background:#EB5454;color:#fff"><span class="k">Error</span><span class="h">red · #EB5454</span></div>
+      </div>
+    </div>
+
+    <!-- TYPOGRAPHY -->
+    <div class="reveal" style="margin-top: 64px;">
+      <span class="eyebrow">Tipografía</span>
+      <h3 class="lead-h" style="margin-top:8px">Ubuntu para titulares, Poppins para el resto.</h3>
+      <p class="lead" style="margin-top: 12px;">Las variables de <b>font-size</b> definen cada nivel — de heading a paragraph — con su line-height ligado.</p>
+    </div>
+    <div class="type-scale reveal d1">
+      <div class="type-row"><div class="tk"><b>heading/xxxl</b>Ubuntu Bold</div><div class="sample disp" style="font-size:48px">Arma tu setup</div><div class="px">56 / 64</div></div>
+      <div class="type-row"><div class="tk"><b>heading/xl</b>Ubuntu Bold</div><div class="sample disp" style="font-size:36px">Ofertas de la semana</div><div class="px">40 / 48</div></div>
+      <div class="type-row"><div class="tk"><b>heading/l</b>Ubuntu Bold</div><div class="sample disp" style="font-size:30px">Notebooks gamer</div><div class="px">32 / 40</div></div>
+      <div class="type-row"><div class="tk"><b>heading/m</b>Ubuntu Bold</div><div class="sample disp" style="font-size:24px">Componentes y partes</div><div class="px">24 / 32</div></div>
+      <div class="type-row"><div class="tk"><b>paragraph/xl</b>Poppins</div><div class="sample body" style="font-size:24px">Despacho a todo Chile</div><div class="px">24 / 32</div></div>
+      <div class="type-row"><div class="tk"><b>paragraph/l</b>Poppins</div><div class="sample body" style="font-size:18px">Compra segura y en cuotas</div><div class="px">18 / 28</div></div>
+      <div class="type-row"><div class="tk"><b>paragraph/m</b>Poppins</div><div class="sample body" style="font-size:16px">Texto base para fichas y contenido</div><div class="px">16 / 24</div></div>
+      <div class="type-row"><div class="tk"><b>paragraph/s</b>Poppins</div><div class="sample body" style="font-size:14px">Texto secundario y de apoyo</div><div class="px">14 / 22</div></div>
+      <div class="type-row"><div class="tk"><b>paragraph/xs</b>Poppins</div><div class="sample body" style="font-size:13px;color:var(--muted)">Notas, etiquetas y metadatos</div><div class="px">13 / 16</div></div>
+    </div>
+
+    <!-- SPACING + RADIUS -->
+    <div class="cs-cols" style="margin-top: 64px; align-items: start;">
+      <div>
+        <div class="reveal">
+          <span class="eyebrow">Espaciado</span>
+          <h3 class="lead-h" style="margin-top:8px">Una escala base 8.</h3>
+          <p class="lead" style="margin-top: 12px;">La colección <b>spacing</b> ordena el ritmo de todo el sistema.</p>
+        </div>
+        <div class="space-list reveal d1">
+          <div class="space-row"><span class="nm"><b>xxs</b></span><span class="bar" style="width:4px"></span><span class="px">4</span></div>
+          <div class="space-row"><span class="nm"><b>xs</b></span><span class="bar" style="width:8px"></span><span class="px">8</span></div>
+          <div class="space-row"><span class="nm"><b>s</b></span><span class="bar" style="width:16px"></span><span class="px">16</span></div>
+          <div class="space-row"><span class="nm"><b>m</b></span><span class="bar" style="width:24px"></span><span class="px">24</span></div>
+          <div class="space-row"><span class="nm"><b>l</b></span><span class="bar" style="width:32px"></span><span class="px">32</span></div>
+          <div class="space-row"><span class="nm"><b>xl</b></span><span class="bar" style="width:40px"></span><span class="px">40</span></div>
+          <div class="space-row"><span class="nm"><b>xxl</b></span><span class="bar" style="width:48px"></span><span class="px">48</span></div>
+          <div class="space-row"><span class="nm"><b>2xl</b></span><span class="bar" style="width:56px"></span><span class="px">56</span></div>
+          <div class="space-row"><span class="nm"><b>4xl</b></span><span class="bar" style="width:64px"></span><span class="px">64</span></div>
+          <div class="space-row"><span class="nm"><b>6xl</b></span><span class="bar" style="width:80px"></span><span class="px">80</span></div>
+          <div class="space-row"><span class="nm"><b>8xl</b></span><span class="bar" style="width:96px"></span><span class="px">96</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="reveal">
+          <span class="eyebrow">Radios</span>
+          <h3 class="lead-h" style="margin-top:8px">De 4 px al pill.</h3>
+          <p class="lead" style="margin-top: 12px;">Corner radius como variables — coherentes en botones, inputs, cards y modales.</p>
+        </div>
+        <div class="radius-grid reveal d1">
+          <div class="radius-cell"><div class="box" style="border-radius:4px 4px 0 0"></div><div class="lab"><b>s</b><span>4</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:8px 8px 0 0"></div><div class="lab"><b>m</b><span>8</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:24px 24px 0 0"></div><div class="lab"><b>xl</b><span>24</span></div></div>
+          <div class="radius-cell"><div class="box" style="border-radius:60px 60px 0 0"></div><div class="lab"><b>rounded</b><span>pill</span></div></div>
+        </div>
+        <div class="cs-tokens" style="grid-template-columns:1fr;margin-top:22px">
+          <div class="cs-token reveal"><div class="n">▦</div><div><div class="t">Grilla y layout</div><div class="d">Columnas y máximos de ancho documentados con guías de medida (max-width / max-height).</div></div></div>
+          <div class="cs-token reveal d1"><div class="n">⬓</div><div><div class="t">Sombras</div><div class="d">Elevación en tokens, del card sutil al modal — base rgba(8,22,64,.08).</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMPONENTS ============================ -->
+<section class="section" style="background: var(--bg-10); padding-top: clamp(48px,7vw,90px);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow center" style="justify-content:center;">Componentes</span>
+      <h2 class="section-title" style="font-size: clamp(36px,6vw,68px);">Átomos, moléculas<br />y organismos.</h2>
+      <p class="lead" style="margin: 18px auto 0;">Cada componente se construyó sobre los tokens: cambia una variable y todo el sistema responde. Una muestra de las familias del documento.</p>
+    </div>
+
+    <div class="comp-grid">
+      <!-- Atoms: Badges -->
+      <div class="comp-card reveal">
+        <div class="head"><span class="lvl">Átomo</span><b>at-badge</b><span>estados y etiquetas</span></div>
+        <div class="stage">
+          <span class="pf-badge new">Nuevo</span>
+          <span class="pf-badge success">En stock</span>
+          <span class="pf-badge info">12 cuotas</span>
+          <span class="pf-badge warning">Últimas unidades</span>
+          <span class="pf-badge error">Sin stock</span>
+        </div>
+      </div>
+      <!-- Atoms: icon button + tabs -->
+      <div class="comp-card reveal d1">
+        <div class="head"><span class="lvl">Átomo</span><b>at-icon-button · at-tabs</b></div>
+        <div class="stage" style="flex-direction:column;align-items:stretch;gap:18px">
+          <div style="display:flex;gap:12px">
+            <span class="pf-iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+            <span class="pf-iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+            <span class="pf-iconbtn brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 13h11l2-9H6"/></svg></span>
+          </div>
+          <div class="pf-tabs"><span class="t on">Notebooks</span><span class="t">Componentes</span><span class="t">Gaming</span><span class="t">Ofertas</span></div>
+        </div>
+      </div>
+      <!-- Atoms: slider -->
+      <div class="comp-card reveal">
+        <div class="head"><span class="lvl">Átomo</span><b>at-slider</b><span>filtro de precio</span></div>
+        <div class="stage">
+          <div class="pf-slider">
+            <div class="track"><div class="fill"></div><div class="knob"></div></div>
+            <div class="rng"><span>$0</span><span>$1.450.000</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Molecule: button -->
+      <div class="comp-card reveal d1">
+        <div class="head"><span class="lvl">Molécula</span><b>ml-button</b><span>tipo · tamaño · estado</span></div>
+        <div class="stage">
+          <button class="pf-btn brand">Agregar al carro</button>
+          <button class="pf-btn primary">Comprar ahora</button>
+          <button class="pf-btn outline">Ver más</button>
+          <button class="pf-btn link">Ver ficha</button>
+          <button class="pf-btn disabled">Sin stock</button>
+        </div>
+      </div>
+      <!-- Molecule: search + input + stepper + breadcrumbs -->
+      <div class="comp-card reveal">
+        <div class="head"><span class="lvl">Molécula</span><b>ml-search-bar · ml-input</b></div>
+        <div class="stage" style="flex-direction:column;align-items:stretch;gap:16px">
+          <div class="pf-search"><input value="Notebook gamer RTX 4080" readonly /><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span></div>
+          <div class="pf-field"><label>Correo electrónico</label><div class="box focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><input value="nombre@correo.cl" readonly /></div><div class="hint">Foco con anillo azul de acción.</div></div>
+        </div>
+      </div>
+      <!-- Molecule: input-number + breadcrumbs -->
+      <div class="comp-card reveal d1">
+        <div class="head"><span class="lvl">Molécula</span><b>ml-input-number · ml-breadcrumbs</b></div>
+        <div class="stage" style="flex-direction:column;align-items:stretch;gap:20px">
+          <div class="pf-crumbs"><a href="#">Inicio</a><span class="sep">/</span><a href="#">Notebooks</a><span class="sep">/</span><b>Gamer</b></div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <span style="font-size:14px;color:var(--ink-navy)">Cantidad</span>
+            <div class="pf-stepper"><button>−</button><span class="v">2</span><button>+</button></div>
+          </div>
+        </div>
+      </div>
+      <!-- Molecule: product card -->
+      <div class="comp-card reveal">
+        <div class="head"><span class="lvl">Molécula</span><b>ml-product-card</b><span>home y categorías</span></div>
+        <div class="stage" style="justify-content:center">
+          <div class="pf-prod">
+            <div class="brand">Samsung</div>
+            <div class="cat">Smartphones</div>
+            <div class="name">Galaxy S24 Ultra 256GB / 12GB 5G Titanium Liberado</div>
+            <div class="meta"><span><b>ID</b> 51219</span><span><b>35</b> Unid.</span></div>
+            <div class="shot"><span class="cuotas">4 a 12<br>cuotas</span></div>
+            <div class="price">$1.425.890</div>
+            <div class="buy"><span class="det">Ver ficha</span><span class="cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 13h11l2-9H6"/></svg></span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Organism: navbar -->
+      <div class="comp-card reveal d1">
+        <div class="head"><span class="lvl">Organismo</span><b>or-navbar</b><span>cabecera de la tienda</span></div>
+        <div class="stage" style="align-items:stretch">
+          <div class="pf-nav">
+            <div class="logo"><i>Pc</i> Factory</div>
+            <div class="navsearch"><input value="¿Qué estás buscando?" readonly /><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span></div>
+            <div class="acts">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+              <span class="cartbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 13h11l2-9H6"/></svg><b>3</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-tokens">
+      <div class="cs-token reveal"><div class="n">◇</div><div><div class="t">Variantes y estados</div><div class="d">Cada familia con tipo, tamaño y estados (default, hover, active, disabled) como propiedades.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">⌘</div><div><div class="t">Set de iconografía</div><div class="d">Librería de iconos en estilos round / sharp dimensionada a los slots de botones e inputs.</div></div></div>
+      <div class="cs-token reveal"><div class="n">↺</div><div><div class="t">Token-driven</div><div class="d">Cambiar una variable propaga el cambio a cada componente que la consume.</div></div></div>
+      <div class="cs-token reveal d1"><div class="n">⛬</div><div><div class="t">Del átomo a la página</div><div class="d">Las plantillas home y carro se ensamblan reusando organismos, no rediseñando.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OUTCOME ============================ -->
+<section class="section cs-outcome">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">El resultado</span>
+      <h2 class="cs-out-h">Un sistema atómico de tokens y componentes que hace que cada pantalla se sienta PC Factory.</h2>
+    </div>
+    <div class="cs-out-stats reveal d1">
+      <div class="s"><div class="n"><span class="accent">116</span></div><div class="l">Variables organizadas en 2 colecciones</div></div>
+      <div class="s"><div class="n">4</div><div class="l">Niveles atómicos: átomos · moléculas · organismos · plantillas</div></div>
+      <div class="s"><div class="n">20</div><div class="l">Familias de componentes documentadas con variantes y estados</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cs-next reveal">
+      <div>
+        <div class="lbl">Siguiente proyecto</div>
+        <div class="nm">Aperta DS →</div>
+      </div>
+      <a href="aperta-ds.html" class="btn btn--ghost go">Ver caso Aperta DS <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-big">¿Construimos<br />algo juntos?</div>
+      <a href="index.html#contact" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
+    </div>
+    <div class="foot-bottom">
+      <span class="brand">cris<span style="color:var(--accent-2)">.</span>acuña</span>
+      <span>Portafolio © 2025 · Santiago de Chile</span>
+      <a href="index.html#home">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+    var burger = document.getElementById("burger");
+    var navlinks = document.getElementById("navlinks");
+    burger.addEventListener("click", function () { navlinks.classList.toggle("open"); });
+
+    var reveals = document.querySelectorAll(".reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  })();
+</script>
+</body>
+</html>
