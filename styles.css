@@ -412,7 +412,7 @@ header.nav.scrolled { border-color: var(--line); }
 .contact-sub { color: var(--muted); margin-top: 18px; max-width: 34ch; }
 .contact-info { margin-top: 34px; display: grid; gap: 16px; }
 .cinfo { display: flex; align-items: center; gap: 14px; }
-.cinfo .ic { width: 42px; height: 42px; border-radius: 12px; background: var(--white); border: 1px solid var(--line); display: grid; place-items: center; color: var(--accent); }
+.cinfo .ic { width: 42px; height: 42px; border-radius: 12px; background: transparent; border: none; display: grid; place-items: center; color: var(--accent); }
 .cinfo .k { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); }
 .cinfo .v { font-weight: 600; font-size: 15px; }
 
