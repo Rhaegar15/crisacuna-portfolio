@@ -1,0 +1,229 @@
+/* ============================================================
+   Personal DS — Colors & Type
+   Single source of truth for design tokens.
+   Extracted from the Personal DS Figma file (button library).
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "League Spartan";
+  src: url("fonts/LeagueSpartan-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("fonts/LeagueSpartan-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("fonts/LeagueSpartan-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("fonts/LeagueSpartan-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter is loaded from Google Fonts in HTML files.
+   Suggested: <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> */
+
+:root {
+  /* ============================================================
+     COLOR TOKENS — base palette
+     Names follow Tailwind-ish conventions where possible; values
+     are the exact RGB values measured from Figma.
+     ============================================================ */
+
+  /* Brand — deep teal-navy, the signature color */
+  --brand-900: rgb(10, 59, 88);     /* primary fill, primary text on light */
+  --brand-800: rgb(12, 74, 110);    /* dark accent, hover text */
+  --brand-600: rgb(61, 110, 139);   /* pressed border */
+  --brand-500: rgb(110, 147, 169);  /* hover/pressed fill, focus fill */
+  --brand-300: rgb(167, 190, 203);  /* disabled fill */
+  --brand-200: rgb(217, 227, 232);  /* very light brand wash */
+
+  /* Indigo — secondary accent (button text on light fills, focus rings) */
+  --indigo-700: rgb(79, 70, 229);
+  --indigo-400: rgb(129, 140, 248);
+  --indigo-300: rgb(165, 180, 252);
+  --indigo-200: rgb(199, 210, 254);
+  --indigo-100: rgb(224, 231, 255);
+  --indigo-50:  rgb(238, 242, 255);
+
+  /* Neutrals */
+  --neutral-0:   rgb(255, 255, 255);
+  --neutral-50:  rgb(249, 250, 251);
+  --neutral-100: rgb(229, 229, 229);
+  --neutral-300: rgb(209, 213, 219);
+  --neutral-400: rgb(164, 162, 167);
+  --neutral-500: rgb(107, 114, 128);
+  --neutral-700: rgb(55, 65, 81);
+  --neutral-900: rgb(17, 24, 39);
+  --neutral-1000: rgb(0, 0, 0);
+
+  /* Accent — used as section dividers / highlight strokes in Figma */
+  --accent-violet: rgb(151, 71, 255);
+
+  /* ============================================================
+     SEMANTIC TOKENS
+     ============================================================ */
+
+  /* Backgrounds */
+  --bg-page:        var(--neutral-0);
+  --bg-page-alt:    var(--neutral-50);
+  --bg-inverse:     var(--neutral-1000);   /* used on the cover frame */
+  --bg-subtle:      var(--indigo-50);
+  --bg-muted:       var(--indigo-100);
+
+  /* Foreground / text */
+  --fg-1:           var(--brand-900);      /* primary text */
+  --fg-2:           var(--neutral-700);    /* secondary text */
+  --fg-3:           var(--neutral-500);    /* tertiary/muted */
+  --fg-on-brand:    var(--neutral-0);      /* white on dark brand */
+  --fg-on-light:    var(--brand-900);
+  --fg-link:        var(--brand-900);
+
+  /* Borders / strokes */
+  --border-subtle:  var(--indigo-100);
+  --border-default: var(--neutral-400);
+  --border-strong:  var(--brand-900);
+  --border-pressed: var(--brand-600);
+  --border-divider: var(--accent-violet);  /* dashed section dividers */
+
+  /* States */
+  --state-disabled-bg: var(--brand-300);
+  --state-disabled-fg: var(--indigo-100);
+  --state-disabled-border: var(--brand-500);
+  --state-focus-ring: rgba(224, 231, 255, 0.8);
+
+  /* ============================================================
+     SHADOWS / ELEVATION
+     Two-tier system seen in Figma.
+     ============================================================ */
+  --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.04),
+               0px 1px 2px 0px rgba(16, 24, 40, 0.04);
+  --shadow-sm: 0px 2px 6px 0px rgba(16, 24, 40, 0.06);
+  --shadow-focus: 0px 0px 0px 2px var(--state-focus-ring);
+
+  /* ============================================================
+     RADII
+     ============================================================ */
+  --radius-xs: 4px;
+  --radius-sm: 5px;   /* dashed group containers in Figma */
+  --radius-md: 8px;   /* the canonical button / card radius */
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  /* ============================================================
+     SPACING (4-pt scale)
+     ============================================================ */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ============================================================
+     TYPOGRAPHY
+     Two families:
+       - League Spartan: display-only. Wide tracking, mostly UPPERCASE.
+       - Inter: workhorse for UI/body. Always 500 (Medium) in the system.
+     ============================================================ */
+  --font-display: "League Spartan", "Bebas Neue", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Display sizes (League Spartan, tight leading, wide tracking) */
+  --display-hero-size: 200px;
+  --display-hero-weight: 500;
+  --display-hero-tracking: 0.12em;
+  --display-hero-leading: 1.0;
+
+  /* Body / UI sizes (Inter Medium) */
+  --text-lg-size: 16px;     /* large button label */
+  --text-lg-leading: 18px;
+  --text-md-size: 14px;     /* medium button / body */
+  --text-md-leading: 16px;
+  --text-sm-size: 12px;     /* small button / caption */
+  --text-sm-leading: 14px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Drop colors_and_type.css into a page and these defaults apply.
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-body);
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-leading);
+  font-weight: var(--weight-medium);
+  color: var(--fg-1);
+  background: var(--bg-page);
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-1);
+  margin: 0;
+  line-height: 1.0;
+}
+
+h1 { font-size: 64px; letter-spacing: 0.08em; }
+h2 { font-size: 40px; letter-spacing: 0.06em; }
+h3 { font-size: 28px; letter-spacing: 0.05em; }
+h4 { font-size: 20px; letter-spacing: 0.04em; }
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-md-size);
+  line-height: 1.5;
+  color: var(--fg-2);
+  margin: 0 0 12px 0;
+}
+
+small, .caption {
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-leading);
+  color: var(--fg-3);
+}
+
+a {
+  color: var(--fg-link);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+a:hover { color: var(--brand-500); }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg-subtle);
+  padding: 1px 6px;
+  border-radius: var(--radius-xs);
+  color: var(--fg-1);
+}

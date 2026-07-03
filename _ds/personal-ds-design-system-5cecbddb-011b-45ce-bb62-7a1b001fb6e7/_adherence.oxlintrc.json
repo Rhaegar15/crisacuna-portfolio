@@ -1,0 +1,218 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "ui_kits/buttons/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:League Spartan))/i]",
+        "message": "Font not provided by the design system. Available: League Spartan."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--accent-violet",
+      "--bg-inverse",
+      "--bg-muted",
+      "--bg-page",
+      "--bg-page-alt",
+      "--bg-subtle",
+      "--border-default",
+      "--border-divider",
+      "--border-pressed",
+      "--border-strong",
+      "--border-subtle",
+      "--brand-200",
+      "--brand-300",
+      "--brand-500",
+      "--brand-600",
+      "--brand-800",
+      "--brand-900",
+      "--display-hero-leading",
+      "--display-hero-size",
+      "--display-hero-tracking",
+      "--display-hero-weight",
+      "--fg-1",
+      "--fg-2",
+      "--fg-3",
+      "--fg-link",
+      "--fg-on-brand",
+      "--fg-on-light",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--indigo-100",
+      "--indigo-200",
+      "--indigo-300",
+      "--indigo-400",
+      "--indigo-50",
+      "--indigo-700",
+      "--neutral-0",
+      "--neutral-100",
+      "--neutral-1000",
+      "--neutral-300",
+      "--neutral-400",
+      "--neutral-50",
+      "--neutral-500",
+      "--neutral-700",
+      "--neutral-900",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xs",
+      "--shadow-focus",
+      "--shadow-sm",
+      "--shadow-xs",
+      "--space-0",
+      "--space-1",
+      "--space-10",
+      "--space-12",
+      "--space-16",
+      "--space-2",
+      "--space-20",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--state-disabled-bg",
+      "--state-disabled-border",
+      "--state-disabled-fg",
+      "--state-focus-ring",
+      "--text-lg-leading",
+      "--text-lg-size",
+      "--text-md-leading",
+      "--text-md-size",
+      "--text-sm-leading",
+      "--text-sm-size",
+      "--weight-bold",
+      "--weight-medium",
+      "--weight-regular"
+    ],
+    "tokenKinds": {
+      "--brand-900": "color",
+      "--brand-800": "color",
+      "--brand-600": "color",
+      "--brand-500": "color",
+      "--brand-300": "color",
+      "--brand-200": "color",
+      "--indigo-700": "color",
+      "--indigo-400": "color",
+      "--indigo-300": "color",
+      "--indigo-200": "color",
+      "--indigo-100": "color",
+      "--indigo-50": "color",
+      "--neutral-0": "color",
+      "--neutral-50": "color",
+      "--neutral-100": "color",
+      "--neutral-300": "color",
+      "--neutral-400": "color",
+      "--neutral-500": "color",
+      "--neutral-700": "color",
+      "--neutral-900": "color",
+      "--neutral-1000": "color",
+      "--accent-violet": "color",
+      "--bg-page": "color",
+      "--bg-page-alt": "color",
+      "--bg-inverse": "color",
+      "--bg-subtle": "color",
+      "--bg-muted": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-3": "color",
+      "--fg-on-brand": "color",
+      "--fg-on-light": "color",
+      "--fg-link": "color",
+      "--border-subtle": "color",
+      "--border-default": "color",
+      "--border-strong": "color",
+      "--border-pressed": "color",
+      "--border-divider": "color",
+      "--state-disabled-bg": "color",
+      "--state-disabled-fg": "color",
+      "--state-disabled-border": "color",
+      "--state-focus-ring": "color",
+      "--shadow-xs": "shadow",
+      "--shadow-sm": "shadow",
+      "--shadow-focus": "shadow",
+      "--radius-xs": "radius",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius",
+      "--space-0": "spacing",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-8": "spacing",
+      "--space-10": "spacing",
+      "--space-12": "spacing",
+      "--space-16": "spacing",
+      "--space-20": "spacing",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-mono": "font",
+      "--display-hero-size": "spacing",
+      "--display-hero-weight": "font",
+      "--display-hero-tracking": "font",
+      "--display-hero-leading": "font",
+      "--text-lg-size": "font",
+      "--text-lg-leading": "font",
+      "--text-md-size": "font",
+      "--text-md-leading": "font",
+      "--text-sm-size": "font",
+      "--text-sm-leading": "font",
+      "--weight-regular": "font",
+      "--weight-medium": "font",
+      "--weight-bold": "font"
+    },
+    "fontFamilies": [
+      "League Spartan"
+    ]
+  }
+}

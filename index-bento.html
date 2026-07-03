@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cristián Acuña — Portafolio (Bento)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0E0E0E; --ink-soft:#1A1A1A;
+    --paper:#EDEBE5; --paper-2:#F5F4F1;
+    --white:#FFFFFF;
+    --muted:#67646C; --muted-2:#908D95;
+    --line:rgba(14,14,14,.10);
+    --navy:#0A3B58; --navy-2:#0C4A6E; --navy-tint:#E7EEF3;
+    --accent:var(--navy);
+    --red:#C21B17;
+    --green:#00AD61;
+    --violet:#9747FF;
+    --font-display:"League Spartan","Bebas Neue",system-ui,sans-serif;
+    --font-body:"Inter",system-ui,-apple-system,sans-serif;
+    --jp:"Noto Sans JP",sans-serif;
+    --gap:16px;
+    --r:22px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:var(--font-body); background:var(--paper); color:var(--ink);
+    font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px, rgba(14,14,14,.05) 1px, transparent 0);
+    background-size:26px 26px;
+  }
+  img{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    max-width:1280px; margin:0 auto; padding:26px var(--gap) 6px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{font-family:var(--font-display); font-weight:700; font-size:22px; letter-spacing:.02em;}
+  .brand .dot{color:var(--accent);}
+  .topbar nav{display:flex; gap:6px; flex-wrap:wrap;}
+  .topbar nav a{
+    font-size:12.5px; font-weight:600; padding:8px 14px; border-radius:999px;
+    border:1px solid var(--line); background:var(--white); transition:.15s;
+  }
+  .topbar nav a:hover{background:var(--ink); color:#fff; border-color:var(--ink);}
+  .topbar nav a.cta{background:var(--accent); color:#fff; border-color:var(--accent);}
+
+  /* ---------- bento grid ---------- */
+  .bento{
+    max-width:1280px; margin:0 auto; padding:16px var(--gap) 40px;
+    display:grid; grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:118px; gap:var(--gap); grid-auto-flow:dense;
+  }
+  .tile{
+    border-radius:var(--r); background:var(--white); border:1px solid var(--line);
+    padding:24px; overflow:hidden; position:relative;
+    box-shadow:0 1px 2px rgba(16,24,40,.04);
+    transition:transform .18s ease, box-shadow .18s ease;
+    display:flex; flex-direction:column;
+  }
+  a.tile:hover, .tile.hover:hover{transform:translateY(-3px); box-shadow:0 14px 34px rgba(16,24,40,.12);}
+  .tile.dark{background:var(--ink); color:#fff; border-color:transparent;}
+  .tile.navy{background:var(--accent); color:#fff; border-color:transparent;}
+  .tile.tint{background:var(--navy-tint);}
+  .tile.paper{background:var(--paper-2);}
+
+  /* japanese annotation label */
+  .jp-tag{font-family:var(--jp); font-weight:500; font-size:11px; letter-spacing:.24em; opacity:.55;}
+  .jp-vert{
+    position:absolute; top:18px; right:16px; writing-mode:vertical-rl;
+    font-family:var(--jp); font-size:12px; letter-spacing:.3em; opacity:.35;
+  }
+  .eyebrow{
+    font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+    letter-spacing:.2em; font-size:11.5px; color:var(--accent);
+    display:inline-flex; align-items:center; gap:9px;
+  }
+  .eyebrow::before{content:""; width:20px; height:2px; background:currentColor;}
+  .tile.dark .eyebrow, .tile.navy .eyebrow{color:#fff;}
+
+  /* ---------- span helpers ---------- */
+  .c3{grid-column:span 3;} .c4{grid-column:span 4;} .c5{grid-column:span 5;}
+  .c6{grid-column:span 6;} .c7{grid-column:span 7;} .c8{grid-column:span 8;} .c12{grid-column:span 12;}
+  .r2{grid-row:span 2;} .r3{grid-row:span 3;} .r4{grid-row:span 4;}
+
+  /* ---------- hero tile ---------- */
+  .hero{justify-content:space-between;}
+  .hero .greet{font-size:14px; color:rgba(255,255,255,.7);}
+  .hero h1{
+    font-family:var(--font-display); font-weight:700; letter-spacing:-.01em; line-height:.9;
+    font-size:clamp(46px,7vw,92px); margin:10px 0 0;
+  }
+  .hero h1 .accent{color:#7FC7E8;}
+  .hero .role{
+    display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+    font-size:14px; font-weight:600; color:#fff;
+    border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:7px 15px; align-self:flex-start;
+  }
+  .hero .role .spark{color:#7FC7E8;}
+  .hero .desc{color:rgba(255,255,255,.75); font-size:15px; margin:20px 0 0; max-width:46ch;}
+  .hero .actions{display:flex; gap:10px; margin-top:auto; padding-top:22px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; padding:12px 20px; border-radius:999px;
+    font-weight:600; font-size:14px; border:1.5px solid transparent; transition:.15s;
+  }
+  .btn--accent{background:#fff; color:var(--ink);}
+  .btn--accent:hover{background:#7FC7E8; color:var(--ink);}
+  .btn--ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.35);}
+  .btn--ghost:hover{border-color:#fff;}
+  .btn--ink{background:var(--ink); color:#fff;}
+  .btn--ink:hover{background:var(--accent);}
+
+  /* portrait */
+  .portrait{padding:0;}
+  .portrait img{width:100%; height:100%; object-fit:cover; object-position:top center;}
+  .portrait .hello{
+    position:absolute; left:14px; bottom:14px; background:var(--accent); color:#fff;
+    font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.08em;
+    padding:7px 14px; border-radius:999px; text-transform:uppercase;
+  }
+
+  /* generic tile heads */
+  .tile h3{font-family:var(--font-display); font-weight:700; font-size:22px; margin:12px 0 0; letter-spacing:.01em;}
+  .tile p.body{font-size:13.5px; color:var(--muted); margin:8px 0 0; line-height:1.5;}
+  .tile.dark p.body, .tile.navy p.body{color:rgba(255,255,255,.72);}
+  .num-badge{font-family:var(--font-display); font-weight:700; font-size:12px; letter-spacing:.14em; color:var(--muted); margin-top:auto; padding-top:14px;}
+  .tile.dark .num-badge{color:rgba(255,255,255,.55);}
+  .ico{width:42px; height:42px; border-radius:12px; background:var(--navy-tint); color:var(--accent); display:grid; place-items:center; flex:none;}
+  .ico svg{width:22px; height:22px;}
+  .tile.dark .ico{background:rgba(255,255,255,.1); color:#fff;}
+
+  /* stat tiles */
+  .stat{align-items:flex-start; justify-content:center;}
+  .stat .n{font-family:var(--font-display); font-weight:700; font-size:clamp(34px,4vw,50px); line-height:1;}
+  .stat .n .accent{color:var(--accent);}
+  .stat .l{font-size:12px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:.08em; font-weight:600;}
+  .tile.dark .stat .l, .tile.navy .l{color:rgba(255,255,255,.7);}
+
+  /* project tiles */
+  .proj{padding:0; justify-content:flex-end;}
+  .proj .shot{position:absolute; inset:0; z-index:0;}
+  .proj .shot img{width:100%; height:100%; object-fit:cover;}
+  .proj .grad{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,20,30,0) 32%, rgba(8,14,22,.86) 100%);}
+  .proj .info{position:relative; z-index:2; padding:20px; color:#fff;}
+  .proj .tag{
+    position:absolute; top:16px; left:16px; z-index:2;
+    font-size:11px; font-weight:700; letter-spacing:.04em; background:rgba(255,255,255,.92); color:var(--ink);
+    padding:5px 11px; border-radius:999px;
+  }
+  .proj h3{color:#fff; margin:0; font-size:24px;}
+  .proj p.body{color:rgba(255,255,255,.82); margin-top:6px;}
+  .proj .more{display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-weight:600; font-size:13px; color:#7FC7E8;}
+
+  /* AFP mini card tile (drawn) */
+  .afp-mini{background:#fff; border:1px solid #EBEBEB; border-radius:12px; padding:14px 16px; font-family:var(--font-body);}
+  .afp-mini .h{font-size:11px; color:#A0A0A0; font-weight:700;}
+  .afp-mini .t{font-size:12px; color:#C21B17; font-weight:700; margin-top:6px;}
+  .afp-mini .amt{font-size:22px; font-weight:700; color:#34383C; letter-spacing:-.01em;}
+  .afp-mini .donut{width:46px; height:46px; border-radius:999px; background:conic-gradient(#0E6E87 0 72%,#2BA9C5 72% 90%,#BFE3EC 90% 100%); flex:none;}
+
+  /* DS feature tiles */
+  .dstile .ramp{display:flex; border-radius:7px; overflow:hidden; margin-top:14px;}
+  .dstile .ramp i{flex:1; height:26px;}
+  .dstile .steps{display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;}
+  .dstile .steps span{font-size:11px; font-weight:600; border:1px solid var(--line); border-radius:999px; padding:5px 10px; background:var(--white);}
+  .tile.dark .dstile .steps span{border-color:rgba(255,255,255,.2); background:rgba(255,255,255,.06); color:#fff;}
+
+  /* marquee tile */
+  .marq{overflow:hidden; justify-content:center; padding:0;}
+  .marq .track{display:flex; gap:34px; white-space:nowrap; animation:scroll 26s linear infinite; padding:0 20px;}
+  .marq .track span{font-family:var(--font-display); font-weight:700; font-size:26px; letter-spacing:.02em; text-transform:uppercase; color:var(--ink); opacity:.85;}
+  .marq .track span::after{content:"✦"; margin-left:34px; color:var(--accent);}
+  @keyframes scroll{to{transform:translateX(-50%);}}
+
+  /* quote */
+  .quote .mark{font-family:var(--font-display); font-size:70px; line-height:.6; color:var(--accent);}
+  .quote p{font-family:var(--font-display); font-weight:600; font-size:clamp(20px,2.2vw,30px); line-height:1.18; margin:6px 0 0; letter-spacing:-.01em;}
+  .quote .by{margin-top:auto; padding-top:16px; font-size:13px;}
+  .quote .by b{display:block; font-weight:700;}
+  .quote .by span{color:var(--muted);}
+
+  /* contact */
+  .contact h2{font-family:var(--font-display); font-weight:700; font-size:clamp(28px,3.4vw,44px); line-height:.95; margin:12px 0 0;}
+  .contact h2 .grey{color:rgba(255,255,255,.5);}
+  .contact .rows{margin-top:auto; padding-top:18px; display:flex; flex-direction:column; gap:10px;}
+  .contact .rows a{display:flex; align-items:center; gap:12px; font-size:14px; color:#fff;}
+  .contact .rows .k{width:34px; height:34px; border-radius:10px; background:rgba(255,255,255,.12); display:grid; place-items:center; flex:none;}
+  .contact .rows .k svg{width:17px; height:17px;}
+
+  .mini-link{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .mini-link .lab{font-family:var(--font-display); font-weight:700; font-size:20px;}
+  .mini-link .arr{width:38px; height:38px; border-radius:999px; border:1.5px solid currentColor; display:grid; place-items:center; flex:none;}
+
+  .foot{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .foot .socials{display:flex; gap:8px;}
+  .foot .socials a{width:38px; height:38px; border-radius:999px; border:1px solid rgba(255,255,255,.25); display:grid; place-items:center;}
+  .foot .socials a svg{width:18px; height:18px;}
+  .foot .socials a:hover{background:#fff; color:var(--ink);}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none;}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .bento{grid-template-columns:repeat(6,1fr); grid-auto-rows:120px;}
+    .c7,.c8{grid-column:span 6;} .c5,.c6{grid-column:span 6;} .c4{grid-column:span 3;} .c3{grid-column:span 3;}
+    .hero{grid-column:span 6; grid-row:span 3;}
+  }
+  @media (max-width:560px){
+    .bento{grid-template-columns:repeat(2,1fr); grid-auto-rows:auto;}
+    .tile{grid-column:span 2 !important; grid-row:auto !important; min-height:150px;}
+    .portrait{min-height:280px;} .hero{min-height:auto;}
+    .jp-vert{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="#" class="brand">cris<span class="dot">.</span>acuña</a>
+  <nav>
+    <a href="index.html">Clásico</a>
+    <a href="#work">Work</a>
+    <a href="#system">System</a>
+    <a href="#contact" class="cta">Hablemos ↗</a>
+  </nav>
+</div>
+
+<main class="bento">
+
+  <!-- HERO -->
+  <section class="tile dark hero c7 r4 reveal">
+    <span class="jp-vert">ポートフォリオ</span>
+    <div>
+      <span class="eyebrow">Diseñador UX / UI</span>
+      <p class="greet" style="margin:16px 0 0;">¡Hola! Soy</p>
+      <h1>Cristián<br /><span class="accent">Acuña</span></h1>
+      <span class="role">Producto · Systems <span class="spark">✦</span></span>
+      <p class="desc">Diseñador UI/UX con foco en interfaces digitales, design systems, prototipado y accesibilidad — con la empatía hacia el usuario al centro del proceso.</p>
+    </div>
+    <div class="actions">
+      <a href="#contact" class="btn btn--accent">Hablemos <span>↗</span></a>
+      <a href="index.html" class="btn btn--ghost">Ver versión clásica</a>
+    </div>
+  </section>
+
+  <!-- PORTRAIT -->
+  <a class="tile portrait c3 r4 reveal" href="#contact">
+    <img src="assets/portrait.png" alt="Retrato de Cristián Acuña" />
+    <span class="hello">Hola</span>
+  </a>
+
+  <!-- ROLE / LOCATION stacked -->
+  <div class="tile navy c2 r2 reveal" style="justify-content:space-between;">
+    <span class="jp-tag">拠点</span>
+    <div>
+      <div style="font-family:var(--font-display); font-weight:700; font-size:30px; line-height:.9;">CL</div>
+      <p class="body" style="color:rgba(255,255,255,.8); margin-top:6px;">Santiago<br />de Chile</p>
+    </div>
+  </div>
+
+  <div class="tile tint c2 r2 reveal" style="justify-content:space-between;">
+    <span class="jp-tag" style="color:var(--accent);">経験</span>
+    <div>
+      <div class="stat"><div class="n">2010</div><div class="l">Diseñando desde</div></div>
+    </div>
+  </div>
+
+  <!-- OFFER 01 -->
+  <div class="tile c4 r2 reveal">
+    <span class="jp-vert">私について</span>
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+    <h3>Diseño UX/UI</h3>
+    <p class="body">Interfaces, flujos y prototipos de alta fidelidad centrados en el usuario real.</p>
+    <div class="num-badge">01 — Producto</div>
+  </div>
+
+  <!-- OFFER 02 -->
+  <div class="tile c4 r2 reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+    <h3>Design Systems</h3>
+    <p class="body">Foundations, componentes y librerías escalables y documentadas, con Atomic Design.</p>
+    <div class="num-badge">02 — Sistema</div>
+  </div>
+
+  <!-- OFFER 03 -->
+  <div class="tile c4 r2 reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+    <h3>Investigación</h3>
+    <p class="body">Research, entrevistas, benchmarking y pruebas de usabilidad para decidir con evidencia.</p>
+    <div class="num-badge">03 — Proceso</div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="tile paper marq c12 reveal">
+    <div class="track">
+      <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Motion</span><span>Responsive</span>
+      <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Motion</span><span>Responsive</span>
+    </div>
+  </div>
+
+  <!-- WORK header tile -->
+  <div class="tile navy c4 r2 reveal" id="work" style="justify-content:space-between;">
+    <span class="jp-vert" style="opacity:.4;">作品</span>
+    <span class="eyebrow">Selected work</span>
+    <div>
+      <h3 style="color:#fff; font-size:38px;">Proyectos.</h3>
+      <p class="body" style="color:rgba(255,255,255,.78);">Dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.</p>
+    </div>
+  </div>
+
+  <!-- EDF -->
+  <a class="tile proj c5 r2 reveal" href="edf-renewables.html">
+    <span class="tag">UX/UI · Dashboard</span>
+    <div class="shot"><img src="assets/edf-dashboard.png" alt="Dashboard EDF Renewables" /></div>
+    <div class="grad"></div>
+    <div class="info">
+      <h3>EDF — Renewables</h3>
+      <p class="body">Dashboard de control para cuadrillas de contratistas en reparaciones de urgencia. Flujos, dashboards y UI Kit.</p>
+      <span class="more">Ver detalle ↗</span>
+    </div>
+  </a>
+
+  <!-- AFP Sitio Privado (drawn mini) -->
+  <a class="tile c3 r2 reveal" href="sitio-privado.html" style="justify-content:space-between; background:#F4F5F6;">
+    <span style="font-size:11px; font-weight:700; letter-spacing:.04em; background:#fff; border:1px solid #EBEBEB; color:#34383C; padding:5px 11px; border-radius:999px; align-self:flex-start;">Web App · AFP</span>
+    <div class="afp-mini" style="box-shadow:0 10px 24px rgba(32,37,43,.12);">
+      <div class="h">Hola Cristián</div>
+      <div class="t">Tu total ahorrado</div>
+      <div class="amt">$136.437.590</div>
+      <div style="display:flex; gap:12px; align-items:center; margin-top:10px;">
+        <div class="donut"></div>
+        <div style="display:flex; flex-wrap:wrap; gap:5px;">
+          <span style="font-size:10px; font-weight:600; background:#FCEBEA; color:#C21B17; border-radius:5px; padding:2px 7px;">Fondo A</span>
+          <span style="font-size:10px; font-weight:600; background:#E6F6F2; color:#1F8E80; border-radius:5px; padding:2px 7px;">Fondo C</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <b style="font-family:var(--font-display); font-size:16px;">Sitio Privado</b>
+      <span style="color:var(--accent); font-weight:600; font-size:13px;">↗</span>
+    </div>
+  </a>
+
+  <!-- BICE -->
+  <a class="tile proj c4 r2 reveal" href="bice-vida.html">
+    <span class="tag">Design System</span>
+    <div class="shot"><img src="assets/bice-1.png" alt="BICE VIDA" /></div>
+    <div class="grad"></div>
+    <div class="info">
+      <h3>BICE VIDA</h3>
+      <p class="body">Foundations y componentes transversales para los productos digitales de la compañía.</p>
+      <span class="more">Ver detalle ↗</span>
+    </div>
+  </a>
+
+  <!-- Jet Sur -->
+  <a class="tile proj c4 r2 reveal" href="jet-sur.html">
+    <span class="tag">Web &amp; App</span>
+    <div class="shot"><img src="assets/jetsur-1.png" alt="Jet Sur" /></div>
+    <div class="grad"></div>
+    <div class="info">
+      <h3>Jet Sur</h3>
+      <p class="body">Rediseño del sitio de la compañía de buses: nuevo look &amp; feel y UI Kit.</p>
+      <span class="more">Ver detalle ↗</span>
+    </div>
+  </a>
+
+  <!-- Fazil -->
+  <a class="tile proj c4 r2 reveal" href="fazil-app.html">
+    <span class="tag">Mobile · Checkout</span>
+    <div class="shot"><img src="assets/fazil-1.png" alt="Fazil App" /></div>
+    <div class="grad"></div>
+    <div class="info">
+      <h3>Fazil App</h3>
+      <p class="body">Rediseño del checkout para el desafío técnico de Fazil App (Tottus).</p>
+      <span class="more">Ver detalle ↗</span>
+    </div>
+  </a>
+
+  <!-- IACC -->
+  <a class="tile proj c4 r2 reveal" href="iacc-flujos.html">
+    <span class="tag">UX Flows</span>
+    <div class="shot"><img src="assets/iacc-2.jpg" alt="IACC flujos" /></div>
+    <div class="grad"></div>
+    <div class="info">
+      <h3>IACC — Flujos</h3>
+      <p class="body">User maps y flujos para educación superior online: portal y vista administrativa.</p>
+      <span class="more">Ver detalle ↗</span>
+    </div>
+  </a>
+
+  <!-- Gregario -->
+  <a class="tile proj c4 r2 reveal" href="gregario-app.html">
+    <span class="tag">App · Android</span>
+    <div class="shot"><img src="assets/gregario.png" alt="Gregario App" /></div>
+    <div class="grad"></div>
+    <div class="info">
+      <h3>Gregario App</h3>
+      <p class="body">App para vendedores en terreno, sobre una línea gráfica establecida.</p>
+      <span class="more">Ver detalle ↗</span>
+    </div>
+  </a>
+
+  <!-- SYSTEM header -->
+  <div class="tile dark c4 r2 reveal" id="system" style="justify-content:space-between;">
+    <span class="jp-vert" style="opacity:.4;">設計体系</span>
+    <span class="eyebrow">Design Systems</span>
+    <div>
+      <h3 style="color:#fff; font-size:30px; line-height:.95;">Sistemas de<br />diseño.</h3>
+      <p class="body">Dos casos: cliente y proyecto personal, del token al componente.</p>
+    </div>
+  </div>
+
+  <!-- Aperta DS tile -->
+  <a class="tile dstile c4 r2 reveal" href="aperta-ds.html" style="--accent:#C21B17;">
+    <span class="eyebrow" style="color:#C21B17;">Cliente · AFP PlanVital</span>
+    <h3>Aperta DS</h3>
+    <p class="body">900 variables · 262 familias. Variables, foundations y componentes.</p>
+    <div class="ramp">
+      <i style="background:#F9E8E8;"></i><i style="background:#ECB8B7;"></i><i style="background:#DE7C7A;"></i><i style="background:#D04644;"></i><i style="background:#C21B17;"></i><i style="background:#9B1612;"></i><i style="background:#74100E;"></i>
+    </div>
+    <div class="num-badge" style="color:#C21B17;">Ver caso completo ↗</div>
+  </a>
+
+  <!-- PC Factory DS tile -->
+  <a class="tile dstile dark c4 r2 reveal" href="pcfactory-ds.html">
+    <span class="eyebrow" style="color:#00D879;">Personal · Certificación</span>
+    <h3 style="color:#fff;">PC Factory DS</h3>
+    <p class="body">Atomic Design: de átomos a plantillas. Tokens, foundations y componentes.</p>
+    <div class="ramp">
+      <i style="background:#E1FBEF;"></i><i style="background:#9FF0C9;"></i><i style="background:#4DE3A0;"></i><i style="background:#00D879;"></i><i style="background:#00AD61;"></i><i style="background:#1F61F7;"></i><i style="background:#060B25;"></i>
+    </div>
+    <div class="num-badge" style="color:#00D879;">Ver caso completo ↗</div>
+  </a>
+
+  <!-- STATS row -->
+  <div class="tile stat c3 reveal"><div class="n">2021</div><div class="l">Pivote a UX/UI</div></div>
+  <div class="tile stat navy c3 reveal"><div class="n">7</div><div class="l">Proyectos destacados</div></div>
+  <div class="tile stat tint c3 reveal"><div class="n"><span class="accent">5</span></div><div class="l">Certificaciones</div></div>
+  <div class="tile stat c3 reveal"><div class="n">+10</div><div class="l">Años en diseño</div></div>
+
+  <!-- QUOTE -->
+  <div class="tile quote c7 r2 reveal">
+    <span class="jp-vert">哲学</span>
+    <div class="mark">"</div>
+    <p>Pongo primero la empatía hacia el usuario final: entender y resolver su problemática es lo que hace que un producto realmente funcione.</p>
+    <div class="by"><b>Cristián Acuña Vicencio</b><span>Diseñador UX/UI — Santiago de Chile</span></div>
+  </div>
+
+  <!-- Formation mini -->
+  <div class="tile paper c5 r2 reveal" style="justify-content:space-between;">
+    <span class="eyebrow">Background</span>
+    <div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--line); padding:9px 0;">
+        <b style="font-weight:600; font-size:14px;">Academia Desafío Latam</b><span style="font-size:12px; color:var(--muted);">2021</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--line); padding:9px 0;">
+        <b style="font-weight:600; font-size:14px;">U. Diego Portales · Dis. Gráfico</b><span style="font-size:12px; color:var(--muted);">2012—17</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; padding:9px 0;">
+        <b style="font-weight:600; font-size:14px;">U. Gabriela Mistral · Crossmedia</b><span style="font-size:12px; color:var(--muted);">2010—11</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="tile navy contact c8 r2 reveal" id="contact">
+    <span class="jp-vert" style="opacity:.4;">連絡</span>
+    <span class="eyebrow">Get in touch</span>
+    <h2>Hablemos <span class="grey">de tu próxima idea.</span></h2>
+    <div class="rows">
+      <a href="mailto:acuna.cristian15@gmail.com"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span> acuna.cristian15@gmail.com</a>
+      <a href="tel:+56988083814"><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span> +569 8808 3814</a>
+    </div>
+  </section>
+
+  <!-- CV / social mini -->
+  <a class="tile c4 r2 mini-link reveal" href="index.html" style="flex-direction:column; justify-content:space-between; align-items:stretch;">
+    <span class="jp-tag" style="color:var(--accent);">履歴書</span>
+    <div>
+      <div class="mini-link">
+        <span class="lab">Descargar CV</span>
+        <span class="arr">↓</span>
+      </div>
+      <p class="body" style="margin-top:8px;">También en LinkedIn &amp; Behance. Respondo dentro de 24 horas.</p>
+    </div>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="tile dark foot c12 reveal">
+    <span class="brand" style="font-size:20px;">cris<span style="color:#7FC7E8;">.</span>acuña</span>
+    <span style="font-size:12.5px; color:rgba(255,255,255,.6);">Portafolio © 2026 · Santiago de Chile · <span style="font-family:var(--jp);">弁当レイアウト</span></span>
+    <div class="socials">
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="#" aria-label="Behance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6a3 3 0 0 1 0 6H3zM3 13h7a3 3 0 0 1 0 6H3zM15 8h6M18 13c2 0 3 1.5 3 3.5S20 20 18 20s-3-1.5-3-3.5S16 13 18 13Z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function(){
+    var tiles = document.querySelectorAll('.reveal');
+    tiles.forEach(function(el, i){ el.style.transitionDelay = Math.min(i*24, 260) + 'ms'; });
+    var revealAll = function(){ tiles.forEach(function(el){ el.classList.add('in'); }); };
+    if ('IntersectionObserver' in window) {
+      var ro = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+      }, { rootMargin:"0px 0px -4% 0px", threshold:0.02 });
+      tiles.forEach(function(el){ ro.observe(el); });
+      // safety net: if anything hasn't revealed shortly after load, show it
+      setTimeout(revealAll, 1200);
+    } else {
+      revealAll();
+    }
+  })();
+</script>
+</body>
+</html>
