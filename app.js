@@ -138,3 +138,51 @@
     });
   }
 })();
+
+/* ---- featured-projects carousel (home only) ---- */
+(function () {
+  "use strict";
+  var track = document.getElementById("proj-track");
+  if (!track) return;
+
+  var slides = Array.prototype.slice.call(track.children);
+  var prev = document.getElementById("proj-prev");
+  var next = document.getElementById("proj-next");
+  var dotsWrap = document.getElementById("proj-dots");
+  var current = 0;
+
+  slides.forEach(function (_, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "Ir al proyecto " + (i + 1));
+    b.addEventListener("click", function () { goTo(i); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function goTo(i) {
+    current = (i + slides.length) % slides.length;
+    var s = slides[current];
+    track.scrollTo({
+      left: s.offsetLeft - (track.clientWidth - s.clientWidth) / 2,
+      behavior: "smooth"
+    });
+  }
+
+  prev.addEventListener("click", function () { goTo(current - 1); });
+  next.addEventListener("click", function () { goTo(current + 1); });
+
+  function syncDots() {
+    var center = track.scrollLeft + track.clientWidth / 2;
+    var best = 0, bestD = Infinity;
+    slides.forEach(function (s, i) {
+      var d = Math.abs(s.offsetLeft + s.clientWidth / 2 - center);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    current = best;
+    dots.forEach(function (d, i) { d.classList.toggle("on", i === current); });
+  }
+  track.addEventListener("scroll", function () { requestAnimationFrame(syncDots); }, { passive: true });
+  window.addEventListener("resize", syncDots);
+  syncDots();
+})();
