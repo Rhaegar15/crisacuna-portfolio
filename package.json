@@ -1,0 +1,7 @@
+{
+  "name": "crisacuna-portfolio",
+  "private": true,
+  "devDependencies": {
+    "wrangler": "4.107.1"
+  }
+}
