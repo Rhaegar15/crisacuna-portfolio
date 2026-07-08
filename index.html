@@ -6,439 +6,482 @@
 <title>Cristián Acuña — Diseñador UX/UI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0E0E0E;
+    --ink-soft:#1A1A1A;
+    --paper:#F2F1ED;
+    --paper-2:#FAFAF8;
+    --white:#FFFFFF;
+    --muted:#67646C;
+    --muted-2:#908D95;
+    --line:rgba(14,14,14,.14);
+    --navy:#0A3B58;
+    --accent:var(--navy);
+    --font-display:"League Spartan",system-ui,sans-serif;
+    --font-body:"Inter",system-ui,-apple-system,sans-serif;
+    --pad:clamp(20px,5vw,72px);
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:var(--font-body); background:var(--paper); color:var(--ink); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  img{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad);}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter:blur(10px); border-bottom:1px solid transparent; transition:border-color .2s;
+  }
+  .nav.scrolled{border-bottom-color:var(--line);}
+  .nav .in{max-width:var(--maxw); margin:0 auto; padding:18px var(--pad); display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .brand{font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:.02em;}
+  .brand .dot{color:var(--accent);}
+  .nav nav{display:flex; gap:26px; align-items:center;}
+  .nav nav a{font-size:13.5px; font-weight:500; color:var(--muted); transition:color .15s;}
+  .nav nav a:hover{color:var(--ink);}
+  .nav .book{
+    font-size:13px; font-weight:600; color:var(--ink); display:inline-flex; align-items:center; gap:7px;
+    border-bottom:1.5px solid var(--ink); padding-bottom:2px;
+  }
+  @media (max-width:720px){ .nav nav a:not(.book){display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; border-bottom:1px solid var(--line); overflow:hidden;}
+  .hero .in{
+    max-width:var(--maxw); margin:0 auto; padding:clamp(40px,7vw,90px) var(--pad) 0;
+    display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,1fr); gap:clamp(24px,4vw,60px); align-items:end;
+  }
+  .hero .rail{
+    position:absolute; left:calc(var(--pad) - 34px); top:0; bottom:0; width:1px; background:var(--line);
+    display:none;
+  }
+  @media (min-width:1100px){ .hero .rail{display:block;} }
+  .hero .rail span{
+    position:absolute; left:-8px; writing-mode:vertical-rl; font-size:10.5px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--muted-2); background:var(--paper); padding:12px 0;
+  }
+  .hero .rail .a{top:36px;} .hero .rail .b{bottom:36px;}
+  .stats{display:flex; gap:clamp(24px,4vw,54px); margin-bottom:clamp(20px,3vw,36px);}
+  .stats .s .n{font-family:var(--font-display); font-weight:600; font-size:clamp(24px,2.6vw,34px); letter-spacing:.01em;}
+  .stats .s .n sup{font-size:.55em; color:var(--accent); font-weight:700;}
+  .stats .s .l{font-size:11.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-top:2px;}
+  .hero h1{
+    font-family:var(--font-display); font-weight:600; margin:0;
+    font-size:clamp(72px,14vw,190px); line-height:.86; letter-spacing:-.015em;
+  }
+  .hero h1 .thin{color:var(--muted-2);}
+  .hero .sub{
+    display:flex; align-items:baseline; gap:14px; margin:clamp(16px,2.4vw,28px) 0 0;
+    font-size:15px; color:var(--muted);
+  }
+  .hero .sub::before{content:"—"; color:var(--ink);}
+  .hero .sub b{color:var(--ink); font-weight:600;}
+  .hero .scroll{
+    display:inline-flex; align-items:center; gap:8px; margin:clamp(28px,4vw,54px) 0 clamp(28px,4vw,50px);
+    font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+  }
+  .hero .photo{position:relative; align-self:stretch; min-height:340px;}
+  .hero .photo img{
+    position:absolute; inset:auto 0 0 0; width:100%; height:100%; object-fit:cover; object-position:top center;
+    filter:grayscale(1) contrast(1.04);
+  }
+  .hero .photo .chip{
+    position:absolute; z-index:2; left:18px; top:22px; background:var(--ink); color:#fff;
+    font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:8px 14px; border-radius:999px;
+  }
+  @media (max-width:860px){
+    .hero .in{grid-template-columns:1fr;}
+    .hero .photo{min-height:300px; order:-1; margin-top:8px;}
+    .hero .photo img{position:relative; height:300px;}
+  }
+
+  /* marquee clients-style strip */
+  .strip{border-bottom:1px solid var(--line); overflow:hidden; background:var(--paper-2);}
+  .strip .track{display:flex; gap:44px; white-space:nowrap; padding:16px 0; animation:mv 30s linear infinite;}
+  .strip .track span{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .strip .track span::after{content:"·"; margin-left:44px; color:var(--accent);}
+  @keyframes mv{to{transform:translateX(-50%);}}
+
+  /* ---------- section scaffolding ---------- */
+  .section{padding:clamp(56px,8vw,110px) 0; border-bottom:1px solid var(--line);}
+  .tag{
+    display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:7px 15px; background:var(--white);
+  }
+  .tag::before{content:""; width:6px; height:6px; border-radius:99px; background:var(--accent);}
+  .h2{
+    font-family:var(--font-display); font-weight:600; letter-spacing:-.01em;
+    font-size:clamp(30px,4.4vw,54px); line-height:1.02; margin:18px 0 0;
+  }
+  .h2 .grey{color:var(--muted-2);}
+  .lead{color:var(--muted); font-size:15.5px; max-width:52ch;}
+
+  /* about */
+  .about .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(28px,5vw,70px); align-items:start;}
+  .about .facts{display:flex; flex-direction:column; gap:0; margin-top:8px;}
+  .about .fact{display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--line); align-items:flex-start;}
+  .about .fact:last-child{border-bottom:0;}
+  .about .fact .plus{
+    width:26px; height:26px; border-radius:99px; background:var(--ink); color:#fff; display:grid; place-items:center;
+    font-weight:700; font-size:14px; flex:none; margin-top:2px;
+  }
+  .about .fact p{margin:0; font-size:14.5px; color:var(--muted);}
+  .about .fact p b{color:var(--ink); font-weight:600;}
+  @media (max-width:820px){ .about .grid{grid-template-columns:1fr;} }
+
+  /* experience journey */
+  .journey .head{display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; margin-bottom:clamp(24px,4vw,44px);}
+  .journey .head .lead{text-align:right; max-width:40ch;}
+  @media (max-width:760px){ .journey .head{grid-template-columns:1fr;} .journey .head .lead{text-align:left;} }
+  .xp{border-top:1px solid var(--line);}
+  .xp-row{
+    display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1.6fr) auto; gap:clamp(14px,3vw,40px);
+    padding:clamp(18px,2.6vw,28px) 10px; border-bottom:1px solid var(--line); align-items:center;
+    transition:background .15s; border-radius:10px;
+  }
+  .xp-row:hover{background:var(--white);}
+  .xp-row .role{font-family:var(--font-display); font-weight:600; font-size:clamp(18px,2vw,24px); letter-spacing:0;}
+  .xp-row .role small{display:block; font-family:var(--font-body); font-weight:500; font-size:12.5px; color:var(--muted); letter-spacing:.02em; margin-top:5px;}
+  .xp-row .desc{font-size:14px; color:var(--muted); line-height:1.5;}
+  .xp-row .when{font-family:var(--font-display); font-weight:600; font-size:clamp(16px,1.8vw,22px); color:var(--ink); white-space:nowrap;}
+  .xp-row .pills{display:flex; gap:6px; justify-content:flex-end; margin-top:8px;}
+  .xp-row .pills span{font-size:10.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--line); border-radius:999px; padding:4px 10px; background:var(--paper-2);}
+  @media (max-width:760px){ .xp-row{grid-template-columns:1fr; gap:8px;} .xp-row .pills{justify-content:flex-start;} }
+
+  /* dark CTA band */
+  .band{
+    background:var(--ink); color:#fff; border-radius:18px; overflow:hidden; position:relative;
+    padding:clamp(34px,6vw,64px) clamp(24px,5vw,60px); text-align:center;
+  }
+  .band::before{
+    content:""; position:absolute; inset:0;
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0); background-size:22px 22px;
+  }
+  .band .k{position:relative; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6); font-weight:600;}
+  .band h3{
+    position:relative; font-family:var(--font-display); font-weight:600; letter-spacing:-.01em;
+    font-size:clamp(26px,4vw,44px); line-height:1.05; margin:14px auto 0; max-width:22ch;
+  }
+  .band p{position:relative; color:rgba(255,255,255,.65); font-size:14.5px; max-width:52ch; margin:14px auto 0;}
+  .band .go{
+    position:relative; display:inline-flex; align-items:center; gap:9px; margin-top:24px;
+    font-weight:600; font-size:14px; color:#fff; border-bottom:1.5px solid #fff; padding-bottom:3px;
+  }
+
+  /* works */
+  .works .center{text-align:center;}
+  .works .center .lead{margin:14px auto 0;}
+  .wgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:clamp(28px,4vw,48px);}
+  .wcard{position:relative; border-radius:16px; overflow:hidden; background:var(--white); border:1px solid var(--line); display:flex; flex-direction:column; transition:transform .18s, box-shadow .18s;}
+  .wcard:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(14,14,14,.12);}
+  .wcard .shot{aspect-ratio:4/3; overflow:hidden; position:relative; background:var(--paper-2);}
+  .wcard .shot img{width:100%; height:100%; object-fit:cover; transition:transform .3s ease;}
+  .wcard:hover .shot img{transform:scale(1.03);}
+  .wcard .shot .arr{
+    position:absolute; right:12px; top:12px; width:38px; height:38px; border-radius:99px; background:var(--ink); color:#fff;
+    display:grid; place-items:center; font-size:15px; opacity:0; transform:translateY(-4px); transition:.18s;
+  }
+  .wcard:hover .shot .arr{opacity:1; transform:none;}
+  .wcard .meta{display:flex; align-items:baseline; justify-content:space-between; gap:10px; padding:14px 16px;}
+  .wcard .meta b{font-size:14.5px; font-weight:600;}
+  .wcard .meta span{font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; font-weight:600; white-space:nowrap;}
+  .works .morerow{display:flex; justify-content:center; gap:22px; margin-top:30px; font-size:13.5px; color:var(--muted);}
+  .works .morerow a{font-weight:600; color:var(--ink); border-bottom:1.5px solid var(--ink); padding-bottom:2px;}
+  @media (max-width:900px){ .wgrid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .wgrid{grid-template-columns:1fr;} }
+
+  /* systems (as "insights"-style trio) */
+  .sys .wgrid{grid-template-columns:repeat(2,1fr);}
+  .syscard{border-radius:16px; border:1px solid var(--line); background:var(--white); padding:26px; display:flex; flex-direction:column; gap:12px; transition:transform .18s, box-shadow .18s;}
+  .syscard:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(14,14,14,.12);}
+  .syscard .top{display:flex; justify-content:space-between; align-items:center;}
+  .syscard .top .lab{font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 11px; border-radius:999px;}
+  .syscard h4{font-family:var(--font-display); font-weight:600; font-size:26px; margin:0; letter-spacing:0;}
+  .syscard p{margin:0; font-size:14px; color:var(--muted);}
+  .syscard .ramp{display:flex; border-radius:7px; overflow:hidden; margin-top:4px;}
+  .syscard .ramp i{flex:1; height:24px;}
+  .syscard .foot{display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:12px; font-size:13px; font-weight:600;}
+  @media (max-width:760px){ .sys .wgrid{grid-template-columns:1fr;} }
+
+  /* final CTA */
+  .fin{text-align:center; border-bottom:0;}
+  .fin h2{
+    font-family:var(--font-display); font-weight:600; letter-spacing:-.01em;
+    font-size:clamp(34px,5.4vw,64px); line-height:1; margin:16px 0 0;
+  }
+  .fin p{color:var(--muted); max-width:52ch; margin:16px auto 0; font-size:15px;}
+  .fin .go{
+    display:inline-flex; align-items:center; gap:10px; margin-top:26px; background:var(--ink); color:#fff;
+    padding:15px 28px; border-radius:999px; font-weight:600; font-size:14.5px; transition:.15s;
+  }
+  .fin .go:hover{background:var(--accent);}
+
+  /* footer */
+  .foot{background:var(--ink); color:#fff;}
+  .foot .in{
+    max-width:var(--maxw); margin:0 auto; padding:clamp(28px,4vw,44px) var(--pad);
+    display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+  }
+  .foot .links{display:flex; gap:20px; font-size:13px; color:rgba(255,255,255,.65);}
+  .foot .links a:hover{color:#fff;}
+  .foot .mail{font-family:var(--font-display); font-weight:600; font-size:clamp(18px,2.6vw,26px); letter-spacing:.01em;}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  .d1{transition-delay:.08s;} .d2{transition-delay:.16s;}
+  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+</style>
 </head>
 <body>
 
-<!-- ============================ NAV ============================ -->
 <header class="nav" id="nav">
-  <a href="#home" class="brand" aria-label="Cristián Acuña">cris<span class="dot">.</span>acuña</a>
-  <nav class="nav-links" id="navlinks">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#system">System</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn btn--accent nav-cta">Let's talk</a>
-  </nav>
-  <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  <div class="in">
+    <a href="#" class="brand">cris<span class="dot">.</span>acuña</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#journey">Experiencia</a>
+      <a href="#work">Portfolio</a>
+      <a href="#system">Systems</a>
+      <a href="index-clasico.html">Clásico</a>
+      <a href="#contact" class="book">Book a call ↗</a>
+    </nav>
+  </div>
 </header>
 
-<!-- ============================ HERO ============================ -->
-<section class="hero" id="home">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p class="hero-greet">¡Hola! Soy</p>
-      <h1 class="hero-name">Cristián <span class="accent">Acuña</span></h1>
-      <span class="hero-role">Diseñador UX/UI <span class="spark">✦</span></span>
-      <p class="hero-desc">Diseñador UI/UX con foco en interfaces digitales, design systems, prototipado y accesibilidad — siempre con la empatía hacia el usuario al centro del proceso.</p>
-      <ul class="hero-bullets">
-        <li><span class="tick">✓</span> Diseño de interfaces y prototipos de alta fidelidad</li>
-        <li><span class="tick">✓</span> Design systems y UI Kits listos para desarrollo</li>
-        <li><span class="tick">✓</span> Investigación, testing y validación con usuarios</li>
-      </ul>
-      <div class="hero-actions">
-        <a href="mailto:acuna.cristian15@gmail.com" class="btn btn--accent">Hablemos <span class="arrow">↗</span></a>
-        <a href="#" class="btn btn--ghost" id="cv-btn">Descargar CV</a>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="rail"><span class="a">Product Designer</span><span class="b">Santiago · Chile</span></div>
+  <div class="in">
+    <div>
+      <div class="stats reveal">
+        <div class="s"><div class="n"><sup>+</sup>10</div><div class="l">Años en diseño</div></div>
+        <div class="s"><div class="n"><sup>+</sup>7</div><div class="l">Proyectos destacados</div></div>
+        <div class="s"><div class="n"><sup>+</sup>2</div><div class="l">Design systems</div></div>
       </div>
+      <h1 class="reveal">Hola<span class="thin">.</span></h1>
+      <div class="sub reveal d1">Soy <b>Cristián Acuña</b>, diseñador UX/UI &amp; design systems.</div>
+      <a class="scroll reveal d2" href="#about">Scroll down <span>↓</span></a>
     </div>
-    <div class="hero-media">
-      <span class="deco-x" style="top:-6px; left:8px;">✳</span>
-      <span class="deco-dotgrid" style="top:18px; right:-6px;"></span>
-      <div class="portrait-frame">
-        <img class="photo" src="assets/portrait.png" alt="Retrato de Cristián Acuña" />
-      </div>
+    <div class="photo reveal d1">
+      <span class="chip">Available for work</span>
+      <img src="assets/portrait.png" alt="Retrato de Cristián Acuña" />
     </div>
   </div>
 </section>
 
-<!-- ============================ MARQUEE ============================ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="marquee">
-    <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Motion Design</span><span>Responsive</span>
+<!-- clients / skills strip -->
+<div class="strip" aria-hidden="true">
+  <div class="track">
+    <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>Figma Variables</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Atomic Design</span>
+    <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>Figma Variables</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Atomic Design</span>
   </div>
 </div>
 
-<!-- ============================ STRIP ============================ -->
-<div class="strip">
-  <a href="mailto:acuna.cristian15@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> acuna.cristian15@gmail.com</a>
-  <span class="sep"></span>
-  <a href="tel:+56988083814"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> +569 8808 3814</a>
-  <span class="sep"></span>
-  <a href="https://www.linkedin.com/in/cristian-acuna-vicencio" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a>
-  <span class="sep"></span>
-  <a href="https://www.behance.net/acunacristian15" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6a3 3 0 0 1 0 6H3zM3 13h7a3 3 0 0 1 0 6H3zM15 8h6M18 13c2 0 3 1.5 3 3.5S20 20 18 20s-3-1.5-3-3.5S16 13 18 13Z"/></svg> Behance</a>
-</div>
-
-<!-- ============================ ABOUT / OFFER ============================ -->
-<section class="section" id="about">
+<!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
   <div class="wrap">
-    <div class="offer-head">
+    <div class="grid">
       <div class="reveal">
-        <span class="eyebrow">About · What I offer</span>
-        <h2 class="section-title">Lo que hago.</h2>
-        <p class="lead" style="margin-top:22px;">Llevo más de una década en diseño y desde 2021 enfocado en UX/UI. He trabajado en equipos diversos —product owners, scrum masters, tech leads, UX writers y desarrolladores— construyendo productos digitales de cara a cliente e internos.</p>
-      </div>
-      <p class="lead reveal d1">Acompaño productos de punta a punta: desde la investigación y los fundamentos de un sistema de diseño hasta interfaces pulidas y documentadas, listas para desarrollo.</p>
-    </div>
-
-    <div class="offer-grid">
-      <article class="ocard dark reveal">
-        <div class="ocard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>Diseño UX/UI</h3>
-        <p>Interfaces, flujos y prototipos de alta fidelidad centrados en las necesidades reales del usuario.</p>
-        <div class="ocard-num">01 — Producto</div>
-      </article>
-      <article class="ocard reveal d1">
-        <div class="ocard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Design Systems &amp; UI Kits</h3>
-        <p>Foundations, componentes, variables y librerías escalables y bien documentadas.</p>
-        <div class="ocard-num">02 — Sistema</div>
-      </article>
-      <article class="ocard reveal d2">
-        <div class="ocard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-        <h3>Investigación &amp; Validación</h3>
-        <p>Research, entrevistas, benchmarking, pruebas de usabilidad y análisis de datos para decidir con evidencia.</p>
-        <div class="ocard-num">03 — Proceso</div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ FORMATION ============================ -->
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">Background</span>
-      <h2 class="section-title">Formación.</h2>
-    </div>
-    <div class="timeline">
-      <div class="trow hl reveal">
-        <div class="trow-num">01</div>
-        <div><div class="trow-title">Academia Desafío Latam</div><div class="trow-sub">Diseño UX/UI · Santiago de Chile</div></div>
-        <div class="trow-dur"><span>Certificación</span><b>2021</b></div>
-      </div>
-      <div class="trow reveal d1">
-        <div class="trow-num">02</div>
-        <div><div class="trow-title">Universidad Diego Portales</div><div class="trow-sub">Diseño Gráfico</div></div>
-        <div class="trow-dur"><span>Título</span><b>2012 — 2017</b></div>
-      </div>
-      <div class="trow reveal d2">
-        <div class="trow-num">03</div>
-        <div><div class="trow-title">Universidad Gabriela Mistral</div><div class="trow-sub">Diseño Crossmedia</div></div>
-        <div class="trow-dur"><span>Estudios</span><b>2010 — 2011</b></div>
-      </div>
-    </div>
-
-    <div class="certs reveal d1">
-      <div class="certs-label">Certificaciones</div>
-      <div class="cert-list">
-        <span class="chip"><b>Ultimate Figma Masterclass</b> · The Designership <span class="yr">2024</span></span>
-        <span class="chip"><b>UI</b> · Coderhouse <span class="yr">2024</span></span>
-        <span class="chip"><b>Master Digital Product Design: UX Research &amp; UI</b> · Udemy <span class="yr">2022</span></span>
-        <span class="chip"><b>Motion Design with Figma</b> · Udemy <span class="yr">2022</span></span>
-        <span class="chip"><b>Design &amp; Prototype a Mobile UX (Figma)</b> · Udemy <span class="yr">2022</span></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ WORK ============================ -->
-<section class="section" id="work" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow center" style="justify-content:center;">Selected work · Case study</span>
-      <h2 class="section-title">Proyectos.</h2>
-      <p class="lead" style="margin:18px auto 0;">Una selección de productos reales: dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.</p>
-    </div>
-
-    <div class="carousel reveal">
-      <div class="carousel-track" id="proj-track">
-        <article class="pcard">
-          <a href="sitio-privado.html" class="pcard-shot" style="display:block;"><span class="pcard-tag">UX/UI · Web App</span><img src="assets/planvital-1.png" alt="Sitio Privado AFP PlanVital — dashboard de afiliados" /></a>
-          <div class="pcard-body">
-            <h3>AFP PlanVital</h3>
-            <p>Sitio privado para afiliados y pensionados de AFP PlanVital: ahorros, certificados y trámites en un solo lugar. Diseño de producto construido sobre el design system Aperta DS.</p>
-            <a href="sitio-privado.html" class="more">Ver detalle <span class="arrow">↗</span></a>
-          </div>
-        </article>
-
-        <article class="pcard">
-          <a href="sol-naciente.html" class="pcard-shot" style="display:block;"><span class="pcard-tag">Web vivo</span><img src="assets/sol-fullsite.png" alt="Sol Naciente de Pastos Grandes — sitio web" /></a>
-          <div class="pcard-body">
-            <h3>Sol Naciente</h3>
-            <p>Sitio web para una comunidad indígena Colla de Atacama: memoria, territorio y herbolaria en los altos de Pastos Grandes. Diseño, dirección de arte y desarrollo front-end del sitio en vivo.</p>
-            <a href="sol-naciente.html" class="more">Ver detalle <span class="arrow">↗</span></a>
-          </div>
-        </article>
-
-        <article class="pcard">
-          <a href="edf-renewables.html" class="pcard-shot" style="display:block;"><span class="pcard-tag">UX/UI · Dashboard</span><img src="assets/edf-dashboard.png" alt="Dashboard EDF Renewables" /></a>
-          <div class="pcard-body">
-            <h3>EDF — Renewables</h3>
-            <p>Dashboard de control para una empresa que gestiona cuadrillas de contratistas en reparaciones de urgencia de alumbrado público y cortes de energía. Flujos, dashboards, microinteracciones y un UI Kit para desarrollo.</p>
-            <a href="edf-renewables.html" class="more">Ver detalle <span class="arrow">↗</span></a>
-          </div>
-        </article>
-      </div>
-
-      <div class="carousel-controls">
-        <button class="carousel-btn" id="proj-prev" type="button" aria-label="Proyecto anterior">←</button>
-        <div class="carousel-dots" id="proj-dots" role="tablist" aria-label="Proyectos destacados"></div>
-        <button class="carousel-btn" id="proj-next" type="button" aria-label="Proyecto siguiente">→</button>
-      </div>
-    </div>
-
-    <div class="reveal d1" style="text-align:center; margin-top:34px;">
-      <a href="proyectos.html" class="btn btn--accent">Ver todos los proyectos <span class="arrow">↗</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ DESIGN SYSTEM FEATURE ============================ -->
-<section class="section ds" id="system">
-  <div class="wrap">
-    <div class="ds-intro">
-      <div class="reveal">
-        <span class="eyebrow">Proyecto destacado</span>
-        <h2 class="section-title">Design System<br />— PC Factory.</h2>
-      </div>
-      <p class="lead reveal d1">Proyecto personal para una certificación especializada en Design Systems. Un ejemplo documentado, desde los fundamentos de un DS hasta las bases de un sistema basado en Atomic Design.</p>
-    </div>
-
-    <div class="atomic reveal d1">
-      <span class="step"><b>01</b> Fundamentos</span>
-      <span class="step"><b>02</b> Átomos</span>
-      <span class="step"><b>03</b> Moléculas</span>
-      <span class="step"><b>04</b> Organismos</span>
-      <span class="step"><b>05</b> Plantillas</span>
-    </div>
-
-    <div class="ds-shots">
-      <div class="ds-shot reveal"><img src="assets/ds-color.png" alt="Color y fundamentos" /><div class="cap">Color &amp; Fundamentos</div></div>
-      <div class="ds-shot reveal d1"><img src="assets/ds-type.png" alt="Tipografía" /><div class="cap">Tipografía</div></div>
-      <div class="ds-shot reveal d2"><img src="assets/ds-organismos.png" alt="Organismos" /><div class="cap">Organismos</div></div>
-    </div>
-
-    <div class="ds-cta reveal d2" style="text-align:center; margin-top: clamp(36px, 5vw, 64px);">
-      <a href="pcfactory-ds.html" class="btn" style="background:#fff; color:var(--ink); border-color:#fff;">Ver proyecto completo <span class="arrow">↗</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ DESIGN SYSTEM FEATURE — APERTA ============================ -->
-<section class="section ds" style="--accent:#C21B17; padding-top:0;">
-  <div class="wrap">
-    <div class="ds-intro">
-      <div class="reveal">
-        <span class="eyebrow">Proyecto de cliente</span>
-        <h2 class="section-title">Design System<br />— Aperta DS.</h2>
+        <span class="tag">About me</span>
+        <h2 class="h2">El diseño siempre ha sido más que un trabajo <span class="grey">— es mi manera de resolver problemas.</span></h2>
       </div>
       <div class="reveal d1">
-        <p class="lead">El design system de <b style="color:#fff;">AFP PlanVital</b>. Estructuré las variables del documento, los foundations y los componentes que dan consistencia a toda su plataforma digital — desde el sitio público hasta el sitio privado de afiliados.</p>
-        <a href="aperta-ds.html" class="btn btn--accent" style="margin-top:24px;">Ver caso completo <span class="arrow">↗</span></a>
-      </div>
-    </div>
-
-    <div class="atomic reveal d1">
-      <span class="step"><b>01</b> Variables</span>
-      <span class="step"><b>02</b> Primitive</span>
-      <span class="step"><b>03</b> Semantic</span>
-      <span class="step"><b>04</b> Context</span>
-      <span class="step"><b>05</b> Componentes</span>
-    </div>
-
-    <div class="ds-shots">
-      <!-- Tile 1 — Variables & Color -->
-      <div class="ds-shot reveal">
-        <div style="aspect-ratio:3/4; padding:22px; display:flex; flex-direction:column; gap:14px; font-family:'Roboto',sans-serif;">
-          <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:#C21B17;">900 variables</div>
-          <div style="display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; gap:0; border-radius:6px; overflow:hidden;">
-              <i style="flex:1; height:30px; background:#F9E8E8;"></i><i style="flex:1; height:30px; background:#ECB8B7;"></i><i style="flex:1; height:30px; background:#DE7C7A;"></i><i style="flex:1; height:30px; background:#D04644;"></i><i style="flex:1; height:30px; background:#C21B17;"></i><i style="flex:1; height:30px; background:#9B1612;"></i><i style="flex:1; height:30px; background:#74100E;"></i>
-            </div>
-            <div style="display:flex; gap:0; border-radius:6px; overflow:hidden;">
-              <i style="flex:1; height:18px; background:#FAFAFA;"></i><i style="flex:1; height:18px; background:#DCDCDC;"></i><i style="flex:1; height:18px; background:#A0A0A0;"></i><i style="flex:1; height:18px; background:#5C5D5F;"></i><i style="flex:1; height:18px; background:#20252B;"></i>
-            </div>
-          </div>
-          <div style="display:flex; gap:7px; flex-wrap:wrap; margin-top:2px;">
-            <span style="width:22px; height:22px; border-radius:6px; background:#008C40;"></span>
-            <span style="width:22px; height:22px; border-radius:6px; background:#FFC300;"></span>
-            <span style="width:22px; height:22px; border-radius:6px; background:#D25130;"></span>
-            <span style="width:22px; height:22px; border-radius:6px; background:#0091FF;"></span>
-          </div>
-          <div style="margin-top:auto; display:flex; flex-direction:column; gap:8px;">
-            <div style="display:flex; align-items:center; gap:8px; font-size:12px; color:#34383C;"><span style="width:22px;height:22px;border-radius:6px;background:#C21B17;color:#fff;display:grid;place-items:center;font-weight:700;font-size:11px;">1</span> Primitive</div>
-            <div style="display:flex; align-items:center; gap:8px; font-size:12px; color:#34383C;"><span style="width:22px;height:22px;border-radius:6px;background:#C21B17;color:#fff;display:grid;place-items:center;font-weight:700;font-size:11px;">2</span> Semantic</div>
-            <div style="display:flex; align-items:center; gap:8px; font-size:12px; color:#34383C;"><span style="width:22px;height:22px;border-radius:6px;background:#C21B17;color:#fff;display:grid;place-items:center;font-weight:700;font-size:11px;">3</span> Context</div>
-          </div>
+        <p class="lead">Me especializo en convertir problemas complejos en soluciones elegantes: interfaces digitales, design systems, prototipado y accesibilidad, con la empatía hacia el usuario al centro del proceso.</p>
+        <div class="facts">
+          <div class="fact"><span class="plus">+</span><p>Con <b>más de 10 años de experiencia en diseño</b> —y desde 2021 enfocado en UX/UI— creo experiencias digitales intuitivas centradas en usuarios reales.</p></div>
+          <div class="fact"><span class="plus">+</span><p>Me motiva trabajar cerca de los equipos, mezclando <b>creatividad con estrategia</b> para llevar cada visión a soluciones de diseño reflexivas y de impacto.</p></div>
         </div>
-        <div class="cap">Variables &amp; Color</div>
-      </div>
-      <!-- Tile 2 — Tipografía -->
-      <div class="ds-shot reveal d1">
-        <div style="aspect-ratio:3/4; padding:22px; display:flex; flex-direction:column; font-family:'Roboto',sans-serif; color:#34383C;">
-          <div style="font-weight:700; font-size:74px; line-height:.9; color:#20252B; letter-spacing:-.02em;">Aa</div>
-          <div style="font-size:12px; color:#A0A0A0; margin-top:4px;">Roboto · Type scale</div>
-          <div style="margin-top:auto; display:flex; flex-direction:column; gap:11px;">
-            <div style="font-size:26px; font-weight:700; color:#20252B; line-height:1;">Display 32</div>
-            <div style="font-size:19px; font-weight:500; color:#34383C; line-height:1;">Title 20</div>
-            <div style="font-size:15px; font-weight:400; color:#5C5D5F; line-height:1;">Body 16 — contenido</div>
-            <div style="font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#C21B17;">Overline 12</div>
-          </div>
-        </div>
-        <div class="cap">Tipografía</div>
-      </div>
-      <!-- Tile 3 — Componentes -->
-      <div class="ds-shot reveal d2">
-        <div style="aspect-ratio:3/4; padding:22px; display:flex; flex-direction:column; gap:14px; font-family:'Roboto',sans-serif;">
-          <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:#C21B17;">262 familias</div>
-          <button style="background:#C21B17; color:#fff; border:0; border-radius:8px; padding:11px 16px; font:600 14px 'Roboto'; text-align:left;">Continuar</button>
-          <button style="background:#fff; color:#C21B17; border:1.5px solid #C21B17; border-radius:8px; padding:10px 16px; font:600 14px 'Roboto'; text-align:left;">Volver</button>
-          <div style="display:flex; gap:7px; flex-wrap:wrap;">
-            <span style="font-size:12px; font-weight:600; background:#EAFFF4; color:#005826; border-radius:999px; padding:5px 11px;">Activo</span>
-            <span style="font-size:12px; font-weight:600; background:#FCEBEA; color:#921411; border-radius:999px; padding:5px 11px;">Pendiente</span>
-          </div>
-          <div style="display:flex; gap:7px; margin-top:2px;">
-            <span style="font-size:13px; background:#C21B17; color:#fff; border-radius:999px; padding:7px 13px;">Fondo A</span>
-            <span style="font-size:13px; background:#fff; border:1.5px solid #CCC; color:#34383C; border-radius:999px; padding:7px 13px;">Fondo C</span>
-          </div>
-          <div style="margin-top:auto; display:flex; align-items:center; gap:10px;">
-            <span style="width:44px; height:26px; border-radius:999px; background:#C21B17; position:relative;"><span style="position:absolute; top:3px; left:21px; width:20px; height:20px; border-radius:999px; background:#fff;"></span></span>
-            <span style="font-size:13px; color:#34383C;">Notificaciones</span>
-          </div>
-        </div>
-        <div class="cap">Componentes</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ PHILOSOPHY QUOTE ============================ -->
-<section class="section">
+<!-- ================= JOURNEY ================= -->
+<section class="section journey" id="journey">
   <div class="wrap">
-    <div class="quote-wrap">
+    <div class="head">
       <div class="reveal">
-        <div class="quote-mark">“</div>
-        <p class="quote-text">Pongo primero la empatía hacia el usuario final: entender y resolver su problemática es lo que hace que un producto realmente funcione.</p>
-        <div class="quote-by">
-          <div>
-            <div class="nm">Cristián Acuña Vicencio</div>
-            <div class="rl">Diseñador UX/UI — Santiago de Chile</div>
-          </div>
-        </div>
+        <span class="tag">Experiencias</span>
+        <h2 class="h2">Mi recorrido<br />en diseño.</h2>
       </div>
-      <div class="quote-photo reveal d1" role="img" aria-label="Cristián Acuña"></div>
+      <p class="lead reveal d1">Un resumen del camino: del diseño gráfico y crossmedia al diseño de producto y los design systems.</p>
+    </div>
+
+    <div class="xp reveal d1">
+      <a class="xp-row" href="aperta-ds.html">
+        <div class="role">AFP PlanVital — Aperta DS<small>Design system · Sitio privado de afiliados</small></div>
+        <div class="desc">Variables, foundations y componentes del sistema; y el nuevo sitio privado construido sobre él.</div>
+        <div><div class="when">2025 — 2026</div><div class="pills"><span>DS</span><span>Web App</span></div></div>
+      </a>
+      <a class="xp-row" href="bice-vida.html">
+        <div class="role">BICE VIDA<small>Design system corporativo</small></div>
+        <div class="desc">Foundations y componentes transversales para los productos digitales de la compañía.</div>
+        <div><div class="when">Design System</div><div class="pills"><span>DS</span><span>UI</span></div></div>
+      </a>
+      <a class="xp-row" href="edf-renewables.html">
+        <div class="role">EDF — Renewables<small>Dashboard de operaciones</small></div>
+        <div class="desc">Dashboard de control para cuadrillas de contratistas en reparaciones de urgencia. Flujos y UI Kit.</div>
+        <div><div class="when">UX/UI</div><div class="pills"><span>Dashboard</span><span>UI Kit</span></div></div>
+      </a>
+      <a class="xp-row" href="jet-sur.html">
+        <div class="role">Jet Sur<small>Rediseño web &amp; app</small></div>
+        <div class="desc">Nuevo look &amp; feel para la compañía de buses, con UI Kit y sistema responsivo.</div>
+        <div><div class="when">Web &amp; App</div><div class="pills"><span>Rediseño</span><span>UI Kit</span></div></div>
+      </a>
+      <a class="xp-row" href="pcfactory-ds.html">
+        <div class="role">PC Factory DS<small>Certificación en Design Systems</small></div>
+        <div class="desc">Proyecto personal: sistema atómico documentado, de tokens y foundations a plantillas.</div>
+        <div><div class="when">Personal</div><div class="pills"><span>Atomic</span><span>DS</span></div></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============================ HIGHLIGHTS ============================ -->
-<div class="wrap" style="padding:0 var(--pad);">
-  <div class="stats">
-    <div class="stat reveal"><div class="n">2010</div><div class="l">En diseño desde</div></div>
-    <div class="stat reveal d1"><div class="n">2021</div><div class="l">Pivote a UX/UI</div></div>
-    <div class="stat reveal d2"><div class="n"><span class="accent">7</span></div><div class="l">Proyectos destacados</div></div>
-    <div class="stat reveal d3"><div class="n"><span class="accent">5</span></div><div class="l">Certificaciones UX/UI</div></div>
-  </div>
-</div>
-
-<!-- ============================ CONTACT ============================ -->
-<section class="section contact" id="contact">
+<!-- ================= DARK BAND ================= -->
+<section class="section" style="border-bottom:0; padding-bottom:0;">
   <div class="wrap">
-    <div class="contact-grid">
-      <div class="reveal">
-        <span class="eyebrow">Get in touch</span>
-        <h2 class="contact-title">Hablemos <span class="grey">de tu próxima idea.</span></h2>
-        <p class="contact-sub">¿Tienes un proyecto en mente? Escríbeme y te respondo dentro de 24 horas.</p>
-        <div class="contact-info">
-          <a class="cinfo" href="mailto:acuna.cristian15@gmail.com">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
-            <span><span class="k">Email</span><span class="v">acuna.cristian15@gmail.com</span></span>
-          </a>
-          <a class="cinfo" href="tel:+56988083814">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
-            <span><span class="k">Teléfono</span><span class="v">+569 8808 3814</span></span>
-          </a>
-          <div class="cinfo">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <span><span class="k">Ubicación</span><span class="v">Santiago de Chile</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal d1">
-        <form class="cform" id="cform" novalidate>
-          <input type="hidden" name="access_key" value="4fdfc4c7-1023-4137-a3c0-a029c5d5de9f" />
-          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important" />
-          <div class="frow">
-            <div class="field" id="f-name">
-              <label for="name">Nombre <span class="req">*</span></label>
-              <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" />
-              <span class="err">Cuéntame tu nombre.</span>
-            </div>
-            <div class="field" id="f-email">
-              <label for="email">Email <span class="req">*</span></label>
-              <input type="email" id="email" name="email" placeholder="¿Dónde te respondo?" />
-              <span class="err">Necesito un email válido.</span>
-            </div>
-          </div>
-          <div class="field">
-            <label for="company">Empresa / proyecto</label>
-            <input type="text" id="company" name="company" placeholder="Opcional" />
-          </div>
-          <div class="field">
-            <span class="mind-label">¿Qué tienes en mente?</span>
-            <div class="mind" id="mind">
-              <button type="button" aria-pressed="false">Diseño UX/UI</button>
-              <button type="button" aria-pressed="false">Design System</button>
-              <button type="button" aria-pressed="false">Prototipado</button>
-              <button type="button" aria-pressed="false">UI Kit</button>
-              <button type="button" aria-pressed="false">Investigación</button>
-              <button type="button" aria-pressed="false">Web Design</button>
-            </div>
-          </div>
-          <div class="field" id="f-msg">
-            <label for="message">Mensaje <span class="req">*</span></label>
-            <textarea id="message" name="message" placeholder="Cuéntame brevemente sobre tu idea…"></textarea>
-            <span class="err">Escríbeme un par de líneas.</span>
-          </div>
-          <div class="cform-foot">
-            <button type="submit" class="btn btn--accent">Enviar mensaje <span class="arrow">↗</span></button>
-            <span class="note">Te respondo dentro de 24 horas.</span>
-            <span class="cform-error" id="cform-error" role="alert" aria-live="polite" style="color:#C21B17;font-size:13px;display:block;width:100%;margin-top:4px"></span>
-          </div>
-        </form>
-        <div class="form-success" id="form-success">
-          <div class="tickbig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-          <h3>¡Mensaje enviado!</h3>
-          <p>Gracias por escribir, <span id="success-name">Cristián</span> te responderá pronto.</p>
-        </div>
-      </div>
+    <div class="band reveal">
+      <span class="k">¿Tienes un proyecto en mente?</span>
+      <h3>Agenda una llamada y conversemos sobre tu producto.</h3>
+      <p>Diseño UX/UI, design systems y prototipado — con procesos claros y entregables listos para desarrollo.</p>
+      <a class="go" href="#contact">Hablemos ↗</a>
     </div>
   </div>
 </section>
 
-<!-- ============================ FOOTER ============================ -->
+<!-- ================= WORKS ================= -->
+<section class="section works" id="work">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="tag">Portfolio</span>
+      <h2 class="h2">Latest works.</h2>
+      <p class="lead">Dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.</p>
+    </div>
+
+    <div class="wgrid">
+      <a class="wcard reveal" href="edf-renewables.html">
+        <div class="shot"><img src="assets/edf-dashboard.png" alt="Dashboard EDF Renewables" /><span class="arr">↗</span></div>
+        <div class="meta"><b>EDF — Renewables</b><span>Dashboard</span></div>
+      </a>
+      <a class="wcard reveal d1" href="sitio-privado.html">
+        <div class="shot" style="display:flex; align-items:center; justify-content:center; background:#F4F5F6;">
+          <div style="background:#fff; border:1px solid #EBEBEB; border-radius:12px; padding:16px 18px; width:72%; box-shadow:0 12px 28px rgba(32,37,43,.12);">
+            <div style="font-size:11px; color:#A0A0A0; font-weight:700;">Hola Cristián</div>
+            <div style="font-size:12px; color:#C21B17; font-weight:700; margin-top:6px;">Tu total ahorrado</div>
+            <div style="font-size:22px; font-weight:700; color:#34383C;">$136.437.590</div>
+            <div style="display:flex; gap:10px; align-items:center; margin-top:10px;">
+              <div style="width:44px; height:44px; border-radius:999px; background:conic-gradient(#0E6E87 0 72%,#2BA9C5 72% 90%,#BFE3EC 90% 100%); flex:none;"></div>
+              <div style="display:flex; flex-wrap:wrap; gap:5px;">
+                <span style="font-size:10px; font-weight:600; background:#FCEBEA; color:#C21B17; border-radius:5px; padding:2px 7px;">Fondo A</span>
+                <span style="font-size:10px; font-weight:600; background:#E6F6F2; color:#1F8E80; border-radius:5px; padding:2px 7px;">Fondo C</span>
+              </div>
+            </div>
+          </div>
+          <span class="arr">↗</span>
+        </div>
+        <div class="meta"><b>Sitio Privado — AFP PlanVital</b><span>Web App</span></div>
+      </a>
+      <a class="wcard reveal d2" href="bice-vida.html">
+        <div class="shot"><img src="assets/bice-1.png" alt="BICE VIDA" /><span class="arr">↗</span></div>
+        <div class="meta"><b>BICE VIDA</b><span>Design System</span></div>
+      </a>
+      <a class="wcard reveal" href="jet-sur.html">
+        <div class="shot"><img src="assets/jetsur-1.png" alt="Jet Sur" /><span class="arr">↗</span></div>
+        <div class="meta"><b>Jet Sur</b><span>Web &amp; App</span></div>
+      </a>
+      <a class="wcard reveal d1" href="fazil-app.html">
+        <div class="shot"><img src="assets/fazil-1.png" alt="Fazil App" /><span class="arr">↗</span></div>
+        <div class="meta"><b>Fazil App</b><span>Mobile</span></div>
+      </a>
+      <a class="wcard reveal d2" href="gregario-app.html">
+        <div class="shot"><img src="assets/gregario.png" alt="Gregario App" /><span class="arr">↗</span></div>
+        <div class="meta"><b>Gregario App</b><span>Android</span></div>
+      </a>
+    </div>
+
+    <div class="morerow reveal">
+      <span>¿Quieres ver más?</span>
+      <a href="iacc-flujos.html">IACC — Flujos ↗</a>
+      <a href="proyectos.html">Todos los proyectos ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYSTEMS ================= -->
+<section class="section sys" id="system">
+  <div class="wrap">
+    <div class="center reveal" style="text-align:center;">
+      <span class="tag">Design Systems</span>
+      <h2 class="h2">Del token<br />al componente.</h2>
+    </div>
+
+    <div class="wgrid">
+      <a class="syscard reveal" href="aperta-ds.html">
+        <div class="top"><span class="lab" style="background:#FCEBEA; color:#C21B17;">Cliente · AFP PlanVital</span><span>↗</span></div>
+        <h4>Aperta DS</h4>
+        <p>900 variables en 7 colecciones y 262 familias de componentes. Variables, foundations y componentes con arquitectura de 3 niveles.</p>
+        <div class="ramp">
+          <i style="background:#F9E8E8;"></i><i style="background:#ECB8B7;"></i><i style="background:#DE7C7A;"></i><i style="background:#D04644;"></i><i style="background:#C21B17;"></i><i style="background:#9B1612;"></i><i style="background:#74100E;"></i>
+        </div>
+        <div class="foot"><span style="color:#C21B17;">Ver caso completo</span><span style="color:var(--muted); font-weight:500; font-size:12px;">Figma Variables</span></div>
+      </a>
+      <a class="syscard reveal d1" href="pcfactory-ds.html">
+        <div class="top"><span class="lab" style="background:#E1FBEF; color:#00723F;">Personal · Certificación</span><span>↗</span></div>
+        <h4>PC Factory DS</h4>
+        <p>Sistema atómico para e-commerce: 116 variables, foundations y 20 familias documentadas — de átomos a plantillas.</p>
+        <div class="ramp">
+          <i style="background:#E1FBEF;"></i><i style="background:#9FF0C9;"></i><i style="background:#4DE3A0;"></i><i style="background:#00D879;"></i><i style="background:#00AD61;"></i><i style="background:#1F61F7;"></i><i style="background:#060B25;"></i>
+        </div>
+        <div class="foot"><span style="color:#00723F;">Ver caso completo</span><span style="color:var(--muted); font-weight:500; font-size:12px;">Atomic Design</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="section fin" id="contact">
+  <div class="wrap">
+    <span class="tag reveal">Get in touch</span>
+    <h2 class="reveal">¿Tienes una visión?<br /><span style="color:var(--muted-2);">Hagámosla realidad.</span></h2>
+    <p class="reveal d1">Siempre estoy abierto a colaborar en proyectos nuevos e innovadores — ya sea partiendo desde cero o refinando una idea existente.</p>
+    <a class="go reveal d1" href="mailto:acuna.cristian15@gmail.com">Book a call ↗</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer class="foot">
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-big">¿Construimos<br />algo juntos?</div>
-      <div class="foot-socials">
-        <a href="https://www.linkedin.com/in/cristian-acuna-vicencio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="https://www.instagram.com/acunacris/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
-        <a href="https://www.behance.net/acunacristian15" target="_blank" rel="noopener noreferrer" aria-label="Behance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6a3 3 0 0 1 0 6H3zM3 13h7a3 3 0 0 1 0 6H3zM15 8h6M18 13c2 0 3 1.5 3 3.5S20 20 18 20s-3-1.5-3-3.5S16 13 18 13Z"/></svg></a>
-      </div>
+  <div class="in">
+    <span class="brand" style="color:#fff;">cris<span style="color:#7FC7E8;">.</span>acuña</span>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#work">Portfolio</a>
+      <a href="#system">Systems</a>
+      <a href="index-clasico.html">Versión clásica</a>
     </div>
-    <div class="foot-bottom">
-      <span class="brand">cris<span style="color:var(--accent)">.</span>acuña</span>
-      <span>Portafolio © 2025 · Santiago de Chile</span>
-      <a href="#home">Volver arriba ↑</a>
-    </div>
+    <a class="mail" href="mailto:acuna.cristian15@gmail.com">acuna.cristian15@gmail.com</a>
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script>
+  (function(){
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 12); }, {passive:true});
+
+    var els = document.querySelectorAll('.reveal');
+    var revealAll = function(){ els.forEach(function(el){ el.classList.add('in'); }); };
+    if ('IntersectionObserver' in window) {
+      var ro = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+      }, { rootMargin:'0px 0px -6% 0px', threshold:0.05 });
+      els.forEach(function(el){ ro.observe(el); });
+      setTimeout(revealAll, 1400);
+    } else { revealAll(); }
+  })();
+</script>
 </body>
 </html>
