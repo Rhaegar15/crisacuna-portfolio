@@ -47,6 +47,12 @@
     font-size:13px; font-weight:600; color:var(--ink); display:inline-flex; align-items:center; gap:7px;
     border-bottom:1.5px solid var(--ink); padding-bottom:2px;
   }
+  .nav .lang{
+    font-family:var(--font-body); font-size:12px; font-weight:700; letter-spacing:.08em;
+    color:var(--muted); background:transparent; border:1px solid var(--line); border-radius:999px;
+    padding:6px 13px; cursor:pointer; transition:color .15s, border-color .15s;
+  }
+  .nav .lang:hover{color:var(--ink); border-color:var(--ink);}
   @media (max-width:720px){ .nav nav a:not(.book){display:none;} }
 
   /* ---------- hero ---------- */
@@ -244,9 +250,10 @@
     <a href="#" class="brand">cris<span class="dot">.</span>acuña</a>
     <nav>
       <a href="#about">About</a>
-      <a href="#journey">Experiencia</a>
+      <a href="#journey" data-i18n="nav.journey">Experiencia</a>
       <a href="#work">Portfolio</a>
       <a href="#system">Systems</a>
+      <button class="lang" id="lang-toggle" type="button" aria-label="Cambiar idioma / Switch language">EN</button>
       <a href="#contact" class="book">Book a call ↗</a>
     </nav>
   </div>
@@ -258,17 +265,17 @@
   <div class="in">
     <div>
       <div class="stats reveal">
-        <div class="s"><div class="n"><sup>+</sup>10</div><div class="l">Años en diseño</div></div>
-        <div class="s"><div class="n"><sup>+</sup>7</div><div class="l">Proyectos destacados</div></div>
+        <div class="s"><div class="n"><sup>+</sup>10</div><div class="l" data-i18n="hero.stat1">Años en diseño</div></div>
+        <div class="s"><div class="n"><sup>+</sup>7</div><div class="l" data-i18n="hero.stat2">Proyectos destacados</div></div>
         <div class="s"><div class="n"><sup>+</sup>2</div><div class="l">Design systems</div></div>
       </div>
-      <h1 class="reveal">Hola<span class="thin">.</span></h1>
-      <div class="sub reveal d1">Soy <b>Cristián Acuña</b>, diseñador UX/UI &amp; design systems.</div>
+      <h1 class="reveal" data-i18n="hero.h1">Hola<span class="thin">.</span></h1>
+      <div class="sub reveal d1" data-i18n="hero.sub">Soy <b>Cristián Acuña</b>, diseñador UX/UI &amp; design systems.</div>
       <a class="scroll reveal d2" href="#about">Scroll down <span>↓</span></a>
     </div>
     <div class="photo reveal d1">
       <span class="chip">Available for work</span>
-      <img src="assets/portrait.jpg" alt="Retrato de Cristián Acuña" />
+      <img src="assets/portrait.jpg" alt="Retrato de Cristián Acuña" data-i18n-alt="hero.alt" />
     </div>
   </div>
 </section>
@@ -276,8 +283,8 @@
 <!-- clients / skills strip -->
 <div class="strip" aria-hidden="true">
   <div class="track">
-    <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>Figma Variables</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Atomic Design</span>
-    <span>UX/UI Design</span><span>Design Systems</span><span>Prototipado</span><span>Figma Variables</span><span>UI Kits</span><span>Investigación</span><span>Accesibilidad</span><span>Atomic Design</span>
+    <span>UX/UI Design</span><span>Design Systems</span><span data-i18n="strip.proto">Prototipado</span><span>Figma Variables</span><span>UI Kits</span><span data-i18n="strip.research">Investigación</span><span data-i18n="strip.a11y">Accesibilidad</span><span>Atomic Design</span>
+    <span>UX/UI Design</span><span>Design Systems</span><span data-i18n="strip.proto">Prototipado</span><span>Figma Variables</span><span>UI Kits</span><span data-i18n="strip.research">Investigación</span><span data-i18n="strip.a11y">Accesibilidad</span><span>Atomic Design</span>
   </div>
 </div>
 
@@ -287,13 +294,13 @@
     <div class="grid">
       <div class="reveal">
         <span class="tag">About me</span>
-        <h2 class="h2">El diseño siempre ha sido más que un trabajo <span class="grey">— es mi manera de resolver problemas.</span></h2>
+        <h2 class="h2" data-i18n="about.h2">El diseño siempre ha sido más que un trabajo <span class="grey">— es mi manera de resolver problemas.</span></h2>
       </div>
       <div class="reveal d1">
-        <p class="lead">Me especializo en convertir problemas complejos en soluciones elegantes: interfaces digitales, design systems, prototipado y accesibilidad, con la empatía hacia el usuario al centro del proceso.</p>
+        <p class="lead" data-i18n="about.lead">Me especializo en convertir problemas complejos en soluciones elegantes: interfaces digitales, design systems, prototipado y accesibilidad, con la empatía hacia el usuario al centro del proceso.</p>
         <div class="facts">
-          <div class="fact"><span class="plus">+</span><p>Con <b>más de 10 años de experiencia en diseño</b> —y desde 2021 enfocado en UX/UI— creo experiencias digitales intuitivas centradas en usuarios reales.</p></div>
-          <div class="fact"><span class="plus">+</span><p>Me motiva trabajar cerca de los equipos, mezclando <b>creatividad con estrategia</b> para llevar cada visión a soluciones de diseño reflexivas y de impacto.</p></div>
+          <div class="fact"><span class="plus">+</span><p data-i18n="about.fact1">Con <b>más de 10 años de experiencia en diseño</b> —y desde 2021 enfocado en UX/UI— creo experiencias digitales intuitivas centradas en usuarios reales.</p></div>
+          <div class="fact"><span class="plus">+</span><p data-i18n="about.fact2">Me motiva trabajar cerca de los equipos, mezclando <b>creatividad con estrategia</b> para llevar cada visión a soluciones de diseño reflexivas y de impacto.</p></div>
         </div>
       </div>
     </div>
@@ -305,36 +312,36 @@
   <div class="wrap">
     <div class="head">
       <div class="reveal">
-        <span class="tag">Experiencias</span>
-        <h2 class="h2">Mi recorrido<br />en diseño.</h2>
+        <span class="tag" data-i18n="journey.tag">Experiencias</span>
+        <h2 class="h2" data-i18n="journey.h2">Mi recorrido<br />en diseño.</h2>
       </div>
-      <p class="lead reveal d1">Un resumen del camino: del diseño gráfico y crossmedia al diseño de producto y los design systems.</p>
+      <p class="lead reveal d1" data-i18n="journey.lead">Un resumen del camino: del diseño gráfico y crossmedia al diseño de producto y los design systems.</p>
     </div>
 
     <div class="xp reveal d1">
       <a class="xp-row" href="aperta-ds.html">
-        <div class="role">AFP PlanVital — Aperta DS<small>Design system · Sitio privado de afiliados</small></div>
-        <div class="desc">Variables, foundations y componentes del sistema; y el nuevo sitio privado construido sobre él.</div>
+        <div class="role">AFP PlanVital — Aperta DS<small data-i18n="xp1.small">Design system · Sitio privado de afiliados</small></div>
+        <div class="desc" data-i18n="xp1.desc">Variables, foundations y componentes del sistema; y el nuevo sitio privado construido sobre él.</div>
         <div><div class="when">2025 — 2026</div><div class="pills"><span>DS</span><span>Web App</span></div></div>
       </a>
       <a class="xp-row" href="bice-vida.html">
-        <div class="role">BICE VIDA<small>Design system corporativo</small></div>
-        <div class="desc">Foundations y componentes transversales para los productos digitales de la compañía.</div>
+        <div class="role">BICE VIDA<small data-i18n="xp2.small">Design system corporativo</small></div>
+        <div class="desc" data-i18n="xp2.desc">Foundations y componentes transversales para los productos digitales de la compañía.</div>
         <div><div class="when">Design System</div><div class="pills"><span>DS</span><span>UI</span></div></div>
       </a>
       <a class="xp-row" href="edf-renewables.html">
-        <div class="role">EDF — Renewables<small>Dashboard de operaciones</small></div>
-        <div class="desc">Dashboard de control para cuadrillas de contratistas en reparaciones de urgencia. Flujos y UI Kit.</div>
+        <div class="role">EDF — Renewables<small data-i18n="xp3.small">Dashboard de operaciones</small></div>
+        <div class="desc" data-i18n="xp3.desc">Dashboard de control para cuadrillas de contratistas en reparaciones de urgencia. Flujos y UI Kit.</div>
         <div><div class="when">UX/UI</div><div class="pills"><span>Dashboard</span><span>UI Kit</span></div></div>
       </a>
       <a class="xp-row" href="jet-sur.html">
-        <div class="role">Jet Sur<small>Rediseño web &amp; app</small></div>
-        <div class="desc">Nuevo look &amp; feel para la compañía de buses, con UI Kit y sistema responsivo.</div>
+        <div class="role">Jet Sur<small data-i18n="xp4.small">Rediseño web &amp; app</small></div>
+        <div class="desc" data-i18n="xp4.desc">Nuevo look &amp; feel para la compañía de buses, con UI Kit y sistema responsivo.</div>
         <div><div class="when">Web &amp; App</div><div class="pills"><span>Rediseño</span><span>UI Kit</span></div></div>
       </a>
       <a class="xp-row" href="pcfactory-ds.html">
-        <div class="role">PC Factory DS<small>Certificación en Design Systems</small></div>
-        <div class="desc">Proyecto personal: sistema atómico documentado, de tokens y foundations a plantillas.</div>
+        <div class="role">PC Factory DS<small data-i18n="xp5.small">Certificación en Design Systems</small></div>
+        <div class="desc" data-i18n="xp5.desc">Proyecto personal: sistema atómico documentado, de tokens y foundations a plantillas.</div>
         <div><div class="when">Personal</div><div class="pills"><span>Atomic</span><span>DS</span></div></div>
       </a>
     </div>
@@ -345,10 +352,10 @@
 <section class="section" style="border-bottom:0; padding-bottom:0;">
   <div class="wrap">
     <div class="band reveal">
-      <span class="k">¿Tienes un proyecto en mente?</span>
-      <h3>Agenda una llamada y conversemos sobre tu producto.</h3>
-      <p>Diseño UX/UI, design systems y prototipado — con procesos claros y entregables listos para desarrollo.</p>
-      <a class="go" href="#contact">Hablemos ↗</a>
+      <span class="k" data-i18n="band.k">¿Tienes un proyecto en mente?</span>
+      <h3 data-i18n="band.h3">Agenda una llamada y conversemos sobre tu producto.</h3>
+      <p data-i18n="band.p">Diseño UX/UI, design systems y prototipado — con procesos claros y entregables listos para desarrollo.</p>
+      <a class="go" href="#contact" data-i18n="band.go">Hablemos ↗</a>
     </div>
   </div>
 </section>
@@ -359,7 +366,7 @@
     <div class="center reveal">
       <span class="tag">Portfolio</span>
       <h2 class="h2">Latest works.</h2>
-      <p class="lead">Dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.</p>
+      <p class="lead" data-i18n="works.lead">Dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.</p>
     </div>
 
     <div class="wgrid">
@@ -404,9 +411,9 @@
     </div>
 
     <div class="morerow reveal">
-      <span>¿Quieres ver más?</span>
-      <a href="iacc-flujos.html">IACC — Flujos ↗</a>
-      <a href="proyectos.html">Todos los proyectos ↗</a>
+      <span data-i18n="works.more">¿Quieres ver más?</span>
+      <a href="iacc-flujos.html" data-i18n="works.iacc">IACC — Flujos ↗</a>
+      <a href="proyectos.html" data-i18n="works.all">Todos los proyectos ↗</a>
     </div>
   </div>
 </section>
@@ -416,27 +423,27 @@
   <div class="wrap">
     <div class="center reveal" style="text-align:center;">
       <span class="tag">Design Systems</span>
-      <h2 class="h2">Del token<br />al componente.</h2>
+      <h2 class="h2" data-i18n="sys.h2">Del token<br />al componente.</h2>
     </div>
 
     <div class="wgrid">
       <a class="syscard reveal" href="aperta-ds.html">
-        <div class="top"><span class="lab" style="background:#FCEBEA; color:#C21B17;">Cliente · AFP PlanVital</span><span>↗</span></div>
+        <div class="top"><span class="lab" style="background:#FCEBEA; color:#C21B17;" data-i18n="sys.lab1">Cliente · AFP PlanVital</span><span>↗</span></div>
         <h4>Aperta DS</h4>
-        <p>900 variables en 7 colecciones y 262 familias de componentes. Variables, foundations y componentes con arquitectura de 3 niveles.</p>
+        <p data-i18n="sys.p1">900 variables en 7 colecciones y 262 familias de componentes. Variables, foundations y componentes con arquitectura de 3 niveles.</p>
         <div class="ramp">
           <i style="background:#F9E8E8;"></i><i style="background:#ECB8B7;"></i><i style="background:#DE7C7A;"></i><i style="background:#D04644;"></i><i style="background:#C21B17;"></i><i style="background:#9B1612;"></i><i style="background:#74100E;"></i>
         </div>
-        <div class="foot"><span style="color:#C21B17;">Ver caso completo</span><span style="color:var(--muted); font-weight:500; font-size:12px;">Figma Variables</span></div>
+        <div class="foot"><span style="color:#C21B17;" data-i18n="sys.viewcase">Ver caso completo</span><span style="color:var(--muted); font-weight:500; font-size:12px;">Figma Variables</span></div>
       </a>
       <a class="syscard reveal d1" href="pcfactory-ds.html">
-        <div class="top"><span class="lab" style="background:#E1FBEF; color:#00723F;">Personal · Certificación</span><span>↗</span></div>
+        <div class="top"><span class="lab" style="background:#E1FBEF; color:#00723F;" data-i18n="sys.lab2">Personal · Certificación</span><span>↗</span></div>
         <h4>PC Factory DS</h4>
-        <p>Sistema atómico para e-commerce: 116 variables, foundations y 20 familias documentadas — de átomos a plantillas.</p>
+        <p data-i18n="sys.p2">Sistema atómico para e-commerce: 116 variables, foundations y 20 familias documentadas — de átomos a plantillas.</p>
         <div class="ramp">
           <i style="background:#E1FBEF;"></i><i style="background:#9FF0C9;"></i><i style="background:#4DE3A0;"></i><i style="background:#00D879;"></i><i style="background:#00AD61;"></i><i style="background:#1F61F7;"></i><i style="background:#060B25;"></i>
         </div>
-        <div class="foot"><span style="color:#00723F;">Ver caso completo</span><span style="color:var(--muted); font-weight:500; font-size:12px;">Atomic Design</span></div>
+        <div class="foot"><span style="color:#00723F;" data-i18n="sys.viewcase">Ver caso completo</span><span style="color:var(--muted); font-weight:500; font-size:12px;">Atomic Design</span></div>
       </a>
     </div>
   </div>
@@ -446,8 +453,8 @@
 <section class="section fin" id="contact">
   <div class="wrap">
     <span class="tag reveal">Get in touch</span>
-    <h2 class="reveal">¿Tienes una visión?<br /><span style="color:var(--muted-2);">Hagámosla realidad.</span></h2>
-    <p class="reveal d1">Siempre estoy abierto a colaborar en proyectos nuevos e innovadores — ya sea partiendo desde cero o refinando una idea existente.</p>
+    <h2 class="reveal" data-i18n="fin.h2">¿Tienes una visión?<br /><span style="color:var(--muted-2);">Hagámosla realidad.</span></h2>
+    <p class="reveal d1" data-i18n="fin.p">Siempre estoy abierto a colaborar en proyectos nuevos e innovadores — ya sea partiendo desde cero o refinando una idea existente.</p>
     <a class="go reveal d1" href="mailto:acuna.cristian15@gmail.com">Book a call ↗</a>
   </div>
 </section>
@@ -479,6 +486,82 @@
       els.forEach(function(el){ ro.observe(el); });
       setTimeout(revealAll, 1400);
     } else { revealAll(); }
+  })();
+</script>
+<script>
+  /* ---- i18n: ES/EN content toggle ---- */
+  (function(){
+    var D = {
+      "meta.title":   {es:"Cristián Acuña — Diseñador UX/UI", en:"Cristián Acuña — UX/UI Designer"},
+      "nav.journey":  {es:"Experiencia", en:"Experience"},
+      "hero.stat1":   {es:"Años en diseño", en:"Years in design"},
+      "hero.stat2":   {es:"Proyectos destacados", en:"Featured projects"},
+      "hero.h1":      {es:'Hola<span class="thin">.</span>', en:'Hello<span class="thin">.</span>'},
+      "hero.sub":     {es:"Soy <b>Cristián Acuña</b>, diseñador UX/UI &amp; design systems.", en:"I&#39;m <b>Cristián Acuña</b>, UX/UI &amp; design systems designer."},
+      "hero.alt":     {es:"Retrato de Cristián Acuña", en:"Portrait of Cristián Acuña"},
+      "strip.proto":  {es:"Prototipado", en:"Prototyping"},
+      "strip.research":{es:"Investigación", en:"Research"},
+      "strip.a11y":   {es:"Accesibilidad", en:"Accessibility"},
+      "about.h2":     {es:'El diseño siempre ha sido más que un trabajo <span class="grey">— es mi manera de resolver problemas.</span>', en:'Design has always been more than a job <span class="grey">— it&#39;s my way of solving problems.</span>'},
+      "about.lead":   {es:"Me especializo en convertir problemas complejos en soluciones elegantes: interfaces digitales, design systems, prototipado y accesibilidad, con la empatía hacia el usuario al centro del proceso.", en:"I specialize in turning complex problems into elegant solutions: digital interfaces, design systems, prototyping and accessibility, with empathy for the user at the center of the process."},
+      "about.fact1":  {es:"Con <b>más de 10 años de experiencia en diseño</b> —y desde 2021 enfocado en UX/UI— creo experiencias digitales intuitivas centradas en usuarios reales.", en:"With <b>over 10 years of design experience</b> — focused on UX/UI since 2021 — I craft intuitive digital experiences centered on real users."},
+      "about.fact2":  {es:"Me motiva trabajar cerca de los equipos, mezclando <b>creatividad con estrategia</b> para llevar cada visión a soluciones de diseño reflexivas y de impacto.", en:"I thrive working closely with teams, blending <b>creativity and strategy</b> to turn every vision into thoughtful, impactful design solutions."},
+      "journey.tag":  {es:"Experiencias", en:"Experience"},
+      "journey.h2":   {es:"Mi recorrido<br>en diseño.", en:"My journey<br>in design."},
+      "journey.lead": {es:"Un resumen del camino: del diseño gráfico y crossmedia al diseño de producto y los design systems.", en:"A summary of the road: from graphic and crossmedia design to product design and design systems."},
+      "xp1.small":    {es:"Design system · Sitio privado de afiliados", en:"Design system · Members&#39; private portal"},
+      "xp1.desc":     {es:"Variables, foundations y componentes del sistema; y el nuevo sitio privado construido sobre él.", en:"The system&#39;s variables, foundations and components — plus the new member portal built on top of it."},
+      "xp2.small":    {es:"Design system corporativo", en:"Corporate design system"},
+      "xp2.desc":     {es:"Foundations y componentes transversales para los productos digitales de la compañía.", en:"Foundations and shared components across the company&#39;s digital products."},
+      "xp3.small":    {es:"Dashboard de operaciones", en:"Operations dashboard"},
+      "xp3.desc":     {es:"Dashboard de control para cuadrillas de contratistas en reparaciones de urgencia. Flujos y UI Kit.", en:"Control dashboard for contractor crews handling emergency repairs. Flows and UI Kit."},
+      "xp4.small":    {es:"Rediseño web &amp; app", en:"Web &amp; app redesign"},
+      "xp4.desc":     {es:"Nuevo look &amp; feel para la compañía de buses, con UI Kit y sistema responsivo.", en:"A new look &amp; feel for the bus company, with a UI Kit and a responsive system."},
+      "xp5.small":    {es:"Certificación en Design Systems", en:"Design Systems certification"},
+      "xp5.desc":     {es:"Proyecto personal: sistema atómico documentado, de tokens y foundations a plantillas.", en:"Personal project: a documented atomic system, from tokens and foundations to templates."},
+      "band.k":       {es:"¿Tienes un proyecto en mente?", en:"Have a project in mind?"},
+      "band.h3":      {es:"Agenda una llamada y conversemos sobre tu producto.", en:"Book a call and let&#39;s talk about your product."},
+      "band.p":       {es:"Diseño UX/UI, design systems y prototipado — con procesos claros y entregables listos para desarrollo.", en:"UX/UI design, design systems and prototyping — with clear processes and dev-ready deliverables."},
+      "band.go":      {es:"Hablemos ↗", en:"Let&#39;s talk ↗"},
+      "works.lead":   {es:"Dashboards, apps, rediseños y sistemas de diseño para clientes en Chile.", en:"Dashboards, apps, redesigns and design systems for clients in Chile."},
+      "works.more":   {es:"¿Quieres ver más?", en:"Want to see more?"},
+      "works.iacc":   {es:"IACC — Flujos ↗", en:"IACC — Flows ↗"},
+      "works.all":    {es:"Todos los proyectos ↗", en:"All projects ↗"},
+      "sys.h2":       {es:"Del token<br>al componente.", en:"From token<br>to component."},
+      "sys.lab1":     {es:"Cliente · AFP PlanVital", en:"Client · AFP PlanVital"},
+      "sys.p1":       {es:"900 variables en 7 colecciones y 262 familias de componentes. Variables, foundations y componentes con arquitectura de 3 niveles.", en:"900 variables across 7 collections and 262 component families. Variables, foundations and components with a 3-tier architecture."},
+      "sys.lab2":     {es:"Personal · Certificación", en:"Personal · Certification"},
+      "sys.p2":       {es:"Sistema atómico para e-commerce: 116 variables, foundations y 20 familias documentadas — de átomos a plantillas.", en:"An atomic system for e-commerce: 116 variables, foundations and 20 documented families — from atoms to templates."},
+      "sys.viewcase": {es:"Ver caso completo", en:"View full case"},
+      "fin.h2":       {es:'¿Tienes una visión?<br><span style="color:var(--muted-2);">Hagámosla realidad.</span>', en:'Have a vision?<br><span style="color:var(--muted-2);">Let&#39;s make it real.</span>'},
+      "fin.p":        {es:"Siempre estoy abierto a colaborar en proyectos nuevos e innovadores — ya sea partiendo desde cero o refinando una idea existente.", en:"I&#39;m always open to collaborating on new and innovative projects — whether starting from scratch or refining an existing idea."}
+    };
+
+    var btn = document.getElementById("lang-toggle");
+    if (!btn) return;
+
+    function apply(lang){
+      document.documentElement.lang = lang;
+      try { localStorage.setItem("site-lang", lang); } catch(e){}
+      btn.textContent = lang === "es" ? "EN" : "ES";
+      document.title = D["meta.title"][lang];
+      document.querySelectorAll("[data-i18n]").forEach(function(el){
+        var k = el.getAttribute("data-i18n");
+        if (D[k]) el.innerHTML = D[k][lang];
+      });
+      document.querySelectorAll("[data-i18n-alt]").forEach(function(el){
+        var k = el.getAttribute("data-i18n-alt");
+        if (D[k]) el.setAttribute("alt", D[k][lang]);
+      });
+    }
+
+    btn.addEventListener("click", function(){
+      apply(document.documentElement.lang === "es" ? "en" : "es");
+    });
+
+    var saved = null;
+    try { saved = localStorage.getItem("site-lang"); } catch(e){}
+    if (saved === "en") apply("en");
   })();
 </script>
 </body>
