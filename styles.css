@@ -154,6 +154,13 @@ header.nav.scrolled { border-color: var(--line); }
 .nav-links a:hover { background: rgba(14,14,14,.06); }
 .nav-links a.active { color: #fff; background: var(--ink); }
 .nav-links a.nav-cta { margin-left: 10px; color: #fff; }
+.nav-links .lang {
+  font-family: var(--font-body, inherit); font-size: 12px; font-weight: 700; letter-spacing: .08em;
+  color: var(--muted); background: transparent; border: 1.5px solid var(--line); border-radius: 999px;
+  padding: 7px 13px; margin-left: 4px; cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.nav-links .lang:hover { color: var(--ink); border-color: var(--ink); }
 .nav-burger { display: none; background: none; border: none; padding: 8px; }
 .nav-burger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: .25s; }
 
