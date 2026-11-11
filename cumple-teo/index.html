@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cumpleaños de Teo</title>
+<style>
+:root{--bg:#f6f8f2;--card:#fff;--ink:#1f2a1f;--muted:#6b766b;--line:#e3e8dc;--accent:#3f8f4a;--accent-soft:#e3f2e1;--kid:#f0a43a;--kid-soft:#fdf0dc;--adult:#5b7fd6;--adult-soft:#e6ecfa;--danger:#c4473a}
+@media (prefers-color-scheme:dark){:root{--bg:#141914;--card:#1d241d;--ink:#e8eee5;--muted:#9aa69a;--line:#2d372d;--accent:#6cc078;--accent-soft:#223a25;--kid:#f3b55c;--kid-soft:#3a2e1a;--adult:#8aa6ec;--adult-soft:#212a40;--danger:#e57b6f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:1.6rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:.82rem}
+.bar{height:6px;background:var(--line);border-radius:3px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.tools input[type=search]{flex:1 1 200px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:none;color:var(--ink);padding:8px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.seg button.on{background:var(--accent);color:#fff}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:16px;overflow:hidden}
+section h2{margin:0;padding:12px 14px;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+section h2 small{color:var(--muted);font-weight:500}
+.row{display:flex;align-items:center;gap:10px;padding:6px 10px 6px 14px;border-bottom:1px solid var(--line)}
+.row:last-of-type{border-bottom:0}
+.row.ok{background:var(--accent-soft)}
+.num{width:24px;color:var(--muted);font-size:.85rem;text-align:right;font-variant-numeric:tabular-nums}
+.row input.name{flex:1;min-width:0;border:1px solid transparent;background:transparent;color:var(--ink);font:inherit;padding:6px 8px;border-radius:8px}
+.row input.name:hover{border-color:var(--line)}
+.row input.name:focus{outline:none;border-color:var(--accent);background:var(--card)}
+.chk{position:relative;width:30px;height:30px;flex:none}
+.chk input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.chk span{display:grid;place-items:center;width:30px;height:30px;border:2px solid var(--line);border-radius:8px;transition:.15s;pointer-events:none}
+.chk input:checked+span{background:var(--accent);border-color:var(--accent)}
+.chk input:checked+span::after{content:"";width:8px;height:14px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-2px)}
+.chk input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.del{border:0;background:none;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:4px 6px;border-radius:6px}
+.del:hover{color:var(--danger);background:var(--line)}
+.add{display:flex;gap:8px;padding:10px 14px;background:var(--bg)}
+.add input{flex:1;min-width:0;padding:8px 10px;border:1px dashed var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 12px;border-radius:10px;font:inherit;font-size:.9rem;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tag{font-size:.75rem;padding:2px 8px;border-radius:99px}
+.kid .tag{background:var(--kid-soft);color:var(--kid)}
+.adult .tag{background:var(--adult-soft);color:var(--adult)}
+.foot{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.saved{color:var(--muted);font-size:.8rem;margin-right:auto;align-self:center}
+.empty{padding:14px;color:var(--muted);font-size:.9rem}
+@media (max-width:480px){.stats{grid-template-columns:1fr 1fr 1fr;gap:6px}.stat{padding:10px}.stat b{font-size:1.2rem}}
+.sync{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:16px;font-size:.9rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--muted);flex:none}
+.dot.ok{background:var(--accent)}.dot.busy{background:var(--kid)}.dot.err{background:var(--danger)}
+#syncTxt{flex:1;min-width:150px}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);max-width:460px;width:calc(100% - 32px);padding:20px}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+dialog h3{margin:0 0 8px}dialog ol{padding-left:20px;font-size:.9rem;color:var(--muted)}dialog a{color:var(--accent)}
+dialog input{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;margin:8px 0 14px}
+@media print{.tools,.add,.del,.foot{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Cumpleaños de Teo 🦖🎈</h1>
+  <p class="sub">Edita los nombres directamente y marca ✓ cuando alguien confirme. Los cambios se guardan solos en GitHub, así que los ves iguales desde cualquier dispositivo.</p>
+
+  <div class="sync"><span class="dot" id="dot"></span><span id="syncTxt">Cargando…</span>
+    <button class="btn" id="tokBtn">Conectar GitHub</button></div>
+
+  <dialog id="tokDlg"><form method="dialog">
+    <h3>Conectar con GitHub</h3>
+    <p style="font-size:.9rem;margin:0 0 6px">Para guardar los cambios en tu repositorio, pega un token de GitHub (se hace una sola vez por dispositivo):</p>
+    <ol>
+      <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
+      <li>Repository access → <b>Only select repositories</b> → <i>crisacuna-portfolio</i></li>
+      <li>Permissions → Repository → <b>Contents: Read and write</b></li>
+      <li>Genera el token y pégalo aquí</li>
+    </ol>
+    <input id="tokIn" type="password" placeholder="github_pat_…" autocomplete="off">
+    <div class="foot"><button class="btn" value="cancel">Cancelar</button><button class="btn" value="clear" id="tokClr">Quitar token</button><button class="btn primary" value="ok">Guardar</button></div>
+  </form></dialog>
+
+  <div class="stats">
+    <div class="stat"><b id="sTot">0/0</b><span>Confirmados total</span><div class="bar"><i id="bTot"></i></div></div>
+    <div class="stat"><b id="sKid">0/0</b><span>Niños/as</span><div class="bar"><i id="bKid"></i></div></div>
+    <div class="stat"><b id="sAd">0/0</b><span>Adultos/as</span><div class="bar"><i id="bAd"></i></div></div>
+  </div>
+
+  <div class="tools">
+    <input type="search" id="q" placeholder="Buscar invitado…">
+    <div class="seg" id="filt">
+      <button data-f="all" class="on">Todos</button>
+      <button data-f="yes">Confirmados</button>
+      <button data-f="no">Pendientes</button>
+    </div>
+  </div>
+
+  <div id="lists"></div>
+
+  <div class="foot">
+    <span class="saved" id="saved"></span>
+    <button class="btn" id="exp">Descargar Excel (CSV)</button>
+    <button class="btn" id="prt">Imprimir</button>
+    <button class="btn" id="rld">Recargar desde GitHub</button>
+    <button class="btn" id="rst">Restaurar lista original</button>
+  </div>
+</div>
+<script>
+const ORIGINAL = [{"g": "nino", "n": "Alondra", "c": false}, {"g": "nino", "n": "Dante", "c": false}, {"g": "nino", "n": "Emilia", "c": false}, {"g": "nino", "n": "Benjamín", "c": false}, {"g": "nino", "n": "Anaís", "c": false}, {"g": "nino", "n": "Derian", "c": false}, {"g": "nino", "n": "Agustín", "c": false}, {"g": "nino", "n": "Baltasar", "c": false}, {"g": "nino", "n": "Maite", "c": false}, {"g": "nino", "n": "Emma", "c": false}, {"g": "nino", "n": "Juan Pablo", "c": false}, {"g": "nino", "n": "Tommy", "c": false}, {"g": "nino", "n": "Mateo", "c": false}, {"g": "nino", "n": "Lucas", "c": false}, {"g": "adulto", "n": "Christian", "c": false}, {"g": "adulto", "n": "Sofía", "c": false}, {"g": "adulto", "n": "Jorge", "c": false}, {"g": "adulto", "n": "Papá", "c": false}, {"g": "adulto", "n": "Jason", "c": false}, {"g": "adulto", "n": "Ana María", "c": false}, {"g": "adulto", "n": "Ricardo", "c": false}, {"g": "adulto", "n": "Felipe", "c": false}, {"g": "adulto", "n": "Paola", "c": false}, {"g": "adulto", "n": "Carina", "c": false}, {"g": "adulto", "n": "Juan Pablo", "c": false}, {"g": "adulto", "n": "Liset", "c": false}, {"g": "adulto", "n": "Tía Pauli", "c": false}, {"g": "adulto", "n": "Tío Óscar", "c": false}, {"g": "adulto", "n": "Bárbara", "c": false}, {"g": "adulto", "n": "Valentina", "c": false}, {"g": "adulto", "n": "Daniela", "c": false}, {"g": "adulto", "n": "Natasha", "c": false}, {"g": "adulto", "n": "Constanza", "c": false}, {"g": "adulto", "n": "Polo", "c": false}, {"g": "adulto", "n": "Malenka", "c": false}, {"g": "adulto", "n": "Montero", "c": false}, {"g": "adulto", "n": "Tía Yoya", "c": false}, {"g": "adulto", "n": "Tío Juan", "c": false}, {"g": "adulto", "n": "Daniela", "c": false}, {"g": "adulto", "n": "Constanza", "c": false}, {"g": "adulto", "n": "Tía Mari", "c": false}, {"g": "adulto", "n": "Tío Nacho", "c": false}, {"g": "adulto", "n": "Karen", "c": false}, {"g": "adulto", "n": "Vale", "c": false}, {"g": "adulto", "n": "Maxi", "c": false}, {"g": "adulto", "n": "Hugo", "c": false}, {"g": "adulto", "n": "Gabo", "c": false}, {"g": "adulto", "n": "Natalia", "c": false}, {"g": "adulto", "n": "Valentina", "c": false}, {"g": "adulto", "n": "Pololo", "c": false}, {"g": "adulto", "n": "Israel (por confirmar nombre)", "c": false}, {"g": "adulto", "n": "Waldo", "c": false}, {"g": "adulto", "n": "Natalia", "c": false}, {"g": "adulto", "n": "Tío Rodrigo", "c": false}, {"g": "adulto", "n": "Tía Cristi", "c": false}, {"g": "adulto", "n": "Jasna", "c": false}, {"g": "adulto", "n": "Tío Nelson", "c": false}, {"g": "adulto", "n": "Naty Pérez", "c": false}, {"g": "adulto", "n": "Esposo de Naty Pérez", "c": false}, {"g": "adulto", "n": "Naty Goicoechea", "c": false}, {"g": "adulto", "n": "Luis", "c": false}, {"g": "adulto", "n": "Joyce", "c": false}];
+const REPO = "Rhaegar15/crisacuna-portfolio", BRANCH = "cumple-teo-datos", PATH = "invitados.json";
+const API = `https://api.github.com/repos/${REPO}/contents/${PATH}`;
+const KEY = "teo-cumple-invitados-v2", TKEY = "teo-cumple-gh-token";
+let guests, sha = null, filter = "all", query = "", timer = null, saving = false, pending = false;
+const ls = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+             set(k,v){ try { v==null ? localStorage.removeItem(k) : localStorage.setItem(k,v); } catch(e){} } };
+const token = () => ls.get(TKEY);
+try { guests = JSON.parse(ls.get(KEY)); } catch(e) {}
+if (!Array.isArray(guests)) guests = ORIGINAL.map(x => ({...x}));
+const ids = () => guests.forEach((g,i) => g.id ??= Date.now() + "-" + i);
+ids();
+
+const GROUPS = [{k:"nino",t:"Niños/as",cls:"kid"},{k:"adulto",t:"Adultos/as",cls:"adult"}];
+const $ = s => document.querySelector(s);
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const b64e = s => btoa(String.fromCharCode(...new TextEncoder().encode(s)));
+const b64d = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,"")), c => c.charCodeAt(0)));
+const hdr = () => { const h = {Accept:"application/vnd.github+json"}; if (token()) h.Authorization = "Bearer " + token(); return h; };
+const hora = () => new Date().toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit"});
+
+function status(kind, txt){ $("#dot").className = "dot " + kind; $("#syncTxt").textContent = txt; $("#tokBtn").textContent = token() ? "Token ✓" : "Conectar GitHub"; }
+
+async function load(){
+  status("busy","Cargando desde GitHub…");
+  try {
+    const r = await fetch(`${API}?ref=${BRANCH}&t=${Date.now()}`, {headers:hdr(), cache:"no-store"});
+    if (r.status === 404) { sha = null; status("", "Aún no hay datos en GitHub" + (token() ? " — se crearán al guardar." : ". Conecta GitHub para guardar.")); render(); return; }
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json(); sha = j.sha;
+    guests = JSON.parse(b64d(j.content)); ids(); ls.set(KEY, JSON.stringify(guests));
+    status(token() ? "ok" : "", token() ? "Sincronizado con GitHub · " + hora() : "Solo lectura: conecta GitHub para guardar tus cambios.");
+  } catch(e) {
+    status("err", "No se pudo cargar desde GitHub (" + e.message + "). Mostrando la última copia de este navegador.");
+  }
+  render();
+}
+
+function save(){
+  ls.set(KEY, JSON.stringify(guests));
+  if (!token()) { status("err", "Cambios guardados solo en este navegador. Conecta GitHub para subirlos."); return; }
+  status("busy", "Cambios sin guardar…");
+  clearTimeout(timer); timer = setTimeout(push, 1500);
+}
+
+async function push(retry = true){
+  if (saving) { pending = true; return; }
+  saving = true; status("busy", "Guardando en GitHub…");
+  const conf = guests.filter(g=>g.c).length;
+  const body = { message: `Cumple Teo: ${conf}/${guests.length} confirmados`, branch: BRANCH,
+                 content: b64e(JSON.stringify(guests.map(({id,...g}) => g), null, 1) + "\n") };
+  if (sha) body.sha = sha;
+  try {
+    let r = await fetch(API, {method:"PUT", headers:{...hdr(),"Content-Type":"application/json"}, body:JSON.stringify(body)});
+    if ((r.status === 409 || r.status === 422) && retry) {
+      // otro dispositivo guardó antes: tomamos el sha actual y guardamos encima
+      const g = await fetch(`${API}?ref=${BRANCH}&t=${Date.now()}`, {headers:hdr(), cache:"no-store"});
+      sha = g.ok ? (await g.json()).sha : null; saving = false; return push(false);
+    }
+    if (r.status === 401 || r.status === 403) throw new Error("token inválido o sin permiso de escritura");
+    if (r.status === 404) throw new Error("no se encontró el repo o la rama — revisa el token");
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    sha = (await r.json()).content.sha;
+    status("ok", "Guardado en GitHub · " + hora());
+  } catch(e) { status("err", "No se pudo guardar en GitHub: " + e.message + ". Tus cambios siguen en este navegador."); }
+  saving = false;
+  if (pending) { pending = false; push(); }
+}
+
+$("#tokBtn").addEventListener("click", () => { $("#tokIn").value = ""; $("#tokDlg").showModal(); });
+$("#tokDlg").addEventListener("close", () => {
+  const v = $("#tokDlg").returnValue;
+  if (v === "ok" && $("#tokIn").value.trim()) { ls.set(TKEY, $("#tokIn").value.trim()); load(); }
+  if (v === "clear") { ls.set(TKEY, null); load(); }
+});
+window.addEventListener("beforeunload", e => { if (timer && $("#dot").classList.contains("busy")) { e.preventDefault(); e.returnValue = ""; } });
+
+function stats(){
+  const f = (k) => { const l = guests.filter(g => !k || g.g===k); return [l.filter(g=>g.c).length, l.length]; };
+  [["Tot",null],["Kid","nino"],["Ad","adulto"]].forEach(([id,k]) => {
+    const [c,t] = f(k); $("#s"+id).textContent = c+"/"+t; $("#b"+id).style.width = (t? c/t*100:0)+"%";
+  });
+  GROUPS.forEach(G => { const el = document.getElementById("c-"+G.k); if (el){ const l=guests.filter(g=>g.g===G.k); el.textContent = l.filter(g=>g.c).length+" de "+l.length+" confirmados"; }});
+}
+function render(){
+  const root = $("#lists"); root.innerHTML = "";
+  GROUPS.forEach(G => {
+    const sec = document.createElement("section"); sec.className = G.cls;
+    sec.innerHTML = `<h2><span>${G.t}</span><small id="c-${G.k}"></small></h2>`;
+    const list = guests.filter(g => g.g===G.k);
+    let shown = 0;
+    list.forEach((g,i) => {
+      if (filter==="yes" && !g.c) return;
+      if (filter==="no" && g.c) return;
+      if (query && !norm(g.n).includes(query)) return;
+      shown++;
+      const row = document.createElement("div"); row.className = "row" + (g.c?" ok":"");
+      row.innerHTML = `<span class="num">${i+1}</span>
+        <label class="chk" title="Confirmado"><input type="checkbox" ${g.c?"checked":""} aria-label="Confirmado"><span></span></label>
+        <input class="name" value="" aria-label="Nombre">
+        <button class="del" title="Eliminar" aria-label="Eliminar">×</button>`;
+      const name = row.querySelector(".name"); name.value = g.n;
+      name.addEventListener("input", () => { g.n = name.value; save(); });
+      name.addEventListener("keydown", e => { if (e.key==="Enter") name.blur(); });
+      row.querySelector("input[type=checkbox]").addEventListener("change", e => {
+        g.c = e.target.checked; row.classList.toggle("ok", g.c); save(); stats();
+        if (filter!=="all") setTimeout(render, 250);
+      });
+      row.querySelector(".del").addEventListener("click", () => {
+        if (confirm(`¿Eliminar a "${g.n || "sin nombre"}"?`)) { guests = guests.filter(x => x!==g); save(); render(); }
+      });
+      sec.appendChild(row);
+    });
+    if (!shown) sec.insertAdjacentHTML("beforeend", `<div class="empty">Nadie por aquí con este filtro.</div>`);
+    const add = document.createElement("form"); add.className = "add";
+    add.innerHTML = `<input placeholder="Agregar ${G.t.toLowerCase()}…" aria-label="Nuevo nombre"><button class="btn primary">Agregar</button>`;
+    add.addEventListener("submit", e => {
+      e.preventDefault(); const v = add.querySelector("input").value.trim(); if (!v) return;
+      guests.push({g:G.k, n:v, c:false, id:Date.now()+""}); save(); render();
+      document.querySelectorAll(".add input")[GROUPS.indexOf(G)].focus();
+    });
+    sec.appendChild(add);
+    root.appendChild(sec);
+  });
+  stats();
+}
+$("#q").addEventListener("input", e => { query = norm(e.target.value.trim()); render(); });
+$("#filt").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  filter = b.dataset.f; document.querySelectorAll("#filt button").forEach(x => x.classList.toggle("on", x===b)); render();
+});
+$("#exp").addEventListener("click", () => {
+  const rows = [["N°","Grupo","Invitado/a","Confirmado"]];
+  GROUPS.forEach(G => guests.filter(g=>g.g===G.k).forEach((g,i) => rows.push([i+1, G.t, g.n, g.c?"Sí":"No"])));
+  const csv = "﻿" + rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(";")).join("\r\n");
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+  a.download = "invitados-cumple-teo.csv"; a.click();
+});
+$("#rld").addEventListener("click", load);
+$("#prt").addEventListener("click", () => window.print());
+$("#rst").addEventListener("click", () => {
+  if (confirm("Esto borra todos tus cambios y vuelve a la lista original. ¿Seguro?")) {
+    guests = ORIGINAL.map((x,i) => ({...x, id:Date.now()+"-"+i})); render(); save();
+  }
+});
+render();
+load();
+</script>
+</body>
+</html>
